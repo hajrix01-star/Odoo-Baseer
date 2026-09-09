@@ -1,8 +1,16 @@
 {
-  "source_commit": "1108f2a8fc0edee2f61d728135feee02590a8f46",
+  "source_commit": "80ab864153b9e337090d5a1286150e7a64ad6319",
   "odoo_image": "odoo@sha256:f99ffac95cb39a0924622ea4118481c95651d9c84187e5b30a21c2cc4419c7dd",
   "odoo_major": 19,
   "files": {
+    "custom_addons/baseer_browser_print/__init__.py": "064816761628721a5da66da205093718c8eacf92426e84f852731cb3c02e9e3c",
+    "custom_addons/baseer_browser_print/__manifest__.py": "c6c184b6355773160066b76dd6135464d4543ff1ef1d5c63716fda9d8d11688e",
+    "custom_addons/baseer_browser_print/i18n/ar.po": "fe28f3c74cae55aab552b1eda99bfbfc84b25cfcae99dfd5971e5282ab0f3e77",
+    "custom_addons/baseer_browser_print/README.md": "548c3c2c67716a246e12fd4b6fa67deea2c89eb6c80dac854103f236becd530c",
+    "custom_addons/baseer_browser_print/static/src/print_dialog.js": "d1d76e4caf0c6887f67895f3cd01abcf4f8bed4cc14d43daba6d6c662b68abaa",
+    "custom_addons/baseer_browser_print/static/src/print_dialog.scss": "999583b2b75bc27437b1d4c17b85a5ed465d8113713b32db8a6847b72e4f3b00",
+    "custom_addons/baseer_browser_print/static/src/print_dialog.xml": "6cc769687d5985b8b57a6c5ea2f76e39208c080b5cbc6ead6964a44604f7ad43",
+    "custom_addons/baseer_browser_print/static/src/report_transport.js": "801ff8f0d2857c8a48ee790b04b165f8ebba3984d543cdab07bdef75560d22db",
     "custom_addons/baseer_cash_categories/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
     "custom_addons/baseer_cash_categories/__manifest__.py": "8cd25f75e0878071faf42196f2de863b9e54501c3ef4f37d18680ce6673bb56b",
     "custom_addons/baseer_cash_categories/data/report.xml": "8e3e00e3e6ad5b0323813cc78c9f86190101846835091c6b1404f8aa67fac1bb",

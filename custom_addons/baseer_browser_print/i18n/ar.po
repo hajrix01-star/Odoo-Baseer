@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 19.0\n"
+"Language: ar_001\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "Print report"
+msgstr "طباعة التقرير"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "Print"
+msgstr "طباعة"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "Download PDF"
+msgstr "تحميل PDF"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "PDF preview"
+msgstr "معاينة PDF"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "Alternative preview"
+msgstr "معاينة بديلة"
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/print_dialog.js:0
+msgid "If the print window does not open, use the PDF viewer's print button or download the PDF."
+msgstr "إذا لم تفتح نافذة الطباعة، استخدم زر الطباعة داخل عارض PDF أو حمّل الملف."
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/report_transport.js:0
+msgid "The PDF could not be prepared. Check your connection and access, then try again."
+msgstr "تعذر تجهيز PDF. تحقق من الاتصال وصلاحية الوصول، ثم أعد المحاولة."
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/report_transport.js:0
+msgid "The server did not return a valid PDF report."
+msgstr "لم يُرجع الخادم تقرير PDF صالحًا."
+
+#. module: baseer_browser_print
+#. odoo-javascript
+#: code:addons/baseer_browser_print/static/src/report_transport.js:0
+msgid "Preparing the report took too long. Try a smaller selection."
+msgstr "استغرق تجهيز التقرير وقتًا طويلًا. جرّب تحديد عدد أقل من السجلات."

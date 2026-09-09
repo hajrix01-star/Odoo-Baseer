@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_browser_print.Dialog">
+        <Dialog title="labels.title" size="'xl'" bodyClass="'p-0'">
+            <iframe class="o_baseer_print_pdf" t-ref="pdf" t-att-src="state.src"
+                t-att-title="labels.preview" t-on-load="onLoad"/>
+            <div t-if="state.warning" class="alert alert-warning m-3" role="alert" t-esc="state.warning"/>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="print" t-att-disabled="!state.ready"><i class="fa fa-print me-1"/><t t-esc="labels.print"/></button>
+                <button class="btn btn-secondary" t-on-click="download"><i class="fa fa-download me-1"/><t t-esc="labels.download"/></button>
+                <button t-if="!state.compatible" class="btn btn-secondary" t-on-click="useCompatible" t-esc="labels.compatible"/>
+                <button class="btn btn-secondary" t-on-click="props.close" t-esc="labels.close"/>
+            </t>
+        </Dialog>
+    </t>
+</templates>
