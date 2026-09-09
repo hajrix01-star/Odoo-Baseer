@@ -1,0 +1,160 @@
+.baseer_purchase_batch_form {
+    &.o_form_renderer {
+        max-width: 100%;
+    }
+
+    .o_form_sheet_bg {
+        max-width: 1560px;
+        margin-inline: auto;
+    }
+
+    .baseer_batch_lines .o_list_table {
+        th[data-name], td.o_data_cell {
+            text-align: start;
+        }
+
+        td.o_data_cell {
+            vertical-align: middle;
+        }
+
+        th[data-name="vat_enabled"], td[name="vat_enabled"],
+        th[data-name="is_credit"], td[name="is_credit"] {
+            text-align: center;
+        }
+
+        .o_field_boolean_toggle > div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .o_boolean_toggle {
+            display: flex;
+            align-items: center;
+            width: auto;
+            padding: 0;
+            margin-bottom: 0;
+
+            .form-check-input {
+                float: none;
+                margin: 0;
+            }
+
+            .form-check-label {
+                display: none;
+            }
+        }
+
+        th[data-name="invoice_date"], td[name="invoice_date"] {
+            text-align: center;
+        }
+
+        td[name="invoice_date"] {
+            direction: ltr;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+
+            .o_input, .o_field_widget {
+                text-align: center;
+            }
+        }
+
+        th[data-name="gross_amount"], th[data-name="net_amount"], th[data-name="tax_amount"],
+        td[name="gross_amount"], td[name="net_amount"], td[name="tax_amount"] {
+            direction: ltr;
+            text-align: center !important;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+
+        }
+
+        // The grid uses Odoo's no_symbol option; currency remains in totals.
+        .o_field_monetary {
+            .o_input {
+                text-align: center;
+            }
+        }
+
+        td[name="category_map_id"], td[name="supplier_ref"] {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    .baseer_batch_card_heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .baseer_batch_card_supplier {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .baseer_batch_card_amount {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .baseer_batch_card_details {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 8px 16px;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .baseer_batch_card_category {
+            grid-column: 1 / -1;
+        }
+    }
+
+    .baseer_batch_card_footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+        padding-top: 12px;
+        margin-top: 12px;
+        border-top: 1px solid var(--border-color);
+        overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 767.98px) {
+        .baseer_batch_cards .o_kanban_renderer > .o_kanban_record:not(.o_kanban_ghost) {
+            width: 100%;
+            margin-inline: 0;
+            margin-block-end: 12px;
+            padding: 16px;
+            // Preserve the card outline against embedded kanban border resets.
+            border: 1px solid var(--border-color) !important;
+            border-radius: var(--border-radius);
+            background-color: var(--body-bg);
+        }
+
+        .baseer_batch_mobile_hint {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .baseer_purchase_line_form {
+        .o_field_widget:not(.o_field_boolean) .o_input {
+            min-height: 40px;
+        }
+
+        .o_boolean_toggle {
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

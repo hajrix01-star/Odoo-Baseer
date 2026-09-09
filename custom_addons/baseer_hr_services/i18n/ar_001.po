@@ -1,0 +1,649 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * baseer_hr_services
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__net_amount
+msgid "Amount Excluding VAT"
+msgstr "المبلغ قبل الضريبة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Amount before VAT"
+msgstr "المبلغ قبل الضريبة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Amounts"
+msgstr "المبالغ"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "An issued or canceled service is read-only. Correct its bill with a native reversal."
+msgstr "الخدمة الصادرة أو الملغاة للقراءة فقط. صحح فاتورتها عبر العكس المحاسبي في أودو."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "An issued service cannot be reopened. Create a new service after the reviewed correction."
+msgstr "لا يمكن إعادة فتح خدمة صدرت فاتورتها. أنشئ خدمة جديدة بعد مراجعة التصحيح."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Approve and Issue Bill"
+msgstr "اعتماد وإصدار الفاتورة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__state__approved
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__bill_id
+msgid "Bill"
+msgstr "الفاتورة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Bill Reference"
+msgstr "مرجع الفاتورة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__bill_state
+msgid "Bill State"
+msgstr "حالة الفاتورة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Bill and Payment"
+msgstr "الفاتورة والسداد"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__bill_state__cancel
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__state__cancel
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Canceled"
+msgstr "ملغى"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Choose an active shared provider or one from the service company."
+msgstr "اختر مقدم خدمة نشطًا مشتركًا أو تابعًا لشركة الخدمة."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Choose an employee from the service company."
+msgstr "اختر موظفًا من شركة الخدمة."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Choose whether to issue or extend the exit-and-return visa."
+msgstr "حدد إصدار تأشيرة خروج وعودة أو تمديدها."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Company Representative"
+msgstr "ممثل الشركة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Company logo"
+msgstr "شعار الشركة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Configure an active purchase journal in the company currency."
+msgstr "اضبط دفتر مشتريات نشطًا بعملة الشركة."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Configure the principal 15% purchase VAT for this company first."
+msgstr "اضبط ضريبة المشتريات الرئيسية 15% لهذه الشركة أولًا."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Create the service in the active company."
+msgstr "أنشئ الخدمة في الشركة المفعلة."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Date: ____________________"
+msgstr "التاريخ: ____________________"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Describe the other employee service in the notes."
+msgstr "وضح الخدمة الأخرى للموظف في الملاحظات."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__bill_state__draft
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__state__draft
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__employee_id
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: baseer_hr_services
+#: model:ir.model,name:baseer_hr_services.model_baseer_hr_service
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Employee Service"
+msgstr "خدمة موظف"
+
+#. module: baseer_hr_services
+#: model:ir.actions.report,name:baseer_hr_services.action_report_baseer_hr_service
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Employee Service Statement"
+msgstr "بيان خدمة موظف"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/employee.py:0
+#: model:ir.actions.act_window,name:baseer_hr_services.action_baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_hr_employee__baseer_service_ids
+#: model:ir.ui.menu,name:baseer_hr_services.menu_baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_employee_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_list
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Employee Services"
+msgstr "خدمات الموظفين"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Employee Signature"
+msgstr "توقيع الموظف"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__ticket
+msgid "Employee flight ticket"
+msgstr "تذكرة سفر"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__processing
+msgid "Employee service processing"
+msgstr "خدمات تعقيب"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__employee_transfer
+msgid "Employee service transfer"
+msgstr "نقل خدمات الموظف"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Expiring in 30 Days"
+msgstr "ينتهي خلال 30 يومًا"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__expiry_date
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_kanban
+msgid "Expiry date"
+msgstr "تاريخ الانتهاء"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__visa_type__extend
+msgid "Extend exit and return"
+msgstr "تمديد خروج وعودة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__health_certificate_issue
+msgid "Health certificate issuance"
+msgstr "إصدار شهادة صحية"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__health_certificate_renewal
+msgid "Health certificate renewal"
+msgstr "تجديد شهادة صحية"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Human Resources access is required for employee services."
+msgstr "يلزم توفر صلاحية الموارد البشرية للوصول إلى خدمات الموظفين."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__invoice_date
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Invoice Date"
+msgstr "تاريخ الفاتورة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_kanban
+msgid "Invoice date"
+msgstr "تاريخ الفاتورة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__iqama_issue
+msgid "Iqama issuance"
+msgstr "إصدار إقامة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__iqama_renewal
+msgid "Iqama renewal"
+msgstr "تجديد إقامة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__visa_type__issue
+msgid "Issue exit and return"
+msgstr "إصدار خروج وعودة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Issued employee-service history cannot be deleted. Archive the record instead."
+msgstr "لا يمكن حذف سجل خدمة موظف صدرت فاتورتها. يمكنك أرشفة السجل."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__medical_exam
+msgid "Medical examination"
+msgstr "فحص طبي"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__insurance_issue
+msgid "Medical insurance issuance"
+msgstr "إصدار تأمين طبي"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__insurance_renewal
+msgid "Medical insurance renewal"
+msgstr "تجديد تأمين طبي"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Month"
+msgstr "الشهر"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__name
+msgid "Name"
+msgstr "المرجع"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Native accounting access is required to approve the supplier bill."
+msgstr "يلزم توفر صلاحية المحاسبة في أودو لاعتماد فاتورة المورد."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_list
+msgid "Net amount"
+msgstr "صافي المبلغ"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "New Employee Service"
+msgstr "خدمة موظف جديدة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "No supplier bill has been issued for this service."
+msgstr "لم تصدر فاتورة مورد لهذه الخدمة."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__notes
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Only a draft employee service can be approved."
+msgstr "يمكن اعتماد خدمة الموظف في حالة المسودة فقط."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Open Bill"
+msgstr "عرض الفاتورة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__other_employee
+msgid "Other employee service"
+msgstr "خدمة أخرى"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Paid"
+msgstr "مسدد"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__payment_state
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__bill_state__posted
+msgid "Posted"
+msgstr "مرحّل"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Prepare the active employee-service category mapping for this company."
+msgstr "جهّز ربط فئة خدمات الموظفين النشط لهذه الشركة."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Print Statement"
+msgstr "طباعة البيان"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__profession_change
+msgid "Profession change"
+msgstr "تعديل المهنة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Provider"
+msgstr "مقدم الخدمة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.actions.act_window,help:baseer_hr_services.action_baseer_hr_services
+msgid "Record an employee service"
+msgstr "إضافة خدمة موظف"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Register Payment"
+msgstr "تسجيل سداد"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Remaining Amount"
+msgstr "المبلغ المتبقي"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_employee_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_kanban
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_list
+msgid "Remaining amount"
+msgstr "المبلغ المتبقي"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__balance
+msgid "Remaining to Pay"
+msgstr "المتبقي للسداد"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Renew Service"
+msgstr "تجديد الخدمة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Reset to Draft"
+msgstr "إعادة إلى مسودة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Reverse or cancel the supplier bill in Accounting before canceling this service."
+msgstr "اعكس فاتورة المورد أو ألغها من المحاسبة قبل إلغاء هذه الخدمة."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Service"
+msgstr "الخدمة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_employee_services
+msgid "Service Cost and Payment History"
+msgstr "سجل تكاليف الخدمات والسداد"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__issue_date
+msgid "Service Date"
+msgstr "تاريخ الخدمة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Service Details"
+msgstr "بيانات الخدمة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__partner_id
+msgid "Service Provider"
+msgstr "مقدم الخدمة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__service_reference
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Service Reference"
+msgstr "مرجع الخدمة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__service_type
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Service accounting links and control fields are managed by approval."
+msgstr "تُدار روابط الخدمة المحاسبية وحقول التحكم من خلال الاعتماد."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Service accounting links and control fields cannot be changed manually."
+msgstr "لا يمكن تعديل روابط الخدمة المحاسبية وحقول التحكم يدويًا."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/bill.py:0
+msgid "Service bill links can only be created by employee-service approval."
+msgstr "لا تُنشأ روابط فاتورة الخدمة إلا من خلال اعتماد خدمة الموظف."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+msgid "Service details or additional notes…"
+msgstr "تفاصيل الخدمة أو ملاحظات إضافية…"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_hr_employee__baseer_service_count
+msgid "Services"
+msgstr "الخدمات"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Supplier Bill"
+msgstr "فاتورة المورد"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Switch to the service company before changing this record."
+msgstr "انتقل إلى شركة الخدمة قبل تعديل هذا السجل."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_list
+msgid "Tax amount"
+msgstr "مبلغ الضريبة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/bill.py:0
+msgid "The employee-service bill is protected. Use a native reversal for a reviewed correction."
+msgstr "فاتورة خدمة الموظف محمية. استخدم العكس المحاسبي في أودو لإجراء تصحيح تمت مراجعته."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/bill.py:0
+msgid "The employee-service source link cannot be changed."
+msgstr "لا يمكن تغيير رابط مصدر خدمة الموظف."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "The expiry date cannot be before the service date."
+msgstr "لا يمكن أن يسبق تاريخ الانتهاء تاريخ الخدمة."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "The invoice date is in a locked accounting period."
+msgstr "تاريخ الفاتورة ضمن فترة محاسبية مقفلة."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "The linked service bill belongs to another company."
+msgstr "فاتورة الخدمة المرتبطة تخص شركة أخرى."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "The native bill does not match the reviewed service amount, VAT or date."
+msgstr "الفاتورة لا تطابق مبلغ الخدمة أو ضريبتها أو تاريخها الذي تمت مراجعته."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/bill.py:0
+msgid "The original employee-service bill cannot be deleted."
+msgstr "لا يمكن حذف فاتورة خدمة الموظف الأصلية."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "The purchase tax changed. Review the VAT switch before approval."
+msgstr "تغيرت ضريبة المشتريات. راجع زر الضريبة قبل الاعتماد."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_form
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "This bill has a credit note. Review the bill for correction details."
+msgstr "يوجد إشعار دائن لهذه الفاتورة. راجع الفاتورة للاطلاع على تفاصيل التصحيح."
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "This service has no posted supplier bill awaiting payment."
+msgstr "لا توجد لهذه الخدمة فاتورة مورد مرحلة تنتظر السداد."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Total Cost"
+msgstr "إجمالي التكلفة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__gross_amount
+msgid "Total Including VAT"
+msgstr "الإجمالي شامل الضريبة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_employee_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_kanban
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_list
+msgid "Total cost"
+msgstr "إجمالي التكلفة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.actions.act_window,help:baseer_hr_services.action_baseer_hr_services
+msgid "Track employee documents, service costs and payments in one place."
+msgstr "متابعة مستندات الموظفين وتكاليف الخدمات وسدادها في مكان واحد."
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_hr_service_search
+msgid "Unpaid"
+msgstr "غير مسدد"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "VAT"
+msgstr "الضريبة"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__vat_enabled
+msgid "VAT 15%"
+msgstr "ضريبة 15%"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__tax_amount
+msgid "VAT Amount"
+msgstr "مبلغ الضريبة"
+
+#. module: baseer_hr_services
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.view_baseer_employee_services
+msgid "View All Services"
+msgstr "عرض جميع الخدمات"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields,field_description:baseer_hr_services.field_baseer_hr_service__visa_type
+#: model_terms:ir.ui.view,arch_db:baseer_hr_services.report_hr_service_document
+msgid "Visa Type"
+msgstr "نوع التأشيرة"
+
+#. module: baseer_hr_services
+#: code:addons/baseer_hr_services/models/service.py:0
+msgid "Visa details apply only to the Visas service."
+msgstr "تفاصيل التأشيرة تخص خدمة التأشيرات فقط."
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__visa
+msgid "Visas"
+msgstr "تأشيرات"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__work_permit_issue
+msgid "Work permit issuance"
+msgstr "إصدار رخصة عمل"
+
+#. module: baseer_hr_services
+#: model:ir.model.fields.selection,name:baseer_hr_services.selection__baseer_hr_service__service_type__work_permit_renewal
+msgid "Work permit renewal"
+msgstr "تجديد رخصة عمل"

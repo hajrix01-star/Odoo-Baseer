@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="report_cash_categories" model="eh.account.dynamic.report">
+        <field name="code">baseer_cash_categories</field>
+        <field name="name">Cash Movement by Category</field>
+        <field name="handler_model">eh.account.dynamic.report.handler.baseer_cash_categories</field>
+        <field name="sequence">65</field>
+        <field name="description">Actual posted cash movement with categorized payments and an inclusive/exclusive VAT view.</field>
+    </record>
+    <record id="action_cash_categories" model="ir.actions.client">
+        <field name="name">Cash Movement by Category</field>
+        <field name="tag">eh_account_dynamic_report</field>
+        <field name="context">{'report_code': 'baseer_cash_categories'}</field>
+    </record>
+    <menuitem id="menu_cash_categories" name="Cash Movement by Category"
+              parent="eh_account_dynamic_reports.menu_financial_statements"
+              action="action_cash_categories" sequence="65"
+              groups="eh_account_base.group_eh_user,eh_account_base.group_eh_auditor"/>
+</odoo>

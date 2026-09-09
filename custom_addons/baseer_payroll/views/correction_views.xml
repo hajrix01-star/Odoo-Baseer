@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_baseer_correction_company" model="ir.rule">
+        <field name="name">Payroll correction active company</field><field name="model_id" ref="model_baseer_payroll_correction"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="view_baseer_payroll_correction" model="ir.ui.view">
+        <field name="name">baseer.payroll.correction.form</field><field name="model">baseer.payroll.correction</field>
+        <field name="arch" type="xml"><form string="Reviewed accounting correction">
+            <group><field name="slip_id" invisible="not slip_id"/><field name="loan_id" invisible="not loan_id"/>
+                <field name="company_id" invisible="1"/><field name="currency_id" invisible="1"/>
+                <field name="kind"/><field name="amount" invisible="kind not in ['wage','deduction']"/>
+                <field name="date" widget="baseer_latin_date"/><field name="reason"/><field name="reviewed"/>
+            </group>
+            <div class="alert alert-info">The original entry and payment history stay unchanged. This action posts a reviewed accounting correction; it does not send a transfer. Reverse newer advance recoveries first. A salary reduction cannot exceed the unsettled balance.</div>
+            <footer><button name="action_confirm" type="object" string="Post Reviewed Correction" class="btn-primary"/>
+                <button string="Cancel" special="cancel" class="btn-secondary"/></footer>
+        </form></field>
+    </record>
+    <record id="view_baseer_payslip_correction" model="ir.ui.view">
+        <field name="name">baseer.payslip.correction</field><field name="model">hr.payslip</field><field name="inherit_id" ref="baseer_payroll.view_baseer_payslip_controls"/>
+        <field name="arch" type="xml"><xpath expr="//header" position="inside"><button name="action_correct" type="object" string="Correct Accounting" invisible="not baseer_managed or state != 'done'" groups="om_hr_payroll.group_hr_payroll_manager"/></xpath></field>
+    </record>
+    <record id="view_baseer_financial_correction" model="ir.ui.view">
+        <field name="name">baseer.financial.correction</field><field name="model">hr.payslip</field><field name="inherit_id" ref="baseer_payroll.view_baseer_financial_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside"><button name="action_correct" type="object" string="Correct Accounting" invisible="state != 'done'"/></xpath>
+            <xpath expr="//field[@name='baseer_net']" position="before"><field name="baseer_original_net"/><field name="baseer_adjustment"/></xpath>
+            <xpath expr="//sheet" position="inside"><group string="Correction History" invisible="not baseer_correction_ids"><field name="baseer_correction_ids" readonly="1" nolabel="1"><list create="0" edit="0" delete="0"><field name="date"/><field name="name"/><field name="baseer_correction_kind"/><field name="baseer_correction_reason"/></list></field></group></xpath>
+        </field>
+    </record>
+    <record id="view_baseer_run_correction" model="ir.ui.view">
+        <field name="name">baseer.run.correction</field><field name="model">hr.payslip.run</field><field name="inherit_id" ref="baseer_payroll.view_baseer_payroll_run_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='slip_ids']/form" position="inside"><header><button name="action_correct" type="object" string="Correct Accounting" invisible="state != 'done'"/></header></xpath>
+            <xpath expr="//field[@name='slip_ids']/list/field[@name='baseer_net']" position="before"><field name="baseer_adjustment" readonly="1" optional="show"/></xpath>
+            <xpath expr="//field[@name='slip_ids']/form//field[@name='baseer_net']" position="before"><field name="baseer_original_net"/><field name="baseer_adjustment"/></xpath>
+        </field>
+    </record>
+    <record id="view_baseer_loan_correction" model="ir.ui.view">
+        <field name="name">baseer.loan.correction</field><field name="model">baseer.hr.loan</field><field name="inherit_id" ref="baseer_payroll.view_baseer_loan_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside"><button name="action_correct" type="object" string="Correct Accounting" invisible="state not in ['running','closed']"/></xpath>
+            <xpath expr="//field[@name='balance']" position="after"><field name="reversal_move_id" invisible="not reversal_move_id"/></xpath>
+            <xpath expr="//field[@name='allocation_ids']/list/field[@name='move_id']" position="after"><field name="reversal_move_id"/></xpath>
+            <xpath expr="//button[@name='action_view_moves']" position="attributes"><attribute name="invisible">state == 'draft'</attribute></xpath>
+        </field>
+    </record>
+    <record id="view_baseer_move_correction" model="ir.ui.view">
+        <field name="name">baseer.move.correction</field><field name="model">account.move</field><field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml"><xpath expr="//sheet" position="inside"><group string="Payroll Correction" invisible="not baseer_correction_source_id"><field name="baseer_correction_source_id"/><field name="baseer_correction_payslip_id"/><field name="baseer_correction_kind"/><field name="baseer_correction_reason"/></group></xpath></field>
+    </record>
+</odoo>

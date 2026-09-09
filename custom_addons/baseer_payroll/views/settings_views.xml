@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_payroll_settings" model="ir.ui.view">
+        <field name="name">baseer.payroll.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="om_hr_payroll.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='om_hr_payroll']" position="inside">
+                <block title="Payroll and Advances" name="baseer_payroll_configuration">
+                    <setting id="baseer_payroll_company" string="Payroll company" help="These settings apply to the selected company.">
+                        <field name="company_id" readonly="1" options="{'no_open':True}"/>
+                    </setting>
+                    <setting id="baseer_payroll_accounts" string="Payroll Accounting">
+                        <div class="content-group">
+                            <group>
+                                <field name="baseer_payroll_journal_id" domain="[('company_id', '=', company_id), ('type', '=', 'general')]" options="{'no_create':True}"/>
+                                <field name="baseer_salary_expense_id" domain="[('company_ids', 'in', [company_id]), ('active', '=', True), ('account_type', 'in', ['expense', 'expense_direct_cost'])]" options="{'no_create':True}"/>
+                                <field name="baseer_salary_payable_id" domain="[('company_ids', 'in', [company_id]), ('account_type', '=', 'liability_payable'), ('reconcile', '=', True)]" options="{'no_create':True}"/>
+                            </group>
+                        </div>
+                    </setting>
+                    <setting id="baseer_payroll_loans" string="Deductions and Loans">
+                        <div class="content-group">
+                            <group>
+                                <field name="baseer_deduction_account_id" domain="[('company_ids', 'in', [company_id])]" options="{'no_create':True}"/>
+                                <field name="baseer_loan_account_id" domain="[('company_ids', 'in', [company_id]), ('account_type', '=', 'asset_receivable'), ('reconcile', '=', True)]" options="{'no_create':True}"/>
+                            </group>
+                        </div>
+                    </setting>
+                    <setting id="baseer_payroll_proration" string="Partial-month salary basis">
+                        <field name="baseer_proration"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_baseer_employee_payroll" model="ir.ui.view">
+        <field name="name">baseer.employee.payroll</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_loans" type="object" class="oe_stat_button" icon="fa-money" groups="om_hr_payroll.group_hr_payroll_manager"><field name="baseer_loan_balance" widget="statinfo" string="Outstanding Loans"/></button>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']" position="attributes">
+                <attribute name="groups">hr.group_hr_manager,om_hr_payroll.group_hr_payroll_manager</attribute>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']//group[@name='contract']" position="attributes">
+                <attribute name="groups">hr.group_hr_manager</attribute>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']//group[@name='contract']" position="inside">
+                <div class="text-muted" colspan="2" role="note">For an open-ended contract, enter the start date and leave the end date empty.</div>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']//label[@for='wage']" position="attributes">
+                <attribute name="groups">hr.group_hr_manager,!om_hr_payroll.group_hr_payroll_manager</attribute>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']//div[@name='wage']" position="attributes">
+                <attribute name="groups">hr.group_hr_manager,!om_hr_payroll.group_hr_payroll_manager</attribute>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']/group[@name='payroll_group']" position="inside">
+                <group name="baseer_salary_setup" string="Salary Setup" groups="om_hr_payroll.group_hr_payroll_manager">
+                    <field name="baseer_payroll_enabled"/>
+                    <field name="baseer_salary_total"/>
+                    <field name="baseer_salary_mode"/>
+                    <field name="baseer_allowance_total"/>
+                    <field name="baseer_work_calendar_id" string="Work Schedule" readonly="1" options="{'no_open':True}" groups="om_hr_payroll.group_hr_payroll_manager,!hr.group_hr_manager"/>
+                    <field name="baseer_daily_hours" readonly="1" invisible="baseer_salary_mode != 'inclusive'"/>
+                    <field name="baseer_work_days" string="Monthly Salary Basis (Days)" help="Days used to split the agreed monthly salary; attendance remains based on the work schedule." invisible="baseer_salary_mode != 'inclusive'"/>
+                    <separator string="Salary Calculation"/>
+                    <field name="baseer_basic_salary" readonly="1"/>
+                    <field name="baseer_overtime_salary" readonly="1"/>
+                    <div class="alert alert-warning mb-0" role="alert" colspan="2" invisible="not baseer_salary_warning">
+                        <field name="baseer_salary_warning" nolabel="1" readonly="1"/>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_baseer_company_payroll" model="ir.ui.view"><field name="active" eval="False"/><field name="name">baseer.company.payroll</field><field name="model">res.company</field><field name="inherit_id" ref="base.view_company_form"/><field name="arch" type="xml"><xpath expr="//notebook" position="inside"><page name="baseer_payroll" string="Baseer Payroll" groups="om_hr_payroll.group_hr_payroll_manager"><group><group string="Payroll Accounting"><field name="baseer_payroll_journal_id" options="{'no_create':True}"/><field name="baseer_salary_expense_id" options="{'no_create':True}"/><field name="baseer_salary_payable_id" options="{'no_create':True}"/></group><group string="Deductions and Loans"><field name="baseer_deduction_account_id" options="{'no_create':True}"/><field name="baseer_loan_account_id" options="{'no_create':True}"/><field name="baseer_proration"/></group></group></page></xpath></field></record>
+    <record id="view_baseer_leave_type" model="ir.ui.view"><field name="name">baseer.leave.type</field><field name="model">hr.leave.type</field><field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/><field name="arch" type="xml"><xpath expr="//field[@name='name']" position="after"><field name="baseer_unpaid" groups="om_hr_payroll.group_hr_payroll_manager"/></xpath></field></record>
+</odoo>

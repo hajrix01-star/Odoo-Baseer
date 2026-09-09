@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_settlement_company" model="ir.rule"><field name="name">Payroll settlements: allowed companies</field><field name="model_id" ref="model_baseer_payroll_settlement"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_settlement_line_company" model="ir.rule"><field name="name">Payroll settlement employees: allowed companies</field><field name="model_id" ref="model_baseer_payroll_settlement_line"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_salary_rule_company" model="ir.rule"><field name="name">Salary rules: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_salary_rule"/><field name="domain_force">['|',('company_id','=',False),('company_id','in',company_ids)]</field></record>
+    <record id="rule_salary_structure_company" model="ir.rule"><field name="name">Salary structures: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_payroll_structure"/><field name="domain_force">['|',('company_id','=',False),('company_id','in',company_ids)]</field></record>
+    <record id="rule_salary_category_company" model="ir.rule"><field name="name">Salary rule categories: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_salary_rule_category"/><field name="domain_force">['|',('company_id','=',False),('company_id','in',company_ids)]</field></record>
+    <record id="rule_payroll_create_company" model="ir.rule"><field name="name">Create payroll: allowed companies</field><field name="model_id" ref="model_baseer_payroll_create"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_payslip_company" model="ir.rule"><field name="name">Payslips: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_payslip"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_payroll_run_company" model="ir.rule"><field name="name">Payroll runs: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_payslip_run"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_payslip_line_company" model="ir.rule"><field name="name">Payslip lines: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_payslip_line"/><field name="domain_force">[('slip_id.company_id','in',company_ids)]</field></record>
+    <record id="rule_payslip_input_company" model="ir.rule"><field name="name">Payslip inputs: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_payslip_input"/><field name="domain_force">[('payslip_id.company_id','in',company_ids)]</field></record>
+    <record id="rule_payslip_worked_company" model="ir.rule"><field name="name">Payslip worked days: allowed companies</field><field name="model_id" ref="om_hr_payroll.model_hr_payslip_worked_days"/><field name="domain_force">[('payslip_id.company_id','in',company_ids)]</field></record>
+    <!-- Match the native Officer parent-payslip scope for every detail model.
+         The global company rules above still intersect the manager allowance. -->
+    <record id="rule_payslip_line_officer_read" model="ir.rule">
+        <field name="name">Payslip lines: officer parent scope</field>
+        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_line"/>
+        <field name="groups" eval="[(4, ref('om_hr_payroll.group_hr_payroll_user'))]"/>
+        <field name="domain_force">['|', '|', ('slip_id.employee_id.user_id', '=', user.id), ('slip_id.employee_id.department_id', '=', False), ('slip_id.employee_id.department_id.manager_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/><field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_payslip_input_officer_read" model="ir.rule">
+        <field name="name">Payslip inputs: officer parent scope</field>
+        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_input"/>
+        <field name="groups" eval="[(4, ref('om_hr_payroll.group_hr_payroll_user'))]"/>
+        <field name="domain_force">['|', '|', ('payslip_id.employee_id.user_id', '=', user.id), ('payslip_id.employee_id.department_id', '=', False), ('payslip_id.employee_id.department_id.manager_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/><field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_payslip_worked_officer_read" model="ir.rule">
+        <field name="name">Payslip worked days: officer parent scope</field>
+        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_worked_days"/>
+        <field name="groups" eval="[(4, ref('om_hr_payroll.group_hr_payroll_user'))]"/>
+        <field name="domain_force">['|', '|', ('payslip_id.employee_id.user_id', '=', user.id), ('payslip_id.employee_id.department_id', '=', False), ('payslip_id.employee_id.department_id.manager_id.user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/><field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_payslip_line_manager_read" model="ir.rule">
+        <field name="name">Payslip lines: manager parent scope</field>
+        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_line"/>
+        <field name="groups" eval="[(4, ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/><field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_payslip_input_manager_read" model="ir.rule">
+        <field name="name">Payslip inputs: manager parent scope</field>
+        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_input"/>
+        <field name="groups" eval="[(4, ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/><field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_payslip_worked_manager_read" model="ir.rule">
+        <field name="name">Payslip worked days: manager parent scope</field>
+        <field name="model_id" ref="om_hr_payroll.model_hr_payslip_worked_days"/>
+        <field name="groups" eval="[(4, ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="True"/><field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/><field name="perm_unlink" eval="False"/>
+    </record>
+    <record id="rule_loan_company" model="ir.rule"><field name="name">Employee loans: allowed companies</field><field name="model_id" ref="model_baseer_hr_loan"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_loan_line_company" model="ir.rule"><field name="name">Loan installments: allowed companies</field><field name="model_id" ref="model_baseer_hr_loan_line"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_loan_allocation_company" model="ir.rule"><field name="name">Loan recoveries: allowed companies</field><field name="model_id" ref="model_baseer_hr_loan_allocation"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_loan_defer_company" model="ir.rule"><field name="name">Loan deferrals: allowed companies</field><field name="model_id" ref="model_baseer_hr_loan_defer"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_loan_repay_company" model="ir.rule"><field name="name">Loan repayment wizard: allowed companies</field><field name="model_id" ref="model_baseer_hr_loan_repay"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+</odoo>

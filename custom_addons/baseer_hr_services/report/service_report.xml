@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_baseer_hr_service" model="report.paperformat">
+        <field name="name">Employee Service A4</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">12</field>
+        <field name="margin_left">14</field>
+        <field name="margin_right">14</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="action_report_baseer_hr_service" model="ir.actions.report">
+        <field name="name">Employee Service Statement</field>
+        <field name="model">baseer.hr.service</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">baseer_hr_services.report_hr_service</field>
+        <field name="report_file">baseer_hr_services.report_hr_service</field>
+        <field name="paperformat_id" ref="paperformat_baseer_hr_service"/>
+        <field name="binding_model_id" ref="model_baseer_hr_service"/>
+        <field name="binding_type">report</field>
+        <field name="group_ids" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="print_report_name">'Service - %s' % object.employee_id.name</field>
+    </record>
+    <template id="report_hr_service_document">
+        <t t-call="web.basic_layout">
+            <t t-call="baseer_report_layout.arabic_pdf_font_styles"/>
+            <div class="page eh_pdf_page baseer_arabic_pdf baseer_service_statement" t-att-dir="'rtl' if arabic else 'ltr'">
+                <style>
+                    .baseer_service_statement { font-family: 'Baseer Plex Arabic', sans-serif; color: #263e39; font-size: 14px; line-height: 1.5; }
+                    .baseer_service_statement table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+                    .baseer_service_statement td { vertical-align: top; overflow-wrap: break-word; word-wrap: break-word; }
+                    .baseer_service_statement tr { page-break-inside: avoid; }
+                    .baseer_service_statement .hrs_header { border-bottom: 2px solid #326b5e; padding-bottom: 12px; margin-bottom: 16px; }
+                    .baseer_service_statement .hrs_company { font-size: 20px; font-weight: 700; }
+                    .baseer_service_statement .hrs_logo { max-height: 60px; max-width: 100px; }
+                    .baseer_service_statement h1 { font-size: 25px; color: #174e42; margin: 12px 0; }
+                    .baseer_service_statement h2 { font-size: 15px; margin: 20px 0 8px; }
+                    .baseer_service_statement .hrs_details td { padding: 8px 12px; border-bottom: 1px solid #dce7e1; }
+                    .baseer_service_statement .hrs_label { display: block; font-size: 12px; color: #657972; }
+                    .baseer_service_statement .hrs_value { display: block; font-weight: 600; }
+                    .baseer_service_statement .hrs_number { direction: ltr; unicode-bidi: embed; display: inline-block; white-space: nowrap; }
+                    .baseer_service_statement .hrs_amount { text-align: center; direction: ltr; white-space: nowrap; width: 35%; }
+                    .baseer_service_statement .hrs_total { background: #edf4f1; font-weight: 700; font-size: 17px; }
+                    .baseer_service_statement .hrs_signature td { width: 50%; padding: 30px 12px 0; }
+                    .baseer_service_statement .hrs_line { height: 35px; border-bottom: 1px dotted #8eaaa0; margin-bottom: 6px; }
+                </style>
+                <div class="hrs_header"><table><tr>
+                    <td style="width:80%"><div class="hrs_company" t-out="r['company_name']"/></td>
+                    <td style="width:20%;text-align:center"><img t-if="r['company_logo']" t-att-src="image_data_uri(r['company_logo'])" class="hrs_logo" alt="Company logo"/></td>
+                </tr></table></div>
+                <h1>Employee Service Statement</h1>
+                <table><tr><td><span t-out="r['state_label']"/></td><td style="text-align:center"><span class="hrs_number" t-out="r['name']"/></td></tr></table>
+                <h2>Service Details</h2>
+                <table class="hrs_details">
+                    <tr><td colspan="2"><span class="hrs_label" t-translation="on">Employee</span><span class="hrs_value" t-out="r['employee_name']"/></td></tr>
+                    <tr><td><span class="hrs_label" t-translation="on">Service</span><span class="hrs_value" t-out="r['service_label']"/></td><td><span class="hrs_label" t-translation="on">Visa Type</span><span class="hrs_value" t-out="r['visa_label'] or '—'"/></td></tr>
+                    <tr><td colspan="2"><span class="hrs_label" t-translation="on">Provider</span><span class="hrs_value" t-out="r['provider_name']"/></td></tr>
+                    <tr><td><span class="hrs_label" t-translation="on">Service Reference</span><span class="hrs_value" t-out="r['reference'] or '—'"/></td><td><span class="hrs_label" t-translation="on">Invoice Date</span><span class="hrs_value hrs_number" t-out="r['invoice_date']"/></td></tr>
+                    <tr><td><span class="hrs_label" t-translation="on">Issue Date</span><span class="hrs_value hrs_number" t-out="r['issue_date'] or '—'"/></td><td><span class="hrs_label" t-translation="on">Expiry Date</span><span class="hrs_value hrs_number" t-out="r['expiry_date'] or '—'"/></td></tr>
+                </table>
+                <h2>Amounts</h2>
+                <table class="hrs_details">
+                    <tr><td>Amount before VAT</td><td class="hrs_amount"><span t-out="r['net']"/> <span t-out="r['currency']"/></td></tr>
+                    <tr><td>VAT</td><td class="hrs_amount"><span t-out="r['tax']"/> <span t-out="r['currency']"/></td></tr>
+                    <tr class="hrs_total"><td>Total Cost</td><td class="hrs_amount"><span t-out="r['gross']"/> <span t-out="r['currency']"/></td></tr>
+                </table>
+                <h2>Bill and Payment</h2>
+                <p t-if="o.has_posted_refund">This bill has a credit note. Review the bill for correction details.</p>
+                <table class="hrs_details">
+                    <tr><td><span class="hrs_label" t-translation="on">Bill Reference</span><span class="hrs_value hrs_number" t-out="r['bill_name'] or '—'"/></td><td><span class="hrs_label" t-translation="on">Payment Status</span><span class="hrs_value" t-out="r['payment_label'] or '—'"/></td></tr>
+                    <tr><td>Remaining Amount</td><td class="hrs_amount"><span t-out="r['balance']"/> <span t-out="r['currency']"/></td></tr>
+                </table>
+                <table class="hrs_signature"><tr>
+                    <td><strong t-translation="on">Employee Signature</strong><div class="hrs_line"/><span class="hrs_label" t-translation="on">Date: ____________________</span></td>
+                    <td><strong t-translation="on">Company Representative</strong><div class="hrs_line"/><span class="hrs_label" t-translation="on">Date: ____________________</span></td>
+                </tr></table>
+            </div>
+        </t>
+    </template>
+    <template id="report_hr_service">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="r" t-value="o._report_data()"/>
+                <t t-set="arabic" t-value="(o.env.context.get('lang') or '').startswith('ar')"/>
+                <t t-call="baseer_hr_services.report_hr_service_document" t-lang="o.env.context.get('lang')"/>
+            </t>
+        </t>
+    </template>
+</odoo>

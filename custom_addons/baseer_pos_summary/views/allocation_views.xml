@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_allocation_source_form" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.allocation.source</field><field name="model">baseer.pos.summary.allocation</field>
+        <field name="arch" type="xml"><form create="0" edit="0" delete="0"><sheet><group>
+            <field name="currency_id" invisible="1"/><field name="summary_id" readonly="1"/>
+            <field name="business_date" widget="baseer_latin_date" options="{'numeric':True}"/>
+            <field name="company_id"/><field name="payment_method_id" readonly="1"/><field name="category_id"/>
+            <field name="amount" widget="monetary" readonly="1"/><field name="pos_payment_id" readonly="1"/>
+        </group></sheet></form></field>
+    </record>
+    <record id="view_allocation_list" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.allocation.list</field><field name="model">baseer.pos.summary.allocation</field>
+        <field name="arch" type="xml"><list create="0" edit="0" delete="0">
+            <field name="currency_id" column_invisible="True"/>
+            <field name="summary_id"/><field name="business_date" widget="baseer_latin_date" options="{'numeric':True}"/><field name="company_id" groups="base.group_multi_company"/>
+            <field name="payment_method_id"/><field name="category_id"/><field name="amount" widget="monetary" sum="Sales"/><field name="pos_payment_id" optional="show"/>
+        </list></field>
+    </record>
+    <record id="view_allocation_search" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.allocation.search</field><field name="model">baseer.pos.summary.allocation</field>
+        <field name="arch" type="xml"><search><field name="summary_id"/><field name="payment_method_id"/><field name="category_id"/>
+            <filter name="sales_date" string="Sales date" date="business_date"/>
+            <group><filter name="by_category" string="Category" context="{'group_by':'category_id'}"/><filter name="by_method" string="Payment method" context="{'group_by':'payment_method_id'}"/><filter name="by_month" string="Month" context="{'group_by':'business_date:month'}"/><filter name="by_company" string="Company" context="{'group_by':'company_id'}"/></group>
+        </search></field>
+    </record>
+    <record id="view_allocation_pivot" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.allocation.pivot</field><field name="model">baseer.pos.summary.allocation</field>
+        <field name="arch" type="xml"><pivot string="Sales by payment method"><field name="category_id" type="row"/><field name="payment_method_id" type="row"/><field name="business_date" type="col" interval="month"/><field name="amount" type="measure"/></pivot></field>
+    </record>
+    <record id="view_allocation_graph" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.allocation.graph</field><field name="model">baseer.pos.summary.allocation</field>
+        <field name="arch" type="xml"><graph string="Sales by payment method" type="bar"><field name="category_id"/><field name="amount" type="measure"/></graph></field>
+    </record>
+    <record id="action_allocation_analysis" model="ir.actions.act_window">
+        <field name="name">Sales by payment method</field><field name="res_model">baseer.pos.summary.allocation</field><field name="view_mode">pivot,graph,list,form</field><field name="domain">[('state','=','approved')]</field>
+    </record>
+    <menuitem id="menu_allocation_analysis" name="Sales by payment method" parent="point_of_sale.menu_point_rep" action="action_allocation_analysis" sequence="21" groups="point_of_sale.group_pos_user"/>
+</odoo>

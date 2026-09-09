@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_sales_dashboard.SalesDashboard">
+        <section class="o_baseer_sales_dashboard" t-ref="dashboard" t-att-aria-busy="state.loading">
+            <div class="o_baseer_sales_content">
+            <header class="o_baseer_sales_header">
+                <div class="o_baseer_sales_heading">
+                    <h1 t-esc="title"/>
+                    <p class="text-muted mb-0" t-esc="labels.subtitle"/>
+                    <div t-if="state.payload" class="o_baseer_sales_scope">
+                        <span class="o_baseer_sales_company" t-esc="state.payload.company.name"/>
+                        <span class="o_baseer_sales_numeric text-muted" t-esc="periodLabel"/>
+                    </div>
+                </div>
+                <div class="o_baseer_sales_header_actions">
+                <button t-if="state.payload and state.payload.source_action" type="button"
+                        class="btn btn-link o_baseer_sales_sources" t-on-click="openSources">
+                    <span t-esc="labels.sources"/>
+                    <i class="fa fa-external-link ms-1" aria-hidden="true"/>
+                </button>
+                <button type="button" class="btn btn-light o_baseer_sales_refresh" t-on-click="load"
+                        t-att-disabled="state.loading">
+                    <i class="fa fa-refresh me-1" aria-hidden="true"/>
+                    <span t-esc="labels.refresh"/>
+                </button>
+                </div>
+            </header>
+
+            <div t-if="state.loading" class="o_baseer_sales_state" role="status" aria-live="polite">
+                <i class="fa fa-circle-o-notch fa-spin text-muted" aria-hidden="true"/>
+                <p t-esc="labels.loading"/>
+            </div>
+            <div t-elif="state.error" class="alert alert-danger o_baseer_sales_error" role="alert">
+                <p class="mb-2" t-esc="state.error"/>
+                <button type="button" class="btn btn-outline-danger btn-sm" t-on-click="load" t-esc="labels.retry"/>
+            </div>
+            <t t-elif="state.payload">
+                <div t-if="comparisonLabel" class="o_baseer_sales_comparison_period text-muted">
+                    <span t-esc="labels.comparison"/>
+                    <span class="o_baseer_sales_numeric" t-esc="comparisonLabel"/>
+                </div>
+                <div class="o_baseer_sales_cards">
+                    <article t-foreach="cards" t-as="card" t-key="card.key" class="o_baseer_sales_card"
+                             t-att-data-metric="card.key" t-att-class="{'o_baseer_sales_card_money': card.currency, 'o_baseer_sales_card_customer': !card.currency, 'o_baseer_sales_card_preview': !hasRecordedData}">
+                        <div class="o_baseer_sales_card_label">
+                            <h2 t-esc="card.title"/>
+                        </div>
+                        <div class="o_baseer_sales_card_value">
+                            <span class="o_baseer_sales_numeric" t-att-class="{'text-muted': !card.available}"
+                                  t-esc="card.display"/>
+                            <small t-if="card.currency and card.available and hasRecordedData" t-esc="state.payload.company.currency"/>
+                        </div>
+                        <p class="o_baseer_sales_card_note text-muted" t-esc="card.note"/>
+                        <div t-if="card.comparison" class="o_baseer_sales_delta"
+                             t-attf-data-direction="{{card.comparison.direction}}">
+                            <span class="o_baseer_sales_delta_value">
+                                <i t-attf-class="fa {{directionIcon(card.comparison.direction)}}" aria-hidden="true"/>
+                                <span class="visually-hidden" t-esc="directionLabel(card.comparison.direction)"/>
+                                <span class="o_baseer_sales_numeric" t-esc="card.comparison.display"/>
+                            </span>
+                            <span t-if="card.comparison.available" class="o_baseer_sales_previous text-muted">
+                                <span t-esc="labels.previous"/>
+                                <span class="o_baseer_sales_numeric" t-esc="card.comparison.previous_display"/>
+                            </span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="o_baseer_sales_coverage">
+                    <div><span class="o_baseer_sales_numeric fw-semibold" t-esc="state.payload.coverage.operating_days"/><span t-esc="labels.completedDays"/></div>
+                    <div><span class="o_baseer_sales_numeric fw-semibold" t-esc="state.payload.coverage.incomplete_days"/><span t-esc="labels.partialDays"/></div>
+                    <div><span class="o_baseer_sales_numeric fw-semibold" t-esc="state.payload.coverage.closed_days"/><span t-esc="labels.closedDays"/></div>
+                    <div><span class="o_baseer_sales_numeric fw-semibold" t-esc="state.payload.coverage.missing_days"/><span t-esc="labels.missingDays"/></div>
+                </div>
+                <div t-if="state.payload.issues.missing_customers or state.payload.issues.missing_complete_customers"
+                     class="alert alert-warning o_baseer_sales_notice" role="status">
+                    <i class="fa fa-info-circle me-1" aria-hidden="true"/>
+                    <span t-esc="labels.customerWarning"/>
+                </div>
+
+                <div class="o_baseer_sales_charts">
+                    <article class="o_baseer_sales_chart_card">
+                        <header><h2 t-esc="labels.chartTitle"/><span class="text-muted" t-esc="granularityLabel"/></header>
+                        <div t-if="hasRecordedData" class="o_baseer_sales_canvas"><canvas t-ref="salesChart" role="img" t-att-aria-label="combinedChartLabel"/></div>
+                        <div t-else="" class="o_baseer_sales_preview" role="status">
+                            <p class="o_baseer_sales_preview_label" t-esc="labels.preview"/>
+                            <svg class="o_baseer_sales_preview_art" viewBox="0 0 900 220" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                                <g fill="#69afe5">
+                                    <rect x="35" y="125" width="48" height="75" rx="2"/>
+                                    <rect x="110" y="90" width="48" height="110" rx="2"/>
+                                    <rect x="185" y="115" width="48" height="85" rx="2"/>
+                                    <rect x="260" y="65" width="48" height="135" rx="2"/>
+                                    <rect x="335" y="95" width="48" height="105" rx="2"/>
+                                    <rect x="410" y="45" width="48" height="155" rx="2"/>
+                                    <rect x="485" y="70" width="48" height="130" rx="2"/>
+                                    <rect x="560" y="35" width="48" height="165" rx="2"/>
+                                    <rect x="635" y="75" width="48" height="125" rx="2"/>
+                                    <rect x="710" y="45" width="48" height="155" rx="2"/>
+                                    <rect x="785" y="20" width="48" height="180" rx="2"/>
+                                </g>
+                                <polyline points="59,135 134,110 209,120 284,80 359,105 434,70 509,90 584,50 659,65 734,40 809,55" fill="none" stroke="#ba7428" stroke-width="3" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                            <p class="text-muted mb-0" t-esc="labels.emptyNote"/>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="o_baseer_sales_performance_cards">
+                    <article t-if="shiftRows.length" class="o_baseer_sales_performance_card">
+                        <h2 t-esc="labels.shifts"/>
+                        <div class="nav nav-tabs o_baseer_sales_tabs" role="tablist" t-att-aria-label="labels.shifts">
+                            <button t-foreach="tabs" t-as="tab" t-key="tab.key" type="button" role="tab"
+                                    class="nav-link" t-att-class="{'active': state.shiftTab === tab.key}"
+                                    t-att-id="tabId('shift', tab.key)" t-att-data-view="tab.key"
+                                    t-att-aria-controls="panelId('shift')" t-att-aria-selected="state.shiftTab === tab.key ? 'true' : 'false'"
+                                    t-att-tabindex="state.shiftTab === tab.key ? 0 : -1"
+                                    t-on-click="() => this.selectTab('shift', tab.key)"
+                                    t-on-keydown="(event) => this.onTabKeydown(event, 'shift')" t-esc="tab.label"/>
+                        </div>
+                        <div role="tabpanel" t-att-id="panelId('shift')" t-att-aria-labelledby="tabId('shift', state.shiftTab)" class="o_baseer_sales_tabpanel">
+                            <t t-if="state.shiftTab === 'chart'">
+                                <div class="o_baseer_sales_shift_chart o_baseer_sales_metric_selector">
+                                    <label class="form-label mb-0" t-att-for="shiftMetricId" t-esc="labels.metric"/>
+                                    <select class="form-select form-select-sm" t-att-id="shiftMetricId" t-on-change="onShiftMetricChange">
+                                        <option t-foreach="shiftMetrics" t-as="metric" t-key="metric.key" t-att-value="metric.key"
+                                                t-att-selected="state.shiftMetric === metric.key" t-esc="metric.label"/>
+                                    </select>
+                                </div>
+                                <div t-if="hasShiftMetric" class="o_baseer_sales_shift_canvas">
+                                    <canvas t-ref="shiftChart" role="img" t-att-aria-label="labels.shifts + ' — ' + selectedShiftMetric.label"/>
+                                </div>
+                                <div t-else="" class="o_baseer_sales_shift_empty text-muted" role="status"><span t-esc="hasShiftData ? labels.shiftUnavailable : labels.shiftEmpty"/></div>
+                            </t>
+                            <t t-else="">
+                        <table class="table table-sm o_baseer_sales_shift_table mb-0">
+                            <caption class="visually-hidden" t-esc="labels.shifts"/>
+                            <thead><tr>
+                                <th scope="col" t-esc="labels.shift"/>
+                                <th scope="col" t-esc="salesAxisLabel"/>
+                                <th scope="col" t-esc="labels.customers"/>
+                                <th scope="col" t-esc="labels.averageBill"/>
+                            </tr></thead>
+                            <tbody>
+                                <tr t-foreach="shiftRows" t-as="row" t-key="row.key">
+                                    <th scope="row">
+                                        <button t-if="row.has_data and row.source_action" type="button" class="btn btn-link p-0"
+                                                t-on-click="() => this.openShiftSources(row)" t-esc="row.label"/>
+                                        <span t-else="" t-esc="row.label"/>
+                                    </th>
+                                    <td><span class="o_baseer_sales_numeric" t-esc="row.cards.sales.display"/></td>
+                                    <td><span class="o_baseer_sales_numeric" t-esc="row.cards.customers.display"/></td>
+                                    <td><span class="o_baseer_sales_numeric" t-esc="row.cards.average_bill.display"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            </t>
+                        </div>
+                    </article>
+                    <article t-if="paymentCoverage" class="o_baseer_sales_performance_card">
+                        <h2 t-esc="labels.payments"/>
+                        <div t-if="!paymentCoverage.complete" class="alert alert-warning o_baseer_sales_notice" role="status">
+                            <span t-esc="labels.paymentIncomplete"/>
+                        </div>
+                        <div class="nav nav-tabs o_baseer_sales_tabs" role="tablist" t-att-aria-label="labels.payments">
+                            <button t-foreach="tabs" t-as="tab" t-key="tab.key" type="button" role="tab"
+                                    class="nav-link" t-att-class="{'active': state.paymentTab === tab.key}"
+                                    t-att-id="tabId('payment', tab.key)" t-att-data-view="tab.key"
+                                    t-att-aria-controls="panelId('payment')" t-att-aria-selected="state.paymentTab === tab.key ? 'true' : 'false'"
+                                    t-att-tabindex="state.paymentTab === tab.key ? 0 : -1"
+                                    t-on-click="() => this.selectTab('payment', tab.key)"
+                                    t-on-keydown="(event) => this.onTabKeydown(event, 'payment')" t-esc="tab.label"/>
+                        </div>
+                        <div role="tabpanel" t-att-id="panelId('payment')" t-att-aria-labelledby="tabId('payment', state.paymentTab)" class="o_baseer_sales_tabpanel">
+                            <t t-if="state.paymentTab === 'chart'">
+                                <div t-if="paymentRows.length" class="o_baseer_sales_payment_canvas">
+                                    <canvas t-ref="paymentChart" role="img" t-att-aria-label="labels.payments + ' — ' + salesAxisLabel"/>
+                                </div>
+                                <div t-else="" class="o_baseer_sales_shift_empty text-muted" role="status"><span t-esc="labels.paymentEmpty"/></div>
+                            </t>
+                            <t t-else="">
+                            <table t-if="paymentRows.length" class="table table-sm o_baseer_sales_shift_table o_baseer_sales_payment_table mb-0">
+                                <caption class="visually-hidden" t-esc="labels.payments"/>
+                                <thead><tr>
+                                    <th scope="col" t-esc="labels.paymentMethod"/>
+                                    <th scope="col" t-esc="salesAxisLabel"/>
+                                    <th scope="col" t-esc="labels.paymentShare"/>
+                                </tr></thead>
+                                <tbody>
+                                    <tr t-foreach="paymentRows" t-as="row" t-key="row.method_id">
+                                        <th scope="row">
+                                            <button t-if="row.source_action" type="button" class="btn btn-link p-0"
+                                                    t-on-click="() => this.openPaymentSources(row)" t-esc="row.name"/>
+                                            <span t-else="" t-esc="row.name"/>
+                                        </th>
+                                        <td><span class="o_baseer_sales_numeric" t-esc="row.sales.display"/></td>
+                                        <td><span class="o_baseer_sales_numeric" t-esc="row.share.display"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p t-else="" class="text-muted" t-esc="labels.paymentEmpty"/>
+                            <div class="o_baseer_sales_payment_coverage">
+                                <div><span t-esc="labels.coveredSales"/><span class="o_baseer_sales_numeric" t-esc="paymentCoverage.covered_sales.display"/></div>
+                                <div><span t-esc="labels.uncoveredSales"/><span class="o_baseer_sales_numeric" t-esc="paymentCoverage.uncovered_sales.display"/></div>
+                                <div><span t-esc="labels.coveredSummaries"/><span class="o_baseer_sales_numeric"><t t-esc="paymentCoverage.covered_summary_count"/> / <t t-esc="paymentCoverage.summary_count"/></span></div>
+                                <div t-if="applicationShare"><span t-esc="labels.applicationShare"/><span class="o_baseer_sales_numeric"><t t-esc="applicationShare.display"/><t t-if="applicationShare.available">%</t></span></div>
+                                <div t-if="paymentCoverage.missing_summary_count"><span t-esc="labels.missingAllocations"/><span class="o_baseer_sales_numeric" t-esc="paymentCoverage.missing_summary_count"/></div>
+                                <div t-if="paymentCoverage.mismatched_summary_count"><span t-esc="labels.mismatchedAllocations"/><span class="o_baseer_sales_numeric" t-esc="paymentCoverage.mismatched_summary_count"/></div>
+                            </div>
+                            </t>
+                        </div>
+                    </article>
+                </div>
+
+                <details class="o_baseer_sales_details">
+                    <summary><span t-esc="labels.details"/><span class="text-muted" t-esc="granularityLabel"/></summary>
+                    <div class="o_baseer_sales_detail_header text-muted" aria-hidden="true">
+                        <span t-esc="labels.date"/><span t-esc="labels.sales"/><span t-esc="labels.customers"/><span t-esc="labels.status"/>
+                    </div>
+                    <ul class="list-unstyled mb-0">
+                        <li t-foreach="points" t-as="point" t-key="point.key" class="o_baseer_sales_detail_row">
+                            <time class="o_baseer_sales_numeric fw-semibold" t-esc="point.label"/>
+                            <span><span class="visually-hidden" t-esc="labels.sales"/><span class="o_baseer_sales_mobile_label text-muted" aria-hidden="true" t-esc="labels.sales"/><span class="o_baseer_sales_numeric" t-esc="point.sales_display"/></span>
+                            <span><span class="visually-hidden" t-esc="labels.customers"/><span class="o_baseer_sales_mobile_label text-muted" aria-hidden="true" t-esc="labels.customers"/><span class="o_baseer_sales_numeric" t-esc="point.customers_display"/></span>
+                            <span class="o_baseer_sales_status" t-att-data-status="point.status" t-esc="statusLabel(point.status)"/>
+                        </li>
+                    </ul>
+                </details>
+                <footer t-if="categoryRows.length" class="o_baseer_sales_category_footer" t-att-aria-label="labels.categorySales">
+                    <strong t-esc="labels.categorySales"/>
+                    <dl class="mb-0">
+                        <div t-foreach="categoryRows" t-as="category" t-key="category.category_id">
+                            <dt t-esc="category.name"/>
+                            <dd class="mb-0"><span class="o_baseer_sales_numeric" t-esc="category.sales.display"/> <span t-esc="state.payload.company.currency"/></dd>
+                        </div>
+                    </dl>
+                </footer>
+            </t>
+            </div>
+        </section>
+    </t>
+</templates>

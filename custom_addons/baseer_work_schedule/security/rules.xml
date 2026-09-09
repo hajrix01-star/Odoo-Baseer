@@ -1,0 +1,12 @@
+<odoo>
+    <record id="schedule_wizard_company" model="ir.rule">
+        <field name="name">Schedule form: allowed companies</field>
+        <field name="model_id" ref="model_baseer_schedule_wizard"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="schedule_period_company" model="ir.rule">
+        <field name="name">Schedule periods: allowed companies</field>
+        <field name="model_id" ref="model_baseer_schedule_period"/>
+        <field name="domain_force">[('wizard_id.company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

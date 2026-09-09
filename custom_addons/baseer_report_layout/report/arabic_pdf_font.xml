@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="arabic_pdf_font_styles">
+        <style type="text/css">
+            @font-face {
+                font-family: 'Baseer Plex Arabic';
+                src: url('/baseer_report_layout/static/fonts/IBMPlexSansArabic-Regular.ttf') format('truetype');
+                font-weight: 400;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: 'Baseer Plex Arabic';
+                src: url('/baseer_report_layout/static/fonts/IBMPlexSansArabic-Bold.ttf') format('truetype');
+                font-weight: 700;
+                font-style: normal;
+            }
+            .eh_pdf_page.baseer_arabic_pdf,
+            .footer.baseer_arabic_pdf {
+                font-family: 'Baseer Plex Arabic', sans-serif;
+            }
+            .baseer_arabic_pdf .eh_pdf_title,
+            .baseer_arabic_pdf .eh_pdf_table,
+            .baseer_arabic_pdf .eh_pdf_meta,
+            .baseer_arabic_pdf .eh_pdf_header {
+                font-family: 'Baseer Plex Arabic', sans-serif;
+                letter-spacing: normal;
+            }
+        </style>
+    </template>
+
+    <template id="arabic_dynamic_pdf"
+              inherit_id="eh_account_dynamic_reports.report_dynamic_pdf_template">
+        <xpath expr="//t[@t-call='eh_account_base.eh_clean_layout']" position="before">
+            <t t-set="baseer_arabic_pdf"
+               t-value="r.get('doc').code in ('profit_and_loss', 'cash_flow', 'baseer_cash_categories') and (env.context.get('lang') or '').startswith('ar')"/>
+        </xpath>
+        <xpath expr="//t[@t-call='eh_account_base.eh_report_styles']" position="after">
+            <t t-if="baseer_arabic_pdf" t-call="baseer_report_layout.arabic_pdf_font_styles"/>
+        </xpath>
+        <xpath expr="//div[hasclass('eh_pdf_page')]" position="attributes">
+            <attribute name="t-att-class">'baseer_arabic_pdf' if baseer_arabic_pdf else ''</attribute>
+        </xpath>
+    </template>
+
+    <!-- wkhtmltopdf extracts the footer into a separate document. -->
+    <template id="arabic_pdf_footer" inherit_id="eh_account_base.eh_clean_layout">
+        <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="attributes">
+            <attribute name="t-attf-class">footer o_company_#{company.id if company else 'na'}_layout #{'baseer_arabic_pdf' if baseer_arabic_pdf else ''}</attribute>
+        </xpath>
+        <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="inside">
+            <t t-if="baseer_arabic_pdf" t-call="baseer_report_layout.arabic_pdf_font_styles"/>
+        </xpath>
+    </template>
+</odoo>

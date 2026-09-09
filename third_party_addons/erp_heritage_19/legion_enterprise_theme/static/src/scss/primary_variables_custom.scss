@@ -1,0 +1,31 @@
+
+// Font sizes
+$o-font-size-base-touch: 15px;
+
+// Colors - Define directly, don't reference non-existent variables
+$o-brand-odoo: #875A7B;
+$o-brand-primary: #875A7B;
+$o-brand-secondary: #8f8f8f;
+$o-brand-lightsecondary: #f8f9fa;
+
+$o-main-text-color: #666666;
+
+$o-list-footer-bg-color: white;
+
+$o-btn-secondary-bg: white;
+$o-btn-secondary-hover-bg: darken($o-btn-secondary-bg, 10%);
+$o-btn-secondary-active-bg: darken($o-btn-secondary-bg, 8%);
+
+// Home menu
+$o-home-menu-container-size: 850px;
+$o-home-menu-app-icon-max-width: 70px;
+$o-home-studio-menu-shadow: 0 1px 0 rgba(black, 0.45);
+
+// Snackbar
+$o-snackbar-background-color: #333333;
+$o-snackbar-color: white;
+$o-snackbar-height: 46px;
+$o-snackbar-left: 15px;
+$o-snackbar-right: $o-snackbar-left;
+$o-snackbar-bottom: 20px;
+$o-snackbar-inner-padding: 16px;

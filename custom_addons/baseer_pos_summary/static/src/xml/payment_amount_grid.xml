@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_pos_summary.PaymentAmountGrid">
+        <div class="baseer_payment_amount_grid">
+            <t t-foreach="list.records" t-as="allocation" t-key="allocation.id">
+                <div class="baseer_payment_amount_cell">
+                    <label class="baseer_payment_amount_label" t-att-for="amountInputId(allocation)">
+                        <t t-out="allocation.data.payment_method_id.display_name"/>
+                    </label>
+                    <div class="baseer_payment_amount_box" t-att-class="{'baseer_amount_readonly': props.readonly, 'o_field_invalid': allocation.isFieldInvalid('amount')}">
+                        <MonetaryField name="'amount'" record="allocation" readonly="props.readonly" hideSymbol="true" id="amountInputId(allocation)"/>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

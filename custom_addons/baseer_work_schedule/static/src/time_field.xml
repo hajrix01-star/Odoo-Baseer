@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_work_schedule.TimeField">
+        <span t-if="props.readonly" class="o_baseer_schedule_time" t-esc="value"/>
+        <button t-else="" type="button" class="btn btn-outline-secondary o_baseer_time_trigger"
+                t-ref="trigger" t-att-id="props.id" t-att-aria-label="triggerLabel"
+                aria-haspopup="dialog" t-att-aria-expanded="state.open ? 'true' : 'false'"
+                t-att-disabled="state.busy" t-att-aria-busy="state.busy ? 'true' : 'false'"
+                t-on-click.stop="openPicker">
+            <span dir="ltr" t-esc="value || '--:--'"/>
+            <i class="fa fa-clock-o" aria-hidden="true"/>
+        </button>
+    </t>
+
+    <t t-name="baseer_work_schedule.TimePopover">
+        <div class="o_baseer_time_panel p-2" t-att-aria-label="chooseTimeLabel"
+             t-att-aria-busy="state.busy ? 'true' : 'false'" t-on-click.stop="() => {}" t-on-keydown="onPanelKeydown">
+            <div class="d-flex align-items-center justify-content-between gap-3 mb-2">
+                <span class="fw-bold">Choose time</span>
+                <span class="o_baseer_time_preview fw-bold" dir="ltr" t-esc="value"/>
+            </div>
+            <div class="o_baseer_time_columns" dir="ltr">
+                <div class="o_baseer_time_column_group">
+                    <div class="small text-muted mb-1 text-center" t-att-id="pickerId + '_hour_label'">Hour (24-hour)</div>
+                    <div class="o_baseer_time_column" role="listbox" tabindex="0" data-part="hour" t-ref="hours"
+                         t-att-aria-labelledby="pickerId + '_hour_label'"
+                         t-att-aria-activedescendant="pickerId + '_hour_' + state.hour"
+                         t-att-aria-disabled="state.busy ? 'true' : 'false'" t-on-keydown="onColumnKeydown">
+                        <button t-foreach="hours" t-as="hour" t-key="hour" type="button" role="option" tabindex="-1"
+                                class="btn o_baseer_time_option" t-att-class="{'btn-primary': hour === state.hour}"
+                                t-att-id="pickerId + '_hour_' + hour" t-att-aria-selected="hour === state.hour ? 'true' : 'false'"
+                                data-part="hour" t-att-data-value="hour" t-att-disabled="state.busy"
+                                t-on-click="onOptionClick" t-esc="hour"/>
+                    </div>
+                </div>
+                <div class="o_baseer_time_column_group">
+                    <div class="small text-muted mb-1 text-center" t-att-id="pickerId + '_minute_label'">Minute</div>
+                    <div class="o_baseer_time_column" role="listbox" tabindex="0" data-part="minute" t-ref="minutes"
+                         t-att-aria-labelledby="pickerId + '_minute_label'"
+                         t-att-aria-activedescendant="pickerId + '_minute_' + state.minute"
+                         t-att-aria-disabled="state.busy ? 'true' : 'false'" t-on-keydown="onColumnKeydown">
+                        <button t-foreach="minutes" t-as="minute" t-key="minute" type="button" role="option" tabindex="-1"
+                                class="btn o_baseer_time_option" t-att-class="{'btn-primary': minute === state.minute}"
+                                t-att-id="pickerId + '_minute_' + minute" t-att-aria-selected="minute === state.minute ? 'true' : 'false'"
+                                data-part="minute" t-att-data-value="minute" t-att-disabled="state.busy"
+                                t-on-click="onOptionClick" t-esc="minute"/>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <button type="button" class="btn btn-secondary" t-att-disabled="state.busy" t-on-click="cancel">Cancel</button>
+                <button type="button" class="btn btn-primary" t-att-disabled="state.busy" t-on-click="apply">Apply</button>
+            </div>
+        </div>
+    </t>
+</templates>

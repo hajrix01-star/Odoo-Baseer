@@ -1,0 +1,65 @@
+// Scope every override to the two reports; retain vendor rendering and scrolling.
+.eh_dr.baseer_report_layout {
+    --baseer-report-width: 820px;
+
+    &[data-eh-theme="light"] {
+        --eh-bg: #f8f9fa;
+        --eh-bg-grad: none;
+        --eh-surface-2: #f4f5f6;
+        --eh-surface-hover: #f0f2f4;
+        --eh-border: #e0e3e6;
+        --eh-border-strong: #a6adb4;
+        --eh-accent-soft: #f0f2f4;
+        --eh-text: #252a30;
+        --eh-text-dim: #525b65;
+    }
+
+    .eh_dr_topbar {
+        padding: 16px;
+        flex-shrink: 0;
+        max-height: 48%;
+        overflow: auto;
+        > div { max-width: 1040px; margin-inline: auto; }
+    }
+
+    .eh_dr_title { font-size: 1.25rem; }
+    .eh_dr_titlebar { gap: 12px; }
+    .eh_dr_actions { gap: 6px; }
+    .eh_dr_filters { gap: 10px; }
+    .eh_dr_filter > select,
+    .eh_dr_filter > input { border-radius: 4px; }
+    .eh_dr_meta_bar { flex-wrap: wrap; }
+    .eh_dr_search { border-radius: 4px; }
+
+    &.baseer_report_simple {
+        .eh_dr_body {
+            width: 100%;
+            max-width: calc(var(--baseer-report-width) + 32px);
+            margin-inline: auto;
+            padding-inline: 16px;
+        }
+
+        .eh_dr_table {
+            width: 100%;
+            min-width: 0;
+            table-layout: fixed;
+            border-radius: 0;
+            border-inline: 0;
+            th:last-child { width: 30%; }
+        }
+    }
+
+    @media (max-width: 760px) {
+        .eh_dr_topbar { padding: 12px; }
+        .eh_dr_actions { width: 100%; }
+        .eh_dr_filter,
+        .eh_dr_filter_wide { flex: 1 1 140px; width: auto; min-width: 0; }
+        .eh_dr_filters { gap: 8px; }
+        .eh_dr_filter > select,
+        .eh_dr_filter > input { min-width: 0; }
+        &:not(.baseer_report_filters_open) .eh_dr_filters { display: none; }
+        &.baseer_report_simple .eh_dr_body { padding-inline: 12px; }
+        &.baseer_report_simple .eh_dr_table th:last-child { width: 38%; }
+        .eh_dr_meta_bar { gap: 8px; }
+    }
+}

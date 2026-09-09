@@ -1,0 +1,2918 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* baseer_pos_summary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260817\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-08 22:55+0000\n"
+"PO-Revision-Date: 2026-09-08 22:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "%s — summary service"
+msgstr "%s — خدمة الملخص"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_config_summary_kanban
+msgid "<span class=\"fw-bold fs-4 d-block\">Sales summary</span>"
+msgstr "<span class=\"fw-bold fs-4 d-block\">ملخص المبيعات</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "<span class=\"o_stat_text\">Journal entries</span>"
+msgstr "<span class=\"o_stat_text\">القيود المحاسبية</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "<span class=\"o_stat_text\">POS order</span>"
+msgstr "<span class=\"o_stat_text\">طلب نقاط البيع</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "<span class=\"o_stat_text\">Session</span>"
+msgstr "<span class=\"o_stat_text\">الجلسة</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "<span class=\"text-muted\">Average per customer</span>"
+msgstr "<span class=\"text-muted\">متوسط المبيعات للعميل</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "<span class=\"text-muted\">Customers</span>"
+msgstr "<span class=\"text-muted\">العملاء</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "<span class=\"text-muted\">Daily customers</span>"
+msgstr "<span class=\"text-muted\">عملاء اليوم</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "<span class=\"text-muted\">Daily total including VAT</span>"
+msgstr "<span class=\"text-muted\">إجمالي اليوم شامل الضريبة</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "<span class=\"text-muted\">Total including VAT</span>"
+msgstr "<span class=\"text-muted\">الإجمالي شامل الضريبة</span>"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "<span>Total including VAT</span>"
+msgstr "<span>الإجمالي شامل الضريبة</span>"
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_baseer_pos_summary_order_unique
+msgid "A POS order may belong to only one external summary."
+msgstr "لا يمكن ربط طلب نقاط البيع بأكثر من ملخص خارجي واحد."
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_baseer_pos_summary_session_unique
+msgid "A POS session may belong to only one external summary."
+msgstr "لا يمكن ربط جلسة نقاط البيع بأكثر من ملخص خارجي واحد."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"A category used by approved summaries cannot be reclassified. Create a new "
+"category instead."
+msgstr "لا يمكن تغيير نوع فئة مستخدمة في ملخصات معتمدة. أنشئ فئة جديدة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "A correction replacement must be retained for review and audit."
+msgstr "يجب الاحتفاظ ببديل التصحيح للمراجعة والتدقيق."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"A dedicated external summary session must contain exactly its original "
+"summary order."
+msgstr "يجب أن تحتوي الجلسة المخصصة للملخص على طلب الملخص الأصلي فقط."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "A dedicated summary POS cannot be converted to a cashier POS."
+msgstr "لا يمكن تحويل نقطة بيع الملخصات إلى نقطة بيع للكاشير."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "A linked external summary session cannot be deleted."
+msgstr "لا يمكن حذف جلسة مرتبطة بملخص مبيعات خارجي."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid ""
+"A linked summary changed. Review and approve it from the sales summaries "
+"list."
+msgstr ""
+"تغيّر أحد الملخصات المرتبطة. راجعه واعتمده من قائمة الملخصات المحفوظة."
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_baseer_pos_summary_allocation_payment_unique
+msgid "A native POS payment may belong to only one allocation."
+msgstr "لا يمكن ربط دفعة نقاط البيع بأكثر من مبلغ توزيع واحد."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "A native summary accounting entry is not balanced."
+msgstr "أحد القيود المحاسبية الناتجة عن الملخص غير متوازن."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "A no-sales operation must have zero sales and zero customers."
+msgstr "عند تسجيل تشغيل دون مبيعات، يجب أن تكون المبيعات وعدد العملاء صفرًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "A replacement must retain the original sales date and shift."
+msgstr "يجب أن يحتفظ البديل بتاريخ المبيعات والفترة الأصليين."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid ""
+"A scheduled shift has not been recorded. Its absence does not mean zero "
+"sales. Review the shift details."
+msgstr ""
+"لم يُسجّل أحد الشفتات المقررة. عدم تسجيله لا يعني أن مبيعاته صفر. راجع "
+"تفاصيل الشفتات."
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_baseer_pos_summary_active_company_date_period_unique
+msgid "A summary already exists for this company, date and period."
+msgstr ""
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_pos_order_baseer_summary_unique
+msgid "A summary may own only one POS order."
+msgstr "يمكن ربط الملخص بطلب نقاط بيع واحد فقط."
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_pos_session_baseer_summary_unique
+msgid "A summary may own only one POS session."
+msgstr "يمكن ربط الملخص بجلسة نقاط بيع واحدة فقط."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__period_scope__all
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__period_scope__all
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "All Day"
+msgstr "اليوم كاملًا"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__day_schedule__all
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__day_schedule__all
+msgid "All day"
+msgstr "دوام كامل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "All summaries on the same date must use the same day schedule."
+msgstr "يجب أن تتبع جميع ملخصات التاريخ نفسه نظام الدوام نفسه."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__allocation_ids
+msgid "Allocation"
+msgstr "توزيع طرق الدفع"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Allocation company, category and native payment links are controlled by the "
+"server."
+msgstr "تُحدد شركة توزيع الدفعات وفئته وروابط دفعاته الأصلية آليًا."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__amount
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__amount
+msgid "Amount"
+msgstr "المبلغ شامل الضريبة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__amount_gross
+msgid "Amount Gross"
+msgstr "الإجمالي شامل الضريبة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__amount_net
+msgid "Amount Net"
+msgstr "المبيعات دون الضريبة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__amount_tax
+msgid "Amount Tax"
+msgstr "الضريبة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__amount_total
+msgid "Amount Total"
+msgstr "الإجمالي شامل الضريبة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "An external summary supports at most 25 payment methods."
+msgstr "يمكن إدخال 25 طريقة دفع كحد أقصى في الملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid ""
+"An original entry is no longer posted or already has a reversal. Review the "
+"previous receipt or accounting correction before correcting sales."
+msgstr ""
+"أحد القيود الأصلية غير مرحّل أو سبق عكسه. راجع تصحيح الإيصال أو القيد السابق"
+" قبل تصحيح المبيعات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Application payments require a separate current-asset clearing account, not "
+"a cash account."
+msgstr "تتطلب دفعات التطبيقات حساب تسوية مستقلًا من نوع الأصول المتداولة."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_payment_category__kind__platform
+msgid "Applications"
+msgstr "تطبيقات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Approve and open WhatsApp"
+msgstr "اعتماد وفتح واتساب"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Approve and save the summary before preparing a WhatsApp message."
+msgstr "اعتمد الملخص واحفظه قبل تجهيز رسالة واتساب."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Approve this summary and post its sales and payments?"
+msgstr "هل تريد اعتماد الملخص وترحيل مبيعاته ودفعاته؟"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Approve this summary and prepare its WhatsApp message?"
+msgstr "هل تريد اعتماد الملخص وتجهيز رسالته في واتساب؟"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__state__approved
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__first_state__approved
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__second_state__approved
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__state__approved
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__state__approved
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__approved_at
+msgid "Approved At"
+msgstr "تاريخ الاعتماد"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__approved_by_id
+msgid "Approved By"
+msgstr "اعتمد بواسطة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid ""
+"Approved POS summaries count only reconciled cash or bank collections; "
+"platform clearing is not cash."
+msgstr ""
+"تحتسب ملخصات نقاط البيع المعتمدة التحصيل النقدي أو البنكي الذي تمت مطابقته؛ "
+"ولا تُعد أرصدة تسوية التطبيقات نقدًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Approved external summaries cannot be changed or deleted."
+msgstr "لا يمكن تعديل ملخصات المبيعات المعتمدة أو حذفها."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Archive"
+msgstr "أرشفة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Archive status must be enabled or disabled."
+msgstr "يجب تفعيل حالة الأرشفة أو إلغاء تفعيلها."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__is_archived
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__is_archived
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__is_archived
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__is_archived
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__average_daily_customers
+msgid "Average Daily Customers"
+msgstr "متوسط العملاء اليومي"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__average_daily_sales
+msgid "Average Daily Sales"
+msgstr "متوسط المبيعات اليومية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__average_per_customer
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__average_per_customer
+msgid "Average Per Customer"
+msgstr "متوسط البيع للعميل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Average per customer: %s"
+msgstr "متوسط البيع للعميل: %s"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_payment_category__kind__bank
+msgid "Bank"
+msgstr "بنك"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr "بند كشف الحساب البنكي"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Bank summary payments must post to an actual bank liquidity account. Use an "
+"application category for deferred platform clearing."
+msgstr ""
+"يجب ترحيل دفعات البنك إلى حساب سيولة بنكية فعلي. استخدم فئة التطبيقات "
+"للمبالغ التي تنتظر تسوية المنصة."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_bank_statement_line__baseer_pos_summary_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_move__baseer_pos_summary_id
+msgid "Baseer Pos Summary"
+msgstr "ملخص مبيعات بصير"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_order__baseer_summary_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_session__baseer_summary_id
+msgid "Baseer Summary"
+msgstr "ملخص بصير"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_eh_account_dynamic_report_handler_baseer_cash_categories
+msgid "Baseer cash movement by category"
+msgstr "الحركة النقدية حسب الفئة — بصير"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid ""
+"Both shift cards must contain the same payment methods before switching "
+"Evening only. Keep the current selection or start a new entry."
+msgstr ""
+"يجب أن تتضمن بطاقتا الشفتين طرق الدفع نفسها قبل التبديل إلى «مسائي فقط». "
+"أبقِ الاختيار الحالي أو ابدأ إدخالًا جديدًا."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__business_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__business_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__business_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__business_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__business_date
+msgid "Business Date"
+msgstr "تاريخ المبيعات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Cancel closure"
+msgstr "إلغاء الإغلاق"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Cancel this closure and allow sales entries for its dates?"
+msgstr "هل تريد إلغاء هذا الإغلاق والسماح بإدخال المبيعات خلال تواريخه؟"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__cancellation_reason
+msgid "Cancellation Reason"
+msgstr "سبب الإلغاء"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__state__cancelled
+msgid "Cancelled"
+msgstr "ملغى"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__cancelled_at
+msgid "Cancelled At"
+msgstr "تاريخ الإلغاء"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__cancelled_by_id
+msgid "Cancelled By"
+msgstr "ألغاه"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__first_state__cancelled
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__second_state__cancelled
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__state__cancelled
+msgid "Cancelled for correction"
+msgstr "ملغى للتصحيح"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_payment_category__kind__cash
+msgid "Cash"
+msgstr "نقد"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Cash categories require cash journals; bank and application categories "
+"require bank journals."
+msgstr ""
+"تتطلب فئة النقد دفتر يومية نقديًا، وتتطلب فئتا البنك والتطبيقات دفاتر يومية "
+"بنكية."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_search
+msgid "Category"
+msgstr "الفئة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Choose a valid date range of at most 366 days."
+msgstr "اختر فترة صحيحة لا تتجاوز 366 يومًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Choose an active manual summary payment method from this company, without "
+"split transactions or foreign currency."
+msgstr ""
+"اختر طريقة دفع يدوية نشطة للملخص من هذه الشركة، دون تقسيم معاملات أو عملة "
+"أجنبية."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "Choose an active summary configuration."
+msgstr "اختر إعدادًا مفعّلًا لملخص المبيعات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid "Choose whether a day has a missing shift."
+msgstr "اختر ما إذا كان اليوم يتضمن فترة ناقصة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid ""
+"Clear the entered amounts, customers, notes and no-sales declarations before"
+" switching to or from Full day."
+msgstr ""
+"امسح المبالغ وأعداد العملاء والملاحظات، وألغِ خيارات التشغيل دون مبيعات، قبل"
+" التبديل من «دوام كامل» أو إليه."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_form
+msgid "Close"
+msgstr ""
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_daily_report_line__status__closed
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__closed_days
+msgid "Closed Days"
+msgstr "أيام الإغلاق"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__is_day_off
+msgid "Closed day"
+msgstr "يوم مغلق"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Closed days are excluded from daily sales and customer averages."
+msgstr "تُستبعد أيام الإغلاق من متوسط المبيعات اليومية ومتوسط العملاء اليومي."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__closure_ids
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__closure_id
+msgid "Closure"
+msgstr "الإغلاق"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Closure approval and audit fields are controlled by the server."
+msgstr ""
+"يتولى النظام تسجيل اعتماد الإغلاق وبياناته الرقابية؛ لا يمكن تعديلها يدويًا."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Closure details"
+msgstr "تفاصيل الإغلاق"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Closure period"
+msgstr "فترة الإغلاق"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+msgid "Closures"
+msgstr "الإغلاقات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__company_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__company_id
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__complete_customers
+msgid "Complete Customers"
+msgstr "عملاء أيام التشغيل المكتملة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__complete_sales
+msgid "Complete Sales"
+msgstr "مبيعات أيام التشغيل المكتملة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_daily_report_line__status__complete
+msgid "Complete operating day"
+msgstr "يوم تشغيل مكتمل"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_line_graph
+msgid "Completed operating days"
+msgstr "أيام التشغيل المكتملة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "Completed operating days — sales and customers"
+msgstr "أيام التشغيل المكتملة — المبيعات والعملاء"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__config_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__config_id
+msgid "Config"
+msgstr "نقطة بيع الملخصات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Configure a dedicated SAR summary POS with journals, without cash rounding, "
+"fiscal positions or presets."
+msgstr ""
+"أعدّ نقطة بيع مخصصة للملخصات بالريال السعودي مع دفاتر يوميتها، دون تقريب "
+"نقدي أو أوضاع ضريبية أو إعدادات مسبقة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Configure a valid income account on the summary service product or its "
+"category."
+msgstr "حدد حساب إيراد صالحًا لمنتج خدمة الملخص أو فئته."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Configure an active reconcilable POS intermediary receivable account for "
+"this company."
+msgstr ""
+"حدد حسابًا وسيطًا نشطًا ومستحقًا لنقاط البيع في هذه الشركة، قابلًا للمطابقة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Configure an active reconcilable outstanding account for this payment "
+"method."
+msgstr "حدد حساب مبالغ معلقة نشطًا وقابلًا للمطابقة لطريقة الدفع."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "Configure an active summary service product for this company."
+msgstr "حدد منتج خدمة نشطًا للملخصات في هذه الشركة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Configure between 1 and 25 summary payment methods, including at most one "
+"cash method."
+msgstr "أعدّ من 1 إلى 25 طريقة دفع للملخصات، منها طريقة نقدية واحدة كحد أقصى."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid ""
+"Configure full sales tax repartition and its tax accounts before approving "
+"summaries."
+msgstr "أكمل توزيع ضريبة المبيعات وحساباتها قبل اعتماد الملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid ""
+"Configure one active simple sales percentage tax on invoice for this "
+"company."
+msgstr ""
+"حدد ضريبة مبيعات نشطة واحدة بنسبة بسيطة، مستحقة عند الفوترة، لهذه الشركة."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Confirm closure"
+msgstr "تأكيد الإغلاق"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__state__confirmed
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__confirmed_at
+msgid "Confirmed At"
+msgstr "تاريخ التأكيد"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__confirmed_by_id
+msgid "Confirmed By"
+msgstr "أكّده"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid ""
+"Confirmed or cancelled closures cannot be changed. Cancel the closure with a"
+" reason instead."
+msgstr ""
+"لا يمكن تعديل إغلاق مؤكد أو ملغى. لإتاحة العمل خلال إغلاق مؤكد، ألغِه مع "
+"توضيح السبب."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_form
+msgid "Correct sales summary"
+msgstr "تصحيح ملخص المبيعات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_history
+msgid "Correct summary"
+msgstr "تصحيح الملخص"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__corrected_at
+msgid "Corrected At"
+msgstr "تاريخ التصحيح"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__corrected_by_id
+msgid "Corrected By"
+msgstr "صحّح بواسطة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__correction_reason
+msgid "Correction Reason"
+msgstr "سبب التصحيح"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_history
+msgid "Correction history"
+msgstr "سجل التصحيح"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Correction of %s: %s"
+msgstr "تصحيح %s: %s"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Create a new dedicated POS; an existing cashier session history cannot be "
+"converted to summaries."
+msgstr ""
+"أنشئ نقطة بيع مخصصة جديدة؛ لا يمكن تحويل سجل جلسات الكاشير إلى ملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Create payment slots inside a sales entry."
+msgstr "أضف مبالغ طرق الدفع من داخل شاشة إدخال المبيعات."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__create_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__create_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid "Cross-company reconciliation is not permitted."
+msgstr "لا يُسمح بالمطابقة بين شركات مختلفة."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__currency_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__currency_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__currency_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__currency_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__currency_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__currency_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__customer_count
+msgid "Customer Count"
+msgstr "عدد العملاء"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__customer_total
+msgid "Customer Total"
+msgstr "إجمالي العملاء"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Customer count"
+msgstr "عدد العملاء"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Customer count must be a whole number between 0 and 10000000."
+msgstr "يجب أن يكون عدد العملاء عددًا صحيحًا بين 0 و10000000."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__customers
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__customer_total
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_list
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Customers: %s"
+msgstr "عدد العملاء: %s"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__day_off
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+msgid "DAY OFF"
+msgstr "إجازة / DAY OFF"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "DAY OFF must be a checkbox value."
+msgstr "يجب تفعيل خيار الإجازة أو إلغاء تفعيله."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid ""
+"Daily averages are unavailable until a complete operating day is recorded."
+msgstr "تظهر المتوسطات اليومية بعد تسجيل يوم تشغيل مكتمل واحد على الأقل."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "Daily averages — complete operating days"
+msgstr "المتوسطات اليومية — أيام التشغيل المكتملة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Daily collections"
+msgstr "مقبوضات اليوم"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "Daily result rows can only be generated by the report."
+msgstr "ينشئ التقرير وحده صفوف النتائج اليومية."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "Daily result rows cannot be deleted manually."
+msgstr "لا يمكن حذف صفوف النتائج اليومية يدويًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "Daily result rows cannot be edited."
+msgstr "لا يمكن تعديل صفوف النتائج اليومية."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_pos_daily_report
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_pos_daily_report
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "Daily sales and customers"
+msgstr "المبيعات والعملاء يوميًا"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_daily_report
+msgid "Daily sales and customers report"
+msgstr "تقرير المبيعات والعملاء اليومي"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_day_entry
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_day_entry
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Daily sales entry"
+msgstr "إدخال المبيعات اليومية"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_day_entry_line
+msgid "Daily sales payment slot"
+msgstr "مبلغ طريقة الدفع للمبيعات اليومية"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_daily_report_line
+msgid "Daily sales result"
+msgstr "نتيجة المبيعات اليومية"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_day_archive
+msgid "Daily sales summaries"
+msgstr "ملخصات المبيعات اليومية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Daily sales summary"
+msgstr "ملخص المبيعات اليومي"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "Daily timeline"
+msgstr "المخطط اليومي"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Daily total"
+msgstr "إجمالي اليوم"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__date_from
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__date_from
+msgid "Date From"
+msgstr "من تاريخ"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__date_to
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__date_to
+msgid "Date To"
+msgstr "إلى تاريخ"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid ""
+"Dates include the first and last day. A closure records no sales or "
+"accounting entries."
+msgstr ""
+"تشمل الفترة يوم البداية ويوم النهاية. لا ينشئ الإغلاق مبيعات أو قيودًا "
+"محاسبية."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__day_schedule
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__day_schedule
+msgid "Day Schedule"
+msgstr "نظام دوام اليوم"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__day_schedule
+msgid "Day schedule"
+msgstr "نظام دوام اليوم"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"Dedicated summary sessions can only be created by approving an external "
+"summary."
+msgstr "تُنشأ جلسات الملخصات المخصصة من خلال اعتماد ملخص خارجي فقط."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid ""
+"Delete all draft shifts of this day permanently? Approved sales cannot be "
+"deleted."
+msgstr ""
+"هل تريد حذف جميع مسودات شفتات هذا اليوم نهائيًا؟ لا يمكن حذف المبيعات "
+"المعتمدة."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Delete drafts"
+msgstr "حذف المسودات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+msgid ""
+"Delete the selected draft days permanently? If any selected day is approved "
+"or DAY OFF, nothing will be deleted."
+msgstr ""
+"هل تريد حذف مسودات الأيام المحددة نهائيًا؟ إذا تضمنت الأيام المحددة يومًا "
+"معتمدًا أو إجازة، فلن يُحذف أي منها."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_bank_statement_line__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_move__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_payment__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_eh_account_dynamic_report_handler_baseer_cash_categories__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_config__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_order__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment_method__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_session__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_product_template__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__state__draft
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__state__draft
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__first_state__draft
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__second_state__draft
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__state__draft
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "Each application must use its own distinct clearing account."
+msgstr "يجب أن يستخدم كل تطبيق حساب تسوية مستقلًا خاصًا به."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid ""
+"Each complete operating date counts once, regardless of its shifts. Closed "
+"and incomplete dates are excluded from daily averages. Recorded totals "
+"include approved entries from incomplete dates. Sales include VAT."
+msgstr ""
+"يُحسب يوم التشغيل المكتمل مرة واحدة مهما كان عدد شفتاته. تُستبعد أيام "
+"الإغلاق والأيام غير المكتملة من المتوسطات اليومية. وتشمل الإجماليات المسجلة "
+"الملخصات المعتمدة للأيام غير المكتملة. المبيعات شاملة للضريبة."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.actions.act_window,help:baseer_pos_summary.action_summary
+msgid ""
+"Each day appears once. Open it to view its morning and evening shifts "
+"together."
+msgstr ""
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Each payment allocation must belong to a saved draft summary."
+msgstr "يجب أن يرتبط كل مبلغ بطريقة دفع في ملخص مسودة محفوظ."
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_baseer_pos_summary_allocation_summary_method_unique
+msgid "Each payment method may appear only once per summary."
+msgstr "يمكن إدخال كل طريقة دفع مرة واحدة فقط في الملخص."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__reason__eid
+msgid "Eid"
+msgstr "عيد"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Enter a cancellation reason first."
+msgstr "أدخل سبب الإلغاء أولًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Enter a correction reason of at most 2000 characters."
+msgstr "أدخل سبب التصحيح بما لا يتجاوز 2000 حرف."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid ""
+"Enter a nonnegative amount with at most two decimals, no greater than "
+"999999999.99."
+msgstr ""
+"أدخل مبلغًا يساوي صفرًا أو أكثر، بمنزلتين عشريتين كحد أقصى، ولا يتجاوز "
+"999999999.99."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid ""
+"Enter a positive amount with at most two decimals, no greater than "
+"999999999.99."
+msgstr "أدخل مبلغًا موجبًا بمنزلتين عشريتين كحد أقصى، لا يتجاوز 999999999.99."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Enter a sales amount, or explicitly declare an operating day with no sales."
+msgstr "أدخل مبلغ المبيعات، أو فعّل خيار التشغيل دون مبيعات."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Enter sales including VAT for each payment method."
+msgstr "أدخل المبيعات شاملة الضريبة لكل طريقة دفع."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_config_summary_kanban
+msgid "Enter summary"
+msgstr "إدخال ملخص"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Enter the full sales amount for each payment method, including VAT."
+msgstr "أدخل كامل مبلغ المبيعات لكل طريقة دفع، شاملًا ضريبة القيمة المضافة."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__entry_id
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__state__draft
+msgid "Entry"
+msgstr "الإدخال"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Entry status, totals and summary links are controlled by the server."
+msgstr ""
+"يتولى النظام تحديث حالة الإدخال وإجمالياته وروابط الملخصات؛ لا يمكن تعديلها "
+"يدويًا."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__period_scope__evening
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__period_scope__evening
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Evening"
+msgstr "مسائية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__day_schedule__evening
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__day_schedule__evening
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__day_schedule__evening
+msgid "Evening only"
+msgstr "مسائي فقط"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__evening_total
+msgid "Evening sales"
+msgstr "مبيعات المساء"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__pick_evening
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Evening shift"
+msgstr "الشفت المسائي"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Every summary accounting entry must be posted in the correct company on the "
+"requested business date."
+msgstr "يجب ترحيل جميع قيود الملخص في الشركة الصحيحة وبتاريخ المبيعات المحدد."
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_summary
+msgid "External POS sales summary"
+msgstr "ملخص مبيعات نقاط البيع الخارجية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid "External POS summaries currently support SAR companies only."
+msgstr "تدعم ملخصات المبيعات حاليًا الشركات التي تستخدم الريال السعودي فقط."
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_summary_allocation
+msgid "External POS summary payment allocation"
+msgstr "توزيع طرق دفع ملخص المبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__external_reference
+msgid "External Reference"
+msgstr "مرجع التقرير الخارجي"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "External Sales Summary"
+msgstr "ملخص المبيعات الخارجية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_config__baseer_summary_only
+msgid "External Summaries Only"
+msgstr "مخصص للملخصات الخارجية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__pos_order__source__baseer_summary
+msgid "External Summary"
+msgstr "ملخص خارجي"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "External report opening; no additional opening cash transaction."
+msgstr "افتتاح جلسة التقرير الخارجي دون حركة نقدية افتتاحية إضافية."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_config_summary
+msgid "External sales summaries"
+msgstr "ملخصات المبيعات الخارجية"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "External sales summary"
+msgstr "ملخص المبيعات الخارجية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid ""
+"External settlements are linked to this summary. Review and undo those "
+"settlements using their original accounting workflow before correcting "
+"sales."
+msgstr ""
+"توجد تسويات خارجية مرتبطة بهذا الملخص. راجع تلك التسويات وألغِ مطابقتها من "
+"مسارها المحاسبي الأصلي قبل تصحيح المبيعات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "External summary POS payments are controlled by summary approval."
+msgstr "تُنشأ دفعات نقاط البيع للملخص الخارجي من خلال اعتماد الملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "External summary POS payments cannot be deleted."
+msgstr "لا يمكن حذف دفعات نقاط البيع المرتبطة بملخص خارجي."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "External summary POS payments cannot be edited directly."
+msgstr "لا يمكن تعديل دفعات نقاط البيع للملخص الخارجي مباشرةً."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "External summary closing does not allow manual balancing differences."
+msgstr "لا يسمح إغلاق الملخص الخارجي بإدخال فروق موازنة يدوية."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "External summary order lines are controlled by summary approval."
+msgstr "تُنشأ بنود طلب الملخص الخارجي من خلال اعتماد الملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "External summary order lines cannot be edited directly."
+msgstr "لا يمكن تعديل بنود طلب الملخص الخارجي مباشرةً."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"External summary orders can only be created by the authorized summary "
+"approval."
+msgstr "تُنشأ طلبات الملخص الخارجي عبر إجراء الاعتماد المصرح به فقط."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"External summary session accounting and links are controlled by summary "
+"approval."
+msgstr "يُحدد إجراء اعتماد الملخص محاسبة جلسته وروابطها."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_allocation_ids
+msgid "First Allocation"
+msgstr "مبالغ طرق الدفع للشفت الأول"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_customers
+msgid "First Customers"
+msgstr "عملاء الشفت الأول"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_missing
+msgid "First Missing"
+msgstr "الشفت الأول غير مسجل"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_notes
+msgid "First Notes"
+msgstr "ملاحظات الشفت الأول"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_state
+msgid "First State"
+msgstr "حالة الشفت الأول"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_total
+msgid "First Total"
+msgstr "إجمالي الشفت الأول"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__first_zero_sales
+msgid "First Zero Sales"
+msgstr "تشغيل الشفت الأول دون مبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry_line__slot__first
+msgid "First shift"
+msgstr "الشفت الأول"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "From date"
+msgstr "من تاريخ"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__pick_all
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__day_schedule__all
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Full day"
+msgstr "دوام كامل"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__generated
+msgid "Generated"
+msgstr "تم إعداد التقرير"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Gross sales: %s"
+msgstr "إجمالي المبيعات شامل الضريبة: %s"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__has_sales
+msgid "Has Sales"
+msgstr "لديه بيانات مبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__reason__holiday
+msgid "Holiday"
+msgstr "إجازة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_bank_statement_line__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_move__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_move_line__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_account_payment__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_eh_account_dynamic_report_handler_baseer_cash_categories__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_config__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_order__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_order_line__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment_method__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_session__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_product_template__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__incomplete_days
+msgid "Incomplete Days"
+msgstr "أيام غير مكتملة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_daily_report_line__status__incomplete
+msgid "Incomplete day"
+msgstr "يوم غير مكتمل"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__is_current_company
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__is_current_company
+msgid "Is Current Company"
+msgstr "تابع للشركة المفعّلة"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_account_move
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__move_id
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__kind
+msgid "Kind"
+msgstr "النوع"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__write_uid
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__write_date
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__write_date
+msgid "Last Updated on"
+msgstr "تاريخ آخر تحديث"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__line_ids
+msgid "Line"
+msgstr "الصف"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__reason__maintenance
+msgid "Maintenance"
+msgstr "صيانة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__missing_days
+msgid "Missing Days"
+msgstr "أيام دون إدخال"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_daily_report_line__status__missing
+msgid "Missing entry"
+msgstr "لم يُدخل الملخص"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__missing_shift
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+msgid "Missing shift"
+msgstr "شفت غير مسجل"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Month"
+msgstr "الشهر"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__period_scope__morning
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__period_scope__morning
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Morning"
+msgstr "صباحية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__day_schedule__split
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__day_schedule__split
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__day_schedule__split
+msgid "Morning and evening"
+msgstr "صباحي ومسائي"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__day_schedule__morning
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__day_schedule__morning
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_summary__day_schedule__morning
+msgid "Morning only"
+msgstr "صباحي فقط"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__morning_total
+msgid "Morning sales"
+msgstr "مبيعات الصباح"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__pick_morning
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Morning shift"
+msgstr "الشفت الصباحي"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_config_summary_kanban
+msgid "Morning, evening or DAY OFF"
+msgstr "صباحي، مسائي أو إجازة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__name
+msgid "Name"
+msgstr "المرجع"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Native cash and clearing balances do not match the declared payment methods."
+msgstr "أرصدة النقد والتسوية لا تطابق مبالغ طرق الدفع المدخلة."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_list
+msgid "Net sales"
+msgstr "المبيعات دون الضريبة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+msgid "New"
+msgstr "جديد"
+
+#. module: baseer_pos_summary
+#. odoo-javascript
+#: code:addons/baseer_pos_summary/static/src/xml/payment_amount_grid.xml:0
+msgid "No payment methods are configured for this company."
+msgstr "لم تُضبط طرق الدفع لهذه الشركة."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+msgid "Not archived"
+msgstr "غير مؤرشف"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__notes
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__notes
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Notes: %s"
+msgstr "ملاحظات: %s"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid "Only a POS manager can archive summaries or delete a draft day."
+msgstr "يستطيع مدير نقاط البيع فقط أرشفة الملخصات أو حذف مسودات يوم."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid "Only a POS manager can archive, restore or delete daily summaries."
+msgstr ""
+"يستطيع مدير نقاط البيع فقط أرشفة الملخصات اليومية أو إلغاء أرشفتها أو حذفها."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Only a POS manager can cancel a closure."
+msgstr "يستطيع مدير نقاط البيع فقط إلغاء الإغلاق."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"Only a fully reversed summary correction may cancel its retained POS order."
+msgstr ""
+"لا يمكن إلغاء طلب نقطة البيع المحفوظ إلا بعد عكس جميع قيود الملخص بالكامل "
+"ضمن التصحيح."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Only an approved summary can be corrected."
+msgstr "يمكن تصحيح ملخص معتمد فقط."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Only confirmed closures can be cancelled."
+msgstr "يمكن إلغاء الإغلاقات المؤكدة فقط."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid ""
+"Only days containing draft sales summaries can be deleted. Approved sales "
+"and confirmed closures must be retained."
+msgstr ""
+"يمكن حذف الأيام التي تحتوي على ملخصات مبيعات مسودة فقط. يجب الاحتفاظ "
+"بالمبيعات المعتمدة والإغلاقات المؤكدة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Only draft closures can be confirmed."
+msgstr "يمكن تأكيد الإغلاقات المسودة فقط."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "Only draft closures can be deleted."
+msgstr "يمكن حذف الإغلاقات المسودة فقط."
+
+#. module: baseer_pos_summary
+#: model:ir.model.constraint,message:baseer_pos_summary.constraint_pos_config_baseer_summary_company_unique
+msgid "Only one dedicated summary POS may be configured per company."
+msgstr "يمكن إعداد نقطة بيع مخصصة واحدة للملخصات لكل شركة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid ""
+"Only tax evidenced by posted invoices or approved POS summaries is excluded;"
+" unknown tax retains the full cash amount."
+msgstr ""
+"تُستبعد الضريبة المثبتة بفواتير مرحلة أو ملخصات نقاط بيع معتمدة فقط؛ وتبقى "
+"الحركة النقدية كاملة عند غياب الإثبات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Only the correction creator can use this request."
+msgstr "يمكن لمن أنشأ طلب التصحيح فقط استخدامه."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Only the entry creator can use this sales entry."
+msgstr "يستطيع مُنشئ الإدخال فقط استخدامه."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "Only the report creator can use these results."
+msgstr "يستطيع مُنشئ التقرير فقط استخدام هذه النتائج."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Open WhatsApp"
+msgstr "فتح واتساب"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "Open the dedicated session through external summary approval."
+msgstr "افتح الجلسة المخصصة من خلال اعتماد ملخص المبيعات الخارجي."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__operating_days
+msgid "Operating Days"
+msgstr "أيام التشغيل المكتملة"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Operating closure"
+msgstr "تسجيل إغلاق"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_pos_closure
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_pos_closure
+msgid "Operating closures"
+msgstr "فترات الإغلاق"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__date_label
+msgid "Operating date"
+msgstr "تاريخ التشغيل"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Optional closure details"
+msgstr "تفاصيل الإغلاق (اختياري)"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Optional notes"
+msgstr "ملاحظات اختيارية"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__order_id
+msgid "Order"
+msgstr "الطلب"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_order__source
+msgid "Origin"
+msgstr "الأصل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Original Accounting Entries"
+msgstr "القيود المحاسبية الأصلية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Original POS Order"
+msgstr "طلب نقاط البيع الأصلي"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Original POS Session"
+msgstr "جلسة نقاط البيع الأصلية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"Original external summary order amounts and links cannot be edited directly."
+msgstr "لا يمكن تعديل مبالغ طلب الملخص الخارجي الأصلي أو روابطه مباشرةً."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "Original external summary order lines cannot be deleted."
+msgstr "لا يمكن حذف بنود طلب ملخص المبيعات الخارجي الأصلي."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "Original external summary orders cannot be deleted."
+msgstr "لا يمكن حذف طلبات ملخصات المبيعات الخارجية الأصلية."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__reason__other
+msgid "Other"
+msgstr "سبب آخر"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid ""
+"POS and accounting manager permissions are required to configure external "
+"summaries."
+msgstr "يتطلب إعداد الملخصات صلاحيات مدير نقاط البيع ومدير المحاسبة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"POS and invoicing permissions are required to approve external summaries."
+msgstr "يتطلب اعتماد الملخص صلاحيات نقاط البيع والفوترة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid "POS settlement has no matching receivable balance."
+msgstr "لا يوجد رصيد مستحق مطابق لتسوية نقاط البيع."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid ""
+"POS source details are not accessible; the full cash amount is retained "
+"without inferring tax."
+msgstr ""
+"لا تتوفر صلاحية الاطلاع على تفاصيل مصدر نقاط البيع؛ تُحتسب الحركة النقدية "
+"كاملة دون افتراض ضريبتها."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid ""
+"POS summary accounting evidence is incomplete; its full cash amount is "
+"retained."
+msgstr ""
+"الإثبات المحاسبي لملخص نقاط البيع غير مكتمل؛ تُحتسب الحركة النقدية كاملة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid ""
+"POS summary cash has no supported positive receivable evidence; its full "
+"amount is retained."
+msgstr ""
+"لا يوجد إثبات مستحق موجب مدعوم للتحصيل النقدي في الملخص؛ يُحتسب المبلغ "
+"كاملًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid "POS summary evidence is outside the report company."
+msgstr "إثبات ملخص نقاط البيع تابع لشركة أخرى غير شركة التقرير."
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_payment_category
+msgid "POS summary payment category"
+msgstr "فئة طرق دفع الملخصات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid ""
+"POS tax portions are rounded for each actual receipt; their sum can differ "
+"by a cent from the full source tax."
+msgstr ""
+"تُقرّب حصة الضريبة لكل تحصيل فعلي؛ وقد يختلف مجموع الحصص بمقدار هللة عن "
+"ضريبة المصدر الكاملة."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_archive__state__mixed
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+msgid "Partly approved"
+msgstr "معتمد جزئيًا"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__payment_method_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__payment_method_id
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Payment allocations cannot be moved between summaries."
+msgstr "لا يمكن نقل مبالغ طرق الدفع بين الملخصات."
+
+#. module: baseer_pos_summary
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_payment_category
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_payment_category
+msgid "Payment categories"
+msgstr "فئات طرق الدفع"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Payment lines must remain in their own shift card."
+msgstr "يجب أن تبقى مبالغ طرق الدفع ضمن بطاقة الشفت الخاصة بها."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_search
+msgid "Payment method"
+msgstr "طريقة الدفع"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Payment methods used by approved summaries cannot be reclassified or "
+"assigned different accounts. Create a new method instead."
+msgstr ""
+"لا يمكن تغيير فئة طريقة دفع مستخدمة في ملخصات معتمدة أو حساباتها. أنشئ طريقة"
+" جديدة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Payment slot metadata is controlled by the server."
+msgstr ""
+"يتولى النظام ضبط بيانات طريقة الدفع المرتبطة بالمبلغ؛ لا يمكن تغييرها "
+"يدويًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Payment slots must be created or edited within their own entry."
+msgstr "أضف مبالغ طرق الدفع أو عدّلها من داخل الإدخال الخاص بها."
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_account_payment
+msgid "Payments"
+msgstr "الدفعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__period_scope
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__period_scope
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__period_scope
+msgid "Period Scope"
+msgstr "الفترة"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "Period coverage"
+msgstr "حالة بيانات الفترة"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "تهيئة نقطة البيع"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "بنود طلب نقطة البيع"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "طلبات نقطة البيع"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "طرق الدفع في نقطة البيع"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "مدفوعات نقطة البيع"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_pos_session
+msgid "Point of Sale Session"
+msgstr "جلسة نقطة البيع"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "Point of Sale access is required."
+msgstr "يلزم توفر صلاحية نقاط البيع."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__pos_payment_id
+msgid "Pos Payment"
+msgstr "الدفعة الأصلية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Posted native revenue, tax and payments must match the approved summary "
+"exactly."
+msgstr ""
+"يجب أن تطابق الإيرادات والضريبة والدفعات المرحلة مبالغ الملخص المعتمد "
+"تمامًا."
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_product_template
+msgid "Product"
+msgstr "المنتج"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__reason
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__closure_reason
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__reason
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+msgid "Reason"
+msgstr "السبب"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__closure_notes
+msgid "Reason details"
+msgstr "تفاصيل السبب"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Reason: %s"
+msgstr "السبب: %s"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.actions.act_window,help:baseer_pos_summary.action_summary
+msgid "Record your daily sales"
+msgstr ""
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__recorded_customers
+msgid "Recorded Customers"
+msgstr "إجمالي العملاء المسجل"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__recorded_sales
+msgid "Recorded Sales"
+msgstr "إجمالي المبيعات المسجلة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__shift_count
+msgid "Recorded periods"
+msgstr "الفترات المسجلة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__replacement_id
+msgid "Replacement"
+msgstr "البديل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Replacement sales summary"
+msgstr "ملخص المبيعات البديل"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__replaces_id
+msgid "Replaces"
+msgstr "بديل عن"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__report_id
+msgid "Report"
+msgstr "التقرير"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "Report results are calculated by the server."
+msgstr "يحسب النظام نتائج التقرير؛ لا يمكن تعديلها يدويًا."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__reversal_move_ids
+msgid "Reversal Move"
+msgstr "قيود العكس"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_form
+msgid "Reverse and prepare replacement"
+msgstr "عكس القيود وإعداد البديل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/accounting.py:0
+msgid "Reverse summary receipts one company at a time."
+msgstr "اعكس إيصالات الملخص لشركة واحدة في كل مرة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Review replacement sales summary"
+msgstr "مراجعة ملخص المبيعات البديل"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_summary_correction
+msgid "Reviewed sales summary correction"
+msgstr "تصحيح ملخص المبيعات بعد المراجعة"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_list
+msgid "Sales"
+msgstr "المبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_summary_analysis
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_summary_analysis
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_graph
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_pivot
+msgid "Sales and customers"
+msgstr "المبيعات والعملاء"
+
+#. module: baseer_pos_summary
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_allocation_analysis
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_allocation_analysis
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_graph
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_pivot
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Sales by payment method"
+msgstr "المبيعات حسب طريقة الدفع"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_allocation_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Sales date"
+msgstr "تاريخ المبيعات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Sales day"
+msgstr "بيانات يوم المبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__sales
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__amount_total
+msgid "Sales including VAT"
+msgstr "المبيعات شاملة الضريبة"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_baseer_pos_closure
+msgid "Sales operating closure"
+msgstr "إغلاق نشاط المبيعات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_summary
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
+msgid "Sales summaries"
+msgstr "ملخصات المبيعات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid "Sales summaries — %s"
+msgstr "ملخصات المبيعات — %s"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_pos_day_entry
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Sales summary"
+msgstr "ملخص المبيعات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Save"
+msgstr "حفظ"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Save and WhatsApp"
+msgstr "حفظ وإرسال واتساب"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid ""
+"Save and approve all recorded shifts before preparing the daily WhatsApp "
+"report."
+msgstr "احفظ واعتمد جميع الشفتات المسجلة قبل تجهيز تقرير اليوم للواتساب."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Save and confirm the closure before preparing its WhatsApp message."
+msgstr "احفظ الإغلاق وأكّده قبل تجهيز رسالته للواتساب."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Save the entry before approving its summaries."
+msgstr "احفظ الإدخال قبل اعتماد ملخصاته."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__saved
+msgid "Saved"
+msgstr "محفوظ"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__saved_closure_id
+msgid "Saved Closure"
+msgstr "الإغلاق المحفوظ"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__saved_summary_ids
+msgid "Saved Summary"
+msgstr "الملخصات المحفوظة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry__state__saved
+msgid "Saved drafts"
+msgstr "مسودات محفوظة"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_config_summary_kanban
+msgid "Saved summaries"
+msgstr "الملخصات المحفوظة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_allocation_ids
+msgid "Second Allocation"
+msgstr "مبالغ طرق الدفع للشفت الثاني"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_customers
+msgid "Second Customers"
+msgstr "عملاء الشفت الثاني"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_missing
+msgid "Second Missing"
+msgstr "الشفت الثاني غير مسجل"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_notes
+msgid "Second Notes"
+msgstr "ملاحظات الشفت الثاني"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_state
+msgid "Second State"
+msgstr "حالة الشفت الثاني"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_total
+msgid "Second Total"
+msgstr "إجمالي الشفت الثاني"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__second_zero_sales
+msgid "Second Zero Sales"
+msgstr "تشغيل الشفت الثاني دون مبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_day_entry_line__slot__second
+msgid "Second shift"
+msgstr "الشفت الثاني"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Select DAY OFF before saving a closure."
+msgstr "فعّل خيار الإجازة قبل حفظ الإغلاق."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Select the dedicated external-summary POS for this company."
+msgstr "حدد نقطة البيع المخصصة للملخصات الخارجية لهذه الشركة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Select the summaries of one company and one sales day."
+msgstr "اختر ملخصات شركة واحدة ويوم مبيعات واحد."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__sequence
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__session_id
+msgid "Session"
+msgstr "الجلسة"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_search
+msgid "Shift"
+msgstr "الوردية"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Shift details"
+msgstr "تفاصيل الشفتات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Shift selection"
+msgstr "اختيار الشفتات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "Show report"
+msgstr "عرض التقرير"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__slot
+msgid "Slot"
+msgstr "الشفت"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Some scheduled shifts have not been recorded."
+msgstr "لم تُسجّل بعض الشفتات المقررة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid "Some selected days changed. Refresh the summaries list."
+msgstr "تغيّرت بعض الأيام المحددة. حدّث قائمة الملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid "Some selected days no longer exist. Refresh the summaries list."
+msgstr "لم تعد بعض الأيام المحددة موجودة. حدّث قائمة الملخصات."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__attachment_ids
+msgid "Source Attachments"
+msgstr "مرفقات التقرير"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__state
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_archive__state
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__state
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__state
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__status
+msgid "Status"
+msgstr "الحالة"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_line_list
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "Summaries"
+msgstr "الملخصات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report_line__summary_ids
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__summary_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_correction__summary_id
+msgid "Summary"
+msgstr "الملخص"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__category_id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment_method__baseer_category_id
+msgid "Summary Category"
+msgstr "فئة طريقة الدفع"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_config__baseer_summary_tax_id
+msgid "Summary Sales Tax"
+msgstr "ضريبة المبيعات"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_config__baseer_summary_product_id
+msgid "Summary Service Product"
+msgstr "منتج خدمة الملخص"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/accounting.py:0
+msgid "Summary accounting ownership is controlled by the server."
+msgstr "يتحكم الخادم بروابط ملكية قيود الملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Summary correction history is controlled by the server."
+msgstr "يتحكم الخادم بسجل تصحيح الملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/accounting.py:0
+msgid ""
+"Summary journal evidence cannot be edited, reset or deleted. Use Correct "
+"summary from its original sales summary."
+msgstr ""
+"لا يمكن تعديل قيود الملخص أو إعادتها إلى مسودة أو حذفها. استخدم «تصحيح "
+"الملخص» من ملخص المبيعات الأصلي."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Summary journals must be active and belong to this company and currency."
+msgstr "يجب أن تكون دفاتر يومية الملخص نشطة وتابعة للشركة والعملة المحددتين."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/accounting.py:0
+msgid "Summary receipt links are controlled by the server."
+msgstr "يتحكم الخادم بروابط إيصالات الملخص."
+
+#. module: baseer_pos_summary
+#: model:ir.actions.act_window,name:baseer_pos_summary.action_summary_config
+#: model:ir.ui.menu,name:baseer_pos_summary.menu_summary_config
+msgid "Summary settings"
+msgstr "إعدادات الملخصات"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Summary status, totals and original-document links are controlled by the "
+"server."
+msgstr "تُحدد حالة الملخص وإجمالياته وروابط مستنداته الأصلية آليًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid ""
+"Switch to the summary company before creating or changing this summary."
+msgstr "فعّل شركة الملخص قبل إنشائه أو تعديله."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid "Switch to this summary's company to edit or approve it."
+msgstr "فعّل شركة هذا الملخص لتعديله أو اعتماده."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_list
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "Tax: %s"
+msgstr "الضريبة: %s"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "The cash journal must have a liquidity account."
+msgstr "يجب تحديد حساب سيولة لدفتر اليومية النقدي."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "The closure company cannot be changed."
+msgstr "لا يمكن تغيير شركة الإغلاق."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "The closure overlaps an existing sales summary, including drafts."
+msgstr "يتعارض الإغلاق مع ملخص مبيعات موجود، بما في ذلك المسودات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "The closure overlaps another confirmed closure."
+msgstr "تتداخل الفترة مع إغلاق مؤكد آخر."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "The company of a dedicated summary POS cannot be changed."
+msgstr "لا يمكن تغيير شركة نقطة البيع المخصصة للملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/common.py:0
+msgid "The configured native tax cannot reproduce this gross amount exactly."
+msgstr "لا يمكن للضريبة المحددة احتساب هذا المبلغ الإجمالي بصورة مطابقة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid ""
+"The daily archive is read-only. Edit an original draft summary instead."
+msgstr "الأرشيف اليومي للعرض فقط. يمكن تعديل ملخص أصلي إذا كان ما زال مسودة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid ""
+"The daily archive is read-only. Original summaries are retained for audit."
+msgstr "الأرشيف اليومي للعرض فقط. تُحفظ الملخصات الأصلية للمراجعة والتدقيق."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid ""
+"The daily archive is read-only. Use the sales entry form to create "
+"summaries."
+msgstr ""
+"الأرشيف اليومي للعرض فقط. استخدم نموذج إدخال المبيعات لإنشاء الملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"The dedicated summary POS already has an open session. Resolve it before "
+"approving another summary."
+msgstr "توجد جلسة مفتوحة لنقطة بيع الملخصات. عالجها قبل اعتماد ملخص آخر."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"The dedicated summary product must be a service. Use a separate product for "
+"stock operations."
+msgstr ""
+"يجب أن يكون منتج الملخص المخصص خدمة. استخدم منتجًا منفصلًا لعمليات المخزون."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"The dedicated summary product must remain a service. Assign a separate "
+"summary service before changing its type."
+msgstr ""
+"يجب أن يبقى منتج الملخص المخصص خدمة. عيّن خدمة مستقلة للملخص قبل تغيير نوعه."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "The entry company and POS configuration cannot be changed."
+msgstr "لا يمكن تغيير شركة الإدخال أو إعدادات نقطة البيع المرتبطة به."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "The external reference cannot exceed 128 characters."
+msgstr "لا يمكن أن يتجاوز المرجع الخارجي 128 حرفًا."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid ""
+"The first and last dates are included. Closed days are excluded from daily "
+"averages and create no sales or accounting entries."
+msgstr ""
+"تشمل الفترة يوم البداية ويوم النهاية. تُستبعد أيام الإغلاق من المتوسطات "
+"اليومية، ولا تنشئ مبيعات أو قيودًا محاسبية."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid ""
+"The missing-shift filter supports at most 5000 saved dates. Use the daily "
+"report for a bounded period."
+msgstr ""
+"يدعم مرشح الفترة الناقصة 5000 تاريخ محفوظ كحد أقصى. استخدم التقرير اليومي "
+"لفترة محددة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"The native POS order does not match the summary gross, net and tax amounts."
+msgstr "مبالغ طلب نقاط البيع لا تطابق إجمالي الملخص وصافيه وضريبته."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "The native POS session did not close and post successfully."
+msgstr "لم يكتمل إغلاق جلسة نقاط البيع وترحيلها."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"The native cash count does not match the external summary cash payments."
+msgstr "الجرد النقدي لا يطابق الدفعات النقدية في الملخص الخارجي."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid ""
+"The native correction entries did not reverse the original summary exactly."
+msgstr "لم تعكس قيود التصحيح الأصلية مبالغ الملخص بالكامل وبالدقة المطلوبة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"The native session entry must still be draft before applying its business "
+"date."
+msgstr "يجب أن يكون قيد الجلسة مسودة قبل تطبيق تاريخ المبيعات عليه."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid "The native session must use the summary dedicated POS configuration."
+msgstr "يجب أن تستخدم الجلسة نقطة البيع المخصصة للملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_native.py:0
+msgid ""
+"The native summary session entry is unbalanced; approval was rolled back."
+msgstr "قيد جلسة الملخص غير متوازن؛ تم التراجع عن الاعتماد."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "The no-sales declaration must be a checkbox value."
+msgstr "يجب تفعيل خيار التشغيل دون مبيعات أو إلغاء تفعيله."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "The no-sales declaration must be enabled or disabled."
+msgstr "يجب أن تكون قيمة خيار التشغيل دون مبيعات مفعّلة أو غير مفعّلة."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_form
+msgid ""
+"The original entries will be reversed on the sales date and retained. A "
+"linked replacement draft will open for review and approval. Closed periods "
+"and external settlements must be reviewed first."
+msgstr ""
+"ستُعكس القيود الأصلية بتاريخ المبيعات مع الاحتفاظ بها. سيُفتح بديل مرتبط في "
+"حالة مسودة للمراجعة والاعتماد. يجب مراجعة الفترات المقفلة والتسويات الخارجية"
+" أولًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid ""
+"The original summary accounting is incomplete; review it before correction."
+msgstr "القيود الأصلية للملخص غير مكتملة؛ راجعها قبل التصحيح."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "The payment category company cannot be changed."
+msgstr "لا يمكن تغيير شركة فئة طريقة الدفع."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid "The payment category must belong to the payment method company."
+msgstr "يجب أن تتبع الفئة شركة طريقة الدفع نفسها."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "The payment slot does not match its shift card."
+msgstr "طريقة الدفع لا تتوافق مع بطاقة الشفت المرتبطة بها."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"The requested business date is locked. Choose an open date; it will not be "
+"shifted automatically."
+msgstr ""
+"تاريخ المبيعات المحدد في فترة مقفلة. اختر تاريخًا مسموحًا؛ لن يُغيّر التاريخ"
+" تلقائيًا."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "The saved day is no longer available. Refresh the summaries list."
+msgstr "لم يعد اليوم المحفوظ متاحًا. حدّث قائمة الملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid ""
+"The saved shifts use different configurations. Open their source details to "
+"review them."
+msgstr ""
+"تستخدم الشفتات المحفوظة إعدادات مختلفة. افتح تفاصيلها الأصلية لمراجعتها."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "The shift must match the selected day schedule."
+msgstr "يجب أن يتوافق الشفت مع نظام دوام اليوم المحدد."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "The summary POS configuration cannot be changed."
+msgstr "لا يمكن تغيير نقطة البيع المرتبطة بالملخص."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"The summary company cannot be changed. Create a new summary in the active "
+"company."
+msgstr "لا يمكن تغيير شركة الملخص. أنشئ ملخصًا جديدًا في الشركة المفعّلة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"The summary must produce one native service order and one dedicated session "
+"without stock movements or duplicate invoices."
+msgstr ""
+"يجب أن ينتج الملخص طلب خدمة واحدًا وجلسة مخصصة واحدة دون حركات مخزون أو "
+"فواتير مكررة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid "The summary total cannot exceed 999999999.99."
+msgstr "لا يمكن أن يتجاوز إجمالي الملخص 999999999.99 ريال."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid ""
+"This day contains saved drafts. Save approves them together; shift details "
+"remain available for review."
+msgstr ""
+"يتضمن هذا اليوم مسودات محفوظة. يعتمدها زر الحفظ معًا، وتبقى تفاصيل الشفتات "
+"متاحة للمراجعة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+msgid "This day no longer has sales summaries. Refresh the archive."
+msgstr "لم تعد هناك ملخصات مبيعات لهذا اليوم. حدّث الأرشيف."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "This entry has already created its summaries and cannot be changed."
+msgstr "أُنشئت ملخصات هذا الإدخال بالفعل، ولا يمكن تغيير الإدخال."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid ""
+"This full-day closure is no longer confirmed. Refresh the summaries list."
+msgstr "لم يعد إغلاق هذا اليوم الكامل مؤكدًا. حدّث قائمة الملخصات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/operations.py:0
+msgid "This sales period is closed. Cancel the closure before entering sales."
+msgstr "فترة المبيعات هذه مغلقة. ألغِ الإغلاق قبل إدخال المبيعات."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "This shift has not been recorded."
+msgstr "لم يُسجّل هذا الشفت."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_form
+msgid ""
+"This shift operated without sales and creates no accounting entry. The day "
+"counts once in daily averages when all its scheduled shifts are recorded or "
+"closed."
+msgstr ""
+"سُجّل هذا الشفت كتَشغيل دون مبيعات، ولا ينشئ قيدًا محاسبيًا. يُحسب اليوم مرة"
+" واحدة في المتوسطات اليومية بعد تسجيل جميع شفتاته المقررة أو إغلاقها."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid ""
+"This shift operated without sales. No accounting entry will be created for "
+"it."
+msgstr "سُجّل هذا الشفت كتشغيل دون مبيعات، ولن ينشئ قيدًا محاسبيًا."
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry__date_to
+msgid "To date"
+msgstr "إلى تاريخ"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_list
+msgid "Total sales"
+msgstr "إجمالي المبيعات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Unarchive"
+msgstr "إلغاء الأرشفة"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid "Unbalanced counterpart allocation."
+msgstr "توزيع غير متوازن للطرف المقابل."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid "Unproven POS settlement chain."
+msgstr "تسلسل تسوية نقاط البيع غير مثبت."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/cash_report.py:0
+msgid "Unreconciled cash counterpart."
+msgstr "طرف مقابل للتحصيل النقدي لم تتم مطابقته."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/accounting.py:0
+msgid ""
+"Use Correct summary to reverse sales. Only an unreversed original receipt "
+"can be reversed separately."
+msgstr ""
+"استخدم «تصحيح الملخص» لعكس المبيعات. يمكن عكس إيصال أصلي لم يُعكس سابقًا "
+"بصورة مستقلة فقط."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/pos_configuration.py:0
+msgid ""
+"Use External Sales Summaries to post this dedicated POS. Open an ordinary "
+"POS for direct sales."
+msgstr ""
+"استخدم ملخصات المبيعات الخارجية للترحيل في هذه النقطة المخصصة. افتح نقطة بيع"
+" عادية للمبيعات المباشرة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Use at most 25 distinct payment methods in each shift."
+msgstr "استخدم 25 طريقة دفع مختلفة كحد أقصى لكل شفت."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/summary.py:0
+msgid ""
+"Use either one All Day summary or separate Morning and Evening summaries for"
+" this company and date."
+msgstr ""
+"أدخل ملخصًا واحدًا لليوم كاملًا أو ملخصين منفصلين للصباحية والمسائية لهذه "
+"الشركة والتاريخ."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Use only the payment methods configured for this company."
+msgstr "استخدم طرق الدفع المضبوطة لهذه الشركة فقط."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "What are you recording today?"
+msgstr "ماذا تُدخل اليوم؟"
+
+#. module: baseer_pos_summary
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__zero_sales
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Worked with no sales"
+msgstr "تشغيل دون مبيعات"
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Write the closure reason or additional details"
+msgstr "اكتب سبب الإغلاق أو تفاصيل إضافية"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Write the reason when selecting Other."
+msgstr "اكتب السبب عند اختيار «سبب آخر»."
+
+#. module: baseer_pos_summary
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_daily_report_form
+msgid "customers"
+msgstr "عميل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_archive.py:0
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "id"
+msgstr "المعرّف"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/daily_report.py:0
+msgid "report_id"
+msgstr "التقرير"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Select a shift before saving sales."
+msgstr "اختر الشفت قبل حفظ المبيعات."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/payment_seed.py:0
+msgid "Invalid POS payment seed reference: %s"
+msgstr "مرجع بذرة طرق الدفع غير صالح: %s"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/payment_seed.py:0
+msgid "No available POS seed journal code."
+msgstr "لا يتوفر رمز لدفتر يومية طرق الدفع."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/payment_seed.py:0
+msgid "Configure the company sales tax before creating POS payment defaults."
+msgstr "اضبط ضريبة مبيعات الشركة قبل إنشاء طرق الدفع الافتراضية."

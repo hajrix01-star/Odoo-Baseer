@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_web_navigation.AppsMenu"
+       t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[@t-as='app']" position="attributes">
+            <attribute name="t-esc"/>
+        </xpath>
+        <xpath expr="//DropdownItem[@t-as='app']" position="inside">
+            <span class="baseer_app_menu_entry">
+                <img t-if="app.webIconData" t-att-src="app.webIconData"
+                     class="baseer_app_menu_icon" width="32" height="32"
+                     alt="" aria-hidden="true"/>
+                <span t-else="" class="baseer_app_menu_icon baseer_app_menu_fallback oi oi-apps"
+                      aria-hidden="true"/>
+                <span class="baseer_app_menu_label" t-esc="app.name"/>
+            </span>
+        </xpath>
+    </t>
+</templates>

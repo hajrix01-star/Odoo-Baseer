@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_sales_dashboard.DateFilterDropdown" t-inherit="spreadsheet.DateFilterDropdown" t-inherit-mode="primary">
+        <xpath expr="//DateTimeInput[@value='dateFrom()']" position="attributes">
+            <attribute name="t-key">selectedValues.range.from</attribute>
+        </xpath>
+        <xpath expr="//DateTimeInput[@value='dateTo()']" position="attributes">
+            <attribute name="t-key">selectedValues.range.to</attribute>
+        </xpath>
+    </t>
+    <t t-name="baseer_sales_dashboard.DashboardIntegration" t-inherit="spreadsheet_dashboard.DashboardAction" t-inherit-mode="extension">
+        <xpath expr="//DashboardSearchBar" position="attributes">
+            <attribute name="t-if">!isBaseerSalesDashboard and status === Status.Loaded and loader.getActiveDashboard().model.getters.getGlobalFilters().length</attribute>
+        </xpath>
+        <xpath expr="//DashboardSearchBar" position="after">
+            <div t-if="isBaseerSalesDashboard" class="o_sp_date_filter_button d-flex ms-auto">
+                <BaseerDashboardDateFilter value="baseerDate.value || undefined" update.bind="updateBaseerDate"/>
+            </div>
+        </xpath>
+        <xpath expr="//SpreadsheetShareButton" position="attributes">
+            <attribute name="t-if">!isBaseerSalesDashboard</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_search_toggler')]" position="attributes">
+            <attribute name="t-if">env.isSmall and !isBaseerSalesDashboard</attribute>
+        </xpath>
+        <xpath expr="//MobileFigureContainer" position="before">
+            <BaseerSalesDashboard t-if="isBaseerSalesDashboard" dashboardId="dashboard.data.id" dateFilter="baseerDate.value || undefined" t-key="dashboard.data.id"/>
+        </xpath>
+        <xpath expr="//MobileFigureContainer" position="attributes">
+            <attribute name="t-if">env.isSmall and !isBaseerSalesDashboard</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_renderer')]" position="attributes">
+            <attribute name="t-else"/>
+            <attribute name="t-if">!env.isSmall and !isBaseerSalesDashboard</attribute>
+        </xpath>
+    </t>
+</templates>

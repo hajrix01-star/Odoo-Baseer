@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_purchase_batch_line_form" model="ir.ui.view">
+        <field name="name">baseer.purchase.batch.line.form</field>
+        <field name="model">baseer.purchase.batch.line</field>
+        <field name="arch" type="xml">
+            <form string="Batch Invoice" class="baseer_purchase_line_form">
+                <sheet>
+                    <field name="batch_id" invisible="True"/>
+                    <field name="batch_state" invisible="True"/>
+                    <field name="company_id" invisible="True"/>
+                    <field name="currency_id" invisible="True"/>
+                    <field name="vat_is_custom" invisible="True"/>
+                    <field name="is_current_company" invisible="True"/>
+                    <div class="alert alert-warning" role="alert" invisible="not batch_id or is_current_company">Switch the active company in the header to this batch's company before editing.</div>
+                    <group>
+                        <group string="Invoice">
+                            <field name="partner_id" string="Supplier" options="{'no_create': True}" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"
+                                   domain="[('company_id', 'in', [False, company_id]), ('active', '=', True)]"/>
+                            <field name="invoice_date" string="Invoice Date" widget="baseer_latin_date" readonly="batch_state == 'approved' or (batch_id and not is_current_company)" options="{'numeric': True}"/>
+                            <field name="supplier_ref" string="Invoice Reference" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"/>
+                            <field name="entry_type" string="Type" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"/>
+                            <field name="category_map_id" string="Category" options="{'no_create': True}" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"
+                                   domain="[('company_id', '=', company_id), ('active', '=', True)]"/>
+                            <field name="description" string="Description" placeholder="Optional description" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"/>
+                        </group>
+                        <group string="Amount and Payment">
+                            <field name="gross_amount" string="Amount incl. VAT" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"/>
+                            <field name="vat_enabled" string="VAT 15%" widget="boolean_toggle" options="{'autosave': False}" readonly="batch_state == 'approved' or (batch_id and not is_current_company)" invisible="vat_is_custom"/>
+                            <field name="tax_id" string="Applied Tax" readonly="True" invisible="not vat_is_custom"/>
+                            <field name="net_amount" string="Net" readonly="True"/>
+                            <field name="tax_amount" string="Tax Amount" readonly="True"/>
+                            <field name="is_credit" string="Credit" widget="boolean_toggle" options="{'autosave': False}" readonly="batch_state == 'approved' or (batch_id and not is_current_company)"/>
+                            <field name="payment_method_line_id" string="Payment Method" placeholder="Choose cash or bank"
+                                   options="{'no_create': True}" readonly="batch_state == 'approved' or (batch_id and not is_current_company) or is_credit" required="not is_credit"
+                                   domain="[('company_id', '=', company_id), ('payment_type', '=', 'outbound'), ('code', '=', 'manual'), ('journal_id.active', '=', True), ('journal_id.type', 'in', ['bank', 'cash']), ('payment_account_id.account_type', '=', 'asset_cash')]"/>
+                            <div class="text-muted" colspan="2">Enable Credit to pay later; otherwise choose cash or bank. Payment date equals the invoice date.</div>
+                        </group>
+                    </group>
+                    <group string="Original Documents" invisible="not move_id">
+                        <field name="move_id" string="Vendor Bill" readonly="True"/>
+                        <field name="payment_id" string="Payment" readonly="True" invisible="not payment_id"/>
+                        <field name="bill_payment_state" string="Payment Status" readonly="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_batch_list" model="ir.ui.view">
+        <field name="name">baseer.purchase.batch.list</field>
+        <field name="model">baseer.purchase.batch</field>
+        <field name="arch" type="xml">
+            <list string="Purchase Batches" default_order="entry_date desc, id desc">
+                <field name="name" string="Batch Number"/>
+                <field name="entry_date" string="Entry Date" widget="baseer_latin_date" options="{'numeric': True}"/>
+                <field name="company_id" string="Company" groups="base.group_multi_company"/>
+                <field name="amount_gross" string="Amount incl. VAT"/>
+                <field name="amount_net" string="Net" optional="hide"/>
+                <field name="amount_tax" string="Tax Amount" optional="hide"/>
+                <field name="bill_count" string="Vendor Bills"/>
+                <field name="state" string="Status" widget="badge" decoration-success="state == 'approved'" decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_purchase_batch_form" model="ir.ui.view">
+        <field name="name">baseer.purchase.batch.form</field>
+        <field name="model">baseer.purchase.batch</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Batch" class="baseer_purchase_batch_form">
+                <header>
+                    <button name="action_approve" type="object" string="Save and approve" class="oe_highlight" invisible="state != 'draft' or not is_current_company"/>
+                    <button name="action_print" type="object" string="Print Summary" invisible="not id"/>
+                    <field name="state" string="Status" widget="statusbar" statusbar_visible="draft,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_bills" type="object" class="oe_stat_button" icon="fa-file-text-o" invisible="bill_count == 0">
+                            <field name="bill_count" widget="statinfo" string="Vendor Bills"/>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="True"/></h1></div>
+                    <field name="has_custom_vat" invisible="True"/>
+                    <field name="is_current_company" invisible="True"/>
+                    <field name="currency_id" invisible="True"/>
+                    <div class="alert alert-warning" role="alert" invisible="is_current_company">Switch the active company in the header to this batch's company before editing.</div>
+                    <group>
+                        <group>
+                            <field name="company_id" string="Company" options="{'no_create': True}" readonly="True"/>
+                            <field name="entry_date" string="Entry Date" widget="baseer_latin_date" readonly="state != 'draft' or not is_current_company" options="{'numeric': True}"/>
+                        </group>
+                        <group invisible="state != 'approved'">
+                            <field name="approved_by_id" string="Approved By" readonly="True"/>
+                            <field name="approved_at" string="Approved At" readonly="True" widget="baseer_latin_datetime" options="{'numeric': True}"/>
+                        </group>
+                    </group>
+                    <div class="text-muted mb-3" invisible="state != 'draft'">Save keeps a draft. Save and approve creates the vendor bills and records the selected payments. The entry date is administrative; each row uses its invoice date.</div>
+                    <p class="text-muted d-md-none baseer_batch_mobile_hint">Add an invoice, or tap a card to edit its details.</p>
+                    <field name="line_ids" mode="list,kanban" readonly="state != 'draft' or not is_current_company" class="baseer_batch_lines"
+                           context="{'default_company_id': company_id, 'default_invoice_date': entry_date, 'form_view_ref': 'baseer_purchase_batch.view_purchase_batch_line_form'}">
+                        <list string="Invoices" editable="bottom" open_form_view="True" default_order="sequence, id" limit="50">
+                            <control><create string="Add invoice"/></control>
+                            <field name="company_id" column_invisible="True"/>
+                            <field name="currency_id" column_invisible="True"/>
+                            <field name="vat_is_custom" column_invisible="True"/>
+                            <field name="sequence" widget="handle"/>
+                            <field name="partner_id" string="Supplier" options="{'no_create': True}" width="190px"
+                                   domain="[('company_id', 'in', [False, company_id]), ('active', '=', True)]"/>
+                            <field name="invoice_date" string="Invoice Date" widget="baseer_latin_date" options="{'numeric': True}" width="114px"/>
+                            <field name="supplier_ref" string="Invoice Ref." width="120px"/>
+                            <field name="entry_type" string="Type" width="86px"/>
+                            <field name="category_map_id" string="Category" options="{'no_create': True}" width="142px"
+                                   domain="[('company_id', '=', company_id), ('active', '=', True)]"/>
+                            <field name="description" optional="hide"/>
+                            <field name="gross_amount" string="Amount incl. VAT" width="138px" options="{'no_symbol': True}"/>
+                            <field name="vat_enabled" string="VAT 15%" widget="boolean_toggle" options="{'autosave': False}" invisible="vat_is_custom" width="76px"/>
+                            <field name="tax_id" string="Applied Tax" readonly="True" column_invisible="not parent.has_custom_vat" invisible="not vat_is_custom"/>
+                            <field name="net_amount" string="Net" optional="hide" readonly="True"/>
+                            <field name="tax_amount" string="Tax Amount" optional="hide" readonly="True"/>
+                            <field name="is_credit" string="Credit" widget="boolean_toggle" options="{'autosave': False}" width="68px"/>
+                            <field name="payment_method_line_id" string="Payment Method" placeholder="Choose cash or bank" width="146px"
+                                   options="{'no_create': True}" readonly="is_credit" required="not is_credit"
+                                   domain="[('company_id', '=', company_id), ('payment_type', '=', 'outbound'), ('code', '=', 'manual'), ('journal_id.active', '=', True), ('journal_id.type', 'in', ['bank', 'cash']), ('payment_account_id.account_type', '=', 'asset_cash')]"/>
+                            <field name="move_id" string="Vendor Bill" optional="hide" readonly="True"/>
+                            <field name="bill_payment_state" string="Payment Status" optional="hide" readonly="True"/>
+                        </list>
+                        <kanban class="o_kanban_mobile baseer_batch_cards" create_text="Add invoice">
+                            <field name="currency_id"/>
+                            <field name="vat_enabled"/>
+                            <field name="vat_is_custom"/>
+                            <field name="is_credit"/>
+                            <templates>
+                                <t t-name="card">
+                                    <div class="baseer_batch_card_heading">
+                                        <strong class="baseer_batch_card_supplier"><field name="partner_id"/></strong>
+                                        <strong class="baseer_batch_card_amount"><field name="gross_amount"/></strong>
+                                    </div>
+                                    <div class="baseer_batch_card_details">
+                                        <div><div class="text-muted">Invoice Date</div><field name="invoice_date" widget="baseer_latin_date" options="{'numeric': True}"/></div>
+                                        <div><div class="text-muted">Invoice Reference</div><field name="supplier_ref"/></div>
+                                        <div class="baseer_batch_card_category"><div class="text-muted">Category</div><field name="category_map_id"/></div>
+                                    </div>
+                                    <div class="baseer_batch_card_footer">
+                                        <span class="badge text-bg-light"><field name="entry_type"/></span>
+                                        <span class="text-muted">
+                                            <span t-if="record.is_credit.raw_value">Credit — pay later</span>
+                                            <field name="payment_method_line_id" t-elif="record.payment_method_line_id.raw_value"/>
+                                            <span t-else="">Payment method required</span>
+                                        </span>
+                                        <span class="text-muted">
+                                            <field name="tax_id" t-if="record.vat_is_custom.raw_value"/>
+                                            <span t-elif="record.vat_enabled.raw_value">VAT 15%</span>
+                                            <span t-else="">No tax</span>
+                                        </span>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                    </field>
+                    <p class="text-muted mt-2">Enable Credit to pay later; otherwise choose cash or bank. Payment date equals the invoice date.</p>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="amount_net" string="Net" readonly="True"/>
+                        <field name="amount_tax" string="Tax Amount" readonly="True"/>
+                        <field name="amount_gross" string="Amount incl. VAT" readonly="True" class="oe_subtotal_footer_separator"/>
+                    </group>
+                    <div class="clearfix"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_batch_search" model="ir.ui.view">
+        <field name="name">baseer.purchase.batch.search</field>
+        <field name="model">baseer.purchase.batch</field>
+        <field name="arch" type="xml">
+            <search string="Purchase Batches">
+                <field name="name"/>
+                <field name="company_id"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                <filter name="entry_date" string="Entry Date" date="entry_date"/>
+                <group>
+                    <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_entry_date" string="Entry Month" context="{'group_by': 'entry_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_purchase_batches" model="ir.actions.act_window">
+        <field name="name">Purchase Batches</field>
+        <field name="res_model">baseer.purchase.batch</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_purchase_batch_search"/>
+        <field name="context">{}</field>
+        <field name="domain">[('company_id', '=', allowed_company_ids[0])]</field>
+    </record>
+    <menuitem id="menu_purchase_batches" name="Purchase Batches" parent="account.menu_finance_payables"
+              action="action_purchase_batches" sequence="35" groups="account.group_account_invoice"/>
+</odoo>

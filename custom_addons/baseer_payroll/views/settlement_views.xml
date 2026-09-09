@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_run_settlement_list" model="ir.ui.view">
+        <field name="name">baseer.payroll.run.settlement.list</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="baseer_payroll.view_baseer_payroll_run_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list/field[@name='state']" position="attributes"><attribute name="column_invisible">1</attribute></xpath>
+            <xpath expr="//list/field[@name='name']" position="after">
+                <field name="baseer_payment_state" widget="badge" decoration-success="baseer_payment_state == 'paid'" decoration-warning="baseer_payment_state == 'partial'" decoration-info="baseer_payment_state == 'awaiting'"/>
+            </xpath>
+            <xpath expr="//list/field[@name='baseer_residual']" position="before"><field name="baseer_paid" sum="Total paid"/><field name="baseer_pending" optional="show"/><field name="baseer_settled" optional="hide"/></xpath>
+        </field>
+    </record>
+    <record id="view_baseer_run_settlement_form" model="ir.ui.view">
+        <field name="name">baseer.payroll.run.settlement.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="baseer_payroll.view_baseer_payroll_run_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="replace">
+                <field name="state" invisible="1"/>
+                <field name="baseer_payment_state" widget="statusbar" statusbar_visible="draft,awaiting,partial,processing,settled,paid"/>
+            </xpath>
+            <xpath expr="//header/button[@name='action_print']" position="after">
+                <button name="action_print_payment_receipt" string="Print Payment Statement" type="object" invisible="baseer_payment_count == 0"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div name="button_box" class="oe_button_box">
+                    <button name="action_view_payments" type="object" class="oe_stat_button" icon="fa-credit-card" groups="om_hr_payroll.group_hr_payroll_manager">
+                        <field name="baseer_payment_count" widget="statinfo" string="Payment History"/>
+                    </button>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='slip_ids']/list/field[@name='employee_id']" position="after">
+                <field name="baseer_payment_state" widget="badge" readonly="1" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='slip_ids']/list/field[@name='baseer_residual']" position="attributes"><attribute name="optional">show</attribute></xpath>
+            <xpath expr="//field[@name='slip_ids']/list/field[@name='baseer_residual']" position="before"><field name="baseer_paid" readonly="1" optional="show"/><field name="baseer_pending" readonly="1" optional="show"/><field name="baseer_settled" readonly="1" optional="hide"/></xpath>
+        </field>
+    </record>
+    <record id="view_baseer_financial_payslip_form" model="ir.ui.view">
+        <field name="name">baseer.financial.payslip.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="arch" type="xml">
+            <form string="Employee Financial Record" create="0" edit="0" delete="0">
+                <header>
+                    <button name="action_open_run" string="Open Payroll Run" type="object" class="oe_highlight"/>
+                    <button name="action_view_payments" string="Payment History" type="object"/>
+                    <field name="baseer_payment_state" widget="statusbar" statusbar_visible="draft,awaiting,partial,processing,settled,paid"/>
+                </header>
+                <sheet>
+                    <field name="currency_id" invisible="1"/><field name="state" invisible="1"/>
+                    <div name="button_box" class="oe_button_box"><button name="action_view_move" string="Journal Entry" type="object" class="oe_stat_button" icon="fa-book" invisible="state != 'done'"/></div>
+                    <div class="oe_title"><h1><field name="employee_id" readonly="1"/></h1></div>
+                    <group>
+                        <group><field name="payslip_run_id" readonly="1" options="{'no_open':True}"/><field name="date_from" widget="baseer_latin_date" readonly="1"/><field name="date_to" widget="baseer_latin_date" readonly="1"/></group>
+                        <group><field name="company_id" readonly="1" groups="base.group_multi_company"/><field name="number" readonly="1"/><field name="baseer_days" readonly="1"/></group>
+                    </group>
+                    <group>
+                        <group string="Salary"><field name="baseer_basic" readonly="1"/><field name="baseer_overtime" readonly="1"/><field name="baseer_allowance" readonly="1"/><field name="baseer_gross" readonly="1"/></group>
+                        <group string="Deductions"><field name="baseer_deduction" readonly="1"/><field name="baseer_deduction_reason" readonly="1"/><field name="baseer_loan_amount" readonly="1"/><field name="baseer_defer_loan" readonly="1"/></group>
+                    </group>
+                    <group string="Settlement"><field name="baseer_net" readonly="1"/><field name="baseer_paid" readonly="1"/><field name="baseer_pending" readonly="1"/><field name="baseer_settled" readonly="1"/><field name="baseer_residual" readonly="1"/></group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_baseer_employee_financial_history" model="ir.ui.view">
+        <field name="name">baseer.employee.financial.history</field><field name="model">hr.employee</field><field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="baseer_financial_record" string="Financial Record" groups="om_hr_payroll.group_hr_payroll_manager">
+                    <group string="Loans" groups="om_hr_payroll.group_hr_payroll_manager">
+                        <field name="baseer_loan_count" string="Number of Loans" readonly="1"/>
+                        <field name="baseer_loan_balance" string="Outstanding Loans" readonly="1"/>
+                        <button name="action_view_loans" string="Loan History" type="object" class="btn-link"/>
+                    </group>
+                    <field name="baseer_financial_slip_ids" readonly="1" mode="list,kanban" context="{'form_view_ref':'baseer_payroll.view_baseer_financial_payslip_form'}">
+                        <list string="Monthly Salaries" create="0" edit="0" delete="0" default_order="date_from desc, id desc">
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="date_from" widget="baseer_latin_date"/><field name="date_to" widget="baseer_latin_date" optional="hide"/>
+                            <field name="payslip_run_id" options="{'no_open':True}"/>
+                            <field name="baseer_payment_state" widget="badge" decoration-success="baseer_payment_state == 'paid'"/>
+                            <field name="baseer_gross" sum="Total salaries"/>
+                            <field name="baseer_deduction" sum="Other deductions"/>
+                            <field name="baseer_loan_amount" sum="Loan deductions"/>
+                            <field name="baseer_net" sum="Net salaries"/>
+                            <field name="baseer_paid" sum="Total paid"/>
+                            <field name="baseer_pending" optional="show"/>
+                            <field name="baseer_settled" optional="hide"/>
+                            <field name="baseer_residual" sum="Remaining to pay"/>
+                            <button name="action_open_finance" type="object" icon="fa-external-link" string="Details"/>
+                        </list>
+                        <kanban class="o_kanban_mobile" create="0" edit="0" delete="0">
+                            <templates><t t-name="card">
+                                <div class="d-flex justify-content-between mb-2"><strong><field name="date_from" widget="baseer_latin_date"/></strong><field name="baseer_payment_state" widget="badge"/></div>
+                                <div class="mb-2"><field name="payslip_run_id"/></div>
+                                <div class="d-flex justify-content-between"><span t-translation="on">Net salary</span><field name="baseer_net"/></div>
+                                <div class="d-flex justify-content-between"><span t-translation="on">Paid</span><field name="baseer_paid"/></div>
+                                <div class="d-flex justify-content-between"><span t-translation="on">Payments in process</span><field name="baseer_pending"/></div>
+                                <div class="d-flex justify-content-between"><span t-translation="on">Remaining to pay</span><field name="baseer_residual"/></div>
+                                <button name="action_open_finance" type="object" class="btn btn-link p-0 mt-2">Details</button>
+                            </t></templates>
+                        </kanban>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_baseer_settlement_form" model="ir.ui.view">
+        <field name="name">baseer.payroll.settlement.form</field><field name="model">baseer.payroll.settlement</field>
+        <field name="arch" type="xml">
+            <form string="Pay Salaries">
+                <field name="state" invisible="1"/><field name="company_id" invisible="1"/><field name="currency_id" invisible="1"/><field name="available_payment_method_line_ids" invisible="1"/>
+                <group>
+                    <group><field name="run_id" string="Payroll Run" readonly="1" options="{'no_open':True}"/><field name="payment_date" string="Payment Date" widget="baseer_latin_date" readonly="state != 'draft'"/></group>
+                    <group><field name="journal_id" string="Bank / Cash" required="1" options="{'no_create':True}" domain="[('company_id','=',company_id),('type','in',['bank','cash'])]" readonly="state != 'draft'"/><field name="payment_method_line_id" string="Payment Method" required="1" options="{'no_create':True}" domain="[('id','in',available_payment_method_line_ids)]" readonly="state != 'draft'"/></group>
+                </group>
+                <div class="text-muted mb-3">This records salary payments; it does not send a bank transfer.</div>
+                <field name="line_ids" mode="list,kanban" readonly="state != 'draft'">
+                    <list string="Salary Payments" editable="bottom" create="0" delete="0" open_form_view="1">
+                        <field name="employee_id" readonly="1"/><field name="slip_id" column_invisible="1"/><field name="currency_id" column_invisible="1"/>
+                        <field name="remaining" string="Remaining salary" readonly="1" sum="Remaining salaries"/><field name="amount" string="Payment amount" sum="Payment total"/>
+                    </list>
+                    <kanban class="o_kanban_mobile" create="0" delete="0"><templates><t t-name="card">
+                        <strong class="d-block mb-2"><field name="employee_id"/></strong>
+                        <div class="d-flex justify-content-between"><span t-translation="on">Remaining salary</span><field name="remaining"/></div>
+                        <div class="d-flex justify-content-between fw-bold"><span t-translation="on">Payment amount</span><field name="amount"/></div>
+                    </t></templates></kanban>
+                    <form string="Salary Payment"><group><field name="employee_id" readonly="1"/><field name="currency_id" invisible="1"/><field name="remaining" string="Remaining salary" readonly="1"/><field name="amount" string="Payment amount"/></group></form>
+                </field>
+                <group class="mt-3"><field name="amount_total" string="Payment total" readonly="1"/></group>
+                <footer><button name="action_confirm" string="Confirm Payment" type="object" class="btn-primary" invisible="state != 'draft'"/><button string="Cancel" special="cancel" class="btn-secondary"/></footer>
+            </form>
+        </field>
+    </record>
+</odoo>

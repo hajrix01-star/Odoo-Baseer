@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_web_navigation.LanguageMenu">
+        <div t-if="state.languages.length &gt; 1" class="o_baseer_language_menu">
+            <Dropdown disabled="state.busy">
+                <button type="button" class="px-2" title="Language / اللغة" aria-label="Language / اللغة" t-att-disabled="state.busy">
+                    <i class="fa fa-language" aria-hidden="true"/>
+                    <span class="ms-1 d-none d-lg-inline" t-esc="currentLanguage.startsWith('ar') ? 'عربي' : 'EN'"/>
+                </button>
+                <t t-set-slot="content">
+                    <DropdownItem t-foreach="state.languages" t-as="language" t-key="language.code"
+                                  onSelected="() => this.selectLanguage(language.code)">
+                        <span t-att-lang="language.code === 'ar_001' ? 'ar' : 'en'" t-esc="language.label"/>
+                        <i t-if="language.code === currentLanguage" class="fa fa-check ms-2" aria-hidden="true"/>
+                    </DropdownItem>
+                </t>
+            </Dropdown>
+        </div>
+    </t>
+</templates>

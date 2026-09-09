@@ -1,0 +1,956 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Baseer Purchase Batch 19.0\n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: baseer_purchase_batch
+#: model:ir.actions.act_window,name:baseer_purchase_batch.action_purchase_category_maps
+#: model:ir.ui.menu,name:baseer_purchase_batch.menu_purchase_category_maps
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_list
+msgid "Purchase Category Mappings"
+msgstr "ربط فئات المشتريات"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_list
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__company_id
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__company_id
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_list
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__category_id
+msgid "Category"
+msgstr "الفئة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_list
+msgid "Service Product"
+msgstr "منتج الخدمة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_list
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_form
+msgid "Purchase Category Mapping"
+msgstr "ربط فئة مشتريات"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_category_map_form
+msgid "Choose an existing service product in this category with a configured expense account. Batch invoices use this product for accounting and report classification; they do not receive inventory."
+msgstr "اختر منتج خدمة موجوداً ضمن هذه الفئة وله حساب مصروف معدّ مسبقاً. تستخدم فواتير الدفعة هذا المنتج للمحاسبة وتصنيف التقارير، ولا تنشئ استلاماً مخزنياً."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Batch Invoice"
+msgstr "فاتورة ضمن الدفعة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__invoice_date
+msgid "Invoice Date"
+msgstr "تاريخ الفاتورة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Supplier"
+msgstr "المورد"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Invoice Reference"
+msgstr "مرجع فاتورة المورد"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Type"
+msgstr "النوع"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Optional description"
+msgstr "وصف اختياري"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Amount and Payment"
+msgstr "المبلغ والدفع"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+msgid "Amount incl. VAT"
+msgstr "الإجمالي شامل الضريبة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__tax_id
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "No tax"
+msgstr "بدون ضريبة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+msgid "Net"
+msgstr "الصافي قبل الضريبة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__tax_amount
+msgid "Tax Amount"
+msgstr "قيمة الضريبة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Credit — pay later"
+msgstr "آجل — الدفع لاحقاً"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Leave the payment method empty for credit. Paid invoices use the invoice date as their payment date."
+msgstr "اترك طريقة الدفع فارغة للشراء الآجل. تُسجّل دفعات الفواتير المسددة بتاريخ الفاتورة نفسه."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Original Documents"
+msgstr "المستندات الأصلية"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Vendor Bill"
+msgstr "فاتورة المورد"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__payment_id
+msgid "Payment"
+msgstr "الدفعة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__bill_payment_state
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: baseer_purchase_batch
+#: model:ir.actions.act_window,name:baseer_purchase_batch.action_purchase_batches
+#: model:ir.ui.menu,name:baseer_purchase_batch.menu_purchase_batches
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+msgid "Purchase Batches"
+msgstr "دفعات إدخال المشتريات"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+msgid "Batch Number"
+msgstr "رقم دفعة الإدخال"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__entry_date
+msgid "Entry Date"
+msgstr "تاريخ الإدخال"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+msgid "Vendor Bills"
+msgstr "فواتير الموردين"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_list
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Purchase Batch"
+msgstr "دفعة إدخال مشتريات"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Save and approve"
+msgstr "حفظ واعتماد"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Print Summary"
+msgstr "طباعة الملخص"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__currency_id
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__approved_by_id
+msgid "Approved By"
+msgstr "اعتمدها"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__approved_at
+msgid "Approved At"
+msgstr "وقت الاعتماد"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Save keeps a draft. Save and approve creates the vendor bills and records the selected payments. The entry date is administrative; each row uses its invoice date."
+msgstr "الحفظ العادي يبقي البيانات مسودة. «حفظ واعتماد» ينشئ فواتير الموردين ويسجّل الدفعات المختارة. تاريخ الإدخال إداري، ويُستخدم تاريخ الفاتورة لكل صف."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Invoices"
+msgstr "الفواتير"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Invoice Ref."
+msgstr "مرجع الفاتورة"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+#: model:ir.model.fields.selection,name:baseer_purchase_batch.selection__baseer_purchase_batch__state__draft
+#: model:ir.model.fields.selection,name:baseer_purchase_batch.selection__baseer_purchase_batch_line__batch_state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+#: model:ir.model.fields.selection,name:baseer_purchase_batch.selection__baseer_purchase_batch__state__approved
+#: model:ir.model.fields.selection,name:baseer_purchase_batch.selection__baseer_purchase_batch_line__batch_state__approved
+msgid "Approved"
+msgstr "معتمدة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_search
+msgid "Entry Month"
+msgstr "شهر الإدخال"
+
+#. module: baseer_purchase_batch
+#: model:ir.actions.report,name:baseer_purchase_batch.action_report_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Purchase Batch Summary"
+msgstr "ملخص دفعة إدخال المشتريات"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Company:"
+msgstr "الشركة:"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Entry Date:"
+msgstr "تاريخ الإدخال:"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Status:"
+msgstr "الحالة:"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Currency:"
+msgstr "العملة:"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Supplier / Reference"
+msgstr "المورد / مرجع الفاتورة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Type / Category / Description"
+msgstr "النوع / الفئة / الوصف"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "No invoices in this batch."
+msgstr "لا توجد فواتير في دفعة الإدخال."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "The entry date is administrative. Paid rows use their invoice date as the payment date; credit rows remain payable."
+msgstr "تاريخ الإدخال إداري. تُسجّل المدفوعات بتاريخ الفاتورة لكل صف مسدد، وتبقى الفواتير الآجلة مستحقة للمورد."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "A draft or posted supplier document already uses this reference in this company."
+msgstr "يوجد مستند مورد مسودة أو مرحّل يحمل هذا المرجع في هذه الشركة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "A purchase batch supports at most 50 rows."
+msgstr "يمكن أن تضم دفعة المشتريات 50 صفًا بحد أقصى."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "A supplier reference of 1 to 128 characters is required."
+msgstr "يلزم إدخال مرجع المورد بطول من حرف واحد إلى 128 حرفًا."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Add at least one purchase row before approval."
+msgstr "أضف صف مشتريات واحدًا على الأقل قبل الاعتماد."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Approval state, totals and document links are controlled by the server."
+msgstr "يتولى النظام إدارة حالة الاعتماد والإجماليات وروابط المستندات."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Approved batches and their rows cannot be changed or deleted."
+msgstr "لا يمكن تعديل دفعات المشتريات المعتمدة أو صفوفها أو حذفها."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Category mapping"
+msgstr "ربط الفئة"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose a category mapping from the batch company."
+msgstr "اختر ربط فئة تابعًا لشركة الدفعة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose a manual cash or bank method configured to post directly to its journal liquidity account; otherwise explicitly enable Credit."
+msgstr "اختر طريقة دفع يدوية نقدية أو بنكية مهيأة للترحيل مباشرة إلى حساب السيولة في دفتر يوميتها، أو فعّل «آجل» صراحةً."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose an active supplier accessible to the batch company."
+msgstr "اختر موردًا نشطًا متاحًا لشركة الدفعة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose one active, simple purchase percentage tax from this company."
+msgstr "اختر ضريبة مشتريات نشطة واحدة من هذه الشركة، تُحسب بنسبة مئوية بسيطة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Configure a valid expense account on the service product or its category."
+msgstr "اضبط حساب مصروفات صالحًا على المنتج الخدمي أو فئته."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__is_credit
+msgid "Credit"
+msgstr "آجل"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Each row must belong to a saved draft batch."
+msgstr "يجب أن يتبع كل صف دفعة محفوظة في حالة مسودة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Enter a positive gross amount with at most two decimal places."
+msgstr "أدخل مبلغًا إجماليًا موجبًا بمنزلتين عشريتين على الأكثر."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+#: model:ir.model.fields.selection,name:baseer_purchase_batch.selection__baseer_purchase_batch_line__entry_type__expense
+msgid "Expense"
+msgstr "مصروف"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Native payment did not create one posted entry on the requested date."
+msgstr "لم ينشئ الدفع قيدًا مرحّلًا واحدًا في التاريخ المطلوب."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Native posting changed the requested invoice date. The entire batch was cancelled."
+msgstr "غيّر الترحيل تاريخ الفاتورة المطلوب. أُلغي تنفيذ الدفعة بالكامل."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "New"
+msgstr "جديد"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+#: model:ir.model.fields.selection,name:baseer_purchase_batch.selection__baseer_purchase_batch_line__entry_type__purchase
+msgid "Purchase"
+msgstr "مشتريات"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Purchase batches currently support SAR companies only."
+msgstr "تدعم دفعات المشتريات حاليًا الشركات التي تستخدم الريال السعودي فقط."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Remove the draft rows before changing the batch company."
+msgstr "احذف صفوف المسودة قبل تغيير شركة الدفعة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Reverse-charge and adjusted tax repartitions are not supported in purchase batches."
+msgstr "لا تدعم دفعات المشتريات ضريبة الاحتساب العكسي أو توزيعات الضريبة المعدّلة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Row totals, approval state and accounting links are controlled by the server."
+msgstr "يتولى النظام إدارة إجماليات الصف وحالة الاعتماد وروابط المستندات المحاسبية."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Rows cannot be moved between batches. Create a new draft row instead."
+msgstr "لا يمكن نقل الصفوف بين الدفعات. أنشئ صفًا جديدًا في المسودة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Supplier bill"
+msgstr "فاتورة مورد"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Supplier bills"
+msgstr "فواتير الموردين"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Supplier history exceeds the batch duplicate-check limit. Use native invoicing for this batch."
+msgstr "يتجاوز سجل المورد حد فحص التكرار للدفعات. أدخل هذه الفواتير من شاشة فواتير الموردين."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The category requires an active service product in the same category and company."
+msgstr "تتطلب الفئة منتجًا خدميًا نشطًا يتبع الفئة نفسها ومتاحًا للشركة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The company is outside your authorized companies."
+msgstr "هذه الشركة ليست ضمن الشركات المصرح لك بالوصول إليها."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The configured tax cannot reproduce this gross amount exactly."
+msgstr "لا يمكن للضريبة المحددة حساب هذا المبلغ الإجمالي بدقة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The invoice date is locked; the batch will not shift accounting dates automatically."
+msgstr "تاريخ الفاتورة ضمن فترة مقفلة؛ لن يغيّر النظام التواريخ المحاسبية تلقائيًا."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The invoice is not fully paid and reconciled through actual cash or bank entries."
+msgstr "الفاتورة غير مسددة بالكامل وغير مسوّاة بقيود نقدية أو بنكية فعلية."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The native supplier bill total does not match the entered gross amount."
+msgstr "إجمالي فاتورة المورد لا يطابق المبلغ الإجمالي المدخل."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The payment date is locked. Choose an open accounting date."
+msgstr "تاريخ الدفع ضمن فترة مقفلة. اختر تاريخًا محاسبيًا متاحًا."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The posted supplier bill total does not match the entered gross amount."
+msgstr "إجمالي فاتورة المورد المرحّلة لا يطابق المبلغ الإجمالي المدخل."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The purchase batch sequence is not configured."
+msgstr "لم يُضبط تسلسل ترقيم دفعات المشتريات."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The same supplier reference appears more than once in this batch."
+msgstr "مرجع المورد نفسه مكرر في هذه الدفعة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "You do not have permission to post supplier bills."
+msgstr "ليست لديك صلاحية ترحيل فواتير الموردين."
+
+#. module: baseer_purchase_batch
+#: model:ir.model,name:baseer_purchase_batch.model_baseer_purchase_category_map
+msgid "Purchase batch category mapping"
+msgstr "ربط فئات دفعة المشتريات"
+
+#. module: baseer_purchase_batch
+#: model:ir.model,name:baseer_purchase_batch.model_baseer_purchase_batch
+msgid "Purchase entry batch"
+msgstr "دفعة إدخال المشتريات"
+
+#. module: baseer_purchase_batch
+#: model:ir.model,name:baseer_purchase_batch.model_baseer_purchase_batch_line
+msgid "Purchase batch row"
+msgstr "صف دفعة المشتريات"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,help:baseer_purchase_batch.field_baseer_purchase_batch__entry_date
+msgid "Administrative batch date. Invoice and payment accounting dates come from each row."
+msgstr "تاريخ إداري للدفعة. تؤخذ التواريخ المحاسبية للفواتير والمدفوعات من كل صف."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Native bill net and tax amounts must match the batch preview exactly."
+msgstr "يجب أن يطابق صافي الفاتورة ومبلغ ضريبتها القيم المعروضة في الدفعة تمامًا."
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__id
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__id
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__display_name
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__display_name
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__line_ids
+msgid "Line"
+msgstr "الصفوف"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__state
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__batch_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__amount_gross
+msgid "Amount Gross"
+msgstr "الإجمالي شامل الضريبة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__amount_net
+msgid "Amount Net"
+msgstr "الصافي"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__amount_tax
+msgid "Amount Tax"
+msgstr "مبلغ الضريبة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__move_ids
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__move_id
+msgid "Move"
+msgstr "المستند المحاسبي"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__bill_count
+msgid "Bill Count"
+msgstr "عدد الفواتير"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__payment_count
+msgid "Payment Count"
+msgstr "عدد المدفوعات"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__create_uid
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__create_uid
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__create_uid
+msgid "Created by"
+msgstr "أنشأه"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__create_date
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__create_date
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__write_uid
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__write_uid
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__write_date
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__write_date
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__write_date
+msgid "Last Updated on"
+msgstr "تاريخ آخر تحديث"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__batch_id
+msgid "Batch"
+msgstr "الدفعة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__partner_id
+msgid "Partner"
+msgstr "المورد"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__supplier_ref
+msgid "Supplier Ref"
+msgstr "مرجع المورد"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__entry_type
+msgid "Entry Type"
+msgstr "نوع الإدخال"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__category_map_id
+msgid "Category Map"
+msgstr "ربط الفئة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__gross_amount
+msgid "Gross Amount"
+msgstr "المبلغ شامل الضريبة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__net_amount
+msgid "Net Amount"
+msgstr "الصافي"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__payment_method_line_id
+msgid "Payment Method Line"
+msgstr "طريقة الدفع"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.constraint,message:baseer_purchase_batch.constraint_baseer_purchase_category_map_company_category_unique
+msgid "Each company can map a category only once."
+msgstr "يمكن ربط كل فئة مرة واحدة فقط لكل شركة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose a payment journal in the company currency."
+msgstr "اختر دفتر يومية دفع بعملة الشركة."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "<span>Purchase Batch Summary</span> —"
+msgstr "<span>ملخص دفعة المشتريات</span> —"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "<strong>Company:</strong>"
+msgstr "<strong>الشركة:</strong>"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "<span class=\"mx-3\">|</span>\n                    <strong>Entry Date:</strong>"
+msgstr "<span class=\"mx-3\">|</span>\n                    <strong>تاريخ الإدخال:</strong>"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "<span class=\"mx-3\">|</span>\n                    <strong>Status:</strong>"
+msgstr "<span class=\"mx-3\">|</span>\n                    <strong>الحالة:</strong>"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.report_purchase_batch_document
+msgid "<span class=\"mx-3\">|</span>\n                    <strong>Currency:</strong>"
+msgstr "<span class=\"mx-3\">|</span>\n                    <strong>العملة:</strong>"
+
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__vat_enabled
+msgid "VAT 15%"
+msgstr "ضريبة 15%"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Applied Tax"
+msgstr "الضريبة المطبقة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Add invoice"
+msgstr "إضافة فاتورة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Add an invoice, or tap a card to edit its details."
+msgstr "أضف فاتورة، أو اضغط على بطاقة لتعديل تفاصيلها."
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__vat_is_custom
+msgid "Vat Is Custom"
+msgstr "ضريبة مخصصة"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__has_custom_vat
+msgid "Has Custom Vat"
+msgstr "يحتوي على ضريبة مخصصة"
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The VAT switch must be true or false."
+msgstr "يجب أن تكون قيمة مفتاح الضريبة مفعّلة أو غير مفعّلة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose the batch company before enabling VAT."
+msgstr "اختر شركة الدفعة قبل تفعيل الضريبة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Configure an active simple 15% default purchase tax for this company before enabling VAT."
+msgstr "اضبط ضريبة مشتريات افتراضية نشطة وبسيطة بنسبة 15% لهذه الشركة قبل تفعيل الضريبة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The VAT switch and tax selection contradict each other."
+msgstr "قيمة مفتاح الضريبة لا تتطابق مع الضريبة المحددة."
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_category_map__parent_category_id
+msgid "Parent Category"
+msgstr "الفئة الأم"
+
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Switch the active company in the header to this batch's company before editing."
+msgstr "بدّل الشركة النشطة في الشريط العلوي إلى شركة هذه الدفعة قبل التعديل."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Choose cash or bank"
+msgstr "اختر النقد أو البنك"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_line_form
+msgid "Enable Credit to pay later; otherwise choose cash or bank. Payment date equals the invoice date."
+msgstr "فعّل «آجل» للدفع لاحقًا، أو اختر النقد أو البنك. تاريخ الدفع هو تاريخ الفاتورة."
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_purchase_batch_form
+msgid "Payment method required"
+msgstr "طريقة الدفع مطلوبة"
+
+#. module: baseer_purchase_batch
+#: model_terms:ir.ui.view,arch_db:baseer_purchase_batch.view_partner_purchase_batch_defaults
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_res_partner__baseer_purchase_category_map_id
+msgid "Default Purchase Category"
+msgstr "فئة المشتريات الافتراضية"
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch__is_current_company
+#: model:ir.model.fields,field_description:baseer_purchase_batch.field_baseer_purchase_batch_line__is_current_company
+msgid "Is Current Company"
+msgstr "الشركة النشطة"
+
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Switch to the batch company before creating or changing this batch."
+msgstr "بدّل إلى شركة الدفعة قبل إنشائها أو تعديلها."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The batch company cannot be changed. Create a new batch in the active company."
+msgstr "لا يمكن تغيير شركة الدفعة. أنشئ دفعة جديدة في الشركة النشطة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The supplier default category must be active and belong to the batch company."
+msgstr "يجب أن تكون الفئة الافتراضية للمورد نشطة وتابعة لشركة الدفعة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "The credit switch must be true or false."
+msgstr "يجب أن تكون قيمة مفتاح «آجل» مفعّلة أو غير مفعّلة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "A credit row cannot also specify a payment method."
+msgstr "لا يمكن تحديد طريقة دفع لصف آجل."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose a shared supplier or a supplier from the batch company."
+msgstr "اختر موردًا مشتركًا أو موردًا من شركة الدفعة."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Choose a payment method or explicitly enable Credit before saving."
+msgstr "اختر طريقة دفع أو فعّل «آجل» صراحةً قبل الحفظ."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/res_partner.py:0
+msgid "Only accounting managers can configure supplier default purchase categories."
+msgstr "يمكن لمديري المحاسبة فقط ضبط فئات المشتريات الافتراضية للموردين."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/res_partner.py:0
+msgid "The supplier default category must be active and belong to the active company."
+msgstr "يجب أن تكون الفئة الافتراضية للمورد نشطة وتابعة للشركة النشطة."
+
+#. module: baseer_purchase_batch
+#: model:ir.model.fields,help:baseer_purchase_batch.field_res_partner__baseer_purchase_category_map_id
+msgid "Suggested category for new purchase batch rows in the active company. You can change it on each row."
+msgstr "الفئة المقترحة لصفوف دفعات المشتريات الجديدة في الشركة النشطة. يمكنك تغييرها في كل صف."
+
+#. module: baseer_purchase_batch
+#. odoo-python
+#: code:addons/baseer_purchase_batch/models/purchase_batch.py:0
+msgid "Add at least one invoice before saving this batch, or discard it to leave without saving."
+msgstr "أضف فاتورة واحدة على الأقل قبل حفظ الدفعة، أو تجاهل التغييرات للخروج دون حفظ."

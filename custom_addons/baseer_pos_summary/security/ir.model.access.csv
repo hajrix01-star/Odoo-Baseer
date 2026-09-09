@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_day_archive_user,Daily sales archive reader,model_baseer_pos_day_archive,point_of_sale.group_pos_user,1,0,0,0
+access_summary_user,Sales summary user,model_baseer_pos_summary,point_of_sale.group_pos_user,1,1,1,1
+access_allocation_user,Sales allocation user,model_baseer_pos_summary_allocation,point_of_sale.group_pos_user,1,1,1,1
+access_payment_category_user,Payment category reader,model_baseer_pos_payment_category,point_of_sale.group_pos_user,1,0,0,0
+access_payment_category_manager,Payment category manager,model_baseer_pos_payment_category,point_of_sale.group_pos_manager,1,1,1,1
+access_closure_user,Sales closures user,model_baseer_pos_closure,point_of_sale.group_pos_user,1,1,1,1
+access_daily_report_user,Daily report user,model_baseer_pos_daily_report,point_of_sale.group_pos_user,1,1,1,1
+access_daily_report_line_user,Daily report line user,model_baseer_pos_daily_report_line,point_of_sale.group_pos_user,1,1,1,1
+access_day_entry_user,Daily entry user,model_baseer_pos_day_entry,point_of_sale.group_pos_user,1,1,1,1
+access_day_entry_line_user,Daily entry line user,model_baseer_pos_day_entry_line,point_of_sale.group_pos_user,1,1,1,1
+access_summary_correction_manager,Sales summary correction manager,model_baseer_pos_summary_correction,point_of_sale.group_pos_manager,1,1,1,1

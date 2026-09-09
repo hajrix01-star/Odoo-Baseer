@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_day_entry_form" model="ir.ui.view">
+        <field name="name">baseer.pos.day.entry.form</field>
+        <field name="model">baseer.pos.day.entry</field>
+        <field name="arch" type="xml">
+            <form string="Daily sales entry" class="baseer_pos_summary_form baseer_pos_day_entry_form" delete="0" duplicate="0">
+                <header>
+                    <button name="action_save_and_approve" type="object" string="Save" class="oe_highlight" invisible="state == 'approved' or first_missing or second_missing"/>
+                    <button name="action_save_and_share" type="object" string="Save and WhatsApp" icon="fa-whatsapp" invisible="state == 'approved' or first_missing or second_missing"/>
+                    <button name="action_share_whatsapp" type="object" string="Open WhatsApp" icon="fa-whatsapp" invisible="state != 'approved'"/>
+                    <button name="action_view_summaries" type="object" string="Shift details" icon="fa-external-link" invisible="not saved or day_off"/>
+                    <button name="action_view_closure" type="object" string="Closure details" icon="fa-external-link" invisible="not saved or not day_off"/>
+                    <button name="action_archive" type="object" string="Archive" invisible="not saved or is_archived" groups="point_of_sale.group_pos_manager"/>
+                    <button name="action_unarchive" type="object" string="Unarchive" invisible="not saved or not is_archived" groups="point_of_sale.group_pos_manager"/>
+                    <button name="action_delete_drafts" type="object" string="Delete drafts" invisible="not saved or state != 'saved' or day_off" groups="point_of_sale.group_pos_manager" confirm="Delete all draft shifts of this day permanently? Approved sales cannot be deleted."/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,saved,approved"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-secondary" invisible="not is_archived"/>
+                    <field name="is_archived" invisible="1"/>
+                    <field name="saved" invisible="1"/>
+                    <field name="first_missing" invisible="1"/>
+                    <field name="second_missing" invisible="1"/>
+                    <field name="config_id" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <div class="oe_title"><h1>Sales summary</h1></div>
+                    <group class="baseer_pos_header">
+                        <group>
+                            <field name="company_id" readonly="1" options="{'no_open': True}"/>
+                            <field name="day_off" widget="boolean_toggle" options="{'autosave': False}" readonly="saved"/>
+                            <field name="business_date" string="Sales date" widget="baseer_latin_date" options="{'numeric': True}" readonly="saved" invisible="day_off"/>
+                            <field name="business_date" string="From date" widget="baseer_latin_date" options="{'numeric': True}" readonly="saved" invisible="not day_off"/>
+                            <field name="date_to" widget="baseer_latin_date" options="{'numeric': True}" readonly="saved" invisible="not day_off" required="day_off"/>
+                        </group>
+                        <group>
+                            <field name="day_schedule" invisible="1" force_save="1"/>
+                            <separator string="What are you recording today?" invisible="day_off"/>
+                            <div class="baseer_pos_shift_choices" colspan="2" invisible="day_off">
+                                <div class="baseer_pos_shift_choice"><field name="pick_morning" nolabel="1" readonly="saved"/><label for="pick_morning" string="Morning shift"/></div>
+                                <div class="baseer_pos_shift_choice"><field name="pick_evening" nolabel="1" readonly="saved"/><label for="pick_evening" string="Evening shift"/></div>
+                                <div class="baseer_pos_shift_choice"><field name="pick_all" nolabel="1" readonly="saved"/><label for="pick_all" string="Full day"/></div>
+                            </div>
+                            <field name="closure_reason" readonly="saved" invisible="not day_off" required="day_off"/>
+                            <field name="closure_notes" readonly="saved" invisible="not day_off" required="day_off and closure_reason == 'other'" placeholder="Write the closure reason or additional details"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="status" invisible="not day_off">The first and last dates are included. Closed days are excluded from daily averages and create no sales or accounting entries.</div>
+                    <div class="alert alert-info" role="status" invisible="state != 'saved'">This day contains saved drafts. Save approves them together; shift details remain available for review.</div>
+                    <div class="alert alert-warning" role="status" invisible="not first_missing and not second_missing">A scheduled shift has not been recorded. Its absence does not mean zero sales. Review the shift details.</div>
+
+                    <div class="baseer_pos_shift_card" invisible="day_off or not day_schedule">
+                        <h2 invisible="day_schedule != 'all'">Full day</h2>
+                        <h2 invisible="day_schedule not in ('split', 'morning')">Morning shift</h2>
+                        <h2 invisible="day_schedule != 'evening'">Evening shift</h2>
+                        <p invisible="not first_missing">This shift has not been recorded.</p>
+                        <div invisible="first_missing">
+                        <field name="first_state" widget="badge" nolabel="1" invisible="not saved"/>
+                        <group class="baseer_pos_shift_details">
+                            <group><field name="first_customers" class="baseer_pos_customer_input" string="Customer count" readonly="saved or first_zero_sales"/></group>
+                            <group><field name="first_zero_sales" widget="boolean_toggle" options="{'autosave': False}" string="Worked with no sales" readonly="saved"/></group>
+                        </group>
+                        <div invisible="first_zero_sales">
+                            <field name="first_allocation_ids" widget="baseer_payment_amount_grid" mode="list" nolabel="1" readonly="saved">
+                                <list editable="bottom" create="0" delete="0" limit="25">
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="company_id" column_invisible="True"/>
+                                    <field name="slot" column_invisible="True" readonly="1" force_save="1"/>
+                                    <field name="payment_method_id" readonly="1" force_save="1" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="amount" widget="monetary" options="{'no_symbol': True}"/>
+                                </list>
+                            </field>
+                        </div>
+                        <p class="text-muted" invisible="not first_zero_sales">This shift operated without sales. No accounting entry will be created for it.</p>
+                        <group class="baseer_pos_shift_notes"><field name="first_notes" string="Notes" placeholder="Optional notes" readonly="saved"/></group>
+                        <div class="baseer_pos_shift_total"><span>Total including VAT</span><field name="first_total" widget="monetary" nolabel="1"/></div>
+                        </div>
+                    </div>
+
+                    <div class="baseer_pos_shift_card" invisible="day_off or day_schedule != 'split'">
+                        <h2>Evening shift</h2>
+                        <p invisible="not second_missing">This shift has not been recorded.</p>
+                        <div invisible="second_missing">
+                        <field name="second_state" widget="badge" nolabel="1" invisible="not saved"/>
+                        <group class="baseer_pos_shift_details">
+                            <group><field name="second_customers" class="baseer_pos_customer_input" string="Customer count" readonly="saved or second_zero_sales"/></group>
+                            <group><field name="second_zero_sales" widget="boolean_toggle" options="{'autosave': False}" string="Worked with no sales" readonly="saved"/></group>
+                        </group>
+                        <div invisible="second_zero_sales">
+                            <field name="second_allocation_ids" widget="baseer_payment_amount_grid" mode="list" nolabel="1" readonly="saved">
+                                <list editable="bottom" create="0" delete="0" limit="25">
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="company_id" column_invisible="True"/>
+                                    <field name="slot" column_invisible="True" readonly="1" force_save="1"/>
+                                    <field name="payment_method_id" readonly="1" force_save="1" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="amount" widget="monetary" options="{'no_symbol': True}"/>
+                                </list>
+                            </field>
+                        </div>
+                        <p class="text-muted" invisible="not second_zero_sales">This shift operated without sales. No accounting entry will be created for it.</p>
+                        <group class="baseer_pos_shift_notes"><field name="second_notes" string="Notes" placeholder="Optional notes" readonly="saved"/></group>
+                        <div class="baseer_pos_shift_total"><span>Total including VAT</span><field name="second_total" widget="monetary" nolabel="1"/></div>
+                        </div>
+                    </div>
+
+                    <div class="baseer_pos_metrics" invisible="day_off or not day_schedule">
+                        <div class="baseer_pos_metric"><span class="text-muted">Daily total including VAT</span><field name="amount_total" widget="monetary" nolabel="1"/></div>
+                        <div class="baseer_pos_metric"><span class="text-muted">Daily customers</span><field name="customer_total" nolabel="1"/></div>
+                        <div class="baseer_pos_metric"><span class="text-muted">Average per customer</span><field name="average_per_customer" widget="monetary" nolabel="1"/></div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_day_entry" model="ir.actions.act_window">
+        <field name="name">Sales summary</field>
+        <field name="res_model">baseer.pos.day.entry</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+    <menuitem id="menu_day_entry" name="Daily sales entry" parent="point_of_sale.menu_point_root" action="action_pos_day_entry" sequence="1" groups="point_of_sale.group_pos_user"/>
+    <record id="menu_summary" model="ir.ui.menu"><field name="name">Saved summaries</field></record>
+    <record id="menu_day_entry" model="ir.ui.menu"><field name="active" eval="False"/></record>
+</odoo>

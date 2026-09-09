@@ -1,0 +1,6 @@
+// Legion paints the navbar white; native mobile entries also need dark text.
+.o_main_navbar {
+    --NavBar-entry-color: #212529;
+    --NavBar-entry-color--active: #212529;
+    --NavBar-brand-color: #212529;
+}

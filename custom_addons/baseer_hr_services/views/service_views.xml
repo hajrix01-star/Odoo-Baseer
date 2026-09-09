@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_hr_service_list" model="ir.ui.view">
+        <field name="name">baseer.hr.service.list</field>
+        <field name="model">baseer.hr.service</field>
+        <field name="arch" type="xml">
+            <list string="Employee Services" default_order="invoice_date desc, id desc" decoration-muted="state == 'cancel'">
+                <field name="employee_id"/>
+                <field name="service_type"/>
+                <field name="partner_id"/>
+                <field name="invoice_date" widget="baseer_latin_date"/>
+                <field name="expiry_date" widget="baseer_latin_date" optional="show"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="gross_amount" sum="Total cost"/>
+                <field name="state" widget="badge" decoration-success="state == 'approved'" decoration-muted="state == 'cancel'"/>
+                <field name="payment_state" widget="badge" decoration-success="payment_state == 'paid'" decoration-warning="payment_state in ('partial','in_payment')"/>
+                <field name="balance" sum="Remaining amount"/>
+                <field name="name" optional="hide"/>
+                <field name="service_reference" optional="hide"/>
+                <field name="visa_type" optional="hide"/>
+                <field name="issue_date" widget="baseer_latin_date" optional="hide"/>
+                <field name="net_amount" sum="Net amount" optional="hide"/>
+                <field name="tax_amount" sum="Tax amount" optional="hide"/>
+                <field name="bill_state" optional="hide"/>
+                <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_baseer_hr_service_kanban" model="ir.ui.view">
+        <field name="name">baseer.hr.service.kanban</field>
+        <field name="model">baseer.hr.service</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" quick_create="0" default_order="invoice_date desc, id desc">
+                <field name="currency_id"/><field name="state"/><field name="payment_state"/>
+                <templates><t t-name="card">
+                    <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                        <strong class="text-break"><field name="employee_id"/></strong>
+                        <field name="state" widget="badge"/>
+                    </div>
+                    <div class="fw-semibold mb-1"><field name="service_type"/></div>
+                    <div class="text-muted text-break mb-3"><field name="partner_id"/></div>
+                    <div class="d-flex justify-content-between gap-2"><span>Invoice date</span><field name="invoice_date" widget="baseer_latin_date"/></div>
+                    <div class="d-flex justify-content-between gap-2"><span>Expiry date</span><field name="expiry_date" widget="baseer_latin_date"/></div>
+                    <div class="d-flex justify-content-between gap-2 fw-bold mt-2"><span>Total cost</span><field name="gross_amount"/></div>
+                    <div class="d-flex justify-content-between gap-2"><span>Remaining amount</span><field name="balance"/></div>
+                    <div class="mt-2"><field name="payment_state" widget="badge"/></div>
+                </t></templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_baseer_hr_service_form" model="ir.ui.view">
+        <field name="name">baseer.hr.service.form</field>
+        <field name="model">baseer.hr.service</field>
+        <field name="arch" type="xml">
+            <form string="Employee Service" duplicate="0">
+                <header>
+                    <button name="action_approve" type="object" string="Approve and Issue Bill" class="oe_highlight" groups="hr.group_hr_manager" invisible="state != 'draft' or bill_id"/>
+                    <button name="action_register_payment" type="object" string="Register Payment" class="oe_highlight" groups="account.group_account_invoice" invisible="not bill_id or bill_state != 'posted' or balance &lt;= 0 or payment_state == 'reversed'"/>
+                    <button name="action_view_bill" type="object" string="Open Bill" groups="account.group_account_invoice" invisible="not bill_id"/>
+                    <button name="action_print" type="object" string="Print Statement" invisible="not id"/>
+                    <button name="action_renew" type="object" string="Renew Service" invisible="state != 'approved'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state == 'cancel' or (bill_id and payment_state != 'reversed' and bill_state != 'cancel')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" invisible="state != 'cancel' or bill_id"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,cancel"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="bill_id" invisible="1"/>
+                    <field name="category_map_id" invisible="1"/>
+                    <field name="has_posted_refund" invisible="1"/>
+                    <div class="alert alert-info" role="status" invisible="not has_posted_refund">This bill has a credit note. Review the bill for correction details.</div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-secondary" invisible="active"/>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group string="Service Details">
+                            <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                            <field name="employee_id" domain="[('company_id', '=', company_id)]" context="{'active_test': False}" options="{'no_create': True}" readonly="state != 'draft' or bill_id"/>
+                            <field name="service_type" readonly="state != 'draft' or bill_id"/>
+                            <field name="visa_type" invisible="service_type != 'visa'" required="service_type == 'visa'" readonly="state != 'draft' or bill_id"/>
+                            <field name="partner_id" domain="[('company_id', 'in', [False, company_id]), ('supplier_rank', '&gt;', 0)]" options="{'no_create': True}" readonly="state != 'draft' or bill_id"/>
+                            <field name="service_reference" readonly="state != 'draft' or bill_id"/>
+                            <field name="issue_date" widget="baseer_latin_date" readonly="state != 'draft' or bill_id"/>
+                            <field name="expiry_date" widget="baseer_latin_date" readonly="state != 'draft' or bill_id"/>
+                        </group>
+                        <group string="Amounts">
+                            <field name="invoice_date" widget="baseer_latin_date" readonly="state != 'draft' or bill_id"/>
+                            <field name="gross_amount" readonly="state != 'draft' or bill_id"/>
+                            <field name="vat_enabled" widget="boolean_toggle" readonly="state != 'draft' or bill_id"/>
+                            <field name="net_amount" readonly="1"/>
+                            <field name="tax_amount" readonly="1"/>
+                            <separator string="Bill and Payment" invisible="not bill_id"/>
+                            <field name="bill_state" invisible="not bill_id"/>
+                            <field name="payment_state" widget="badge" invisible="not bill_id"/>
+                            <field name="balance" class="fw-bold" invisible="not bill_id"/>
+                        </group>
+                    </group>
+                    <group string="Notes"><field name="notes" nolabel="1" placeholder="Service details or additional notes…" required="service_type == 'other_employee'" readonly="state != 'draft' or bill_id"/></group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_baseer_hr_service_search" model="ir.ui.view">
+        <field name="name">baseer.hr.service.search</field>
+        <field name="model">baseer.hr.service</field>
+        <field name="arch" type="xml">
+            <search string="Employee Services">
+                <field name="employee_id"/><field name="service_type"/><field name="partner_id"/>
+                <field name="name"/><field name="service_reference"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                <filter name="cancel" string="Canceled" domain="[('state', '=', 'cancel')]"/>
+                <separator/>
+                <filter name="unpaid" string="Unpaid" domain="[('bill_state', '=', 'posted'), ('payment_state', 'in', ['not_paid','partial','in_payment'])]"/>
+                <filter name="paid" string="Paid" domain="[('payment_state', '=', 'paid')]"/>
+                <separator/>
+                <filter name="expired" string="Expired" domain="[('expiry_date', '&lt;', context_today().strftime('%Y-%m-%d')), ('state', '!=', 'cancel')]"/>
+                <filter name="expiring_30" string="Expiring in 30 Days" domain="[('expiry_date', '&gt;=', context_today().strftime('%Y-%m-%d')), ('expiry_date', '&lt;=', (context_today() + relativedelta(days=30)).strftime('%Y-%m-%d')), ('state', '!=', 'cancel')]"/>
+                <filter name="invoice_date" string="Invoice Date" date="invoice_date"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter name="employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                    <filter name="service" string="Service" context="{'group_by': 'service_type'}"/>
+                    <filter name="provider" string="Provider" context="{'group_by': 'partner_id'}"/>
+                    <filter name="month" string="Month" context="{'group_by': 'invoice_date:month'}"/>
+                    <filter name="state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_baseer_hr_services" model="ir.actions.act_window">
+        <field name="name">Employee Services</field>
+        <field name="res_model">baseer.hr.service</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="view_baseer_hr_service_search"/>
+        <field name="domain">[('company_id', '=', allowed_company_ids[0])]</field>
+        <field name="help" type="html"><p class="o_view_nocontent_smiling_face">Record an employee service</p><p>Track employee documents, service costs and payments in one place.</p></field>
+    </record>
+    <menuitem id="menu_baseer_hr_services" name="Employee Services" parent="hr.menu_hr_root" action="action_baseer_hr_services" sequence="25" groups="hr.group_hr_user"/>
+</odoo>

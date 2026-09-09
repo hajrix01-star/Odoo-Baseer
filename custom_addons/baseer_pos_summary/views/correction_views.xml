@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_summary_correction_form" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.correction.form</field>
+        <field name="model">baseer.pos.summary.correction</field>
+        <field name="arch" type="xml">
+            <form string="Correct sales summary">
+                <group><field name="summary_id" options="{'no_open': True}"/><field name="reason" required="1"/></group>
+                <p>The original entries will be reversed on the sales date and retained. A linked replacement draft will open for review and approval. Closed periods and external settlements must be reviewed first.</p>
+                <footer><button name="action_correct" type="object" string="Reverse and prepare replacement" class="btn-primary"/>
+                    <button special="cancel" string="Close" class="btn-secondary"/></footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_summary_correction_history" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.correction.history</field>
+        <field name="model">baseer.pos.summary</field>
+        <field name="inherit_id" ref="view_summary_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_open_correction" type="object" string="Correct summary" invisible="state != 'approved' or not is_current_company" groups="point_of_sale.group_pos_manager"/>
+            </xpath>
+            <xpath expr="//field[@name='business_date']" position="attributes">
+                <attribute name="readonly">state != 'draft' or not is_current_company or replaces_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='day_schedule']" position="attributes">
+                <attribute name="readonly">state != 'draft' or not is_current_company or replaces_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='period_scope']" position="attributes">
+                <attribute name="readonly">state != 'draft' or not is_current_company or replaces_id</attribute>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="Correction history" invisible="not replaces_id and not replacement_id">
+                    <field name="replaces_id"/><field name="replacement_id"/><field name="correction_reason"/>
+                    <field name="corrected_by_id"/><field name="corrected_at"/>
+                    <field name="reversal_move_ids" widget="many2many_tags"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

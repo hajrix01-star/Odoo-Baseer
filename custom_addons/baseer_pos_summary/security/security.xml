@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_summary_correction_company" model="ir.rule">
+        <field name="name">Summary corrections: allowed company</field>
+        <field name="model_id" ref="model_baseer_pos_summary_correction"/>
+        <field name="domain_force">[('summary_id.company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_day_archive_company" model="ir.rule">
+        <field name="name">Daily archive: allowed companies</field>
+        <field name="model_id" ref="model_baseer_pos_day_archive"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_day_entry_owner_company" model="ir.rule">
+        <field name="name">Daily entry: owner and allowed company</field>
+        <field name="model_id" ref="model_baseer_pos_day_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids),('create_uid','=',user.id)]</field>
+    </record>
+    <record id="rule_day_entry_line_owner_company" model="ir.rule">
+        <field name="name">Daily entry lines: owner and allowed company</field>
+        <field name="model_id" ref="model_baseer_pos_day_entry_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids),('create_uid','=',user.id)]</field>
+    </record>
+    <record id="rule_closure_company" model="ir.rule">
+        <field name="name">Sales closures: allowed companies</field>
+        <field name="model_id" ref="model_baseer_pos_closure"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_daily_report_owner_company" model="ir.rule">
+        <field name="name">Daily report: owner and allowed company</field>
+        <field name="model_id" ref="model_baseer_pos_daily_report"/>
+        <field name="domain_force">[('company_id', 'in', company_ids),('create_uid','=',user.id)]</field>
+    </record>
+    <record id="rule_daily_report_line_owner_company" model="ir.rule">
+        <field name="name">Daily report lines: owner and allowed company</field>
+        <field name="model_id" ref="model_baseer_pos_daily_report_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids),('create_uid','=',user.id)]</field>
+    </record>
+    <record id="rule_summary_company" model="ir.rule">
+        <field name="name">Sales summaries: allowed companies</field>
+        <field name="model_id" ref="model_baseer_pos_summary"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_allocation_company" model="ir.rule">
+        <field name="name">Sales allocations: allowed companies</field>
+        <field name="model_id" ref="model_baseer_pos_summary_allocation"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_payment_category_company" model="ir.rule">
+        <field name="name">Payment categories: allowed companies</field>
+        <field name="model_id" ref="model_baseer_pos_payment_category"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_report_layout.CompactReport"
+       t-inherit="eh_account_dynamic_reports.DynamicReportViewer"
+       t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('eh_dr')]" position="attributes">
+            <attribute name="t-att-class">{
+                'baseer_report_layout': ['profit_and_loss', 'cash_flow', 'baseer_cash_categories'].includes(reportCode),
+                'baseer_report_simple': ['profit_and_loss', 'cash_flow', 'baseer_cash_categories'].includes(reportCode) &amp;&amp; state.payload &amp;&amp; state.payload.columns.length === 2,
+                'baseer_report_filters_open': state.filtersExpanded
+            }</attribute>
+        </xpath>
+    </t>
+</templates>

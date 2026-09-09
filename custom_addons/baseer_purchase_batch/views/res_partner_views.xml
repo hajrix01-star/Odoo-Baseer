@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_purchase_batch_defaults" model="ir.ui.view">
+        <field name="name">res.partner.purchase.batch.defaults</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_outbound_payment_method_line_id" position="after">
+                <field name="baseer_purchase_category_map_id" string="Default Purchase Category"
+                       groups="account.group_account_manager" options="{'no_create': True}"
+                       domain="[('company_id', '=', context.get('allowed_company_ids', [False])[0]), ('active', '=', True)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

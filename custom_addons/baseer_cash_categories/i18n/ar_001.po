@@ -1,0 +1,389 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Baseer Cash Categories 19.0\n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: baseer_cash_categories
+#: model:eh.account.dynamic.report,name:baseer_cash_categories.report_cash_categories
+#: model:ir.actions.client,name:baseer_cash_categories.action_cash_categories
+#: model:ir.ui.menu,name:baseer_cash_categories.menu_cash_categories
+msgid "Cash Movement by Category"
+msgstr "الحركة النقدية حسب الفئات"
+
+#. module: baseer_cash_categories
+#: model_terms:ir.ui.view,arch_db:baseer_cash_categories.report_cash_note
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Preview: partial payments are allocated proportionally to invoice items."
+msgstr "نسخة تجريبية: تُوزّع الدفعات الجزئية بنسبة قيمة بنود الفاتورة."
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#. odoo-python
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+#: code:addons/baseer_cash_categories/models/cash_pdf.py:0
+msgid "Include VAT"
+msgstr "شامل الضريبة"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Excluding VAT changes the administrative subtotal; the VAT bridge preserves actual cash movement."
+msgstr "استبعاد الضريبة يغيّر الصافي الإداري؛ ويبيّن سطر تسوية الضريبة الحركة النقدية الفعلية."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Unclassified / needs allocation"
+msgstr "غير مصنف / يحتاج إلى توزيع"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Customer refunds"
+msgstr "مبالغ مرتجعة للعملاء"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Actual receipts"
+msgstr "المقبوضات الفعلية"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Actual payments"
+msgstr "المدفوعات الفعلية"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Total receipts"
+msgstr "إجمالي المقبوضات"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Total payments"
+msgstr "إجمالي المدفوعات"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Net movement (selected tax basis)"
+msgstr "صافي الحركة حسب خيار الضريبة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Excluded invoice tax: bridge to actual cash"
+msgstr "تسوية الضريبة المستبعدة إلى النقد الفعلي"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Actual net cash movement"
+msgstr "صافي الحركة النقدية الفعلية"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Opening cash balance"
+msgstr "الرصيد النقدي الافتتاحي"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Closing cash balance"
+msgstr "الرصيد النقدي الختامي"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Reconciliation difference (must be zero)"
+msgstr "فرق المطابقة (يجب أن يساوي صفراً)"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "QA allocation: partial payments distributed proportionally across invoice lines."
+msgstr "توزيع تجريبي: تُوزّع الدفعات الجزئية بنسبة قيمة بنود الفاتورة."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Only evidenced invoice tax is excluded; unknown tax retains the full cash amount."
+msgstr "تُستبعد الضريبة المثبتة بالفواتير فقط؛ وتبقى الحركة كاملة عند عدم توفر تفصيل الضريبة."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Direct journal entries retain their full amount; invoice VAT was not inferred."
+msgstr "تظهر القيود المباشرة بكامل المبلغ دون افتراض ضريبة غير موثقة."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Unreconciled cash counterpart."
+msgstr "توجد حركة نقدية لم تُربط بفاتورة أو تسوية بعد."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Description"
+msgstr "الوصف"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Amount incl. tax"
+msgstr "المبلغ شامل الضريبة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Amount excl. evidenced tax"
+msgstr "المبلغ دون الضريبة المثبتة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Original documents — report shows allocated paid portions; document totals may differ"
+msgstr "المستندات الأصلية — التقرير يعرض الجزء المدفوع وقد يختلف عن إجمالي المستند"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Cash journal items for reconciliation"
+msgstr "بنود القيود النقدية للتحقق من المطابقة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Cash journal items — report amounts may be allocated or exclude tax"
+msgstr "بنود القيود النقدية — قد تعرض أرقام التقرير توزيعاً جزئياً أو تستبعد الضريبة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Invalid cash report row."
+msgstr "صف التقرير النقدي غير صالح."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "This row has no numeric cash report source."
+msgstr "لا يوجد مصدر مالي لهذا الصف في التقرير."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Net cash movement"
+msgstr "صافي الحركة النقدية"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Balance reconciliation details"
+msgstr "تفاصيل الأرصدة وطريقة الاحتساب"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Paid movements only"
+msgstr "المبالغ المحصّلة والمدفوعة فقط"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Selected months"
+msgstr "الأشهر المختارة"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Choose a month"
+msgstr "اختر شهراً"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Add month"
+msgstr "إضافة شهر"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Up to 12 separate months"
+msgstr "حتى 12 شهراً، ويمكن اختيار أشهر غير متتالية"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.js:0
+msgid "Choose a valid month."
+msgstr "اختر شهراً صحيحاً."
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.js:0
+msgid "Select no more than 12 months."
+msgstr "يمكن اختيار 12 شهراً كحد أقصى."
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.js:0
+msgid "Remove month: %s"
+msgstr "إزالة شهر: %s"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Sales collected for percentage:"
+msgstr "المبيعات المحصّلة المعتمدة للنسبة:"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Select between 1 and 12 calendar months."
+msgstr "اختر من شهر واحد إلى 12 شهراً ميلادياً."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Months must use YYYY-MM format."
+msgstr "يجب إدخال الشهر بصيغة سنة-شهر، مثل 2026-09."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Select each month only once."
+msgstr "اختر كل شهر مرة واحدة فقط."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Invalid calendar month."
+msgstr "الشهر الميلادي غير صالح."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.js:0
+msgid "Selected months must fit within a 24-month span."
+msgstr "يجب أن تكون الأشهر المختارة ضمن فترة لا تتجاوز 24 شهراً."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "The monthly preview limit is 30,000 read and trace records. Select fewer months."
+msgstr "تجاوز التقرير سعة المعاينة. قلّل عدد الأشهر المختارة."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "The cash preview supports at most 1,000 report rows. Narrow the selection."
+msgstr "تدعم المعاينة حتى 1,000 صف في التقرير. قلّل نطاق الاختيار."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Selected months total"
+msgstr "إجمالي الأشهر المختارة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "% of collected sales"
+msgstr "% من المبيعات المحصّلة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Opening and closing balances are monthly snapshots; their total is intentionally blank."
+msgstr "الرصيد الافتتاحي والختامي يخصّان كل شهر على حدة، لذلك لا يُجمعان في عمود الإجمالي."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Sales percentage is unavailable because evidenced sales collections are zero or negative."
+msgstr "لا تتوفر النسبة لأن المبيعات المحصّلة المثبتة تساوي صفراً أو أقل."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "The requested company is outside your authorized companies."
+msgstr "ليست لديك صلاحية الوصول إلى الشركة المختارة."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Invalid cash report column."
+msgstr "عمود التقرير النقدي غير صالح."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "The requested column is outside the selected months."
+msgstr "العمود المطلوب لا يخصّ الأشهر المختارة."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "This cell has no numeric cash report source."
+msgstr "لا يوجد مصدر مالي لهذه الخلية في التقرير."
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Outgoing source documents — percentage of positive evidenced sales collections"
+msgstr "المستندات الأصلية للمدفوعات — النسبة من المبيعات المحصّلة المثبتة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_pdf.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_cash_categories.report_cash_note
+msgid "Selected months:"
+msgstr "الأشهر المختارة:"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_pdf.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_cash_categories.report_cash_note
+msgid "Evidenced sales collections:"
+msgstr "المبيعات المحصّلة المثبتة:"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_pdf.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_cash_categories.report_cash_note
+msgid "Exclude VAT"
+msgstr "دون الضريبة"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_pdf.py:0
+msgid "Currency:"
+msgstr "العملة:"
+
+#. module: baseer_cash_categories
+#. odoo-javascript
+#: code:addons/baseer_cash_categories/static/src/cash_categories.xml:0
+msgid "Cash report table"
+msgstr "جدول التقرير النقدي"
+
+#. module: baseer_cash_categories
+#. odoo-python
+#: code:addons/baseer_cash_categories/models/cash_categories.py:0
+msgid "Sales percentage uses positive collections traced to customer invoices or sales receipts. Loans, capital, supplier refunds, unclassified receipts and untraced POS are excluded. Customer refunds remain outgoing and are not deducted from this denominator."
+msgstr "تُحسب النسبة من التحصيلات الموجبة المرتبطة بفواتير العملاء أو إيصالات المبيعات. لا يشمل أساس النسبة القروض ورأس المال ومرتجعات الموردين والتحصيلات غير المصنفة ومبيعات نقاط البيع التي لم يُتتبّع مصدرها. تظهر مرتجعات العملاء ضمن المدفوعات، ولا تُخصم مرة أخرى من أساس النسبة."

@@ -1,0 +1,26 @@
+.baseer_app_menu_entry {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 2.5rem;
+
+    .baseer_app_menu_icon {
+        flex: 0 0 2rem;
+        width: 2rem;
+        height: 2rem;
+        object-fit: contain;
+    }
+
+    .baseer_app_menu_fallback {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--o-gray-500, #6c757d);
+    }
+
+    .baseer_app_menu_label {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}

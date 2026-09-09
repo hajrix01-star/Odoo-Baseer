@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_baseer_end_service" model="report.paperformat">
+        <field name="name">Baseer End-of-Service A4</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">12</field>
+        <field name="margin_left">14</field>
+        <field name="margin_right">14</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="action_report_baseer_end_service" model="ir.actions.report">
+        <field name="name">End-of-Service Statement</field>
+        <field name="model">baseer.hr.eos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">baseer_payroll.report_end_service</field>
+        <field name="report_file">baseer_payroll.report_end_service</field>
+        <field name="paperformat_id" ref="baseer_payroll.paperformat_baseer_end_service"/>
+        <field name="binding_model_id" ref="baseer_payroll.model_baseer_hr_eos"/>
+        <field name="binding_type">report</field>
+        <field name="group_ids" eval="[(4, ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+        <field name="print_report_name">'End of Service - %s' % object.employee_id.name</field>
+    </record>
+    <template id="report_end_service_document">
+        <t t-call="web.basic_layout">
+            <t t-call="baseer_report_layout.arabic_pdf_font_styles"/>
+            <div class="page eh_pdf_page baseer_arabic_pdf baseer_eos_statement" t-att-dir="'rtl' if arabic else 'ltr'">
+                <style>
+                    .baseer_eos_statement { font-family: 'Baseer Plex Arabic', sans-serif; color: #263e39; font-size: 14px; line-height: 1.5; }
+                    .baseer_eos_statement table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+                    .baseer_eos_statement td, .baseer_eos_statement th { vertical-align: top; overflow-wrap: break-word; word-wrap: break-word; }
+                    .baseer_eos_statement tr, .baseer_eos_statement .eos_keep { page-break-inside: avoid; }
+                    .baseer_eos_statement .eos_header { border-bottom: 2px solid #326b5e; padding-bottom: 12px; margin-bottom: 16px; }
+                    .baseer_eos_statement .eos_company { font-size: 19px; font-weight: 700; margin: 0 0 3px; }
+                    .baseer_eos_statement .eos_muted { color: #657972; font-size: 12px; }
+                    .baseer_eos_statement .eos_logo { max-height: 60px; max-width: 100px; }
+                    .baseer_eos_statement .eos_title { font-size: 24px; line-height: 1.4; font-weight: 700; margin: 0 0 6px; color: #174e42; }
+                    .baseer_eos_statement .eos_stage { display: inline-block; background: #edf4f1; padding: 3px 10px; font-size: 12px; border-radius: 3px; }
+                    .baseer_eos_statement .eos_section { margin-top: 17px; }
+                    .baseer_eos_statement .eos_label { display: block; font-size: 11px; font-weight: 400; color: #657972; margin-bottom: 2px; }
+                    .baseer_eos_statement .eos_details td { padding: 6px 10px; border-bottom: 1px solid #e2eae6; }
+                    .baseer_eos_statement .eos_details { background: #f8faf9; }
+                    .baseer_eos_statement .eos_details .eos_value { display: block; font-weight: 700; font-size: 13px; }
+                    .baseer_eos_statement .eos_heading { font-size: 14px; font-weight: 700; margin: 0 0 7px; }
+                    .baseer_eos_statement .eos_calculation td { border-bottom: 1px solid #dce7e1; padding: 7px 10px; }
+                    .baseer_eos_statement .eos_calculation .eos_amount { width: 32%; text-align: center; direction: ltr; white-space: nowrap; font-weight: 700; }
+                    .baseer_eos_statement .eos_award td { background: #e6f0eb; border-top: 1px solid #9dbbad; font-size: 16px; font-weight: 700; }
+                    .baseer_eos_statement .eos_settlement td { width: 50%; padding: 9px 12px; background: #f1f6f3; border: 1px solid #dce7e1; }
+                    .baseer_eos_statement .eos_settlement .eos_value { display: block; font-size: 19px; font-weight: 700; }
+                    .baseer_eos_statement .eos_number { direction: ltr; unicode-bidi: embed; display: inline-block; white-space: nowrap; }
+                    .baseer_eos_statement .eos_currency { font-size: 11px; color: #657972; font-weight: 400; }
+                    .baseer_eos_statement .eos_audit td { padding: 4px 0; font-size: 11px; }
+                    .baseer_eos_statement .eos_acknowledgment { border-top: 1px solid #cadbd2; padding-top: 11px; font-size: 13px; margin-bottom: 0; }
+                    .baseer_eos_statement .eos_signature td { width: 50%; padding-top: 15px; }
+                    .baseer_eos_statement .eos_signature_box { width: 88%; }
+                    .baseer_eos_statement .eos_signature_space { height: 29px; border-bottom: 1px dotted #8eaaa0; }
+                    .baseer_eos_statement .eos_signature_date { padding-top: 6px; color: #657972; font-size: 11px; }
+                    .baseer_eos_statement .eos_note { margin: 8px 0 0; font-size: 12px; }
+                </style>
+                <div class="eos_header eos_keep">
+                    <table><tr>
+                        <td style="width:80%">
+                            <div class="eos_company" t-out="r['company_name']"/>
+                            <div class="eos_muted" t-if="r['company_address']" t-out="r['company_address']"/>
+                            <div class="eos_muted" t-if="r['company_vat']"><span t-translation="on">VAT No.</span> <span class="eos_number" t-out="r['company_vat']"/></div>
+                        </td>
+                        <td style="width:20%; text-align:center"><img t-if="r['company_logo']" t-att-src="image_data_uri(r['company_logo'])" class="eos_logo" alt="Company logo"/></td>
+                    </tr></table>
+                </div>
+                <div class="eos_keep">
+                    <h1 class="eos_title" t-out="r['title']"/>
+                    <table><tr><td><span class="eos_stage" t-out="r['stage_label']"/></td><td style="text-align:center" class="eos_muted"><span t-translation="on">Reference</span> <span class="eos_number" t-out="r['reference']"/></td></tr></table>
+                </div>
+                <table class="eos_details eos_section eos_keep">
+                    <tr>
+                        <td colspan="2"><span class="eos_label" t-translation="on">Employee</span><span class="eos_value" t-out="r['employee_name']"/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="eos_label" t-translation="on">Employee ID</span><span class="eos_value" t-out="r['employee_identifier'] or '—'"/></td>
+                        <td><span class="eos_label" t-translation="on">Job Title</span><span class="eos_value" t-out="r['job_title'] or '—'"/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="eos_label" t-translation="on">Service Start</span><span class="eos_value eos_number" t-out="r['service_start']"/></td>
+                        <td><span class="eos_label" t-translation="on">Service End</span><span class="eos_value eos_number" t-out="r['service_end']"/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="eos_label" t-translation="on">Departure Reason</span><span class="eos_value" t-out="r['departure_reason']"/></td>
+                        <td><span class="eos_label" t-translation="on">Service Days</span><span class="eos_value eos_number" t-out="r['service_days']"/></td>
+                    </tr>
+                </table>
+                <div class="eos_section eos_keep">
+                    <h2 class="eos_heading" t-translation="on">Award Calculation</h2>
+                    <table class="eos_calculation">
+                        <tr><td t-translation="on">Wage used for calculation</td><td class="eos_amount"><span t-out="r['wage']"/> <span class="eos_currency" t-out="r['currency']"/></td></tr>
+                        <tr><td t-translation="on">Full service award</td><td class="eos_amount"><span t-out="r['full_award']"/> <span class="eos_currency" t-out="r['currency']"/></td></tr>
+                        <tr><td t-translation="on">Entitlement factor</td><td class="eos_amount" t-out="r['factor']"/></tr>
+                        <tr class="eos_award"><td t-translation="on">Award Amount</td><td class="eos_amount"><span t-out="r['award']"/> <span class="eos_currency" t-out="r['currency']"/></td></tr>
+                    </table>
+                </div>
+                <div class="eos_section eos_keep">
+                    <table class="eos_settlement"><tr>
+                        <td><span class="eos_label" t-translation="on">Paid Amount</span><span class="eos_value"><span class="eos_number" t-out="r['paid']"/> <span class="eos_currency" t-out="r['currency']"/></span></td>
+                        <td><span class="eos_label" t-translation="on">Remaining Amount</span><span class="eos_value"><span class="eos_number" t-out="r['remaining']"/> <span class="eos_currency" t-out="r['currency']"/></span></td>
+                    </tr></table>
+                    <table class="eos_audit">
+                        <tr t-if="r['bill_reference'] or r['payment_date']"><td><span t-translation="on">Bill Reference:</span> <span t-out="r['bill_reference'] or '—'"/></td><td><span t-translation="on">Payment Date:</span> <span class="eos_number" t-out="r['payment_date'] or '—'"/></td></tr>
+                        <tr t-if="r['payment_methods']"><td colspan="2"><span t-translation="on">Payment Methods:</span> <span t-out="r['payment_methods']"/></td></tr>
+                        <tr t-if="r['approval_reference'] or r['approval_date']"><td><span t-translation="on">Approval Reference:</span> <span t-out="r['approval_reference'] or '—'"/></td><td><span t-translation="on">Approval Date:</span> <span class="eos_number" t-out="r['approval_date'] or '—'"/></td></tr>
+                        <tr t-if="r['approved_by']"><td colspan="2"><span t-translation="on">Approved By:</span> <span t-out="r['approved_by']"/></td></tr>
+                    </table>
+                    <p class="eos_note" t-out="r['calculation_policy']"/>
+                    <p t-if="r['note']" class="eos_note"><span t-translation="on">Note:</span> <span t-out="r['note']"/></p>
+                </div>
+                <div class="eos_section eos_keep">
+                    <p class="eos_acknowledgment" t-out="r['acknowledgment']"/>
+                    <table class="eos_signature"><tr>
+                        <td><div class="eos_signature_box"><strong t-translation="on">Employee Signature</strong><div class="eos_signature_space"/><div class="eos_signature_date"><span t-translation="on">Date:</span> <span dir="ltr">____ / ____ / ________</span></div></div></td>
+                        <td><div class="eos_signature_box"><strong t-translation="on">Company Representative Signature</strong><div class="eos_signature_space"/><div class="eos_signature_date"><span t-translation="on">Date:</span> <span dir="ltr">____ / ____ / ________</span></div></div></td>
+                    </tr></table>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="report_end_service">
+        <t t-call="web.html_container"><t t-foreach="report_rows" t-as="r"><t t-call="baseer_payroll.report_end_service_document" t-lang="lang"/></t></t>
+    </template>
+</odoo>

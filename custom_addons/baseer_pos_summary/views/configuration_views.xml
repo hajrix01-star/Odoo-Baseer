@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_payment_category_list" model="ir.ui.view">
+        <field name="name">baseer.pos.payment.category.list</field><field name="model">baseer.pos.payment.category</field>
+        <field name="arch" type="xml"><list editable="bottom"><field name="sequence" widget="handle"/><field name="name"/><field name="kind"/><field name="company_id" groups="base.group_multi_company"/><field name="active" optional="hide"/></list></field>
+    </record>
+    <record id="action_payment_category" model="ir.actions.act_window">
+        <field name="name">Payment categories</field><field name="res_model">baseer.pos.payment.category</field><field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_payment_category" name="Payment categories" parent="point_of_sale.menu_point_config_product" action="action_payment_category" sequence="4" groups="point_of_sale.group_pos_manager"/>
+    <record id="view_pos_config_summary" model="ir.ui.view">
+        <field name="name">pos.config.baseer.summary</field><field name="model">pos.config</field><field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='title']" position="after">
+                <group string="External sales summaries" groups="point_of_sale.group_pos_manager">
+                    <field name="baseer_summary_only"/>
+                    <field name="baseer_summary_product_id" invisible="not baseer_summary_only" required="baseer_summary_only" options="{'no_create':True}"/>
+                    <field name="baseer_summary_tax_id" invisible="not baseer_summary_only" required="baseer_summary_only" options="{'no_create':True}"/>
+                    <field name="payment_method_ids" widget="many2many_tags" invisible="not baseer_summary_only" options="{'no_create':True}"/>
+                    <field name="journal_id" invisible="not baseer_summary_only" options="{'no_create':True}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_payment_method_summary" model="ir.ui.view">
+        <field name="name">pos.payment.method.baseer.category</field><field name="model">pos.payment.method</field><field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+        <field name="arch" type="xml"><xpath expr="//field[@name='journal_id']" position="before"><field name="baseer_category_id" domain="[('company_id','=',company_id)]" options="{'no_create':True}" groups="point_of_sale.group_pos_manager"/></xpath></field>
+    </record>
+    <record id="action_summary_config" model="ir.actions.act_window">
+        <field name="name">Summary settings</field><field name="res_model">pos.config</field><field name="view_mode">list,form</field><field name="domain">[('baseer_summary_only','=',True)]</field><field name="context">{'default_baseer_summary_only':True}</field>
+    </record>
+    <menuitem id="menu_summary_config" name="Summary settings" parent="point_of_sale.menu_point_config_product" action="action_summary_config" sequence="5" groups="point_of_sale.group_pos_manager"/>
+    <record id="point_of_sale.action_pos_config_kanban" model="ir.actions.act_window"><field name="domain">['|', ('baseer_summary_only','=',False), ('company_id','=',context.get('allowed_company_ids', [False])[0])]</field></record>
+    <record id="view_pos_config_summary_kanban" model="ir.ui.view">
+        <field name="name">pos.config.baseer.summary.kanban</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/templates" position="before"><field name="baseer_summary_only"/><field name="company_id"/></xpath>
+            <xpath expr="//div[@name='card_title']" position="attributes">
+                <attribute name="t-if">!record.baseer_summary_only.raw_value</attribute>
+            </xpath>
+            <xpath expr="//div[@name='card_left']/.." position="attributes"><attribute name="t-if">!record.baseer_summary_only.raw_value</attribute></xpath>
+            <xpath expr="//t[@t-name='card']/field[@name='current_user_id']" position="attributes"><attribute name="t-if">!record.baseer_summary_only.raw_value</attribute></xpath>
+            <xpath expr="//div[@name='card_title']" position="before">
+                <div t-if="record.baseer_summary_only.raw_value" class="ms-2 mb-4">
+                    <span class="fw-bold fs-4 d-block">Sales summary</span>
+                    <field name="company_id" class="text-muted d-block"/>
+                    <p class="text-muted mt-2 mb-0">Morning, evening or DAY OFF</p>
+                </div>
+                <div t-if="record.baseer_summary_only.raw_value" class="d-flex flex-wrap gap-2 ms-2 pb-4 mt-auto">
+                    <button name="action_baseer_enter_summary" type="object" class="btn btn-primary">Enter summary</button>
+                    <button name="action_baseer_saved_summaries" type="object" class="btn btn-secondary">Saved summaries</button>
+                </div>
+            </xpath>
+            <xpath expr="//t[@t-name='menu']/div" position="attributes"><attribute name="t-if">!record.baseer_summary_only.raw_value</attribute></xpath>
+            <xpath expr="//t[@t-name='menu']" position="inside">
+                <div t-if="record.baseer_summary_only.raw_value" role="menuitem">
+                    <a name="action_baseer_saved_summaries" type="object">Saved summaries</a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="point_of_sale.menu_pos_dashboard" model="ir.ui.menu"><field name="name">Direct sales</field></record>
+    <record id="view_original_summary_order" model="ir.ui.view">
+        <field name="name">pos.order.baseer.summary.source</field><field name="model">pos.order</field><field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='session_id']" position="after"><field name="baseer_summary_id" readonly="1" invisible="not baseer_summary_id" options="{'no_create':True}"/></xpath>
+            <xpath expr="//button[@name='action_pos_order_invoice']" position="attributes"><attribute name="invisible" add="baseer_summary_id" separator=" or "/></xpath>
+            <xpath expr="//button[@name='refund']" position="attributes"><attribute name="invisible" add="baseer_summary_id" separator=" or "/></xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes"><attribute name="readonly" add="baseer_summary_id" separator=" or "/></xpath>
+        </field>
+    </record>
+</odoo>

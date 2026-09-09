@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_baseer_payment_receipt" model="ir.actions.report">
+        <field name="name">Payroll Payment Statement</field><field name="model">hr.payslip.run</field><field name="report_type">qweb-pdf</field>
+        <field name="report_name">baseer_payroll.report_payment_receipt</field><field name="report_file">baseer_payroll.report_payment_receipt</field>
+        <field name="binding_model_id" ref="om_hr_payroll.model_hr_payslip_run"/><field name="binding_type">report</field>
+        <field name="paperformat_id" ref="baseer_payroll.paperformat_baseer_payslip"/><field name="group_ids" eval="[(4,ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+        <field name="print_report_name">'Payroll Payments - %s' % object.name</field>
+    </record>
+    <template id="report_payment_receipt_document">
+        <t t-call="web.external_layout">
+            <t t-call="baseer_report_layout.arabic_pdf_font_styles"/>
+            <t t-set="rows" t-value="o._baseer_payment_rows()"/>
+            <div class="page eh_pdf_page baseer_arabic_pdf baseer_payment_statement" t-att-dir="'rtl' if (env.context.get('lang') or '').startswith('ar') else 'ltr'">
+                <style>
+                    .baseer_payment_statement { color: #243832; font-size: 12px; }
+                    .baseer_payment_statement h2 { font-size: 24px; margin-bottom: 18px; }
+                    .baseer_payment_statement .statement_meta { margin-bottom: 20px; }
+                    .baseer_payment_statement .statement_meta p { margin-bottom: 5px; }
+                    .baseer_payment_statement .statement_table { width: 100%; border-collapse: collapse; }
+                    .baseer_payment_statement .statement_table th { padding: 9px 10px; background: #e9f1ed; font-weight: 700; }
+                    .baseer_payment_statement .statement_table td { padding: 9px 10px; border-bottom: 1px solid #d8e3dc; vertical-align: top; }
+                    .baseer_payment_statement .statement_table thead { display: table-header-group; }
+                    .baseer_payment_statement .statement_table tr { page-break-inside: avoid; }
+                    .baseer_payment_statement .statement_number { direction: ltr; text-align: right; white-space: nowrap; }
+                    .baseer_payment_statement .statement_total td { border-top: 2px solid #739485; background: #edf4f0; font-weight: 700; }
+                    .baseer_payment_statement .statement_reference { font-size: 10px; color: #63726b; }
+                </style>
+                <h2>Payroll Payment Statement</h2>
+                <div class="statement_meta">
+                    <p><strong t-translation="on">Company:</strong> <span t-field="o.company_id.name"/></p>
+                    <p><strong t-translation="on">Payroll run:</strong> <span t-field="o.name"/></p>
+                    <p><strong t-translation="on">Period:</strong> <span dir="ltr" t-out="o.date_start.strftime('%Y-%m-%d')"/> — <span dir="ltr" t-out="o.date_end.strftime('%Y-%m-%d')"/></p>
+                    <p><strong t-translation="on">Currency:</strong> <span t-field="o.currency_id.name"/></p>
+                </div>
+                <table class="statement_table eh_pdf_table">
+                    <thead><tr><th>Employee</th><th>Payment Date</th><th>Payment Method</th><th>Status</th><th class="statement_number">Amount</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="rows" t-as="row"><td><span t-out="row['employee_name']"/><div class="statement_reference" t-out="row['payment_name']"/></td><td><span dir="ltr" t-out="row['date']"/></td><td t-out="row['method']"/><td t-out="row['state']"/><td class="statement_number" t-out="'%.2f' % row['amount']"/></tr>
+                        <tr t-if="not rows"><td colspan="5">No salary payments recorded.</td></tr>
+                        <tr class="statement_total"><td colspan="4">Total paid</td><td class="statement_number" t-out="'%.2f' % o._baseer_payment_total()"/></tr>
+                        <tr><td colspan="4">Payments in process</td><td class="statement_number" t-out="'%.2f' % o.baseer_pending"/></tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <template id="report_payment_receipt"><t t-call="web.html_container"><t t-foreach="docs" t-as="o"><t t-call="baseer_payroll.report_payment_receipt_document" t-lang="env.context.get('lang') or env.user.lang"/></t></t></template>
+</odoo>

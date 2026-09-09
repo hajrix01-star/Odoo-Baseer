@@ -1,0 +1,115 @@
+.o_baseer_schedule {
+    .o_baseer_time_trigger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .5rem;
+        width: 6.5rem;
+        min-width: 6.5rem;
+        min-height: 2.75rem;
+        max-width: 100%;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+        padding-inline: .625rem;
+    }
+
+    .o_baseer_schedule_days > div[aria-atomic] {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem 1.25rem;
+    }
+
+    .o_baseer_schedule_days .o-checkbox {
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .o_baseer_schedule_time,
+    .o_baseer_schedule_time input {
+        direction: ltr;
+        unicode-bidi: isolate;
+        font-variant-numeric: tabular-nums;
+        text-align: start;
+    }
+
+    .o_baseer_schedule_periods .o_kanban_record {
+        min-width: 0;
+    }
+
+    .o_baseer_schedule_periods {
+        th[data-name="time_from"], th[data-name="time_to"],
+        td[name="time_from"], td[name="time_to"] {
+            min-width: 7.5rem;
+            width: 7.5rem;
+        }
+
+        td[name="day_ids"] {
+            white-space: normal;
+            min-width: 8rem;
+        }
+
+        .o_field_many2many_tags,
+        .o_field_many2many_tags .o_tags_input {
+            flex-wrap: wrap;
+            min-width: 0;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .o_field_many2many_tags .o_tag {
+            max-width: 100%;
+            margin-bottom: .25rem;
+        }
+    }
+}
+
+// Native popovers render in the overlay, outside the schedule form.
+.o_baseer_time_popover {
+    .o_baseer_time_panel {
+        width: 15rem;
+        max-width: calc(100vw - 1.5rem);
+    }
+
+    .o_baseer_time_columns {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: .75rem;
+    }
+
+    .o_baseer_time_column {
+        position: relative;
+        height: 10rem;
+        max-height: 40vh;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+        border: 1px solid var(--border-color, #d8dadd);
+        border-radius: .375rem;
+        padding: .25rem;
+
+        &:focus-visible {
+            outline: 2px solid var(--o-brand-primary, #71639e);
+            outline-offset: 2px;
+        }
+    }
+
+    .o_baseer_time_option {
+        display: block;
+        width: 100%;
+        min-height: 2.75rem;
+        margin-bottom: .125rem;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+
+        &:not(.btn-primary):hover {
+            background-color: var(--tertiary-bg, #f0f1f2);
+        }
+    }
+
+    .o_baseer_time_preview {
+        font-variant-numeric: tabular-nums;
+        unicode-bidi: isolate;
+    }
+}

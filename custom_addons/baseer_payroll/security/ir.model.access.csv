@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_baseer_payroll_correction,Payroll reviewed correction,model_baseer_payroll_correction,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_loan_manager,Employee loan manager,model_baseer_hr_loan,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_loan_line_manager,Loan installment manager,model_baseer_hr_loan_line,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_loan_allocation_manager,Loan recovery history,model_baseer_hr_loan_allocation,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_loan_defer_manager,Loan deferral history,model_baseer_hr_loan_defer,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_loan_repay_manager,Loan repayment wizard,model_baseer_hr_loan_repay,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_payroll_create,Create monthly payroll,model_baseer_payroll_create,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_settlement,Payroll settlement,model_baseer_payroll_settlement,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_baseer_settlement_line,Payroll settlement employee,model_baseer_payroll_settlement_line,om_hr_payroll.group_hr_payroll_manager,1,1,1,1

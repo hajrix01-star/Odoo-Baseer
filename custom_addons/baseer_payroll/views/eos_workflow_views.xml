@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_eos_workflow" model="ir.ui.view">
+        <field name="name">baseer.eos.workflow</field><field name="model">baseer.hr.eos</field>
+        <field name="inherit_id" ref="baseer_payroll.view_baseer_eos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_approve']" position="attributes"><attribute name="name">action_approve_workflow</attribute></xpath>
+            <xpath expr="//header/field[@name='state']" position="replace">
+                <field name="state" invisible="1"/>
+                <button name="action_pay_award" type="object" string="Pay Award" class="oe_highlight" invisible="state != 'approved' or bill_state != 'posted' or balance &lt;= 0 or workflow_stage == 'reversed'" groups="account.group_account_user"/>
+                <button name="action_print_clearance" type="object" string="Print Statement / Clearance" invisible="not source_snapshot"/>
+                <field name="workflow_stage" widget="statusbar" statusbar_visible="draft,awaiting,partial,paid"/>
+            </xpath>
+            <xpath expr="//field[@name='balance']" position="after"><field name="received_amount"/></xpath>
+        </field>
+    </record>
+    <record id="view_baseer_eos_workflow_list" model="ir.ui.view">
+        <field name="name">baseer.eos.workflow.list</field><field name="model">baseer.hr.eos</field>
+        <field name="inherit_id" ref="baseer_payroll.view_baseer_eos_list"/>
+        <field name="arch" type="xml"><xpath expr="//field[@name='state']" position="replace"><field name="workflow_stage" widget="badge"/></xpath></field>
+    </record>
+    <record id="view_baseer_employee_departure_award" model="ir.ui.view">
+        <field name="name">baseer.employee.departure.award</field><field name="model">hr.employee</field>
+        <field name="inherit_id" ref="baseer_payroll.view_baseer_employee_eos"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="baseer_has_departure" invisible="1" groups="om_hr_payroll.group_hr_payroll_manager"/>
+                <button name="action_open_departure_award" type="object" string="End of Service and Clearance" class="oe_highlight" invisible="not baseer_has_departure" groups="om_hr_payroll.group_hr_payroll_manager"/>
+            </xpath>
+            <xpath expr="//field[@name='baseer_eos_ids']/list/field[@name='state']" position="replace"><field name="workflow_stage" widget="badge"/></xpath>
+        </field>
+    </record>
+</odoo>

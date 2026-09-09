@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_cash_categories.ReportControls"
+       t-inherit="eh_account_dynamic_reports.DynamicReportViewer" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('eh_dr')]" position="attributes">
+            <attribute name="t-att-data-baseer-cash">reportCode === 'baseer_cash_categories' ? 'true' : undefined</attribute>
+            <attribute name="t-att-data-baseer-wide">reportCode === 'baseer_cash_categories' &amp;&amp; state.options.baseer_months.length &gt; 4 ? 'true' : undefined</attribute>
+        </xpath>
+        <xpath expr="//EhCellEllipsis[@text=&quot;line.name || ''&quot;]" position="attributes">
+            <attribute name="maxChars">reportCode === 'baseer_cash_categories' ? 120 : 60</attribute>
+        </xpath>
+        <xpath expr="//input[@t-on-change='onPostedOnlyToggle']" position="attributes">
+            <attribute name="t-att-disabled">reportCode === 'baseer_cash_categories'</attribute>
+        </xpath>
+        <xpath expr="//select[@t-on-change='onDateModeChange']/option[@value='as_of']" position="attributes">
+            <attribute name="t-if">reportCode !== 'baseer_cash_categories'</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('eh_dr_actions')]" position="inside">
+            <label t-if="reportCode === 'baseer_cash_categories'" class="baseer_cash_tax_toggle">
+                <input type="checkbox" t-att-checked="state.options.baseer_include_tax !== false"
+                       t-att-disabled="state.loading" t-on-change="onBaseerTaxChange"/>
+                <span>Include VAT</span>
+            </label>
+        </xpath>
+        <xpath expr="//button[@t-on-click='onToggleFilters']" position="attributes">
+            <attribute name="t-if">reportCode !== 'baseer_cash_categories'</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('eh_dr_filters')]" position="attributes">
+            <attribute name="t-if">reportCode !== 'baseer_cash_categories'</attribute>
+        </xpath>
+        <xpath expr="//span[hasclass('eh_dr_period_badge')]" position="attributes">
+            <attribute name="t-if">state.payload.meta &amp;&amp; reportCode !== 'baseer_cash_categories'</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('eh_dr_titlebar')]" position="after">
+            <div t-if="reportCode === 'baseer_cash_categories'" class="baseer_cash_controls">
+                <fieldset class="baseer_cash_companies">
+                    <legend>Company</legend>
+                    <div class="baseer_cash_company_choices">
+                        <label t-foreach="state.choices.companies" t-as="company" t-key="company.id"
+                               class="baseer_cash_company"
+                               t-att-class="state.options.company_ids[0] === company.id ? 'is-selected' : ''">
+                            <input type="radio" name="baseer_cash_company"
+                                   t-att-value="company.id"
+                                   t-att-checked="state.options.company_ids[0] === company.id"
+                                   t-att-disabled="state.loading"
+                                   t-on-change="() => this.onBaseerCompanyChange(company.id)"/>
+                            <span t-out="company.name"/>
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset class="baseer_cash_months">
+                    <legend>Selected months</legend>
+                    <div class="baseer_cash_month_picker">
+                        <label class="baseer_cash_month_input">
+                            <span class="visually-hidden">Choose a month</span>
+                            <input type="month" t-att-value="state.baseerMonthDraft"
+                                   t-att-disabled="state.loading"
+                                   t-on-change="onBaseerMonthDraft"/>
+                        </label>
+                        <button type="button" class="btn btn-secondary"
+                                t-att-disabled="state.loading || state.options.baseer_months.includes(state.baseerMonthDraft)"
+                                t-on-click="onBaseerAddMonth">
+                            <i class="fa fa-plus" aria-hidden="true"/> <span>Add month</span>
+                        </button>
+                        <span class="baseer_cash_month_hint">Up to 12 separate months</span>
+                    </div>
+                    <div class="baseer_cash_month_choices">
+                        <span t-foreach="state.options.baseer_months" t-as="month" t-key="month"
+                              class="baseer_cash_month_chip">
+                            <span t-out="baseerMonthLabel(month)"/>
+                            <button type="button" class="baseer_cash_remove_month"
+                                    t-att-disabled="state.loading || state.options.baseer_months.length &lt;= 1"
+                                    t-att-aria-label="baseerRemoveMonthLabel(month)"
+                                    t-on-click="() => this.onBaseerRemoveMonth(month)">
+                                <i class="fa fa-times" aria-hidden="true"/>
+                            </button>
+                        </span>
+                    </div>
+                    <p t-if="state.baseerMonthError" class="baseer_cash_selection_error" role="alert"
+                       t-out="state.baseerMonthError"/>
+                </fieldset>
+            </div>
+        </xpath>
+        <xpath expr="//td[contains(@t-att-class, 'eh_dr_amount_cell')]" position="attributes">
+            <attribute name="t-att-data-baseer-column">reportCode === 'baseer_cash_categories' ? col.expression_label : undefined</attribute>
+        </xpath>
+        <xpath expr="//table[hasclass('eh_dr_table')]" position="before">
+            <div class="baseer_cash_table_frame"
+                 t-att-role="reportCode === 'baseer_cash_categories' ? 'region' : undefined"
+                 t-att-tabindex="reportCode === 'baseer_cash_categories' ? '0' : undefined"
+                 aria-label="Cash report table"
+                 t-att-style="reportCode === 'baseer_cash_categories' ? '--baseer-cash-table-width: ' + (160 + valueColumnDefs().length * 110) + 'px' : undefined"/>
+        </xpath>
+        <xpath expr="//div[hasclass('baseer_cash_table_frame')]" position="inside">
+            <xpath expr="//table[hasclass('eh_dr_table')]" position="move"/>
+        </xpath>
+        <xpath expr="//div[hasclass('eh_dr_subtitle')]" position="inside">
+            <span t-if="reportCode === 'baseer_cash_categories'" class="baseer_cash_basis">Paid movements only</span>
+            <span t-if="reportCode === 'baseer_cash_categories' &amp;&amp; state.payload.meta.exact_sales_collections !== undefined"
+                  class="baseer_cash_denominator">
+                <span>Sales collected for percentage:</span>
+                <bdi t-out="state.payload.meta.exact_sales_collections"/>
+                <span t-out="state.payload.currency.name"/>
+            </span>
+        </xpath>
+    </t>
+</templates>

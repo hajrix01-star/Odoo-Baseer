@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_purchase_batch_company" model="ir.rule">
+        <field name="name">Purchase batches: allowed companies</field>
+        <field name="model_id" ref="model_baseer_purchase_batch"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_purchase_batch_line_company" model="ir.rule">
+        <field name="name">Purchase batch lines: allowed companies</field>
+        <field name="model_id" ref="model_baseer_purchase_batch_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_purchase_batch_category_company" model="ir.rule">
+        <field name="name">Purchase batch categories: allowed companies</field>
+        <field name="model_id" ref="model_baseer_purchase_category_map"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
+

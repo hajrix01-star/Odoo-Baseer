@@ -1,0 +1,13 @@
+.baseer_payroll_form {
+    .o_form_sheet { max-width: 1440px; }
+    .o_field_monetary, .o_field_float, .o_field_integer {
+        font-variant-numeric: tabular-nums;
+    }
+    .o_list_table th[data-name="baseer_defer_loan"],
+    .o_list_table td[name="baseer_defer_loan"] { text-align: center; }
+    .o_list_table td[name="baseer_defer_loan"] .o_field_boolean_toggle {
+        display: inline-flex;
+        align-items: center;
+    }
+    .o_list_table td[name="baseer_deduction_reason"] { min-width: 160px; }
+}

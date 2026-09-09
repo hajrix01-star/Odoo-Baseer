@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_batch_operator,Purchase batch operator,model_baseer_purchase_batch,account.group_account_invoice,1,1,1,1
+access_purchase_batch_line_operator,Purchase batch line operator,model_baseer_purchase_batch_line,account.group_account_invoice,1,1,1,1
+access_purchase_batch_category_reader,Purchase batch category reader,model_baseer_purchase_category_map,account.group_account_invoice,1,0,0,0
+access_purchase_batch_category_manager,Purchase batch category manager,model_baseer_purchase_category_map,account.group_account_manager,1,1,1,1
+

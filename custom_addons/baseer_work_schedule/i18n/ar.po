@@ -1,0 +1,790 @@
+# Translation of Odoo Server.
+# Module: baseer_work_schedule
+msgid ""
+msgstr ""
+"Project-Id-Version: Baseer Work Schedule 19.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3 && n%100<=10?3:n%100>=11 && n%100<=99?4:5;\n"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_current_search
+msgid "Current schedules"
+msgstr "الجداول الحالية"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "08:00"
+msgstr "08:00"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "12:00"
+msgstr "12:00"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Add a time period"
+msgstr "إضافة فترة دوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__save_as_template
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Also save as a template"
+msgstr "حفظه أيضًا كقالب"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "An approved payslip covers the affected period. Choose a later effective date."
+msgstr "يوجد مسير رواتب معتمد يشمل الفترة المتأثرة. اختر تاريخ سريان لاحقًا."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "An employee version already starts on this date. Choose another date."
+msgstr "يوجد سجل وظيفي يبدأ في هذا التاريخ بالفعل. اختر تاريخًا آخر."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__applied_calendar_id
+msgid "Applied Calendar"
+msgstr "جدول الدوام المطبق"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__effective_date
+msgid "Applies from"
+msgstr "يسري من تاريخ"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Apply schedule"
+msgstr "تطبيق جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Attendance exists in the affected period. Choose a later effective date."
+msgstr "توجد سجلات حضور في الفترة المتأثرة. اختر تاريخ سريان لاحقًا."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__average_label
+msgid "Average hours per working day"
+msgstr "متوسط الساعات لكل يوم دوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Average per working day"
+msgstr "المتوسط لكل يوم دوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Average per working day (hours)"
+msgstr "المتوسط لكل يوم دوام (بالساعات)"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar_attendance__baseer_origin_day
+msgid "Baseer Origin Day"
+msgstr "يوم بداية فترة الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar_attendance__baseer_period_end
+msgid "Baseer Period End"
+msgstr "نهاية فترة الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar_attendance__baseer_period_start
+msgid "Baseer Period Start"
+msgstr "بداية فترة الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_hr_version__baseer_schedule_version
+msgid "Baseer Schedule Version"
+msgstr "سجل تغيير جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar__baseer_simple
+msgid "Baseer Simple"
+msgstr "جدول دوام بصير المبسط"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#. odoo-javascript
+#: code:addons/baseer_work_schedule/static/src/time_field.xml:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Choose a template in the employee work schedule time zone."
+msgstr "اختر قالبًا بنفس المنطقة الزمنية لجدول دوام الموظف."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Choose a work schedule from the same company."
+msgstr "اختر جدول دوام تابعًا للشركة نفسها."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Choose an existing schedule to fill in its days and times, then adjust them below."
+msgstr "اختر جدولًا موجودًا لتعبئة أيامه وأوقاته، ثم عدّلها أدناه."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Choose today or a future date to preserve past attendance and payroll."
+msgstr "اختر تاريخ اليوم أو تاريخًا مستقبليًا للحفاظ على سجلات الحضور والرواتب السابقة."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+msgid "Copy and adjust schedule"
+msgstr "نسخ جدول الدوام وتعديله"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Create a new schedule form."
+msgstr "افتح نموذجًا جديدًا لتحديد جدول الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Create this schedule through the simplified schedule form."
+msgstr "أنشئ هذا الجدول من نموذج الدوام المبسط."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.actions.act_window,help:baseer_work_schedule.action_baseer_schedule_templates
+msgid "Create your first work schedule template"
+msgstr "أنشئ أول قالب دوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__daily_summary
+msgid "Daily hours"
+msgstr "الساعات اليومية"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Daily totals"
+msgstr "المجموع لكل يوم"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_period__day_ids
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Days for this period"
+msgstr "أيام هذه الفترة"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_period__custom_days
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Different days"
+msgstr "أيام مختلفة"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+msgid "Effective from"
+msgstr "يسري من تاريخ"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__employee_id
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Enter a name for the template."
+msgstr "أدخل اسمًا للقالب."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Enter working times with whole-minute precision."
+msgstr "أدخل أوقات الدوام بالدقائق الكاملة، دون أجزاء من الدقيقة."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__expected_revision
+msgid "Expected Revision"
+msgstr "الإصدار المتوقع"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "For example: Office hours"
+msgstr "مثال: دوام المكتب"
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_4
+msgid "Friday"
+msgstr "الجمعة"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_period__time_from
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "From"
+msgstr "من"
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_0
+msgid "Monday"
+msgstr "الاثنين"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_day__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+msgid "New schedule"
+msgstr "جدول جديد"
+
+#. module: baseer_work_schedule
+#: model:ir.actions.act_window,name:baseer_work_schedule.action_baseer_schedule_wizard
+msgid "New work schedule"
+msgstr "جدول دوام جديد"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Only a Human Resources manager can set work schedules."
+msgstr "يمكن لمدير الموارد البشرية فقط تحديد جداول الدوام."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Optional — or enter the times below"
+msgstr "اختياري — أو أدخل الأوقات أدناه"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Period duration"
+msgstr "مدة الفترة"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Period duration:"
+msgstr "مدة الفترة:"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_period__duration_label
+msgid "Period hours"
+msgstr "ساعات الفترة"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Remove time period"
+msgstr "حذف فترة الدوام"
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_5
+msgid "Saturday"
+msgstr "السبت"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Save template"
+msgstr "حفظ القالب"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__name
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Schedule name"
+msgstr "اسم جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Select the days once. Each time period uses these days unless you choose different days for it."
+msgstr "حدد الأيام مرة واحدة. تسري كل فترة على هذه الأيام، ويمكنك اختيار أيام مختلفة لأي فترة."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Select working days and enter valid, non-zero periods in HH:MM format."
+msgstr "حدد أيام الدوام وأدخل فترات صحيحة مدتها أكبر من صفر، بتنسيق HH:MM."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_day__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: baseer_work_schedule
+#: model:ir.model,name:baseer_work_schedule.model_baseer_schedule_wizard
+msgid "Set Working Times"
+msgstr "تحديد جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_employee_schedule
+msgid "Set work schedule"
+msgstr "تحديد جدول الدوام"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Set working times"
+msgstr "تحديد جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__source_warning
+msgid "Source Warning"
+msgstr "تنبيه الجدول المصدر"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Start from a schedule"
+msgstr "البدء من جدول موجود"
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_6
+msgid "Sunday"
+msgstr "الأحد"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+msgid "Template"
+msgstr "القالب"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__template_name
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Template name"
+msgstr "اسم القالب"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "The employee schedule changed while this form was open. Reopen Set working times."
+msgstr "تغير جدول دوام الموظف أثناء فتح هذا النموذج. أعد فتح «تحديد جدول الدوام»."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "These hours change the salary breakdown. Apply them from the first day of a month."
+msgstr "تغيّر هذه الساعات توزيع الراتب بين الأساسي والإضافي. طبّقها بدءًا من أول يوم في الشهر."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This employee already has attendance, leave or payroll history. Apply a new schedule from another date."
+msgstr "توجد لهذا الموظف سجلات سابقة للحضور أو الإجازات أو الرواتب. طبّق جدولًا جديدًا بدءًا من تاريخ آخر."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "This schedule applies only to the selected employee from the effective date."
+msgstr "يسري هذا الجدول على الموظف المحدد فقط، بدءًا من تاريخ السريان."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This schedule belongs to an employee history. Archive it instead of deleting it."
+msgstr "هذا الجدول مرتبط بالسجل التاريخي لأحد الموظفين. يمكنك أرشفته بدلًا من حذفه."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This schedule has no simple weekly clock times. Enter the actual working times to create a new schedule."
+msgstr "لا يتضمن هذا الجدول أوقات دوام أسبوعية محددة يمكن نسخها مباشرة. أدخل أوقات الدوام الفعلية لإنشاء جدول جديد."
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_3
+msgid "Thursday"
+msgstr "الخميس"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Time off exists in the affected period. Review it before changing the schedule."
+msgstr "توجد إجازة في الفترة المتأثرة. راجعها قبل تغيير جدول الدوام."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Time period"
+msgstr "فترة دوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Time periods"
+msgstr "فترات الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__time_zone
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Time zone"
+msgstr "المنطقة الزمنية"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_period__time_to
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "To"
+msgstr "إلى"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "To change the days or times, use Copy and adjust schedule. Existing employee schedules keep their current hours."
+msgstr "لتغيير الأيام أو الأوقات، اختر «نسخ جدول الدوام وتعديله». تحتفظ جداول الموظفين القائمة بأوقاتها الحالية."
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_1
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Select the hour and minute in 24-hour format. An end time earlier than the start continues into the next day. 24:00 marks the end of the day."
+msgstr "اختر الساعة والدقيقة بنظام 24 ساعة. إذا سبق وقت النهاية وقت البداية، تمتد الفترة إلى اليوم التالي. يشير 24:00 إلى نهاية اليوم."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.actions.act_window,help:baseer_work_schedule.action_baseer_schedule_templates
+msgid "Use New schedule to choose working days and time periods. You can apply a template from an employee's Payroll tab."
+msgstr "اختر «جدول جديد» لتحديد أيام الدوام وفتراته. يمكنك تطبيق القالب من تبويب الرواتب في ملف الموظف."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Use Set working times to create a new schedule. Existing employee schedules must remain unchanged."
+msgstr "استخدم «تحديد جدول الدوام» لإنشاء جدول جديد. يجب الحفاظ على جداول الموظفين القائمة دون تغيير."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__source_calendar_id
+msgid "Use an existing schedule"
+msgstr "استخدام جدول موجود"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Use no more than 28 working periods."
+msgstr "الحد الأقصى هو 28 فترة دوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Use the employee company selected in the interface."
+msgstr "اختر شركة الموظف في الواجهة قبل تطبيق جدول الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Use the simplified form to change working times."
+msgstr "استخدم نموذج الدوام المبسط لتغيير أوقات الدوام."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Uses the working days selected above"
+msgstr "تسري على أيام الدوام المحددة أعلاه"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__validation_message
+msgid "Validation Message"
+msgstr "رسالة التحقق"
+
+#. module: baseer_work_schedule
+#: model:baseer.schedule.day,name:baseer_work_schedule.day_2
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_day__weekday
+msgid "Weekday"
+msgstr "يوم الأسبوع"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__total_label
+msgid "Weekly hours"
+msgstr "الساعات الأسبوعية"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Weekly total"
+msgstr "المجموع الأسبوعي"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_period__wizard_id
+msgid "Wizard"
+msgstr "نموذج الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model,name:baseer_work_schedule.model_baseer_schedule_period
+msgid "Work Schedule Period"
+msgstr "فترة دوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model,name:baseer_work_schedule.model_baseer_schedule_day
+msgid "Work Schedule Weekday"
+msgstr "يوم من أيام الدوام"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Work schedule"
+msgstr "جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar__baseer_is_template
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+msgid "Work schedule template"
+msgstr "قالب دوام"
+
+#. module: baseer_work_schedule
+#: model:ir.actions.act_window,name:baseer_work_schedule.action_baseer_schedule_templates
+#: model:ir.ui.menu,name:baseer_work_schedule.menu_baseer_schedule_templates
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+msgid "Work schedule templates"
+msgstr "قوالب الدوام"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__day_ids
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+msgid "Working days"
+msgstr "أيام الدوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+msgid "Working days and times"
+msgstr "أيام الدوام وأوقاته"
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__period_ids
+msgid "Working periods"
+msgstr "فترات الدوام"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Working periods overlap, including periods after midnight."
+msgstr "توجد فترات دوام متداخلة، بما فيها الفترات الممتدة بعد منتصف الليل."
+
+#. module: baseer_work_schedule
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar__baseer_schedule_summary
+msgid "Working times"
+msgstr "أوقات الدوام"
+
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Apply employee schedules through Set working times."
+msgstr "طبّق جداول دوام الموظفين من خلال «تحديد جدول الدوام»."
+
+#. module: baseer_work_schedule
+#. odoo-javascript
+#: code:addons/baseer_work_schedule/static/src/time_field.js:0
+#: code:addons/baseer_work_schedule/static/src/time_field.xml:0
+msgid "Hour (24-hour)"
+msgstr "الساعة (24 ساعة)"
+
+#. module: baseer_work_schedule
+#. odoo-javascript
+#: code:addons/baseer_work_schedule/static/src/time_field.js:0
+#: code:addons/baseer_work_schedule/static/src/time_field.xml:0
+msgid "Minute"
+msgstr "الدقيقة"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_list
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_resource_calendar__baseer_average_label
+#: model:ir.model.fields,field_description:baseer_work_schedule.field_baseer_schedule_wizard__average_label
+msgid "Average working day (HH:MM)"
+msgstr "متوسط الدوام اليومي — ساعات:دقائق"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "Edit work schedule"
+msgstr "تعديل جدول الدوام"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "Save schedule changes"
+msgstr "حفظ تعديلات الجدول"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "Open updated schedule"
+msgstr "فتح الجدول المحدّث"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "Employees affected"
+msgstr "عدد الموظفين المشمولين"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "Linked employees"
+msgstr "الموظفون المرتبطون"
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "The updated schedule keeps this name and applies from the selected date. Previous working times remain in employee history. Separate employee schedules are not changed."
+msgstr "يحتفظ الجدول باسمه ويُطبّق من تاريخ السريان المحدد، مع حفظ أوقات الدوام السابقة في سجل الموظف. لا يشمل التعديل الجداول المستقلة للموظفين."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "This previous schedule is retained for employee history. Open the updated schedule to make further changes."
+msgstr "هذا الجدول السابق محفوظ لسجل الموظفين. افتح الجدول المحدّث لإجراء تعديلات جديدة."
+
+#. module: baseer_work_schedule
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_wizard_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_schedule_template_form
+#: model_terms:ir.ui.view,arch_db:baseer_work_schedule.view_baseer_calendar_simple_schedule
+msgid "Use Edit work schedule to update a template and its linked employees from an effective date. Copy and adjust creates an independent schedule."
+msgstr "استخدم تعديل جدول الدوام لتحديث القالب والموظفين المرتبطين به من تاريخ محدد. أما النسخ والتعديل فينشئ جدولاً مستقلاً."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+#, python-format
+msgid "%(employee)s: %(reason)s"
+msgstr "%(employee)s: %(reason)s"
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+#, python-format
+msgid "%(employee)s: These hours change the salary breakdown. Apply them from the first day of a month."
+msgstr "%(employee)s: هذه الساعات تغيّر توزيع الراتب. طبّقها من أول يوم في الشهر."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "A future employee version already exists. Review that planned change before editing this template."
+msgstr "يوجد تعديل مستقبلي مقرر لبيانات الموظف. راجعه قبل تعديل هذا القالب."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Choose a work schedule from the selected company."
+msgstr "اختر جدول دوام تابعاً للشركة المحددة."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Employee history timestamps are managed automatically."
+msgstr "يدير النظام تواريخ تحديث سجل الموظف تلقائياً."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Keep the template and employee scope unchanged. Reopen Edit work schedule."
+msgstr "لا تغيّر القالب أو نطاق الموظفين من هذه النافذة. أعد فتح تعديل جدول الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Keep the template name and company unchanged when editing its working times."
+msgstr "احتفظ باسم القالب والشركة عند تعديل أوقات الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Linked employees changed while this form was open. Reopen Edit work schedule."
+msgstr "تغيّر الموظفون المرتبطون أثناء فتح النافذة. أعد فتح تعديل جدول الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Open a new form to change the schedule operation."
+msgstr "افتح نافذة جديدة لتغيير نوع عملية الجدول."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Schedule revision details are managed by Edit work schedule."
+msgstr "تُدار تفاصيل إصدارات الجدول من تعديل جدول الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Template editing updates its linked employees. Open a separate form to copy a schedule."
+msgstr "تعديل القالب يحدّث الموظفين المرتبطين به. افتح نافذة منفصلة لنسخ جدول."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "The template or linked employees changed while this form was open. Reopen Edit work schedule."
+msgstr "تغيّر القالب أو بيانات الموظفين المرتبطين أثناء فتح النافذة. أعد فتح تعديل جدول الدوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This template has more than 200 linked employees. Split the schedule change into smaller templates."
+msgstr "يرتبط بهذا القالب أكثر من 200 موظف. قسّم تعديل الدوام على قوالب أصغر."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This template was replaced or archived. Open the latest work schedule."
+msgstr "تم تحديث هذا القالب أو أرشفته. افتح أحدث جدول دوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This work schedule has been replaced. Choose the latest work schedule."
+msgstr "تم تحديث هذا الجدول. اختر أحدث جدول دوام."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "This work schedule is not yet effective. Choose its effective date or a later date."
+msgstr "لم يبدأ سريان هذا الجدول بعد. اختر تاريخ سريانه أو تاريخاً لاحقاً."
+
+#. module: baseer_work_schedule
+#. odoo-python
+#: code:addons/baseer_work_schedule/models/schedule.py:0
+msgid "Choose the template to edit."
+msgstr "اختر القالب المطلوب تعديله."
+
+#. module: baseer_work_schedule
+#. odoo-javascript
+#: code:addons/baseer_work_schedule/static/src/time_field.js:0
+#: code:addons/baseer_work_schedule/static/src/time_field.xml:0
+msgid "Choose time"
+msgstr "اختيار الوقت"
+
+#. module: baseer_work_schedule
+#. odoo-javascript
+#: code:addons/baseer_work_schedule/static/src/time_field.js:0
+msgid "Choose time: %s"
+msgstr "اختيار الوقت: %s"
+
+#. module: baseer_work_schedule
+#. odoo-javascript
+#: code:addons/baseer_work_schedule/static/src/time_field.xml:0
+msgid "Apply"
+msgstr "تطبيق"

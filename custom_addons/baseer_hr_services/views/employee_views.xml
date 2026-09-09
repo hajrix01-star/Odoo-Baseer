@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_employee_services" model="ir.ui.view">
+        <field name="name">baseer.employee.services</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="baseer_payroll.view_baseer_employee_financial_history"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_services" type="object" class="oe_stat_button" icon="fa-id-card-o" groups="hr.group_hr_user">
+                    <field name="baseer_service_count" widget="statinfo" string="Employee Services"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="baseer_employee_services" string="Employee Services" groups="hr.group_hr_user">
+                    <button name="action_view_services" type="object" string="View All Services" class="btn-secondary mb-3"/>
+                    <field name="baseer_service_ids" nolabel="1" readonly="1" mode="list,kanban" context="{'form_view_ref': 'baseer_hr_services.view_baseer_hr_service_form'}">
+                        <list string="Employee Services" create="0" edit="0" delete="0" limit="10" default_order="invoice_date desc, id desc">
+                            <field name="service_type"/><field name="partner_id"/>
+                            <field name="invoice_date" widget="baseer_latin_date"/>
+                            <field name="expiry_date" widget="baseer_latin_date"/>
+                            <field name="currency_id" column_invisible="1"/><field name="gross_amount"/>
+                            <field name="state" widget="badge"/><field name="payment_state" widget="badge"/>
+                        </list>
+                        <kanban class="o_kanban_mobile" create="0" edit="0" delete="0">
+                            <field name="currency_id"/>
+                            <templates><t t-name="card">
+                                <div class="d-flex justify-content-between gap-2 mb-2"><strong><field name="service_type"/></strong><field name="state" widget="badge"/></div>
+                                <div class="text-muted mb-2"><field name="partner_id"/></div>
+                                <div class="d-flex justify-content-between gap-2"><field name="invoice_date" widget="baseer_latin_date"/><field name="gross_amount"/></div>
+                                <div class="mt-2"><field name="payment_state" widget="badge"/></div>
+                            </t></templates>
+                        </kanban>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='baseer_financial_record']" position="inside">
+                <separator string="Employee Services" groups="hr.group_hr_user"/>
+                <button name="action_view_services" type="object" string="Service Cost and Payment History" class="btn-link mb-2" groups="hr.group_hr_user"/>
+                <field name="baseer_service_ids" nolabel="1" readonly="1" mode="list,kanban" groups="hr.group_hr_user" context="{'form_view_ref': 'baseer_hr_services.view_baseer_hr_service_form'}">
+                    <list create="0" edit="0" delete="0" limit="10" default_order="invoice_date desc, id desc">
+                        <field name="invoice_date" widget="baseer_latin_date"/><field name="service_type"/>
+                        <field name="currency_id" column_invisible="1"/><field name="gross_amount"/>
+                        <field name="bill_state"/><field name="payment_state" widget="badge"/><field name="balance"/>
+                    </list>
+                    <kanban class="o_kanban_mobile" create="0" edit="0" delete="0">
+                        <field name="currency_id"/>
+                        <templates><t t-name="card">
+                            <strong class="d-block mb-2"><field name="service_type"/></strong>
+                            <div class="d-flex justify-content-between gap-2"><span>Total cost</span><field name="gross_amount"/></div>
+                            <div class="d-flex justify-content-between gap-2"><span>Remaining amount</span><field name="balance"/></div>
+                            <div class="mt-2"><field name="payment_state" widget="badge"/></div>
+                        </t></templates>
+                    </kanban>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

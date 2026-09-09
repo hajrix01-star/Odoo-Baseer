@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_day_archive_list" model="ir.ui.view">
+        <field name="name">baseer.pos.day.archive.list</field>
+        <field name="model">baseer.pos.day.archive</field>
+        <field name="arch" type="xml">
+            <list string="Sales summaries" class="baseer_pos_day_archive" create="0" edit="0" delete="0" limit="80" action="action_open" type="object">
+                <header>
+                    <button name="%(action_pos_day_entry)d" type="action" string="New" display="always" class="btn-primary"/>
+                    <button name="action_archive" type="object" string="Archive" groups="point_of_sale.group_pos_manager"/>
+                    <button name="action_unarchive" type="object" string="Unarchive" groups="point_of_sale.group_pos_manager"/>
+                    <button name="action_delete_drafts" type="object" string="Delete drafts" groups="point_of_sale.group_pos_manager" confirm="Delete the selected draft days permanently? If any selected day is approved or DAY OFF, nothing will be deleted."/>
+                </header>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="is_day_off" column_invisible="True"/>
+                <field name="business_date" string="Sales date" widget="baseer_latin_date" options="{'numeric': True}"/>
+                <field name="company_id" optional="hide"/>
+                <field name="day_schedule" optional="hide"/>
+                <field name="amount_total" widget="monetary" options="{'no_symbol': True}" invisible="is_day_off"/>
+                <field name="customer_total" invisible="is_day_off"/>
+                <field name="morning_total" optional="hide" widget="monetary" options="{'no_symbol': True}" invisible="is_day_off"/>
+                <field name="evening_total" optional="hide" widget="monetary" options="{'no_symbol': True}" invisible="is_day_off"/>
+                <field name="shift_count" optional="hide"/>
+                <field name="missing_shift" optional="hide"/>
+                <field name="is_archived" optional="hide"/>
+                <field name="state" widget="badge" decoration-success="state == 'approved'" decoration-warning="state == 'mixed'"/>
+                <button name="action_view_closures" type="object" string="Closures" icon="fa-calendar-times-o"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pos_day_archive_search" model="ir.ui.view">
+        <field name="name">baseer.pos.day.archive.search</field>
+        <field name="model">baseer.pos.day.archive</field>
+        <field name="arch" type="xml">
+            <search string="Sales summaries">
+                <field name="business_date"/>
+                <field name="company_id"/>
+                <filter name="not_archived" string="Not archived" domain="[('is_archived', '=', False)]"/>
+                <filter name="archived" string="Archived" domain="[('is_archived', '=', True)]"/>
+                <separator/>
+                <filter name="drafts" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                <filter name="mixed" string="Partly approved" domain="[('state', '=', 'mixed')]"/>
+                <filter name="closed" string="DAY OFF" domain="[('state', '=', 'closed')]"/>
+                <separator/>
+                <filter name="missing" string="Missing shift" domain="[('missing_shift', '=', True)]"/>
+                <separator/>
+                <filter name="sales_date" string="Sales date" date="business_date"/>
+                <group>
+                    <filter name="month" string="Month" context="{'group_by': 'business_date:month'}"/>
+                    <filter name="company" string="Company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_summary" model="ir.actions.act_window">
+        <field name="name">Sales summaries</field>
+        <field name="res_model">baseer.pos.day.archive</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_pos_day_archive_list"/>
+        <field name="search_view_id" ref="view_pos_day_archive_search"/>
+        <field name="context">{'search_default_not_archived': 1}</field>
+        <field name="help" type="html"><p class="o_view_nocontent_smiling_face">Record your daily sales</p><p>Each day appears once. Open it to view its morning and evening shifts together.</p></field>
+    </record>
+    <record id="menu_summary" model="ir.ui.menu"><field name="name">Sales summaries</field></record>
+</odoo>

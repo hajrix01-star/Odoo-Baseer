@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_calendar_current_search" model="ir.ui.view">
+        <field name="name">resource.calendar.baseer.current.search</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter name="baseer_current_schedules" string="Current schedules" domain="[('baseer_superseded_by_id', '=', False)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+    <record id="resource.action_resource_calendar_form" model="ir.actions.act_window">
+        <field name="context">{'search_default_baseer_current_schedules': 1}</field>
+    </record>
+    <record id="view_baseer_schedule_wizard_form" model="ir.ui.view">
+        <field name="name">baseer.schedule.wizard.form</field>
+        <field name="model">baseer.schedule.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Work schedule" class="o_baseer_schedule">
+                <field name="applied_calendar_id" invisible="1"/>
+                <field name="expected_revision" invisible="1"/>
+                <field name="edit_template" invisible="1"/>
+                <field name="template_revision" invisible="1"/>
+                <group>
+                    <group>
+                        <field name="name" string="Schedule name" placeholder="For example: Office hours" readonly="edit_template"/>
+                        <field name="company_id" readonly="1" options="{'no_open': True}" groups="base.group_multi_company"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="employee_id" string="Employee" options="{'no_create': True, 'no_open': True}"
+                               domain="[('company_id', '=', company_id), ('active', '=', True)]" invisible="edit_template"/>
+                        <field name="effective_date" widget="baseer_latin_date" string="Effective from" invisible="not employee_id and not edit_template" required="employee_id or edit_template"/>
+                    </group>
+                    <group>
+                        <field name="source_calendar_id" string="Start from a schedule" placeholder="Optional — or enter the times below"
+                               readonly="edit_template"
+                               domain="[('company_id', '=', company_id), ('active', '=', True)]"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="time_zone" string="Time zone" readonly="1"/>
+                        <div class="text-muted" colspan="2" role="note" invisible="edit_template">Choose an existing schedule to fill in its days and times, then adjust them below.</div>
+                        <div class="text-muted" colspan="2" role="note" invisible="not employee_id">This schedule applies only to the selected employee from the effective date.</div>
+                    </group>
+                </group>
+                <div class="alert alert-info" role="status" invisible="not edit_template">
+                    The updated schedule keeps this name and applies from the selected date. Previous working times remain in employee history. Separate employee schedules are not changed.
+                </div>
+                <group invisible="not edit_template">
+                    <field name="affected_count" string="Employees affected" readonly="1"/>
+                    <field name="affected_employee_ids" string="Linked employees" widget="many2many_tags" readonly="1" options="{'no_open': True}"/>
+                </group>
+                <div class="alert alert-warning" role="alert" invisible="not source_warning">
+                    <field name="source_warning" nolabel="1" readonly="1"/>
+                </div>
+                <separator string="Working days"/>
+                <div class="text-muted mb-2" role="note">Select the days once. Each time period uses these days unless you choose different days for it.</div>
+                <field name="day_ids" string="Working days" widget="many2many_checkboxes" class="o_baseer_schedule_days" nolabel="1"/>
+                <separator string="Time periods"/>
+                <div class="text-muted mb-2" role="note">Select the hour and minute in 24-hour format. An end time earlier than the start continues into the next day. 24:00 marks the end of the day.</div>
+                <field name="period_ids" nolabel="1" mode="list,kanban" class="o_baseer_schedule_periods">
+                    <list editable="bottom" string="Time periods">
+                        <control><create string="Add a time period"/></control>
+                        <field name="time_from" string="From" widget="baseer_schedule_time" class="o_baseer_schedule_time"/>
+                        <field name="time_to" string="To" widget="baseer_schedule_time" options="{'allow_end_of_day': True}" class="o_baseer_schedule_time"/>
+                        <field name="duration_label" string="Period duration" readonly="1" class="o_baseer_schedule_time"/>
+                        <field name="custom_days" string="Different days"/>
+                        <field name="day_ids" string="Days for this period" widget="many2many_tags" invisible="not custom_days"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </list>
+                    <kanban class="o_kanban_mobile" records_draggable="false" quick_create="false">
+                        <field name="time_from"/>
+                        <field name="time_to"/>
+                        <field name="duration_label"/>
+                        <field name="custom_days"/>
+                        <field name="day_ids"/>
+                        <templates>
+                            <t t-name="card">
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <div class="fw-bold o_baseer_schedule_time"><field name="time_from"/> – <field name="time_to"/></div>
+                                    <a type="delete" role="button" class="btn btn-link" title="Remove time period" aria-label="Remove time period"><i class="fa fa-trash-o"/></a>
+                                </div>
+                                <div class="text-muted">Period duration: <field name="duration_label" class="o_baseer_schedule_time"/></div>
+                                <field name="day_ids" widget="many2many_tags" t-if="record.custom_days.raw_value"/>
+                                <div t-else="" class="text-muted mt-1">Uses the working days selected above</div>
+                            </t>
+                        </templates>
+                    </kanban>
+                    <form string="Time period" class="o_baseer_schedule">
+                        <group>
+                            <field name="time_from" string="From" widget="baseer_schedule_time" class="o_baseer_schedule_time"/>
+                            <field name="time_to" string="To" widget="baseer_schedule_time" options="{'allow_end_of_day': True}" class="o_baseer_schedule_time"/>
+                            <field name="duration_label" string="Period duration" readonly="1" class="o_baseer_schedule_time"/>
+                            <field name="custom_days" string="Different days"/>
+                        </group>
+                        <div class="text-muted mb-2" invisible="custom_days">Uses the working days selected above</div>
+                        <field name="day_ids" string="Days for this period" widget="many2many_checkboxes" class="o_baseer_schedule_days" invisible="not custom_days"/>
+                    </form>
+                </field>
+                <div class="alert alert-warning mt-3" role="alert" invisible="not period_ids or not validation_message">
+                    <field name="validation_message" nolabel="1" readonly="1"/>
+                </div>
+                <div class="row g-3 my-2" invisible="validation_message">
+                    <div class="col-12 col-sm-6">
+                        <div class="border rounded p-3 h-100">
+                            <label for="total_label" string="Weekly total" class="text-muted"/>
+                            <field name="total_label" nolabel="1" readonly="1" class="d-block fs-4 fw-bold o_baseer_schedule_time"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="border rounded p-3 h-100">
+                            <label for="average_label" string="Average working day (HH:MM)" class="text-muted"/>
+                            <field name="average_label" nolabel="1" readonly="1" class="d-block fs-4 fw-bold o_baseer_schedule_time"/>
+                        </div>
+                    </div>
+                </div>
+                <group invisible="validation_message">
+                    <field name="daily_summary" string="Daily totals" readonly="1"/>
+                </group>
+                <group>
+                    <field name="save_as_template" string="Also save as a template" invisible="not employee_id"/>
+                    <field name="template_name" string="Template name" invisible="not employee_id or not save_as_template" required="employee_id and save_as_template"/>
+                </group>
+                <footer>
+                    <button name="action_apply" type="object" string="Apply schedule" class="btn-primary" invisible="not employee_id or applied_calendar_id"/>
+                    <button name="action_apply" type="object" string="Save template" class="btn-primary" invisible="employee_id or edit_template or applied_calendar_id"/>
+                    <button name="action_apply" type="object" string="Save schedule changes" class="btn-primary" invisible="not edit_template or applied_calendar_id"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_baseer_schedule_wizard" model="ir.actions.act_window">
+        <field name="name">New work schedule</field>
+        <field name="res_model">baseer.schedule.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_baseer_schedule_wizard_form"/>
+        <field name="target">new</field>
+        <field name="context">{'default_save_as_template': True}</field>
+    </record>
+
+    <record id="view_baseer_schedule_template_list" model="ir.ui.view">
+        <field name="name">resource.calendar.baseer.template.list</field>
+        <field name="model">resource.calendar</field>
+        <field name="arch" type="xml">
+            <list string="Work schedule templates" create="false">
+                <header>
+                    <button name="%(action_baseer_schedule_wizard)d" type="action" string="New schedule" display="always" class="btn-primary" groups="hr.group_hr_manager"/>
+                </header>
+                <field name="name" string="Template"/>
+                <field name="baseer_average_label" string="Average working day (HH:MM)"/>
+                <field name="hours_per_week" string="Weekly total" widget="float_time"/>
+                <field name="baseer_effective_date" widget="baseer_latin_date" string="Effective from" optional="show"/>
+                <field name="tz" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_baseer_schedule_templates" model="ir.actions.act_window">
+        <field name="name">Work schedule templates</field>
+        <field name="res_model">resource.calendar</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_baseer_schedule_template_list"/>
+        <field name="search_view_id" ref="resource.view_resource_calendar_search"/>
+        <field name="domain">[('baseer_is_template', '=', True), ('company_id', '=', allowed_company_ids[0])]</field>
+        <field name="context">{'active_test': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first work schedule template</p>
+            <p>Use New schedule to choose working days and time periods. You can apply a template from an employee's Payroll tab.</p>
+        </field>
+    </record>
+
+    <record id="view_baseer_schedule_template_form" model="ir.ui.view">
+        <field name="name">resource.calendar.baseer.template.form</field>
+        <field name="model">resource.calendar</field>
+        <field name="arch" type="xml">
+            <form string="Work schedule template" create="false" duplicate="false" delete="false" class="o_baseer_schedule">
+                <header>
+                    <button name="action_baseer_edit_schedule" type="object" string="Edit work schedule" class="btn-primary" groups="hr.group_hr_manager" invisible="baseer_superseded_by_id or not baseer_is_template or not active"/>
+                    <button name="action_baseer_simple_schedule" type="object" string="Copy and adjust schedule" class="btn-secondary" groups="hr.group_hr_manager"/>
+                    <button name="action_baseer_latest_schedule" type="object" string="Open updated schedule" class="btn-secondary" groups="hr.group_hr_manager" invisible="not baseer_superseded_by_id"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <field name="baseer_is_template" invisible="1"/>
+                    <field name="baseer_superseded_by_id" invisible="1"/>
+                    <div class="alert alert-info" invisible="not baseer_superseded_by_id" role="status">This previous schedule is retained for employee history. Open the updated schedule to make further changes.</div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-secondary" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name" string="Template name"/>
+                        <h1><field name="name" placeholder="For example: Office hours"/></h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1" groups="base.group_multi_company" options="{'no_open': True}"/>
+                        <field name="tz" string="Time zone" readonly="1"/>
+                        <field name="baseer_effective_date" widget="baseer_latin_date" string="Effective from" readonly="1" invisible="not baseer_effective_date"/>
+                    </group>
+                    <div class="row g-3 mb-4">
+                        <div class="col-12 col-sm-6">
+                            <div class="border rounded p-3 h-100">
+                                <label for="hours_per_week" string="Weekly total" class="text-muted"/>
+                                <field name="hours_per_week" widget="float_time" nolabel="1" readonly="1" class="d-block fs-4 fw-bold o_baseer_schedule_time"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="border rounded p-3 h-100">
+                                <label for="baseer_average_label" string="Average working day (HH:MM)" class="text-muted"/>
+                                <field name="baseer_average_label" nolabel="1" readonly="1" class="d-block fs-4 fw-bold o_baseer_schedule_time"/>
+                            </div>
+                        </div>
+                    </div>
+                    <separator string="Working days and times"/>
+                    <field name="baseer_schedule_summary" nolabel="1" readonly="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_baseer_schedule_templates_list_view" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_baseer_schedule_template_list"/>
+        <field name="act_window_id" ref="action_baseer_schedule_templates"/>
+    </record>
+    <record id="action_baseer_schedule_templates_form_view" model="ir.actions.act_window.view">
+        <field name="sequence">2</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_baseer_schedule_template_form"/>
+        <field name="act_window_id" ref="action_baseer_schedule_templates"/>
+    </record>
+
+    <record id="view_baseer_calendar_simple_schedule" model="ir.ui.view">
+        <field name="name">resource.calendar.baseer.simple.schedule</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                <button name="action_baseer_edit_schedule" type="object" string="Edit work schedule" class="btn-primary" groups="hr.group_hr_manager" invisible="baseer_superseded_by_id or not baseer_is_template or not active"/>
+                <button name="action_baseer_simple_schedule" type="object" string="Copy and adjust schedule" class="btn-secondary" groups="hr.group_hr_manager"/>
+                <button name="action_baseer_latest_schedule" type="object" string="Open updated schedule" class="btn-secondary" groups="hr.group_hr_manager" invisible="not baseer_superseded_by_id"/>
+            </xpath>
+            <xpath expr="//form/sheet" position="inside">
+                <field name="baseer_simple" invisible="1"/>
+                <field name="baseer_is_template" invisible="1"/>
+                <field name="baseer_superseded_by_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//form/sheet/group[@name='resource_details']" position="before">
+                <div class="alert alert-info" role="status" invisible="not baseer_simple">Use Edit work schedule to update a template and its linked employees from an effective date. Copy and adjust creates an independent schedule.</div>
+            </xpath>
+            <xpath expr="//field[@name='attendance_ids']" position="attributes">
+                <attribute name="readonly">baseer_simple</attribute>
+            </xpath>
+            <xpath expr="//field[@name='attendance_ids_2nd_week']" position="attributes">
+                <attribute name="readonly">baseer_simple</attribute>
+            </xpath>
+            <xpath expr="//field[@name='schedule_type']" position="attributes">
+                <attribute name="readonly">baseer_simple</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tz']" position="attributes">
+                <attribute name="readonly">baseer_simple</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="readonly">baseer_simple</attribute>
+            </xpath>
+            <xpath expr="//label[@for='switch_based_on_duration']" position="attributes">
+                <attribute name="invisible" add="baseer_simple" separator=" or "/>
+            </xpath>
+            <xpath expr="//button[@name='switch_based_on_duration']" position="attributes">
+                <attribute name="invisible" add="baseer_simple" separator=" or "/>
+            </xpath>
+            <xpath expr="(//button[@name='switch_based_on_duration'])[2]" position="attributes">
+                <attribute name="invisible" add="baseer_simple" separator=" or "/>
+            </xpath>
+            <xpath expr="//group[@name='switch_calendar']" position="attributes">
+                <attribute name="invisible" add="baseer_simple" separator=" or "/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_baseer_employee_schedule" model="ir.ui.view">
+        <field name="name">hr.employee.baseer.schedule</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">40</field>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='payroll_information']//field[@name='resource_calendar_id']" position="after">
+                <button name="action_baseer_set_schedule" type="object" string="Set work schedule" class="btn btn-secondary" icon="fa-clock-o" groups="hr.group_hr_manager" colspan="2"/>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem id="menu_baseer_schedule_templates" name="Work schedule templates" parent="hr.menu_config_employee"
+              action="action_baseer_schedule_templates" sequence="7" groups="hr.group_hr_manager"/>
+</odoo>
+
+
+

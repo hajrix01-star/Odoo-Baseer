@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_payroll.PayrollMonthField">
+        <span t-if="props.readonly" t-esc="formattedValue"/>
+        <input t-else="" type="month" class="o_input" t-att-id="props.id" min="0001-01" max="9999-12" pattern="[0-9]{4}-(0[1-9]|1[0-2])" t-ref="input"/>
+    </t>
+</templates>

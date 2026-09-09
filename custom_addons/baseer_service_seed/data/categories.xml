@@ -1,0 +1,45 @@
+<odoo noupdate="1">
+    <!-- Native category names are not translatable. Preserve this Arabic tree. -->
+    <record id="category_employee" model="product.category"><field name="name">خدمات الموظفين</field></record>
+    <record id="category_permits" model="product.category"><field name="name">الإقامات وتصاريح العمل</field><field name="parent_id" ref="category_employee"/></record>
+    <record id="category_iqama_issue" model="product.category"><field name="name">إصدار إقامة</field><field name="parent_id" ref="category_permits"/></record>
+    <record id="category_iqama_renewal" model="product.category"><field name="name">تجديد إقامة</field><field name="parent_id" ref="category_permits"/></record>
+    <record id="category_work_permit_issue" model="product.category"><field name="name">إصدار رخصة عمل</field><field name="parent_id" ref="category_permits"/></record>
+    <record id="category_work_permit_renewal" model="product.category"><field name="name">تجديد رخصة عمل</field><field name="parent_id" ref="category_permits"/></record>
+    <record id="category_employee_transfer" model="product.category"><field name="name">نقل خدمات الموظف</field><field name="parent_id" ref="category_permits"/></record>
+    <record id="category_profession_change" model="product.category"><field name="name">تعديل المهنة</field><field name="parent_id" ref="category_permits"/></record>
+    <record id="category_visa" model="product.category"><field name="name">تأشيرات</field><field name="parent_id" ref="category_employee"/></record>
+    <record id="category_health" model="product.category"><field name="name">الشهادات والفحوص</field><field name="parent_id" ref="category_employee"/></record>
+    <record id="category_health_certificate_issue" model="product.category"><field name="name">إصدار شهادة صحية</field><field name="parent_id" ref="category_health"/></record>
+    <record id="category_health_certificate_renewal" model="product.category"><field name="name">تجديد شهادة صحية</field><field name="parent_id" ref="category_health"/></record>
+    <record id="category_medical_exam" model="product.category"><field name="name">فحص طبي</field><field name="parent_id" ref="category_health"/></record>
+    <record id="category_tickets" model="product.category"><field name="name">التذاكر</field><field name="parent_id" ref="category_employee"/></record>
+    <record id="category_ticket" model="product.category"><field name="name">تذكرة سفر</field><field name="parent_id" ref="category_tickets"/></record>
+    <record id="category_insurance" model="product.category"><field name="name">التأمين الطبي</field><field name="parent_id" ref="category_employee"/></record>
+    <record id="category_insurance_issue" model="product.category"><field name="name">إصدار تأمين طبي</field><field name="parent_id" ref="category_insurance"/></record>
+    <record id="category_insurance_renewal" model="product.category"><field name="name">تجديد تأمين طبي</field><field name="parent_id" ref="category_insurance"/></record>
+    <record id="category_support" model="product.category"><field name="name">خدمات مساندة</field><field name="parent_id" ref="category_employee"/></record>
+    <record id="category_processing" model="product.category"><field name="name">خدمات تعقيب</field><field name="parent_id" ref="category_support"/></record>
+    <record id="category_other_employee" model="product.category"><field name="name">خدمة أخرى</field><field name="parent_id" ref="category_support"/></record>
+    <record id="category_utilities" model="product.category"><field name="name">المرافق</field></record>
+    <record id="category_electricity" model="product.category"><field name="name">الكهرباء</field><field name="parent_id" ref="category_utilities"/></record>
+    <record id="category_water" model="product.category"><field name="name">المياه والصرف الصحي</field><field name="parent_id" ref="category_utilities"/></record>
+    <record id="category_communications" model="product.category"><field name="name">الاتصالات والإنترنت</field></record>
+    <record id="category_telecom" model="product.category"><field name="name">الاتصالات</field><field name="parent_id" ref="category_communications"/></record>
+    <record id="category_internet" model="product.category"><field name="name">الإنترنت</field><field name="parent_id" ref="category_communications"/></record>
+    <record id="category_subscriptions" model="product.category"><field name="name">اشتراكات المنصات</field></record>
+    <record id="category_mudad_subscription" model="product.category"><field name="name">اشتراك منصة مدد</field><field name="parent_id" ref="category_subscriptions"/></record>
+    <record id="category_muqeem_subscription" model="product.category"><field name="name">اشتراك مقيم</field><field name="parent_id" ref="category_subscriptions"/></record>
+    <record id="category_qiwa_subscription" model="product.category"><field name="name">اشتراك منصة قوى</field><field name="parent_id" ref="category_subscriptions"/></record>
+    <record id="category_government_fees" model="product.category"><field name="name">الرسوم الحكومية</field></record>
+    <record id="category_municipal_license" model="product.category"><field name="name">الرخص البلدية</field><field name="parent_id" ref="category_government_fees"/></record>
+    <record id="category_commercial_register" model="product.category"><field name="name">السجل التجاري</field><field name="parent_id" ref="category_government_fees"/></record>
+    <record id="category_attestation" model="product.category"><field name="name">التصديقات</field><field name="parent_id" ref="category_government_fees"/></record>
+    <record id="category_legal_services" model="product.category"><field name="name">الخدمات العدلية</field><field name="parent_id" ref="category_government_fees"/></record>
+    <record id="tag_providers" model="res.partner.category"><field name="name">Service Providers</field></record>
+    <record id="tag_electricity" model="res.partner.category"><field name="name">Electricity Providers</field><field name="parent_id" ref="tag_providers"/></record>
+    <record id="tag_water" model="res.partner.category"><field name="name">Water Providers</field><field name="parent_id" ref="tag_providers"/></record>
+    <record id="tag_telecom" model="res.partner.category"><field name="name">Telecommunications Providers</field><field name="parent_id" ref="tag_providers"/></record>
+    <record id="tag_government" model="res.partner.category"><field name="name">Government Entities</field><field name="parent_id" ref="tag_providers"/></record>
+    <record id="tag_platform" model="res.partner.category"><field name="name">Government Platforms</field><field name="parent_id" ref="tag_providers"/></record>
+</odoo>

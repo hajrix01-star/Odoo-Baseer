@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_baseer_payslip" model="report.paperformat">
+        <field name="name">Baseer Employee Payslip</field><field name="format">A4</field><field name="orientation">Portrait</field>
+        <field name="margin_top">38</field><field name="margin_bottom">20</field><field name="margin_left">18</field><field name="margin_right">18</field><field name="header_spacing">28</field><field name="dpi">90</field>
+    </record>
+    <record id="action_report_baseer_payslips" model="ir.actions.report">
+        <field name="name">Employee Payslips — Signature Copy</field><field name="model">hr.payslip</field><field name="report_type">qweb-pdf</field>
+        <field name="report_name">baseer_payroll.report_payslips</field><field name="report_file">baseer_payroll.report_payslips</field>
+        <field name="binding_model_id" ref="om_hr_payroll.model_hr_payslip"/><field name="binding_type">report</field><field name="paperformat_id" ref="paperformat_baseer_payslip"/>
+        <field name="group_ids" eval="[(4,ref('om_hr_payroll.group_hr_payroll_manager'))]"/>
+        <field name="print_report_name">'Payslip - %s' % object.employee_id.name</field>
+    </record>
+    <template id="report_payslip_document">
+        <t t-call="web.external_layout">
+            <t t-call="baseer_report_layout.arabic_pdf_font_styles"/>
+            <div class="page eh_pdf_page baseer_arabic_pdf baseer_payslip" t-att-dir="'rtl' if (env.context.get('lang') or '').startswith('ar') else 'ltr'">
+                <style>
+                    .baseer_payslip { font-size: 13px; color: #243832; }
+                    .baseer_payslip h2 { font-size: 25px; margin-bottom: 20px; }
+                    .baseer_payslip .payroll_meta { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+                    .baseer_payslip .payroll_meta td { padding: 6px 0; width: 50%; }
+                    .baseer_payslip .payroll_table { width: 100%; border-collapse: collapse; }
+                    .baseer_payslip .payroll_table th { background: #e9f1ed; padding: 10px 12px; }
+                    .baseer_payslip .payroll_table td { border-bottom: 1px solid #d8e3dc; padding: 9px 12px; }
+                    .baseer_payslip .payroll_table tr { page-break-inside: avoid; }
+                    .baseer_payslip .payroll_number { direction: ltr; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+                    .baseer_payslip .payroll_total td { font-weight: 700; background: #edf4f0; border-top: 2px solid #739485; }
+                    .baseer_payslip .payroll_signature { margin-top: 54px; padding-top: 20px; border-top: 1px solid #a6b8af; }
+                </style>
+                <h2>Employee Payslip</h2>
+                <p t-if="o.state != 'done'" class="text-muted">Draft — not approved</p>
+                <table class="payroll_meta"><tbody>
+                    <tr><td><strong t-translation="on">Employee:</strong> <span t-field="o.employee_id.name"/></td><td><strong t-translation="on">Company:</strong> <span t-field="o.company_id.name"/></td></tr>
+                    <tr><td><strong t-translation="on">Period:</strong> <span dir="ltr" t-out="o.date_from.strftime('%Y-%m-%d')"/> — <span dir="ltr" t-out="o.date_to.strftime('%Y-%m-%d')"/></td><td><strong t-translation="on">Reference:</strong> <span t-out="o.number or o.name"/></td></tr>
+                    <tr><td><strong t-translation="on">Currency:</strong> <span t-field="o.company_id.currency_id.name"/></td><td t-if="o.baseer_managed"><strong t-translation="on">Eligible days:</strong> <span dir="ltr" t-out="'%.2f' % o.baseer_days"/></td></tr>
+                </tbody></table>
+                <table class="payroll_table eh_pdf_table">
+                    <thead><tr><th>Description</th><th class="payroll_number">Amount</th></tr></thead>
+                    <tbody t-if="o.baseer_managed">
+                        <tr><td>Basic salary</td><td class="payroll_number" t-out="'%.2f' % o.baseer_basic"/></tr>
+                        <tr><td>Overtime</td><td class="payroll_number" t-out="'%.2f' % o.baseer_overtime"/></tr>
+                        <tr><td>Allowances</td><td class="payroll_number" t-out="'%.2f' % o.baseer_allowance"/></tr>
+                        <tr class="payroll_total"><td>Salary before deductions</td><td class="payroll_number" t-out="'%.2f' % o.baseer_gross"/></tr>
+                        <tr><td>Loan deduction <span t-if="o.baseer_defer_loan">— deferred</span></td><td class="payroll_number" t-out="'%.2f' % o.baseer_loan_amount"/></tr>
+                        <tr><td>Other deductions <div t-if="o.baseer_deduction_reason" class="text-muted" t-field="o.baseer_deduction_reason"/></td><td class="payroll_number" t-out="'%.2f' % o.baseer_deduction"/></tr>
+                        <tr t-if="o.baseer_adjustment"><td>Original net salary</td><td class="payroll_number" t-out="'%.2f' % o.baseer_original_net"/></tr>
+                        <tr t-if="o.baseer_adjustment"><td>Posted adjustments</td><td class="payroll_number" t-out="'%.2f' % o.baseer_adjustment"/></tr>
+                        <tr class="payroll_total"><td>Net salary</td><td class="payroll_number" t-out="'%.2f' % o.baseer_net"/></tr>
+                        <tr><td>Paid</td><td class="payroll_number" t-out="'%.2f' % o.baseer_paid"/></tr>
+                        <tr t-if="o.baseer_pending"><td>Payments in process</td><td class="payroll_number" t-out="'%.2f' % o.baseer_pending"/></tr>
+                        <tr t-if="o.baseer_settled != o.baseer_paid"><td>Liability settled</td><td class="payroll_number" t-out="'%.2f' % o.baseer_settled"/></tr>
+                        <tr><td>Remaining to pay</td><td class="payroll_number" t-out="'%.2f' % o.baseer_residual"/></tr>
+                    </tbody>
+                    <tbody t-else=""><tr t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"><td><span t-field="line.name"/></td><td class="payroll_number" t-out="'%.2f' % line.total"/></tr></tbody>
+                </table>
+                <div class="payroll_signature"><p><strong t-translation="on">Employee signature:</strong> ........................................................</p><p><strong t-translation="on">Signature date:</strong> ........................................................</p></div>
+            </div>
+        </t>
+    </template>
+    <template id="report_payslips"><t t-call="web.html_container"><t t-foreach="docs" t-as="o"><t t-call="baseer_payroll.report_payslip_document" t-lang="env.context.get('lang') or env.user.lang"/></t></t></template>
+</odoo>
+

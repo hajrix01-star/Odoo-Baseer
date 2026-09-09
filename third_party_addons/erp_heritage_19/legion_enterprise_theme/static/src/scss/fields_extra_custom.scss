@@ -1,0 +1,281 @@
+.o_input {
+    border: 1px solid #ccc;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+}
+
+
+// Required fields
+.o_required_modifier {
+    .o_input {
+        border-bottom: 2px solid #666666;
+        background-color: transparent !important;
+    }
+}
+
+
+// Fields
+.o_field_widget {
+    &.o_field_many2one .o_external_button {
+       color: #875A7B;
+    }
+}
+
+
+// Button box
+.oe_button_box {
+    .oe_stat_button {
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.03) !important;
+        }
+        .o_button_icon {
+            color: #666666 !important;
+        }
+    }
+}
+
+
+// Form view
+.o_form_view .o_form_sheet_bg {
+    border-bottom: 1px solid #dee2e6 !important;
+    background: #f9f9f9 !important;
+}
+
+
+// Search view
+.o_searchview .o_searchview_facet {
+    border: 1px solid #8f8f8f;
+    background: #f8f9fa;
+    color: #8f8f8f;
+}
+
+.o_searchview {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    align-items: flex-end;
+    position: relative;
+    padding: 0 20px 1px 0;
+}
+
+// List view
+.o_list_view {
+    background-color: transparent;
+
+    thead {
+        background-color: white;
+        border: none;
+        border-bottom: 5px solid #cacaca;
+
+        > tr > th {
+            border-left: 0px solid #fff;
+            padding: 12px 4px;
+
+            &:not(.o_list_record_selector) {
+                border-left: 0px solid #dfdfdf;
+                display: table-cell;
+                max-width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                vertical-align: top;
+            }
+        }
+    }
+
+    .o_list_record_selector, .o_list_record_remove, .o_handle_cell {
+        width: 39px;
+        padding-left: 16px !important;
+        padding-right: 5px !important;
+    }
+
+    .o_optional_columns_dropdown_toggle {
+        padding: 8px 10px;
+    }
+
+    .text-info {
+        color: #666666 !important;
+    }
+}
+
+// Tables
+.table {
+    thead th {
+        vertical-align: bottom;
+        border-bottom: none;
+        padding-left: 0px;
+    }
+
+    td {
+        padding: 0.35rem;
+        vertical-align: top;
+        height: 10px;
+        border-top: 1px solid #dee2e6;
+    }
+}
+
+
+// Navbar - Remove purple background
+.o_main_navbar {
+    --o-navbar-height: 46px;
+    height: var(--o-navbar-height);
+    border-bottom: none;
+    background: #ffffff !important;
+    box-shadow: none;
+
+    .o_menu_brand {
+        color: #212529 !important;
+    }
+
+    .dropdown-toggle, .o_menu_sections a,
+    .o_menu_sections .dropdown > a,
+    .o_menu_sections .dropdown-toggle {
+        color: #212529 !important;
+        background: transparent !important;
+        border: none !important;
+
+        &:hover {
+            color: #212529 !important;
+            background: rgba(0,0,0,0.05) !important;
+        }
+
+        // Active/clicked state
+        &.active, &:active, &:focus {
+            color: #212529 !important;
+            background: #e9ecef !important;
+    }
+}
+
+
+ // Notification badges (message count)
+    .o_menu_systray .o_mail_systray_dropdown_items {
+        .o_notification_counter {
+            background: #dc3545 !important;
+            color: #ffffff !important;
+        }
+
+
+
+// Settings page specific navbar
+.o_action_manager[data-menu-xmlid*="settings"] .o_main_navbar,
+body:has(.o_settings_container) .o_main_navbar {
+    background: #ffffff !important;
+}
+}
+}
+
+.o_main_navbar .o_menu_systray .badge {
+    color: var(--o-navbar-badge-color, #FFF) !important;
+    background-color: var(--o-navbar-badge-bg, #dc3545);
+    font-size: 11px;
+}
+
+
+
+// Message/notification count badges - ensure white text
+.badge, .o_notification_counter {
+    color: none !important;
+}
+
+.badge-danger, .bg-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+
+
+
+// Tabs
+.nav-tabs {
+    .nav-link {
+        color: #666666;
+        background-color: white;
+        border-color: #ced4da;
+
+        &:hover {
+            color: #008784;
+        }
+
+        &.active {
+            color: #212529;
+            background-color: white;
+            border-top-color: #875A7B;
+        }
+    }
+
+    .nav-item.show .nav-link {
+        color: #008784;
+    }
+}
+
+
+// Buttons
+.btn {
+    font-weight: 500;
+    color: #666666;
+    border-radius: 0;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    color: #5a5a5a;
+    background-color: #ffffff;
+    border: none;
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    &.dropdown-toggle {
+        color: #212529;
+        background-color: #e6e5e5;
+        border: none;
+    }
+}
+
+
+// Dropdowns
+.o_dropdown_toggler_btn {
+    padding: 0;
+    color: #666666;
+    text-transform: none !important;
+    background-color: transparent !important;
+    border: none;
+
+    &:focus, &:hover {
+        border: 0.5px solid #d1d1d1;
+    }
+}
+
+.btn-group .o_dropdown {
+    border: none;
+}
+
+
+
+// Control panel
+.o_control_panel > .o_cp_right {
+    max-height: 60px;
+}
+
+// Many2one fields
+.o_field_many2one {
+    input[type="text"]:disabled {
+        background-color: #FFF;
+    }
+
+    .o_external_button {
+        color: #6c757d;
+    }
+}
+
+a {
+    color: #017e84;
+}
+
+
+.text-bg-danger {
+    color: #FFF !important;
+    background-color: RGBA(var(--danger-rgb), var(--bg-opacity, 1)) !important;
+}

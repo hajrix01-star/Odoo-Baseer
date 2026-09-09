@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_baseer_eos_list" model="ir.ui.view">
+        <field name="name">baseer.hr.eos.list</field><field name="model">baseer.hr.eos</field>
+        <field name="arch" type="xml"><list string="End-of-Service Awards" decoration-muted="state == 'draft'">
+            <field name="employee_id"/><field name="service_start" widget="baseer_latin_date"/><field name="service_end" widget="baseer_latin_date"/>
+            <field name="reason"/><field name="currency_id" column_invisible="1"/><field name="award_amount" sum="Awards"/>
+            <field name="state" widget="badge"/><field name="bill_state" optional="show"/><field name="payment_state" widget="badge"/>
+            <field name="balance" sum="Remaining"/><field name="company_id" groups="base.group_multi_company"/>
+        </list></field>
+    </record>
+    <record id="view_baseer_eos_form" model="ir.ui.view">
+        <field name="name">baseer.hr.eos.form</field><field name="model">baseer.hr.eos</field>
+        <field name="arch" type="xml"><form string="End-of-Service Award">
+            <header><button name="action_calculate" type="object" string="Calculate Estimate" class="oe_highlight" invisible="state != 'draft'"/>
+                <button name="action_use_gregorian_policy" type="object" string="Use Gregorian Anniversary Policy" invisible="state != 'draft' or policy_version == 'SA-EOS-V2 / Gregorian anniversaries / Baseer 2dp'" confirm="Replace this draft estimate with the Gregorian anniversary policy and review the result?"/>
+                <button name="action_approve" type="object" string="Approve and Issue Bill" class="oe_highlight" invisible="state != 'draft' or not source_snapshot or award_amount &lt;= 0" confirm="Issue one posted award bill for the reviewed amount?"/>
+                <button name="action_view_bill" type="object" string="Open Award Bill" invisible="not bill_id"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+            </header>
+            <sheet><field name="currency_id" invisible="1"/><field name="source_snapshot" invisible="1"/>
+                <group><group string="Employee and Service">
+                    <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                    <field name="employee_id" domain="[('company_id', '=', company_id)]" context="{'active_test':False}" readonly="state != 'draft'" options="{'no_create':True}"/>
+                    <field name="version_id" domain="[('employee_id', '=', employee_id)]" context="{'active_test':False}" readonly="state != 'draft'" options="{'no_create':True}"/>
+                    <field name="service_start" widget="baseer_latin_date" readonly="state != 'draft'"/>
+                    <field name="service_end" widget="baseer_latin_date" readonly="state != 'draft'"/>
+                    <field name="reason" readonly="state != 'draft'"/>
+                </group><group string="Award Estimate">
+                    <field name="policy_version"/><field name="service_end_inclusive" readonly="state != 'draft'" invisible="policy_version != 'SA-EOS-V2 / Gregorian anniversaries / Baseer 2dp'"/><field name="service_days"/>
+                    <field name="eos_wage"/><field name="full_award"/>
+                    <field name="entitlement_factor" widget="percentage" digits="[16,2]"/><field name="award_amount"/>
+                </group></group>
+                <div class="alert alert-info" role="status">New estimates use Gregorian anniversaries and the selected final-day convention. Confirm that the contract or regulations specify Gregorian dates. Historical issued awards retain their original policy. Fixed wage includes allowances and excludes overtime; leave balances, absences, advances and other final-settlement items are reviewed separately.</div>
+                <group string="Review Before Issue"><field name="evidence_reference" readonly="state != 'draft'"/><field name="evidence_note" readonly="state != 'draft'"/>
+                    <field name="reason_verified" invisible="reason not in ['article80','article81','force','maternity','review']" readonly="state != 'draft'"/>
+                    <field name="approval_confirmed" readonly="state != 'draft'"/>
+                    <field name="gregorian_confirmed" readonly="state != 'draft'"/>
+                </group>
+                <div class="text-muted mb-3" invisible="state != 'draft'">Calculating does not terminate the employee or post accounting. Approval requires HR departure information matching the end date and creates one native bill. Review the inherited policy and supporting evidence before approval.</div>
+                <group string="Native Bill and Payment" invisible="not bill_id"><field name="bill_id"/><field name="bill_state"/><field name="payment_state"/><field name="balance"/><field name="approved_by_id"/><field name="approved_at"/></group>
+            </sheet><chatter/>
+        </form></field>
+    </record>
+    <record id="action_baseer_eos" model="ir.actions.act_window"><field name="name">End-of-Service Awards</field><field name="res_model">baseer.hr.eos</field><field name="view_mode">list,form</field></record>
+    <menuitem id="menu_baseer_eos" name="End-of-Service Awards" parent="om_hr_payroll.menu_hr_payroll_root" action="action_baseer_eos" sequence="4" groups="om_hr_payroll.group_hr_payroll_manager"/>
+    <record id="view_baseer_eos_settings" model="ir.ui.view">
+        <field name="name">baseer.eos.settings</field><field name="model">res.config.settings</field><field name="inherit_id" ref="baseer_payroll.view_baseer_payroll_settings"/>
+        <field name="arch" type="xml"><xpath expr="//block[@name='baseer_payroll_configuration']" position="inside">
+            <setting id="baseer_eos_configuration" string="End-of-Service Award Bills"><group>
+                <field name="baseer_eos_expense_id" domain="[('company_ids','in',[company_id]),('account_type','in',['expense','expense_direct_cost','expense_depreciation'])]" options="{'no_create':True}"/>
+                <field name="baseer_eos_journal_id" domain="[('company_id','=',company_id),('type','=','purchase')]" options="{'no_create':True}"/>
+            </group></setting>
+        </xpath></field>
+    </record>
+    <record id="view_baseer_employee_eos" model="ir.ui.view">
+        <field name="name">baseer.employee.eos.history</field><field name="model">hr.employee</field><field name="inherit_id" ref="baseer_payroll.view_baseer_employee_financial_history"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside"><button name="action_view_eos" type="object" class="oe_stat_button" icon="fa-file-text-o" groups="om_hr_payroll.group_hr_payroll_manager"><field name="baseer_eos_count" widget="statinfo" string="End-of-Service Awards"/></button></xpath>
+            <xpath expr="//page[@name='baseer_financial_record']" position="inside"><group string="End-of-Service Awards" groups="om_hr_payroll.group_hr_payroll_manager">
+                <button name="action_view_eos" type="object" string="Award History and Calculator" class="btn-link"/>
+                <field name="baseer_eos_ids" readonly="1" nolabel="1"><list create="0" edit="0" delete="0">
+                    <field name="service_start" widget="baseer_latin_date"/><field name="service_end" widget="baseer_latin_date"/>
+                    <field name="currency_id" column_invisible="1"/><field name="award_amount"/><field name="state" widget="badge"/>
+                    <field name="bill_state"/><field name="payment_state"/><field name="bill_id"/>
+                </list></field>
+            </group></xpath>
+        </field>
+    </record>
+</odoo>

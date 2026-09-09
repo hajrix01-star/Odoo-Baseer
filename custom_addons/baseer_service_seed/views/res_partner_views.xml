@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_partner_bilingual_service_names" model="ir.ui.view">
+        <field name="name">res.partner.bilingual.service.names</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="supplier_rank" invisible="True"/>
+            </xpath>
+            <xpath expr="//sheet/group[1]" position="before">
+                <group invisible="not is_company and supplier_rank == 0 and not baseer_name_ar and not baseer_name_en">
+                    <group><field name="baseer_name_ar"/></group>
+                    <group><field name="baseer_name_en" class="o_force_ltr"/></group>
+                </group>
+            </xpath>
+            <xpath expr="//h1/field[@name='name']" position="attributes">
+                <attribute name="readonly">baseer_name_ar or baseer_name_en</attribute>
+            </xpath>
+            <xpath expr="(//h1/field[@name='name'])[2]" position="attributes">
+                <attribute name="readonly">baseer_name_ar or baseer_name_en</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_company_bilingual_names" model="ir.ui.view">
+        <field name="name">res.company.bilingual.names</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group>
+                    <group><field name="baseer_name_ar"/></group>
+                    <group><field name="baseer_name_en" class="o_force_ltr"/></group>
+                </group>
+            </xpath>
+            <xpath expr="//h1/field[@name='name']" position="attributes">
+                <attribute name="readonly">baseer_name_ar or baseer_name_en</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

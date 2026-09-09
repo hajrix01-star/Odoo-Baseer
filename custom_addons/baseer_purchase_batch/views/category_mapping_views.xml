@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_purchase_category_map_list" model="ir.ui.view">
+        <field name="name">baseer.purchase.category.map.list</field>
+        <field name="model">baseer.purchase.category.map</field>
+        <field name="arch" type="xml">
+            <list string="Purchase Category Mappings">
+                <field name="company_id" string="Company"/>
+                <field name="category_id" string="Category"/>
+                <field name="parent_category_id" context="{'hierarchical_naming': True}"/>
+                <field name="product_id" string="Service Product"/>
+                <field name="active" string="Active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_purchase_category_map_form" model="ir.ui.view">
+        <field name="name">baseer.purchase.category.map.form</field>
+        <field name="model">baseer.purchase.category.map</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Category Mapping">
+                <sheet>
+                    <group>
+                        <field name="company_id" string="Company" options="{'no_create': True}"/>
+                        <field name="category_id" string="Category" options="{'no_create': True}"/>
+                        <field name="parent_category_id" context="{'hierarchical_naming': True}"/>
+                        <field name="product_id" string="Service Product" options="{'no_create': True}"
+                               domain="[('type', '=', 'service'), ('categ_id', '=', category_id), ('active', '=', True), '|', ('company_id', '=', False), ('company_id', '=', company_id)]"/>
+                        <field name="active" string="Active"/>
+                    </group>
+                    <p class="text-muted">Choose an existing service product in this category with a configured expense account. Batch invoices use this product for accounting and report classification; they do not receive inventory.</p>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_purchase_category_maps" model="ir.actions.act_window">
+        <field name="name">Purchase Category Mappings</field>
+        <field name="res_model">baseer.purchase.category.map</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_purchase_category_maps" name="Purchase Category Mappings"
+              parent="account.menu_finance_payables" action="action_purchase_category_maps"
+              sequence="36" groups="account.group_account_manager"/>
+</odoo>

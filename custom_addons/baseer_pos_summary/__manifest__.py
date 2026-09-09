@@ -1,0 +1,31 @@
+{
+    'name': 'Baseer POS Sales Summaries',
+    'author': 'Baseer',
+    'version': '19.0.1.5.0',
+    'summary': 'External sales summaries with native POS accounting and manual WhatsApp sharing',
+    'category': 'Sales/Point of Sale',
+    'license': 'LGPL-3',
+    'depends': ['point_of_sale', 'baseer_cash_categories', 'baseer_company_setup'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'views/summary_views.xml',
+        'views/configuration_views.xml',
+        'views/allocation_views.xml',
+        'views/operations_views.xml',
+        'views/daily_report_views.xml',
+        'views/day_entry_views.xml',
+        'views/day_archive_views.xml',
+        'views/correction_views.xml',
+        'data/payment_seed.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'baseer_pos_summary/static/src/js/payment_amount_grid.js',
+            'baseer_pos_summary/static/src/xml/payment_amount_grid.xml',
+            'baseer_pos_summary/static/src/scss/summary.scss',
+        ],
+    },
+    'application': False,
+    'installable': True,
+}

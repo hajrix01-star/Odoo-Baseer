@@ -1,0 +1,490 @@
+# Translation of Baseer Sales Summary Dashboard.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 19.0\n"
+"Language: ar_001\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Applications share of total sales (%)"
+msgstr "نسبة التطبيقات من إجمالي المبيعات (%)"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Approved payment allocations"
+msgstr "توزيعات الدفع المعتمدة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Approved sales and registered customers"
+msgstr "المبيعات المعتمدة والعملاء المسجلون"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Approved sales summaries"
+msgstr "ملخصات المبيعات المعتمدة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Approved summaries will appear here. Unrecorded and closed periods are shown as gaps."
+msgstr "تظهر الملخصات بعد اعتمادها. الفترات المغلقة أو غير المدخلة تظهر كفجوات في الرسم."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Average bill"
+msgstr "معدل الفاتورة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Average daily customers"
+msgstr "متوسط العملاء اليومي"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Average daily sales"
+msgstr "متوسط المبيعات اليومي"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Chart view"
+msgstr "الرسم البياني"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Choose a valid date range of at most 366 days."
+msgstr "اختر فترة صحيحة لا تتجاوز 366 يومًا."
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Choose a valid native date filter."
+msgstr "اختر فترة صحيحة من فلتر التاريخ."
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Choose valid dashboard filters."
+msgstr "اختر فلاتر صالحة للوحة البيانات."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Closed days"
+msgstr "أيام مغلقة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Compared with"
+msgstr "مقارنة بالفترة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Comparison unavailable"
+msgstr "المقارنة غير متاحة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Complete"
+msgstr "مكتمل"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Completed days"
+msgstr "أيام مكتملة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Completed operating days"
+msgstr "أيام التشغيل المكتملة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Coverage"
+msgstr "اكتمال البيانات"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Covered sales"
+msgstr "المبيعات المشمولة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Covered summaries"
+msgstr "الملخصات المشمولة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Customers (count)"
+msgstr "العملاء (العدد)"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Daily"
+msgstr "يومي"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Decrease"
+msgstr "انخفاض"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Evening"
+msgstr "الشفت المسائي"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "From approved summaries"
+msgstr "من الملخصات المعتمدة"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Full day"
+msgstr "دوام كامل"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Inconsistent allocations"
+msgstr "توزيعات غير متطابقة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Increase"
+msgstr "ارتفاع"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Loading the selected period…"
+msgstr "جارٍ تحميل الفترة المختارة…"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Metric"
+msgstr "المؤشر"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Missing allocations"
+msgstr "توزيعات غير مسجلة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Monthly"
+msgstr "شهري"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Morning"
+msgstr "الشفت الصباحي"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "New"
+msgstr "جديد"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "No approved sales summaries in this period"
+msgstr "لا توجد ملخصات مبيعات معتمدة في هذه الفترة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "No change"
+msgstr "دون تغيير"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "No data yet — illustrative preview"
+msgstr "لا توجد بيانات بعد — عرض توضيحي"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "No payment allocations recorded in this period"
+msgstr "لا توجد توزيعات دفع مسجلة في هذه الفترة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "No recorded shifts in this period"
+msgstr "لا توجد شفتات مسجلة في هذه الفترة"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Not available"
+msgstr "غير متاح"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Not recorded"
+msgstr "غير مدخل"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Partial"
+msgstr "غير مكتمل"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Partial days"
+msgstr "أيام غير مكتملة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Partial period"
+msgstr "فترة غير مكتملة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Payment method"
+msgstr "طريقة الدفع"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Per registered customer"
+msgstr "لكل عميل مسجل"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Period"
+msgstr "الفترة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Period details"
+msgstr "تفاصيل الفترة"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "Point of Sale access is required to view sales summaries."
+msgstr "يلزم امتلاك صلاحية نقطة البيع لعرض ملخصات المبيعات."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Previous"
+msgstr "السابق"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Refresh"
+msgstr "تحديث"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Registered customers"
+msgstr "العملاء المسجلون"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales"
+msgstr "المبيعات"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales and customers"
+msgstr "المبيعات والعملاء"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales as bars and registered customers as a line over the selected period"
+msgstr "أعمدة للمبيعات وخط للعملاء المسجلين خلال الفترة المختارة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales by category"
+msgstr "المبيعات حسب الفئة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales by payment method"
+msgstr "المبيعات حسب طريقة الدفع"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales excluded from payment breakdown"
+msgstr "مبيعات غير مشمولة بتفصيل طرق الدفع"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: model:spreadsheet.dashboard,name:baseer_sales_dashboard.dashboard_sales_summary
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Sales summaries"
+msgstr "ملخصات المبيعات"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Share of total sales (%)"
+msgstr "النسبة من إجمالي المبيعات (%)"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Shift"
+msgstr "الشفت"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Shift performance"
+msgstr "أداء الشفتات"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Some approved sales have no registered customers. Affected averages are unavailable."
+msgstr "توجد مبيعات معتمدة دون عدد عملاء مسجل؛ المتوسطات المتأثرة غير متاحة."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Some approved summaries have missing or inconsistent payment allocations. The breakdown is partial and percentages are unavailable."
+msgstr "توجد ملخصات معتمدة بتوزيعات دفع غير مسجلة أو غير متطابقة. التفصيل جزئي والنسب غير متاحة."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Tax included"
+msgstr "شاملة الضريبة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "The dashboard could not be loaded. Please try again."
+msgstr "تعذر تحميل اللوحة. يرجى إعادة المحاولة."
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "This dashboard is not available for the active company."
+msgstr "هذه اللوحة غير متاحة للشركة النشطة."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "This metric is unavailable for the recorded shifts"
+msgstr "هذا المؤشر غير متاح للشفتات المسجلة"
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "This report exceeds 100,000 source rows. Choose a shorter period; no records have been omitted."
+msgstr "يتجاوز التقرير 100,000 سجل مصدر. اختر فترة أقصر؛ لم تُستبعد أي سجلات."
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "This report exceeds the supported 100-year date span. Choose a shorter period; no dates have been omitted."
+msgstr "تتجاوز فترة التقرير الحد المدعوم وهو 100 سنة. اختر فترة أقصر؛ لم تُستبعد أي تواريخ."
+
+#. module: baseer_sales_dashboard
+#. odoo-python
+#: code:addons/baseer_sales_dashboard/models/dashboard.py:0
+msgid "This sales dashboard is not available."
+msgstr "لوحة ملخصات المبيعات غير متاحة."
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Total sales"
+msgstr "إجمالي المبيعات"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Try again"
+msgstr "إعادة المحاولة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Unavailable"
+msgstr "غير متاح"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "Unrecorded days"
+msgstr "أيام غير مدخلة"
+
+#. module: baseer_sales_dashboard
+#. odoo-javascript
+#: code:addons/baseer_sales_dashboard/static/src/sales_dashboard.js:0
+msgid "View approved summaries"
+msgstr "عرض الملخصات المعتمدة"

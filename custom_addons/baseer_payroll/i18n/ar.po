@@ -1,0 +1,4047 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* baseer_payroll
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Baseer Payroll 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-08 16:28+0000\n"
+"PO-Revision-Date: 2026-09-08 16:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0?0:n==1?1:n==2?2:n%100>=3 && n%100<=10?3:n%100>=11 && n%100<=99?4:5;\n"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "%s — %s"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.actions.report,print_report_name:baseer_payroll.action_report_baseer_end_service
+msgid "'End of Service - %s' % object.employee_id.name"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.actions.report,print_report_name:baseer_payroll.action_report_baseer_payment_receipt
+msgid "'Payroll Payments - %s' % object.name"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.actions.report,print_report_name:baseer_payroll.action_report_baseer_payslips
+msgid "'Payslip - %s' % object.employee_id.name"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__res_company__baseer_proration__fixed30
+msgid "30-day basis"
+msgstr "أساس 30 يومًا"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "<span dir=\"ltr\">____ / ____ / ________</span>"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "A completed employee payment cannot be changed."
+msgstr "لا يمكن تعديل سداد موظف مكتمل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "A completed repayment cannot be changed."
+msgstr "لا يمكن تعديل سداد مكتمل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"A positive fixed wage and a currency with two decimal places are required."
+msgstr "يلزم أجر ثابت أكبر من صفر وعملة بمنزلتين عشريتين."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "A posted payroll entry is required to recover advances."
+msgstr "يلزم قيد رواتب مرحل لاسترداد السلف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid ""
+"A salary balance changed after this payment screen was opened. Reopen "
+"payment to review the current balances."
+msgstr ""
+"تغير رصيد راتب بعد فتح شاشة السداد. أعد فتح السداد لمراجعة الأرصدة الحالية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"A salary version changed during this month. Review the partial-period salary"
+" before generating the run."
+msgstr ""
+"تغير إعداد راتب أثناء الشهر. راجع راتب الفترة الجزئية قبل إنشاء المسير."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "A zero award remains an estimate; there is no amount to bill."
+msgstr "تبقى المكافأة الصفرية كتقدير؛ فلا يوجد مبلغ لإصدار فاتورة به."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Accounting access is required to approve payroll."
+msgstr "تحتاج صلاحية المحاسبة لاعتماد الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Accounting access is required to issue an award bill."
+msgstr "يلزم امتلاك صلاحية المحاسبة لإصدار فاتورة المكافأة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Accounting access is required to pay the award bill."
+msgstr "تلزم صلاحية المحاسبة لسداد فاتورة المكافأة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Accounting access is required to record salary payments."
+msgstr "تحتاج صلاحية المحاسبة لتسجيل سداد الرواتب."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_needaction
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_exception_decoration
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_state
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_type_icon
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Add eligible employees before approving the payroll."
+msgstr "أضف الموظفين المستحقين قبل اعتماد المسير."
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_hr_loan_defer
+msgid "Advance Deferral History"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_hr_loan_line
+msgid "Advance Installment"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_hr_loan_allocation
+msgid "Advance Recovery History"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance accounting history"
+msgstr "السجل المحاسبي للسلفة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_loan_amount
+msgid "Advance deduction"
+msgstr "قسط السلفة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_loan_amount
+msgid "Advance deductions"
+msgstr "أقساط السلف"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance deductions have already been recorded for this payslip."
+msgstr "تم تسجيل خصومات السلف لكشف الراتب هذا بالفعل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance disbursement"
+msgstr "صرف سلفة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance financial history is managed by the payroll workflow."
+msgstr "يُدار السجل المالي للسلفة من خلال إجراءات الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Advance installments changed. Refresh the draft payroll before approving it."
+msgstr "تغيرت أقساط السلف. حدّث مسودة الرواتب قبل اعتمادها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Advance issued. The journal entry records the cash or bank disbursement; no "
+"external transfer is sent."
+msgstr ""
+"تم صرف السلفة وتسجيل الصرف من النقد أو البنك محاسبيًا. لا يُرسل تحويل خارجي."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance journal entries cannot be deleted."
+msgstr "لا يمكن حذف قيود السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance journal entries must be created through the advance workflow."
+msgstr "يجب إنشاء قيود السلفة من خلال إجراءات السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance journal lines cannot be deleted."
+msgstr "لا يمكن حذف بنود قيود السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance recoveries are created only by payroll or repayment."
+msgstr "يُسجل استرداد السلف من خلال الرواتب أو إجراء السداد فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance recovery history cannot be deleted."
+msgstr "لا يمكن حذف سجل استرداد السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance recovery history is immutable."
+msgstr "سجل استرداد السلفة غير قابل للتعديل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance recovery must match the payslip employee and company."
+msgstr "يجب أن يطابق استرداد السلفة موظف كشف الراتب وشركته."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance recovery reconciliations cannot be changed manually."
+msgstr "لا يمكن تغيير تسويات استرداد السلفة يدويًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Advance recovery reconciliations cannot be removed independently of their "
+"repayment history."
+msgstr "لا يمكن إلغاء تسويات استرداد السلفة بمعزل عن سجل سدادها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance repayment"
+msgstr "سداد سلفة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Advance reversal is not available until its schedule and recoveries can be "
+"corrected together."
+msgstr "عكس السلفة غير متاح قبل دعم تصحيح جدولها واسترداداتها معًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Advance source links cannot be changed."
+msgstr "لا يمكن تغيير روابط مصادر السلفة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__allocation_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__allocation_ids
+msgid "Allocation"
+msgstr "عمليات السداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_allowance
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Allowances"
+msgstr "البدلات"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_allowance_total
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__baseer_allowance_total
+msgid "Allowances included in total"
+msgstr "البدلات المشمولة بالإجمالي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__amount
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__amount
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__amount
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__amount
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__amount
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__amount_total
+msgid "Amount Total"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+msgid "Amounts must be non-negative with at most two decimal places."
+msgstr "يجب أن تكون المبالغ غير سالبة وبمنزلتين عشريتين كحد أقصى."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "An award cannot be issued before the service end date."
+msgstr "لا يمكن إصدار المكافأة قبل حلول تاريخ نهاية الخدمة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "An award has already been issued for this employee and service period."
+msgstr "سبق إصدار مكافأة لهذا الموظف عن فترة الخدمة هذه."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"An employee already has a payslip for this month. Open the existing run."
+msgstr "لدى أحد الموظفين كشف راتب لهذا الشهر. افتح المسير الموجود."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "An employee payment cannot exceed the remaining salary."
+msgstr "لا يمكن أن تتجاوز دفعة الموظف الراتب المتبقي."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"An issued award and its source evidence cannot be changed. Use the native "
+"bill reversal for a reviewed correction."
+msgstr ""
+"لا يمكن تعديل المكافأة المصدرة أو مستنداتها. استخدم عكس الفاتورة في أودو بعد"
+" مراجعة التصحيح."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "An issued award cannot be recalculated."
+msgstr "لا يمكن إعادة حساب مكافأة تم إصدارها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "An issued or cancelled advance cannot be edited."
+msgstr "لا يمكن تعديل سلفة مصروفة أو ملغاة."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Approval Date:"
+msgstr "تاريخ الاعتماد:"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Approval Reference:"
+msgstr "مرجع الاعتماد:"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Approve Payroll"
+msgstr "اعتماد المسير"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Approve and Issue Bill"
+msgstr "اعتماد وإصدار فاتورة المكافأة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Approve payroll before recording a payment."
+msgstr "اعتمد الرواتب قبل تسجيل السداد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Approve the monthly payroll before recording salary payments."
+msgstr "اعتمد مسير الرواتب الشهري قبل تسجيل السداد."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__state__done
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_search
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__approved_at
+msgid "Approved At"
+msgstr "تاريخ الاعتماد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__approved_by_id
+msgid "Approved By"
+msgstr "اعتمدها"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Approved By:"
+msgstr "اعتمد بواسطة:"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Approved awards retain their history even if the native bill is cancelled or"
+" reversed."
+msgstr "يبقى سجل المكافأة المعتمدة محفوظًا حتى عند إلغاء الفاتورة أو عكسها."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_hr_leave_type__baseer_unpaid
+msgid ""
+"Approved days of this leave type reduce salary. Other leave types preserve "
+"salary."
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Approved payroll cannot be deleted."
+msgstr "لا يمكن حذف مسير رواتب معتمد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Approved payroll cannot be reset; use a reviewed correction."
+msgstr "لا يمكن إعادة الرواتب المعتمدة لمسودة؛ استخدم تصحيحًا مراجعًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Approved payroll runs are protected."
+msgstr "مسيرات الرواتب المعتمدة محمية من التعديل."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__article80
+msgid "Article 80"
+msgstr "المادة 80"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__article81
+msgid "Article 81"
+msgstr "المادة 81"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_attachment_count
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__available_payment_method_line_ids
+msgid "Available Payment Method Line"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_hr_employee__baseer_daily_hours
+#: model:ir.model.fields,help:baseer_payroll.field_hr_version__baseer_daily_hours
+msgid ""
+"Average hours per day a resource is supposed to work with this calendar."
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__workflow_stage__awaiting
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__awaiting
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__awaiting
+msgid "Awaiting Payment"
+msgstr "بانتظار السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Award Amount"
+msgstr "مبلغ المكافأة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Award Bill"
+msgstr "فاتورة المكافأة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Award Calculation"
+msgstr "احتساب المكافأة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Award Estimate"
+msgstr "تقدير المكافأة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_eos
+msgid "Award History and Calculator"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__award_amount
+msgid "Award amount"
+msgstr "مبلغ المكافأة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Award bill history cannot be deleted. Native cancellation or reversal does "
+"not permit another award for the same service period."
+msgstr ""
+"لا يمكن حذف سجل فاتورة المكافأة. إلغاؤها أو عكسها لا يسمح بإصدار مكافأة أخرى"
+" عن فترة الخدمة نفسها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Award bill links are created only by award approval."
+msgstr "ينشئ اعتماد المكافأة روابط فواتيرها فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Award bill source links cannot be changed."
+msgstr "لا يمكن تغيير روابط مصدر فاتورة المكافأة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Award calculations and bill links are generated by the approved workflow."
+msgstr "ينشئ مسار حساب المكافأة واعتمادها الأرقام وروابط الفواتير تلقائيًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Award calculations and bill links are protected."
+msgstr "أرقام المكافأة وروابط الفاتورة محمية من التعديل المباشر."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__state__approved
+msgid "Award issued"
+msgstr "تم إصدار المكافأة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_list
+msgid "Awards"
+msgstr "المكافآت"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__balance
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__balance
+msgid "Balance"
+msgstr "المتبقي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Bank / Cash"
+msgstr "البنك / النقد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_eos_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_eos_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_eos_ids
+msgid "Baseer Eos"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_eos_count
+msgid "Baseer Eos Count"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_has_departure
+msgid "Baseer Has Departure"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_loan_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_loan_id
+msgid "Baseer Loan"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_loan_balance
+msgid "Baseer Loan Balance"
+msgstr "رصيد السلف"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_loan_count
+msgid "Baseer Loan Count"
+msgstr "عدد السلف"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_managed
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_managed
+msgid "Baseer Managed"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_company_payroll
+msgid "Baseer Payroll"
+msgstr "رواتب بصير"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_payslip_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_payslip_id
+msgid "Baseer Payslip"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_payment_register__baseer_salary_payment_ids
+msgid "Baseer Salary Payment"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_salary_warning
+msgid "Baseer Salary Warning"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_structure_id
+msgid "Baseer Structure"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Baseer monthly salaries"
+msgstr "مسير رواتب بصير"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Baseer salaries"
+msgstr "رواتب بصير"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_basic_salary
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_basic
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__baseer_basic_salary
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Basic salary"
+msgstr "الراتب الأساسي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__bill_id
+msgid "Bill"
+msgstr "فاتورة المكافأة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Bill Reference:"
+msgstr "مرجع الفاتورة:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__bill_state
+msgid "Bill status"
+msgstr "حالة الفاتورة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Calculate Estimate"
+msgstr "حساب المكافأة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Calculate and review the award before printing."
+msgstr "احسب المكافأة وراجعها قبل الطباعة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/guards.py:0
+msgid "Calculated payroll inputs are protected."
+msgstr "مدخلات الرواتب المحسوبة محمية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Calculated payroll lines are protected."
+msgstr "بنود الرواتب المحسوبة محمية."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid ""
+"Calculating does not terminate the employee or post accounting. Approval "
+"requires HR departure information matching the end date and creates one "
+"native bill. Review the inherited policy and supporting evidence before "
+"approval."
+msgstr ""
+"الحساب لا ينهي خدمة الموظف ولا ينشئ قيدًا محاسبيًا. يتطلب الاعتماد تسجيل "
+"انتهاء الخدمة في الموارد البشرية بتاريخ مطابق، وينشئ فاتورة واحدة في أودو. "
+"راجع سياسة الحساب والمستندات قبل الاعتماد."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__res_company__baseer_proration__calendar
+msgid "Calendar days"
+msgstr "أيام الشهر الفعلية"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_create
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__cancel
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__cancel
+msgid "Canceled"
+msgstr "ملغى"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan__state__cancel
+msgid "Cancelled"
+msgstr "ملغاة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__workflow_stage__reversed
+msgid "Cancelled or Reversed"
+msgstr "ملغاة أو معكوسة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Choose a bank or cash journal belonging to this company."
+msgstr "اختر يومية بنك أو نقد تابعة لهذه الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Choose a payroll run."
+msgstr "اختر مسير رواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Choose a positive service period and a positive fixed wage."
+msgstr "حدد فترة خدمة وأجرًا ثابتًا أكبر من صفر."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Choose a recorded employee contract start date no later than the final "
+"salary contract. Review the service period if the employee was rehired."
+msgstr ""
+"اختر تاريخ بداية عقد مسجل للموظف لا يتجاوز بداية عقد الراتب الأخير. راجع "
+"فترة الخدمة إذا أُعيد توظيف الموظف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Choose a supported end-of-service reason."
+msgstr "اختر سببًا من أسباب انتهاء الخدمة المتاحة."
+
+#. module: baseer_payroll
+#. odoo-javascript
+#: code:addons/baseer_payroll/static/src/payroll_month_field.js:0
+msgid "Choose a valid month and year."
+msgstr "اختر شهرًا وسنة صحيحين."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+msgid ""
+"Choose a work schedule of up to 12 daily hours and a salary basis of 1–31 "
+"days."
+msgstr ""
+"اختر جدول عمل لا يتجاوز 12 ساعة يوميًا، وأساس احتساب راتب من 1 إلى 31 يومًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Choose an employee in the active company."
+msgstr "اختر موظفًا من الشركة المفعلة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Choose an end-of-service award to print."
+msgstr "اختر معاملة نهاية الخدمة المطلوب طباعتها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Choose an outbound payment method from the selected journal."
+msgstr "اختر طريقة دفع صادرة من اليومية المحددة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Choose between 1 and 120 installments."
+msgstr "اختر عدد أقساط من 1 إلى 120."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Choose the payment date."
+msgstr "اختر تاريخ السداد."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__state__close
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__company_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__company_id
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_search
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_search
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Company Representative Signature"
+msgstr "توقيع ممثل الشركة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Company logo"
+msgstr "شعار الشركة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Company:"
+msgstr "الشركة:"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Completed payroll payment screens cannot be deleted manually."
+msgstr "لا يمكن حذف شاشات سداد الرواتب المكتملة يدويًا."
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Configure a reconcilable employee advance account for this company."
+msgstr "حدد حساب ذمم سلف الموظفين القابل للتسوية لهذه الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Configure a separate default treasury account on the payment journal."
+msgstr "حدد حساب خزينة افتراضيًا مستقلًا على يومية الدفع."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Configure an end-of-service expense account for this company."
+msgstr "حدد حساب مصروف مكافأة نهاية الخدمة لهذه الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Configure an end-of-service purchase journal for this company in Payroll "
+"Settings."
+msgstr "حدد دفتر فواتير مكافأة نهاية الخدمة لهذه الشركة من إعدادات المرتبات."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Configure the bank or cash account on the selected journal."
+msgstr "حدد حساب البنك أو النقد في اليومية المختارة."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Confirm Payment"
+msgstr "تأكيد السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+msgid "Confirm Repayment"
+msgstr "تأكيد السداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__received_amount
+msgid "Confirmed paid amount"
+msgstr "المبلغ المسدد المؤكد"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_payroll_create
+msgid "Create Monthly Payroll"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.actions.act_window,name:baseer_payroll.action_baseer_payroll_create
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_create
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Create Payroll"
+msgstr "إنشاء مسير رواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Create a draft payroll first."
+msgstr "أنشئ مسودة مسير الرواتب أولًا."
+
+#. module: baseer_payroll
+#: model_terms:ir.actions.act_window,help:baseer_payroll.action_baseer_payroll_runs
+msgid "Create a monthly payroll run"
+msgstr "أنشئ مسير رواتب شهريًا"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Create a new run to change the month or company."
+msgstr "أنشئ مسيرًا جديدًا لتغيير الشهر أو الشركة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__create_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__create_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__currency_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Currency:"
+msgstr "العملة:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__date
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Date:"
+msgstr "التاريخ:"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+msgid ""
+"Days used to split the agreed monthly salary; attendance remains based on "
+"the work schedule."
+msgstr ""
+"أيام تُستخدم لتوزيع الراتب الشهري المتفق عليه؛ ويظل الحضور مبنيًا على جدول "
+"العمل."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_deduction_reason
+msgid "Deduction reason"
+msgstr "سبب الخصم"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_deduction_account_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_deduction_account_id
+msgid "Deduction recovery"
+msgstr "حساب الخصومات"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Deductions"
+msgstr "الخصومات"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_company_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_settings
+msgid "Deductions and Loans"
+msgstr "الخصومات والسلف"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Deductions exceed the salary. Defer installments or adjust the deduction."
+msgstr "الخصومات تتجاوز الراتب. أجّل الأقساط أو عدّل الخصم."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__defer_ids
+msgid "Defer"
+msgstr "سجل التأجيل"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_defer_loan
+msgid "Defer installments"
+msgstr "تأجيل الأقساط"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Deferral History"
+msgstr "سجل التأجيل"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Deferral history cannot be deleted."
+msgstr "لا يمكن حذف سجل التأجيل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Deferral history is created by the payroll workflow."
+msgstr "يُنشأ سجل التأجيل من خلال إجراءات الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Deferral history is immutable."
+msgstr "سجل التأجيل غير قابل للتعديل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Deferred from payroll %s"
+msgstr "مؤجل من مسير الرواتب %s"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__departure_entry
+msgid "Departure Entry"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Departure Reason"
+msgstr "سبب انتهاء الخدمة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Description"
+msgstr "البيان"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan_allocation__kind__repayment
+msgid "Direct repayment"
+msgstr "سداد مباشر"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Direct repayment recorded: %s. Journal entry: %s"
+msgstr "تم تسجيل سداد مباشر بمبلغ %s. القيد المحاسبي: %s"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid ""
+"Direct salary payment requires a bank or cash account without reconciliation"
+" enabled. Ask Accounting to review the journal account setup, or use the "
+"standard payment and bank matching workflow."
+msgstr ""
+"يتطلب السداد المباشر للرواتب حساب بنك أو نقد دون تفعيل التسوية عليه. اطلب من"
+" المحاسبة مراجعة إعداد حساب اليومية، أو استخدم إجراء الدفع المعتاد والمطابقة"
+" البنكية."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Disburse Loan"
+msgstr "صرف السلفة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_partial_reconcile__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_payment_register__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_input_guard__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_leave_type__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_input__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_line__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_worked_days__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_report_baseer_payroll_report_end_service__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__display_name
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__document_snapshot
+msgid "Document Snapshot"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Document identity is captured only during award approval."
+msgstr "تُحفظ بيانات المستند فقط عند اعتماد مكافأة نهاية الخدمة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan__state__draft
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_settlement__state__draft
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__draft
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__draft
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__state__draft
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_search
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_search
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Draft — not approved"
+msgstr "مسودة — غير معتمد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__due_date
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_days
+msgid "Eligible days"
+msgstr "أيام الاستحقاق"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Eligible days:"
+msgstr "أيام الاستحقاق:"
+
+#. module: baseer_payroll
+#: model_terms:ir.actions.act_window,help:baseer_payroll.action_baseer_payroll_runs
+msgid ""
+"Eligible employees and their due loan installments are loaded automatically."
+msgstr "تظهر تلقائيًا رواتب الموظفين المستحقين وأقساط سلفهم المستحقة."
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_employee
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__employee_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__employee_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__employee_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__employee_id
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_search
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_hr_loan
+msgid "Employee Advance"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_version
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+msgid "Employee Financial Record"
+msgstr "السجل المالي للموظف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Employee ID"
+msgstr "رقم الموظف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Employee Loan"
+msgstr "سلفة موظف"
+
+#. module: baseer_payroll
+#: model:ir.actions.act_window,name:baseer_payroll.action_baseer_loans
+#: model:ir.ui.menu,name:baseer_payroll.menu_baseer_loans
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Employee Loans"
+msgstr "سلف الموظفين"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Employee Payslip"
+msgstr "كشف راتب الموظف"
+
+#. module: baseer_payroll
+#: model:ir.actions.report,name:baseer_payroll.action_report_baseer_payslips
+msgid "Employee Payslips — Signature Copy"
+msgstr "كشوف رواتب الموظفين — نسخة التوقيع"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Employee Salary"
+msgstr "راتب الموظف"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_payroll_settlement_line
+msgid "Employee Salary Payment"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Employee Signature"
+msgstr "توقيع الموظف"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Employee advance"
+msgstr "سلفة موظف"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Employee advances and history"
+msgstr "سلف الموظف وسجلها"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Employee advances currently require a currency with two decimal places."
+msgstr "تتطلب سلف الموظفين حاليًا عملة بمنزلتين عشريتين."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Employee advances must use a reconcilable receivable account."
+msgstr "يجب أن يكون حساب سلف الموظفين حساب ذمم مدينة قابلًا للتسوية."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_loan_account_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_loan_account_id
+msgid "Employee advances receivable"
+msgstr "ذمم سلف الموظفين"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Employee and Service"
+msgstr "الموظف وفترة الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Employee departure / %s / %s"
+msgstr "مغادرة الموظف / %s / %s"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Employee payment rows are generated by the payroll run."
+msgstr "تُنشأ صفوف سداد الموظفين من خلال مسير الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Employee payment rows cannot be added or removed manually."
+msgstr "لا يمكن إضافة صفوف سداد الموظفين أو حذفها يدويًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Employee payment rows cannot be removed manually."
+msgstr "لا يمكن حذف صفوف سداد الموظفين يدويًا."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Employee signature:"
+msgstr "توقيع الموظف:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_hr_employee__baseer_salary_total
+#: model:ir.model.fields,help:baseer_payroll.field_hr_employee__wage
+#: model:ir.model.fields,help:baseer_payroll.field_hr_version__wage
+msgid "Employee's monthly gross wage."
+msgstr "إجمالي المرتب الشهري للموظف."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_hr_employee__baseer_work_calendar_id
+msgid "Employee's working schedule."
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Employee, contract, structure, journal and run must belong to the same "
+"company."
+msgstr ""
+"يجب أن يتبع الموظف والعقد وهيكل الرواتب واليومية والمسير الشركة نفسها."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Employee:"
+msgstr "الموظف:"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__termination
+msgid "Employer termination"
+msgstr "إنهاء من صاحب العمل"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_report_baseer_payroll_report_end_service
+msgid "End of Service Signature Report"
+msgstr "تقرير نهاية الخدمة للتوقيع"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_departure_award
+msgid "End of Service and Clearance"
+msgstr "نهاية الخدمة والمخالصة"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_hr_eos
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "End-of-Service Award"
+msgstr "مكافأة نهاية الخدمة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_settings
+msgid "End-of-Service Award Bills"
+msgstr "فواتير مكافأة نهاية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+#: model:ir.actions.act_window,name:baseer_payroll.action_baseer_eos
+#: model:ir.ui.menu,name:baseer_payroll.menu_baseer_eos
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_eos
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_list
+msgid "End-of-Service Awards"
+msgstr "مكافآت نهاية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+#: model:ir.actions.report,name:baseer_payroll.action_report_baseer_end_service
+msgid "End-of-Service Statement"
+msgstr "بيان مستحقات نهاية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "End-of-service award"
+msgstr "مكافأة نهاية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "End-of-service award / %s"
+msgstr "مكافأة نهاية الخدمة / %s"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_eos_expense_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_eos_expense_id
+msgid "End-of-service expense"
+msgstr "حساب مصروف مكافأة نهاية الخدمة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_eos_journal_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_eos_journal_id
+msgid "End-of-service purchase journal"
+msgstr "دفتر فواتير مكافأة نهاية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+msgid "Enter a finite amount."
+msgstr "أدخل مبلغًا صالحًا ومحدودًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Enter a positive payment amount for at least one employee."
+msgstr "أدخل مبلغ سداد موجبًا لموظف واحد على الأقل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Enter a positive repayment no greater than the outstanding advance."
+msgstr "أدخل مبلغ سداد موجبًا لا يتجاوز رصيد السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Enter a reason for deferring an installment."
+msgstr "أدخل سبب تأجيل القسط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Enter a reason for the other deduction."
+msgstr "أدخل سبب الخصم الآخر."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+msgid "Enter a valid amount."
+msgstr "أدخل مبلغًا صحيحًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Enter the evidence reference and confirm that you reviewed the award "
+"calculation."
+msgstr "أدخل مرجع المستند المؤيد وأكد مراجعتك لحساب المكافأة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__entitlement_factor
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Entitlement factor"
+msgstr "معامل الاستحقاق"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__state__draft
+msgid "Estimate"
+msgstr "تقدير"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__evidence_reference
+msgid "Evidence reference"
+msgstr "مرجع المستند المؤيد"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Final End-of-Service Receipt"
+msgstr "مخالصة نهاية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/financial_record.py:0
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_financial_slip_ids
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Financial Record"
+msgstr "السجل المالي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__first_due_date
+msgid "First Due Date"
+msgstr "تاريخ أول قسط"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "First Installment"
+msgstr "أول قسط"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_version__baseer_salary_mode__fixed
+msgid "Fixed monthly"
+msgstr "راتب شهري ثابت"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__eos_wage
+msgid "Fixed wage excluding overtime"
+msgstr "الأجر الثابت دون الأوفر تايم"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_follower_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_partner_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__activity_type_icon
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid ""
+"For direct salary payment, configure this payment method to use the journal "
+"bank or cash account. An outstanding payment account requires a separate "
+"bank matching step."
+msgstr ""
+"للسداد المباشر للرواتب، اضبط طريقة الدفع على حساب البنك أو النقد في اليومية."
+" أما حساب المدفوعات المعلقة فيتطلب مطابقة بنكية منفصلة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__force
+msgid "Force majeure"
+msgstr "قوة قاهرة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__full_award
+msgid "Full award"
+msgstr "المكافأة الكاملة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Full service award"
+msgstr "المكافأة الكاملة عن مدة الخدمة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__paid
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__paid
+msgid "Fully Paid"
+msgstr "مسدد بالكامل"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "HR access is required to read the employee departure."
+msgstr "يلزم توفر صلاحية الموارد البشرية لقراءة مغادرة الموظف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"HR must record the employee departure with the same end date and a departure"
+" reason before issuing the award."
+msgstr ""
+"يجب تسجيل انتهاء خدمة الموظف في الموارد البشرية بتاريخ النهاية نفسه مع تحديد"
+" السبب قبل إصدار المكافأة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__has_message
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_daily_hours
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__baseer_daily_hours
+msgid "Hours per day"
+msgstr "ساعات العمل اليومية"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid ""
+"I acknowledge receipt of the end-of-service award amount stated above. This "
+"acknowledgment covers only the listed amount and does not waive any rights "
+"or amounts not stated in this document."
+msgstr ""
+"أقرّ باستلام مبلغ مكافأة نهاية الخدمة المبين أعلاه. يقتصر هذا الإقرار على "
+"المبلغ الموضح، ولا يشمل التنازل عن أي حقوق أو مبالغ غير واردة في هذا "
+"المستند."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__approval_confirmed
+msgid "I reviewed the policy, wage, service dates and entitlement"
+msgstr "راجعت سياسة الحساب والأجر وفترة الخدمة والاستحقاق"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move_line__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_partial_reconcile__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_payment_register__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_input_guard__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_leave_type__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_input__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_line__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_worked_days__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_report_baseer_payroll_report_end_service__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_exception_icon
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__activity_exception_icon
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__message_needaction
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__message_has_error
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__message_has_sms_error
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__message_has_error
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_payroll_enabled
+msgid "Include in monthly payroll"
+msgstr "إدراجه في مسير الرواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+msgid "Included allowances must be less than the total salary."
+msgstr "يجب أن تقل البدلات المشمولة عن إجمالي الراتب."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_overtime_salary
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_overtime
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__baseer_overtime_salary
+msgid "Included overtime"
+msgstr "العمل الإضافي المشمول"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid ""
+"Inherited estimate policy: actual service days divided by 365, excluding the"
+" end date. Fixed wage includes allowances and excludes overtime. Calendar "
+"anniversaries can differ in leap years. Leave balances, unpaid absences, "
+"loans and other final-settlement items are not included."
+msgstr ""
+"سياسة التقدير الموروثة: أيام الخدمة الفعلية مقسومة على 365 دون يوم النهاية. "
+"يشمل الأجر الثابت البدلات ويستبعد الأوفر تايم. قد تختلف عتبات السنوات مع "
+"السنة الكبيسة. لا يشمل الحساب رصيد الإجازات أو الغياب دون أجر أو السلف أو "
+"بنود المخالصة الأخرى."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Installment"
+msgstr "القسط"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__installment_count
+msgid "Installment Count"
+msgstr "عدد الأقساط"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Installment deferred to %s. Reason: %s"
+msgstr "تم تأجيل القسط إلى %s. السبب: %s"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Installments"
+msgstr "الأقساط"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Installments are created by the advance workflow."
+msgstr "تُنشأ الأقساط من خلال إجراءات السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Installments are managed by the advance workflow."
+msgstr "تُدار الأقساط من خلال إجراءات السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Invalid advance recovery allocation."
+msgstr "توزيع استرداد السلفة غير صحيح."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_is_follower
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Issue a valid award bill before recording payment."
+msgstr "أصدر فاتورة مكافأة معتمدة قبل تسجيل السداد."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Issue one posted award bill for the reviewed amount?"
+msgstr "هل تريد إصدار فاتورة مكافأة مرحلة واحدة بالمبلغ الذي راجعته؟"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Issued advance installments cannot be deleted."
+msgstr "لا يمكن حذف أقساط سلفة مصروفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Issued advances and their history cannot be deleted."
+msgstr "لا يمكن حذف السلف المصروفة أو سجلها."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__journal_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__journal_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__journal_id
+msgid "Journal"
+msgstr "طريقة الصرف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Journal Entries"
+msgstr "القيود المحاسبية"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_account_move
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payslip_controls
+msgid "Journal Entry"
+msgstr "القيد المحاسبي"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__kind
+msgid "Kind"
+msgstr "نوع السداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__write_uid
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__write_date
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__line_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__line_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__line_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__line_ids
+msgid "Line"
+msgstr "القسط"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Lines cannot be added to posted advance entries."
+msgstr "لا يمكن إضافة بنود إلى قيود سلفة مرحلة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__loan_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__loan_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__loan_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__loan_id
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+msgid "Loan"
+msgstr "السلفة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Loan History"
+msgstr "سجل السلف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Loan deduction"
+msgstr "قسط السلفة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Loan deductions"
+msgstr "أقساط السلف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Loans"
+msgstr "السلف"
+
+#. module: baseer_payroll
+#: model_terms:ir.actions.act_window,help:baseer_payroll.action_baseer_loans
+msgid "Manage employee loans"
+msgstr "إدارة سلف الموظفين"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__maternity
+msgid "Maternity"
+msgstr "أمومة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_has_error
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_month_days
+msgid "Month days"
+msgstr "أيام الشهر"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Monthly Salaries"
+msgstr "الرواتب الشهرية"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+msgid "Monthly Salary Basis (Days)"
+msgstr "أيام أساس احتساب الراتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Monthly payroll"
+msgstr "مسير الرواتب الشهري"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Monthly payroll must be posted on the last day of its period."
+msgstr "يجب ترحيل المسير الشهري بتاريخ آخر يوم من فترته."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__move_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__move_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_repay__move_id
+msgid "Move"
+msgstr "القيد المحاسبي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__my_activity_date_deadline
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__name
+msgid "Name"
+msgstr "المرجع"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Native Bill and Payment"
+msgstr "الفاتورة والسداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_net
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Net salaries"
+msgstr "صافي الرواتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_net
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Net salary"
+msgstr "صافي الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__new_date
+msgid "New Date"
+msgstr "التاريخ الجديد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "New Due Date"
+msgstr "تاريخ الاستحقاق الجديد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_calendar_event_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_date_deadline
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_summary
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_type_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+msgid "No salary payments recorded."
+msgstr "لم تُسجل دفعات رواتب."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "No."
+msgstr "م"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Note:"
+msgstr "ملاحظة:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_needaction_counter
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Number of Installments"
+msgstr "عدد الأقساط"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Number of Loans"
+msgstr "عدد السلف"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_has_error_counter
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__message_needaction_counter
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__message_has_error_counter
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__old_date
+msgid "Old Date"
+msgstr "التاريخ السابق"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Only a draft advance can be issued."
+msgstr "يمكن صرف السلفة من حالة المسودة فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Only an outstanding advance can be repaid."
+msgstr "يمكن سداد السلف التي لديها رصيد متبقٍ فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Only an unposted draft can be approved."
+msgstr "يمكن اعتماد مسودة غير مرحلة فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Only draft advances can be cancelled. Issued advances require a controlled "
+"accounting correction."
+msgstr ""
+"يمكن إلغاء السلف المسودة فقط. تتطلب السلف المصروفة تصحيحًا محاسبيًا مضبوطًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Only draft payroll can be refreshed."
+msgstr "يمكن تحديث مسير الرواتب المسودة فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Only draft payslips can be recalculated."
+msgstr "يمكن إعادة حساب كشوف الرواتب المسودة فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Only the amount of an existing employee payment row may be changed."
+msgstr "يمكن تعديل مبلغ صف سداد موظف موجود فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Only the employee payment amount can be edited."
+msgstr "يمكن تعديل مبلغ سداد الموظف فقط."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Open Award Bill"
+msgstr "فتح فاتورة المكافأة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+msgid "Open Payroll Run"
+msgstr "فتح مسير الرواتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__original_due_date
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Original Due Date"
+msgstr "تاريخ الاستحقاق الأصلي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_deduction
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_deduction
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Other deductions"
+msgstr "خصومات أخرى"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__review
+msgid "Other reviewed reason"
+msgstr "سبب آخر خضع للمراجعة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan__state__running
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Outstanding"
+msgstr "المتبقي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_search
+msgid "Outstanding Loans"
+msgstr "السلف القائمة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Overtime"
+msgstr "العمل الإضافي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_paid
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_paid
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__workflow_stage__paid
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Paid"
+msgstr "مسدد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__paid_amount
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__paid_amount
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Paid Amount"
+msgstr "المبلغ المسدد"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_account_partial_reconcile
+msgid "Partial Reconcile"
+msgstr "التسوية الجزئية"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Partial-day unpaid leave requires a reviewed adjustment before generating "
+"this payroll."
+msgstr ""
+"تتطلب الإجازة غير المدفوعة لجزء من اليوم تسوية مراجعة قبل إنشاء المسير."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_proration
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_proration
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_settings
+msgid "Partial-month salary basis"
+msgstr "أساس احتساب جزء الشهر"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__workflow_stage__partial
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__partial
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__partial
+msgid "Partially Paid"
+msgstr "مسدد جزئيًا"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan_line__state__partial
+msgid "Partially recovered"
+msgstr "مسدد جزئيًا"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_account_payment_register
+msgid "Pay"
+msgstr "الدفع"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_workflow
+msgid "Pay Award"
+msgstr "سداد المكافأة"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_payroll_settlement
+msgid "Pay Monthly Payroll"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/financial_record.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Pay Salaries"
+msgstr "سداد الرواتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payslip_controls
+msgid "Pay Salary"
+msgstr "سداد الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_payslip
+msgid "Pay Slip"
+msgstr "قسيمة المرتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Pay salaries"
+msgstr "سداد الرواتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__payment_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__payment_ids
+msgid "Payment"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__payment_date
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Payment Date"
+msgstr "تاريخ السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Payment Date:"
+msgstr "تاريخ السداد:"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/financial_record.py:0
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_payment_count
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_run_settlement_form
+msgid "Payment History"
+msgstr "سجل السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__payment_method_line_id
+msgid "Payment Method Line"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Payment Methods:"
+msgstr "طرق السداد:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_payment_state
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_payment_state
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Payment amount"
+msgstr "مبلغ السداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__payment_state
+msgid "Payment status"
+msgstr "حالة السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Payment total"
+msgstr "إجمالي السداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__workflow_stage__processing
+msgid "Payment under review"
+msgstr "سداد قيد المراجعة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll %s"
+msgstr "مسير الرواتب %s"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_company_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_settings
+msgid "Payroll Accounting"
+msgstr "حسابات الرواتب"
+
+#. module: baseer_payroll
+#. odoo-javascript
+#: code:addons/baseer_payroll/static/src/payroll_month_field.js:0
+msgid "Payroll Month"
+msgstr "شهر الرواتب"
+
+#. module: baseer_payroll
+#: model:ir.actions.report,name:baseer_payroll.action_report_baseer_payment_receipt
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+msgid "Payroll Payment Statement"
+msgstr "بيان سداد الرواتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Payroll Run"
+msgstr "مسير الرواتب"
+
+#. module: baseer_payroll
+#: model:ir.actions.act_window,name:baseer_payroll.action_baseer_payroll_runs
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Payroll Runs"
+msgstr "مسيرات الرواتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Payroll Totals"
+msgstr "إجماليات المسير"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll accounting entries are protected. Use the payroll workflow."
+msgstr "قيود الرواتب محمية. استخدم إجراءات مسير الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll accounts and journal must belong to the selected company."
+msgstr "يجب أن تتبع حسابات ويومية الرواتب الشركة المحددة."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_settings
+msgid "Payroll and Advances"
+msgstr "الرواتب والسلف"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_settings
+msgid "Payroll company"
+msgstr "شركة الرواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll completion follows its accounting payments."
+msgstr "يتحدد اكتمال الرواتب بحسب سدادها المحاسبي."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan_allocation__kind__payroll
+msgid "Payroll deduction"
+msgstr "خصم من الراتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll financial fields are set by the approved workflow."
+msgstr "تُحدد الحقول المالية للرواتب من خلال إجراءات المسير المعتمدة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Payroll is not configured for company \"%(company)s\". Open Payroll > "
+"Settings and set the payroll journal, salary expense, salary payable, "
+"deduction recovery and employee advance accounts."
+msgstr ""
+"إعدادات الرواتب غير مكتملة لشركة «%(company)s». افتح المرتبات ← الإعدادات "
+"وحدد يومية الرواتب وحسابات مصروف الرواتب والرواتب المستحقة والخصومات وسلف "
+"الموظفين."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_payroll_journal_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_payroll_journal_id
+msgid "Payroll journal"
+msgstr "يومية الرواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll liability does not match the net salary."
+msgstr "استحقاق الرواتب المحاسبي لا يطابق صافي الراتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Payroll manager access is required."
+msgstr "تحتاج صلاحية مدير الرواتب."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_create__baseer_month
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_month
+msgid "Payroll month"
+msgstr "شهر المسير"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid ""
+"Payroll payment rows and results are generated by the payroll workflow."
+msgstr "تُنشأ صفوف سداد الرواتب ونتائجها من خلال إجراءات المسير."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Payroll payment sources and results cannot be changed manually."
+msgstr "لا يمكن تغيير مصادر سداد الرواتب ونتائجه يدويًا."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+msgid "Payroll run:"
+msgstr "مسير الرواتب:"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Payroll source links are set by the payroll workflow."
+msgstr "تُحدد روابط مصادر الرواتب من خلال إجراءات المسير."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__payslip_id
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Payslip"
+msgstr "كشف الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "دفعات المرتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__payslip_count
+msgid "Payslip Count"
+msgstr "عدد قسيمات المرتب"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_payslip_input
+msgid "Payslip Input"
+msgstr "مدخلات المرتب"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr "بنود المرتب"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
+msgstr "أيام العمل في القسيمة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan_line__state__pending
+msgid "Pending"
+msgstr "مستحق"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Period:"
+msgstr "الفترة:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__policy_version
+msgid "Policy Version"
+msgstr "سياسة الحساب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Posted advance entries are protected. Use a controlled advance correction."
+msgstr "قيود السلفة المرحلة محمية. استخدم تصحيح سلفة مضبوطًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Posted advance journal lines are protected."
+msgstr "بنود قيود السلفة المرحلة محمية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Posted payroll cannot be deleted."
+msgstr "لا يمكن حذف رواتب مرحلة محاسبيًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Posted payroll cannot be reset."
+msgstr "لا يمكن إعادة الرواتب المرحلة إلى مسودة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Posted payroll is protected. Corrections require a reviewed reversal; it "
+"cannot be edited or cancelled."
+msgstr ""
+"الرواتب المرحلة محمية. يتطلب التصحيح عكسًا محاسبيًا مراجعًا؛ ولا يمكن "
+"تعديلها أو إلغاؤها مباشرة."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Previous Due Date"
+msgstr "تاريخ الاستحقاق السابق"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Print All Payslips"
+msgstr "طباعة كشوف جميع الموظفين"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_run_settlement_form
+msgid "Print Payment Statement"
+msgstr "طباعة بيان السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_workflow
+msgid "Print Statement / Clearance"
+msgstr "طباعة البيان / المخالصة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__workflow_stage
+msgid "Progress"
+msgstr "مرحلة المعاملة"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_payroll_input_guard
+msgid "Protect calculated payroll inputs"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__reason
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__reason
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Reason"
+msgstr "سبب انتهاء الخدمة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_repay_form
+msgid "Record Repayment"
+msgstr "تسجيل سداد سلفة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Record the employee departure date and reason first."
+msgstr "سجّل تاريخ مغادرة الموظف وسببها أولًا."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_settlement__state__done
+msgid "Recorded"
+msgstr "مسجل"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"Recover employee advances using payroll or the advance repayment action so "
+"the installment history remains consistent."
+msgstr ""
+"استرد سلف الموظفين عبر الرواتب أو إجراء سداد السلفة للحفاظ على اتساق سجل "
+"الأقساط."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan_line__state__paid
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Recovered"
+msgstr "المسترد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Reference:"
+msgstr "المرجع:"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Refresh Employees"
+msgstr "تحديث الموظفين"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__remaining
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_residual
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_list
+msgid "Remaining"
+msgstr "المتبقي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Remaining Amount"
+msgstr "المبلغ المتبقي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Remaining salaries"
+msgstr "الرواتب المتبقية"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_residual
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Remaining salary"
+msgstr "الراتب المتبقي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__balance
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Remaining to pay"
+msgstr "المتبقي للسداد"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_loan__state__closed
+msgid "Repaid"
+msgstr "مسددة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_search
+msgid "Repaid Loans"
+msgstr "السلف المسددة"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_hr_loan_repay
+msgid "Repay Employee Advance"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Repay advance"
+msgstr "سداد السلفة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Repayment History"
+msgstr "سجل السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Repayment Type"
+msgstr "نوع السداد"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Repayment results cannot be supplied manually."
+msgstr "لا يمكن إدخال نتائج السداد يدويًا."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__reason__resignation
+msgid "Resignation"
+msgstr "استقالة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__activity_user_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_hr_eos__workflow_stage__draft
+msgid "Review"
+msgstr "المراجعة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Review Before Issue"
+msgstr "المراجعة قبل الإصدار"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__evidence_note
+msgid "Review note"
+msgstr "ملاحظة المراجعة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__run_id
+msgid "Run"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__message_has_sms_error
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Salary"
+msgstr "الراتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+msgid "Salary Calculation"
+msgstr "حساب الراتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Salary Payment"
+msgstr "دفعة راتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "Salary Payments"
+msgstr "دفعات الرواتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+msgid "Salary Setup"
+msgstr "إعداد الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_gross
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Salary before deductions"
+msgstr "الراتب قبل الخصومات"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_salary_mode
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__baseer_salary_mode
+msgid "Salary calculation"
+msgstr "طريقة حساب الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_salary_expense_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_salary_expense_id
+msgid "Salary expense"
+msgstr "مصروف الرواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Salary or service information changed. Recalculate the estimate and review "
+"it before approval."
+msgstr ""
+"تغيرت بيانات الراتب أو الخدمة. أعد حساب المكافأة وراجعها قبل الاعتماد."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_company__baseer_salary_payable_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_res_config_settings__baseer_salary_payable_id
+msgid "Salary payable"
+msgstr "الرواتب المستحقة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Salary payable must be a reconcilable payable account."
+msgstr "يجب أن يكون حساب الرواتب المستحقة حساب ذمم دائنة قابلًا للتسوية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Salary payment reconciliation cannot be removed independently of payroll."
+msgstr "لا يمكن إلغاء تسوية سداد الراتب بمعزل عن مسير الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/guards.py:0
+msgid "Salary payment results are set by the payment workflow."
+msgstr "تُحدد نتائج سداد الرواتب من خلال إجراءات الدفع."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Salary payments must reconcile the employee payable account."
+msgstr "يجب تسوية سداد الراتب مع حساب مستحقات الموظف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Salary reconciliations cannot be changed manually."
+msgstr "لا يمكن تغيير تسويات الرواتب يدويًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Select the salary version effective on the service end date."
+msgstr "اختر إصدار الراتب الساري في تاريخ نهاية الخدمة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__service_days
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Service Days"
+msgstr "أيام الخدمة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__service_end
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Service End"
+msgstr "نهاية الخدمة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__service_start
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Service Start"
+msgstr "بداية الخدمة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Set a work contact on the employee before issuing an advance."
+msgstr "حدد جهة اتصال العمل في ملف الموظف قبل صرف السلفة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__settlement_id
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_payslip_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Settlement"
+msgstr "السداد"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Signature date:"
+msgstr "تاريخ التوقيع:"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement_line__slip_id
+msgid "Slip"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__source_snapshot
+msgid "Source Snapshot"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__reason_verified
+msgid "Special reason verified"
+msgstr "تم التحقق من مستندات السبب الخاص"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__state
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__state
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_line__state
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_settlement__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__state
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Status"
+msgstr "الحالة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__activity_state
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Switch to the company that owns this record."
+msgstr "انتقل إلى الشركة المالكة لهذا السجل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Switch to the payroll company."
+msgstr "انتقل إلى شركة مسير الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"The Baseer salary rules do not match the company payroll configuration. "
+"Review the payroll accounts before approving."
+msgstr ""
+"قواعد رواتب بصير لا تطابق إعداد رواتب الشركة. راجع حسابات الرواتب قبل "
+"الاعتماد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"The Baseer salary structure does not match the company payroll "
+"configuration."
+msgstr "هيكل رواتب بصير لا يطابق إعداد رواتب الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"The accounting date changed during posting. The advance transaction was not "
+"recorded; choose an open date."
+msgstr ""
+"تغير التاريخ المحاسبي أثناء الترحيل. لم تُسجل عملية السلفة؛ اختر تاريخًا "
+"مفتوحًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "The accounting date changed. Review the payroll period and lock dates."
+msgstr "تغير التاريخ المحاسبي. راجع فترة الرواتب وتواريخ الإقفال."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The advance amount must be greater than zero."
+msgstr "يجب أن يكون مبلغ السلفة أكبر من صفر."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The advance recovery does not match its receivable journal entry."
+msgstr "استرداد السلفة لا يطابق قيد الذمم المدينة الخاص به."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The advance schedule and accounting balance do not agree."
+msgstr "جدول أقساط السلفة لا يطابق رصيدها المحاسبي."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The amount is too small for this number of installments."
+msgstr "المبلغ صغير جدًا لهذا العدد من الأقساط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "The award accounting date is in a locked period."
+msgstr "يقع التاريخ المحاسبي للمكافأة ضمن فترة مقفلة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"The award bill amount and source are protected. Use a native reversal for a "
+"reviewed correction."
+msgstr ""
+"مبلغ فاتورة المكافأة ومصدرها محميان. استخدم العكس في أودو بعد مراجعة "
+"التصحيح."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "The award journal must use the company currency."
+msgstr "يجب أن يستخدم دفتر المكافأة عملة الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The employee and payment journal must belong to the advance company."
+msgstr "يجب أن يتبع الموظف ويومية الدفع شركة السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "The employee payment rows do not match the approved payroll run."
+msgstr "صفوف سداد الموظفين لا تطابق مسير الرواتب المعتمد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"The employee salary version changed. Refresh the payroll run before "
+"approval."
+msgstr "تغير إعداد راتب الموظف. حدّث مسير الرواتب قبل الاعتماد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"The employee work contact needs a valid reconcilable payable account in this"
+" company."
+msgstr "يحتاج سجل اتصال الموظف إلى حساب دائن صحيح قابل للتسوية في هذه الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The first installment cannot precede the advance date."
+msgstr "لا يمكن أن يسبق القسط الأول تاريخ السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "The native bill does not match the reviewed award amount, tax or date."
+msgstr ""
+"لا تتطابق الفاتورة مع مبلغ المكافأة أو الضريبة أو التاريخ الذي تمت مراجعته."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "The payment exceeds the remaining salary. Refresh the payment."
+msgstr "مبلغ السداد يتجاوز الراتب المتبقي. حدّث عملية السداد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "The payroll accounting date is locked."
+msgstr "التاريخ المحاسبي للرواتب مقفل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "The payroll run must remain approved before payment."
+msgstr "يجب أن يبقى مسير الرواتب معتمدًا قبل السداد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "The payslip period must match its monthly payroll run."
+msgstr "يجب أن تطابق فترة كشف الراتب فترة مسير الرواتب الشهري."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid ""
+"The recorded payment does not match the selected employee amount and date. "
+"No payroll payment was committed."
+msgstr ""
+"الدفعة المسجلة لا تطابق مبلغ الموظف وتاريخه المحددين. لم يُعتمد أي سداد "
+"للرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"The repayment date cannot precede the advance or an already recorded "
+"recovery."
+msgstr "لا يمكن أن يسبق تاريخ السداد تاريخ السلفة أو سدادًا مسجلًا بالفعل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "The repayment exceeds the available installments."
+msgstr "مبلغ السداد يتجاوز رصيد الأقساط المتاح."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "The run belongs to the active company."
+msgstr "المسير يتبع الشركة المفعّلة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "The salary payment date cannot precede the payroll accounting date."
+msgstr "لا يمكن أن يسبق تاريخ سداد الراتب التاريخ المحاسبي للمسير."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "The salary version and employee must belong to the award company."
+msgstr "يجب أن يتبع الموظف وإصدار راتبه الشركة الخاصة بالمكافأة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "The selected salary payment date is in a locked accounting period."
+msgstr "تاريخ سداد الرواتب المختار ضمن فترة محاسبية مقفلة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "The service end must be after the service start."
+msgstr "يجب أن يكون تاريخ نهاية الخدمة بعد بدايتها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/common.py:0
+msgid "The total salary is too low for these allowances and working hours."
+msgstr "إجمالي الراتب غير كافٍ لهذه البدلات وساعات العمل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/work_schedules.py:0
+msgid "The working schedule seed reference is invalid."
+msgstr "مرجع جدول العمل الافتراضي غير صالح. يرجى مراجعته من مسؤول النظام."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "There are no payslips to print."
+msgstr "لا توجد كشوف رواتب للطباعة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/financial_record.py:0
+msgid "There are no recorded payments for this payroll."
+msgstr "لا توجد دفعات مسجلة لمسير الرواتب هذا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "There is no remaining bill amount to pay."
+msgstr "لا يوجد مبلغ متبقٍ في الفاتورة للسداد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "These salaries are already fully paid."
+msgstr "تم سداد هذه الرواتب بالكامل."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_settings
+msgid "These settings apply to the selected company."
+msgstr "تُحفظ هذه الإعدادات للشركة المحددة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"This advance transaction falls in a locked accounting period. Choose an open"
+" transaction date."
+msgstr ""
+"عملية السلفة تقع ضمن فترة محاسبية مقفلة. اختر تاريخ عملية ضمن فترة مفتوحة."
+
+#. module: baseer_payroll
+#: model:ir.model.constraint,message:baseer_payroll.constraint_baseer_hr_eos_departure_entry_unique
+msgid ""
+"This departure is already being processed. Reopen End of Service and "
+"Clearance from the employee."
+msgstr ""
+"توجد معاملة لهذه المغادرة. أعد فتح «نهاية الخدمة والمخالصة» من ملف الموظف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid ""
+"This document states the calculated end-of-service award and recorded "
+"payments. It is not an acknowledgment of full receipt. Any remaining amount "
+"must be settled before signing the final receipt."
+msgstr ""
+"يوضح هذا البيان مكافأة نهاية الخدمة المحتسبة والمدفوعات المسجلة، ولا يُعد "
+"إقرارًا باستلام كامل المستحقات. يجب سداد المبلغ المتبقي قبل توقيع المخالصة "
+"النهائية."
+
+#. module: baseer_payroll
+#: model:ir.model.constraint,message:baseer_payroll.constraint_baseer_hr_eos_approved_period_unique
+msgid "This employee already has an approved award for this service period."
+msgstr "توجد مكافأة معتمدة لهذا الموظف عن فترة الخدمة نفسها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "This employee already has an approved payslip covering this period."
+msgstr "لدى هذا الموظف كشف راتب معتمد يغطي هذه الفترة."
+
+#. module: baseer_payroll
+#: model:ir.model.constraint,message:baseer_payroll.constraint_baseer_hr_eos_approved_departure_unique
+msgid "This employee departure already has an approved award."
+msgstr "توجد مكافأة معتمدة لانتهاء خدمة هذا الموظف بالفعل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "This estimate has not issued a bill."
+msgstr "لم تُصدر فاتورة لهذا التقدير بعد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "This payment screen has expired. Reopen it from the payroll run."
+msgstr "انتهت صلاحية شاشة السداد هذه. أعد فتحها من مسير الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid ""
+"This payroll payment has already been recorded. Open a new payment for the "
+"remaining salaries."
+msgstr ""
+"تم تسجيل دفعة الرواتب هذه بالفعل. افتح سدادًا جديدًا للرواتب المتبقية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid ""
+"This payroll period precedes an already recorded advance recovery. Process "
+"recoveries in date order."
+msgstr ""
+"فترة الرواتب تسبق استرداد سلفة مسجلًا. نفّذ الاستردادات بالترتيب الزمني."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "This reason requires documented verification before approval."
+msgstr "يتطلب هذا السبب تحققًا موثقًا قبل الاعتماد."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_settlement_form
+msgid "This records salary payments; it does not send a bank transfer."
+msgstr "يسجل هذا الإجراء سداد الرواتب، ولا يرسل تحويلًا بنكيًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/guards.py:0
+msgid ""
+"This salary payment has already been recorded. Open a new payment for the "
+"remaining balance."
+msgstr ""
+"تم تسجيل سداد الراتب هذا بالفعل. افتح عملية سداد جديدة للمبلغ المتبقي."
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "نوع الإجازة"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "Total"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Total deductions"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_version__baseer_salary_mode__inclusive
+msgid "Total includes overtime"
+msgstr "الإجمالي يشمل الإضافي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Total loan deductions"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Total loans"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_salary_total
+msgid "Total monthly salary"
+msgstr "إجمالي الراتب الشهري"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Total net salaries"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Total outstanding"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_run_settlement_list
+msgid "Total paid"
+msgstr "إجمالي المدفوع"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_list
+msgid "Total recovered"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_gross
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_list
+msgid "Total salaries"
+msgstr "مجموع الرواتب"
+
+#. module: baseer_payroll
+#: model_terms:ir.actions.act_window,help:baseer_payroll.action_baseer_loans
+msgid ""
+"Track outstanding balances, installments, repayments and deferrals for each "
+"employee."
+msgstr "تابع أرصدة السلف والأقساط والسداد والتأجيل لكل موظف."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__activity_exception_decoration
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_leave_type__baseer_unpaid
+msgid "Unpaid for Baseer payroll"
+msgstr "إجازة دون راتب في رواتب بصير"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Use a general journal for payroll accruals."
+msgstr "استخدم يومية عامة لاستحقاقات الرواتب."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/settlement.py:0
+msgid "Use a payment journal in the company currency with two decimal places."
+msgstr "استخدم يومية دفع بعملة الشركة ذات منزلتين عشريتين."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Use a payment journal in the company currency."
+msgstr "استخدم يومية دفع بعملة الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid ""
+"Use a reviewed payroll correction. Automatic payroll refunds are disabled."
+msgstr "استخدم تصحيح رواتب مراجعًا. الاسترداد التلقائي للرواتب غير متاح."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Use fewer installments for this advance amount."
+msgstr "استخدم عدد أقساط أقل لمبلغ هذه السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Use the company Baseer salary structure."
+msgstr "استخدم هيكل رواتب بصير التابع للشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "Use the payroll defer action to change an installment."
+msgstr "استخدم تأجيل القسط في مسير الرواتب لتغيير موعده."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_defer__user_id
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_form
+msgid "User"
+msgstr "المستخدم"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "VAT No."
+msgstr "الرقم الضريبي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__version_id
+msgid "Version"
+msgstr "إصدار بيانات الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__wage
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__wage
+msgid "Wage"
+msgstr "الأجر"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_end_service_document
+msgid "Wage used for calculation"
+msgstr "الأجر المعتمد للاحتساب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__website_message_ids
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_eos__website_message_ids
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_hr_loan__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+msgid "Work Schedule"
+msgstr "جدول العمل"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_work_days
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_version__baseer_work_days
+msgid "Working days per month"
+msgstr "أيام العمل الشهرية"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Working hours are managed in the Odoo work schedule."
+msgstr "تُدار ساعات العمل من خلال جدول العمل في أودو."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_employee__baseer_work_calendar_id
+msgid "Working schedule"
+msgstr "جدول العمل"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "You cannot create an advance for this company."
+msgstr "ليس لديك صلاحية إنشاء سلفة لهذه الشركة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "employee_id"
+msgstr ""
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/financial_record.py:0
+#: code:addons/baseer_payroll/models/loan.py:0
+msgid "id"
+msgstr ""
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "— deferred"
+msgstr "— مؤجل"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid ""
+"A reduction cannot exceed unsettled salary. Recover an actual overpayment "
+"separately before reviewing its accounting."
+msgstr "لا يمكن أن يتجاوز التخفيض الراتب غير المسدد. تُحصّل الزيادة المدفوعة فعليًا بمسار مستقل قبل مراجعة معالجتها المحاسبية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Accounting access is required to post a correction."
+msgstr "يلزم امتلاك صلاحية المحاسبة لترحيل التصحيح."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__account_move__baseer_correction_kind__deduction
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_correction__kind__deduction
+msgid "Adjust other deduction"
+msgstr "تعديل الخصم الآخر"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__account_move__baseer_correction_kind__wage
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_correction__kind__wage
+msgid "Adjust wage"
+msgstr "تعديل الراتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Advance reversal links are generated by the correction action."
+msgstr "تُنشأ روابط عكس السلفة من إجراء التصحيح فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Advance reversal links are immutable."
+msgstr "لا يمكن تغيير روابط عكس السلفة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "An issued award cannot change calculation policy."
+msgstr "لا يمكن تغيير سياسة احتساب مكافأة صادرة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_correction_ids
+msgid "Baseer Correction"
+msgstr "قيود التصحيح"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_correction_kind
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_correction_kind
+msgid "Baseer Correction Kind"
+msgstr "نوع التصحيح"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_correction_payslip_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_correction_payslip_id
+msgid "Baseer Correction Payslip"
+msgstr "مسير الراتب المصحح"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_correction_reason
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_correction_reason
+msgid "Baseer Correction Reason"
+msgstr "سبب التصحيح"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_bank_statement_line__baseer_correction_source_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_account_move__baseer_correction_source_id
+msgid "Baseer Correction Source"
+msgstr "القيد الأصلي"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Choose a correction that belongs to this source."
+msgstr "اختر تصحيحًا مناسبًا لهذا المستند."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid "Choose a supported calculation policy."
+msgstr "اختر سياسة احتساب مدعومة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Choose an open correction date on or after the source entry."
+msgstr "اختر تاريخ تصحيح في فترة مفتوحة لا يسبق تاريخ القيد الأصلي."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Choose exactly one payroll or advance source."
+msgstr "اختر مستند راتب واحدًا أو سلفة واحدة للتصحيح."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"Confirm that the contract or regulations specify Gregorian dates before "
+"issuing this award."
+msgstr "أكد أن العقد أو اللوائح تنص على التقويم الميلادي قبل إصدار المكافأة."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__gregorian_confirmed
+msgid "Contract or regulations specify the Gregorian calendar"
+msgstr "ينص العقد أو اللوائح على استخدام التقويم الميلادي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_loan_correction
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payslip_correction
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_run_correction
+msgid "Correct Accounting"
+msgstr "تصحيح محاسبي"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_financial_correction
+msgid "Correction History"
+msgstr "سجل التصحيحات"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Correction links and reasons are immutable."
+msgstr "لا يمكن تغيير روابط التصحيح وأسبابه."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Correction links are generated only by the reviewed correction action."
+msgstr "تُنشأ روابط التصحيح من إجراء التصحيح المراجع فقط."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Correction of %s"
+msgstr "تصحيح القيد %s"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Correction results and source evidence are generated automatically."
+msgstr "تُنشأ نتائج التصحيح وأدلة المستند الأصلي تلقائيًا."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Correction sources and completed results cannot be changed."
+msgstr "لا يمكن تغيير مصادر التصحيح ونتائجه المكتملة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Document the reason and confirm the accounting review."
+msgstr "وثّق السبب وأكد المراجعة المحاسبية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Enter a nonzero adjustment with at most two decimal places."
+msgstr "أدخل تعديلًا غير صفري بمنزلتين عشريتين كحد أقصى."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Gregorian anniversaries; final day excluded"
+msgstr "سنوات خدمة ميلادية؛ يوم الخدمة الأخير غير مشمول"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Gregorian anniversaries; final day included"
+msgstr "سنوات خدمة ميلادية؛ يوم الخدمة الأخير مشمول"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/eos_workflow.py:0
+msgid "Historical actual-days/365 policy; final day excluded"
+msgstr "السياسة التاريخية: الأيام الفعلية مقسومة على 365؛ اليوم الأخير غير مشمول"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_correction__reviewed
+msgid "I reviewed the original entry, payments and correction evidence"
+msgstr "راجعت القيد الأصلي والدفعات وأدلة التصحيح"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_eos__service_end_inclusive
+msgid "Include the final service day"
+msgstr "احتساب يوم الخدمة الأخير"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_settled
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_settled
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__settled
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__settled
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Liability settled"
+msgstr "الالتزام المسدد محاسبيًا"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid ""
+"New estimates use Gregorian anniversaries and the selected final-day "
+"convention. Confirm that the contract or regulations specify Gregorian "
+"dates. Historical issued awards retain their original policy. Fixed wage "
+"includes allowances and excludes overtime; leave balances, absences, "
+"advances and other final-settlement items are reviewed separately."
+msgstr "تستخدم التقديرات الجديدة سنوات الخدمة الميلادية وخيار احتساب اليوم الأخير المحدد. أكد اعتماد التقويم الميلادي في العقد أو اللوائح. تحتفظ المكافآت الصادرة سابقًا بسياستها الأصلية. يشمل الأجر الثابت البدلات ويستبعد الإضافي؛ وتُراجع أرصدة الإجازات والغياب والسلف وبقية عناصر التسوية النهائية بصورة مستقلة."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid ""
+"Only an issued advance without a disbursement reversal can be corrected."
+msgstr "يمكن تصحيح السلفة المصروفة فقط ما لم يُعكس صرفها."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Only posted Baseer payroll can be corrected."
+msgstr "يمكن تصحيح مسير بصير المرحّل فقط."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_original_net
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Original net salary"
+msgstr "صافي الراتب الأصلي"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_payment_state__processing
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip_run__baseer_payment_state__processing
+msgid "Payment in process"
+msgstr "دفعة قيد التنفيذ"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_pending
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_pending
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payment_receipt_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_financial_history
+msgid "Payments in process"
+msgstr "دفعات قيد التنفيذ"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_move_correction
+msgid "Payroll Correction"
+msgstr "تصحيح الرواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Payroll corrections are generated by the reviewed action."
+msgstr "تُنشأ تصحيحات الرواتب من إجراء التصحيح المراجع فقط."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,help:baseer_payroll.field_baseer_payroll_correction__amount
+msgid ""
+"Positive wage increases net salary. Positive deduction decreases net salary."
+" Reversals use the original amount."
+msgstr "تزيد القيمة الموجبة لتعديل الراتب صافي الراتب، وتخفض القيمة الموجبة لتعديل الخصم صافي الراتب. يستخدم العكس المبلغ الأصلي."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_correction
+msgid "Post Reviewed Correction"
+msgstr "ترحيل التصحيح المراجع"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_adjustment
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.report_payslip_document
+msgid "Posted adjustments"
+msgstr "التعديلات المرحلة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid ""
+"Recovery history differs from its native reconciliation. Review it before "
+"correction."
+msgstr "يختلف سجل التحصيل عن التسوية المحاسبية الأصلية. راجعه قبل التصحيح."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid ""
+"Replace this draft estimate with the Gregorian anniversary policy and review"
+" the result?"
+msgstr "هل تريد تحديث تقدير المسودة وفق سنوات الخدمة الميلادية ومراجعة النتيجة؟"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan__reversal_move_id
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_hr_loan_allocation__reversal_move_id
+msgid "Reversal Move"
+msgstr "قيد العكس"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__account_move__baseer_correction_kind__advance
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_correction__kind__advance
+msgid "Reverse advance disbursement"
+msgstr "عكس صرف السلفة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Reverse all advance recoveries before reversing the disbursement."
+msgstr "اعكس جميع تحصيلات السلفة قبل عكس صرفها."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__account_move__baseer_correction_kind__repayment
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_correction__kind__repayment
+msgid "Reverse latest direct repayment"
+msgstr "عكس آخر سداد مباشر"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "Reverse newer advance recoveries before this recovery."
+msgstr "اعكس تحصيلات السلفة الأحدث قبل هذا التحصيل."
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__account_move__baseer_correction_kind__payroll_recovery
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__baseer_payroll_correction__kind__payroll_recovery
+msgid "Reverse payroll advance recovery"
+msgstr "عكس تحصيل السلفة من الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model,name:baseer_payroll.model_baseer_payroll_correction
+msgid "Reviewed Payroll Accounting Correction"
+msgstr "تصحيح محاسبي مراجع للرواتب"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_correction
+msgid "Reviewed accounting correction"
+msgstr "تصحيح محاسبي مراجع"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid ""
+"Reviewed correction posted: %s. Original history is preserved; no external "
+"transfer is sent."
+msgstr "رُحّل التصحيح المراجع: %s. حُفظ السجل الأصلي؛ لم تُرسل حوالة خارجية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Salary expense must use an active expense or direct-cost account."
+msgstr "يجب ربط مصروف الرواتب بحساب مصروف أو تكلفة مباشرة نشط."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_correction__amount
+msgid "Signed adjustment"
+msgstr "قيمة التعديل الموجبة أو السالبة"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "The correction cannot precede its recovery."
+msgstr "لا يمكن أن يسبق التصحيح تاريخ التحصيل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "The correction posting date changed. Review the accounting period."
+msgstr "تغير تاريخ ترحيل التصحيح. راجع الفترة المحاسبية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "The disbursement reversal cannot precede recovery corrections."
+msgstr "لا يمكن أن يسبق عكس الصرف تصحيحات التحصيل."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid ""
+"The latest recovery belongs to payroll. Open that payslip to reverse it."
+msgstr "يرتبط آخر تحصيل بمسير راتب. افتح مسير الراتب لعكس التحصيل."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_correction
+msgid ""
+"The original entry and payment history stay unchanged. This action posts a "
+"reviewed accounting correction; it does not send a transfer. Reverse newer "
+"advance recoveries first. A salary reduction cannot exceed the unsettled "
+"balance."
+msgstr "يبقى القيد الأصلي وسجل الدفعات محفوظين. يرحّل هذا الإجراء تصحيحًا محاسبيًا مراجعًا ولا يرسل حوالة. اعكس تحصيلات السلفة الأحدث أولًا. لا يمكن أن يتجاوز تخفيض الراتب الرصيد غير المسدد."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "The original payroll payable source is inconsistent."
+msgstr "مصدر حساب الراتب المستحق في القيد الأصلي غير متسق."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid ""
+"The source balance or history changed. Reopen correction and review the "
+"current evidence."
+msgstr "تغير رصيد المستند الأصلي أو سجله. أعد فتح التصحيح وراجع الأدلة الحالية."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "There is no active recovery to reverse."
+msgstr "لا يوجد تحصيل قائم يمكن عكسه."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/correction.py:0
+msgid "This correction screen expired. Reopen it from the source."
+msgstr "انتهت صلاحية شاشة التصحيح. أعد فتحها من المستند الأصلي."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/end_service.py:0
+msgid ""
+"This draft uses the historical policy. Select Gregorian anniversary policy "
+"explicitly and review the recalculated estimate."
+msgstr "تستخدم هذه المسودة السياسة التاريخية. اختر سياسة سنوات الخدمة الميلادية صراحة وراجع التقدير بعد إعادة احتسابه."
+
+#. module: baseer_payroll
+#: model:ir.model.constraint,message:baseer_payroll.constraint_account_move_baseer_reversal_once
+msgid "This source has already been reversed through the correction workflow."
+msgstr "سبق عكس هذا المستند من مسار التصحيح."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_eos_form
+msgid "Use Gregorian Anniversary Policy"
+msgstr "استخدام سياسة سنوات الخدمة الميلادية"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_correction__slip_id
+msgctxt "baseer_payroll.correction.slip"
+msgid "Slip"
+msgstr "كشف الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_correction__kind
+msgctxt "baseer_payroll.correction.kind"
+msgid "Kind"
+msgstr "نوع التصحيح"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_correction__date
+msgctxt "baseer_payroll.correction.date"
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_baseer_payroll_correction__reason
+msgctxt "baseer_payroll.correction.reason"
+msgid "Reason"
+msgstr "السبب"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_correction
+msgctxt "baseer_payroll.correction.cancel"
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_employee_payroll
+msgid "For an open-ended contract, enter the start date and leave the end date empty."
+msgstr "للعقد غير محدد المدة، أدخل تاريخ البداية واترك تاريخ النهاية فارغًا."
+
+#. module: baseer_payroll
+#: model_terms:ir.ui.view,arch_db:baseer_payroll.view_baseer_payroll_run_form
+msgid "Complete employee setup, then refresh this payroll. Rows requiring setup have no calculated salary or deductions; saved manual inputs will apply after refresh."
+msgstr "أكمل بيانات الموظف ثم حدّث المسير. الصفوف التي تتطلب استكمال البيانات لا تحتوي على راتب أو خصومات محتسبة؛ تطبق المدخلات اليدوية المحفوظة بعد التحديث."
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_readiness_warning
+msgid "Setup warning"
+msgstr "تنبيه إعداد الموظف"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip__baseer_readiness
+msgid "Payroll readiness"
+msgstr "جاهزية الراتب"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_readiness__ready
+msgctxt "baseer_payroll.readiness.ready"
+msgid "Ready"
+msgstr "جاهز"
+
+#. module: baseer_payroll
+#: model:ir.model.fields.selection,name:baseer_payroll.selection__hr_payslip__baseer_readiness__pending
+msgid "Needs setup"
+msgstr "بيانات ناقصة"
+
+#. module: baseer_payroll
+#: model:ir.model.fields,field_description:baseer_payroll.field_hr_payslip_run__baseer_pending_setup_count
+msgid "Employees requiring setup"
+msgstr "موظفون تتطلب بياناتهم الاستكمال"
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "This employee is not included in payroll. Refresh employees to review this row."
+msgstr "هذا الموظف غير مشمول بالرواتب. حدّث الموظفين لمراجعة هذا الصف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Enter the employee contract start date, then refresh employees. No salary or deductions have been calculated."
+msgstr "أدخل تاريخ بداية عقد الموظف ثم حدّث الموظفين. لم يُحتسب أي راتب أو خصومات."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "The employee contract does not cover this month. Refresh employees to review this row."
+msgstr "عقد الموظف لا يشمل هذا الشهر. حدّث الموظفين لمراجعة هذا الصف."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Enter the employee monthly salary, then refresh employees. No salary or deductions have been calculated."
+msgstr "أدخل راتب الموظف الشهري ثم حدّث الموظفين. لم يُحتسب أي راتب أو خصومات."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Employee information changed. Refresh employees to calculate and review this salary."
+msgstr "تغيرت بيانات الموظف. حدّث الموظفين لحساب هذا الراتب ومراجعته."
+
+#. module: baseer_payroll
+#. odoo-python
+#: code:addons/baseer_payroll/models/payroll.py:0
+msgid "Refresh employees before approving this salary."
+msgstr "حدّث الموظفين قبل اعتماد هذا الراتب."

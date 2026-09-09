@@ -1,0 +1,3 @@
+<odoo>
+    <function model="res.company" name="_baseer_initialize_services"/>
+</odoo>

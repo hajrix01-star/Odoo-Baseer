@@ -1,0 +1,17 @@
+# Source-only repository: private runtime and business data never belong here.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.dump
+*.sql
+*.backup
+*.log
+__pycache__/
+*.pyc
+.local-backups/
+filestore/
+backups/
+odoo-data/
+postgres-data/

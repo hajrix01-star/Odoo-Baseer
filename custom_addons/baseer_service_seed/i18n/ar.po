@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: baseer_service_seed
+#: model:ir.model.fields,field_description:baseer_service_seed.field_res_partner__baseer_name_ar
+#: model:ir.model.fields,field_description:baseer_service_seed.field_res_company__baseer_name_ar
+msgid "Arabic Name"
+msgstr "الاسم بالعربية"
+
+#. module: baseer_service_seed
+#: model:ir.model.fields,field_description:baseer_service_seed.field_res_partner__baseer_name_en
+#: model:ir.model.fields,field_description:baseer_service_seed.field_res_company__baseer_name_en
+msgid "English Name"
+msgstr "الاسم بالإنجليزية"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Load the service provider catalog before preparing shared suppliers."
+msgstr "حمّل دليل مقدمي الخدمات قبل تجهيز الموردين المشتركين."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The provider identity has the wrong model: %s"
+msgstr "هوية مقدم الخدمة مرتبطة بنموذج غير صحيح: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A referenced service provider was deleted: %s"
+msgstr "تم حذف مقدم خدمة مرتبط بهوية محفوظة: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The provider identity already belongs to another contact: %s"
+msgstr "هوية مقدم الخدمة مرتبطة بالفعل بجهة اتصال أخرى: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The canonical provider must remain a shared independent contact: %s"
+msgstr "يجب أن يبقى مقدم الخدمة الموحد جهة اتصال مشتركة ومستقلة: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The legacy provider belongs to another company: %s"
+msgstr "مقدم الخدمة السابق تابع لشركة أخرى: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The company provider alias conflicts with the canonical provider: %s"
+msgstr "مرجع مقدم الخدمة بالشركة لا يطابق مقدم الخدمة الموحد: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Provider %s has a business reference in %s. Review it separately before consolidation."
+msgstr "مقدم الخدمة %s مرتبط بسجل عمل في %s. راجعه منفصلًا قبل التوحيد."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Review the non-stored reference owner on %s before consolidation."
+msgstr "راجع مرجع النموذج غير المخزن في %s قبل التوحيد."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A provider has linked documents in %s. Review them before consolidation."
+msgstr "يوجد مقدم خدمة مرتبط بمستندات في %s. راجعها قبل التوحيد."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A provider has private linked documents in %s."
+msgstr "يوجد مقدم خدمة لديه مستندات خاصة مرتبطة في %s."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Only independent private legacy providers can be consolidated: %s"
+msgstr "يمكن توحيد مقدمي الخدمات السابقين المستقلين والخاصين بالشركة فقط: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Provider %s has non-creation chatter. Review it separately before consolidation."
+msgstr "مقدم الخدمة %s لديه مراسلات إضافية. راجعه منفصلًا قبل التوحيد."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Invalid legacy service provider alias: %s"
+msgstr "مرجع مقدم الخدمة السابق غير صالح: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A legacy provider setting refers to a missing company."
+msgstr "يوجد إعداد لمقدم خدمة سابق يشير إلى شركة غير موجودة."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A legacy provider setting refers to a deleted record: %s"
+msgstr "يوجد إعداد لمقدم خدمة سابق يشير إلى سجل محذوف: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A legacy provider setting belongs to another company: %s"
+msgstr "يوجد إعداد لمقدم خدمة سابق تابع لشركة أخرى: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "Legacy providers contain conflicting company settings: %s"
+msgstr "توجد إعدادات شركات متعارضة لدى مقدمي الخدمات السابقين: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The canonical provider already has a different company setting: %s"
+msgstr "مقدم الخدمة الموحد لديه بالفعل إعداد مختلف للشركة: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "One legacy contact has several different provider identities."
+msgstr "جهة اتصال سابقة مرتبطة بعدة هويات مختلفة لمقدمي خدمات."
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "The legacy provider name or VAT differs from the approved catalog: %s"
+msgstr "اسم مقدم الخدمة السابق أو رقمه الضريبي يختلف عن الدليل المعتمد: %s"
+
+#. module: baseer_service_seed
+#: code:addons/baseer_service_seed/models/shared_provider.py:0
+msgid "A legacy provider has another external identity. Review it before consolidation."
+msgstr "مقدم الخدمة السابق لديه هوية خارجية أخرى. راجعه قبل التوحيد."
+
+#. module: baseer_service_seed
+#: model:res.partner.category,name:baseer_service_seed.tag_providers
+msgid "Service Providers"
+msgstr "مقدمو الخدمات"
+
+#. module: baseer_service_seed
+#: model:res.partner.category,name:baseer_service_seed.tag_electricity
+msgid "Electricity Providers"
+msgstr "مقدمو الكهرباء"
+
+#. module: baseer_service_seed
+#: model:res.partner.category,name:baseer_service_seed.tag_water
+msgid "Water Providers"
+msgstr "مقدمو المياه"
+
+#. module: baseer_service_seed
+#: model:res.partner.category,name:baseer_service_seed.tag_telecom
+msgid "Telecommunications Providers"
+msgstr "مقدمو الاتصالات والإنترنت"
+
+#. module: baseer_service_seed
+#: model:res.partner.category,name:baseer_service_seed.tag_government
+msgid "Government Entities"
+msgstr "الجهات الحكومية"
+
+#. module: baseer_service_seed
+#: model:res.partner.category,name:baseer_service_seed.tag_platform
+msgid "Government Platforms"
+msgstr "المنصات الحكومية"
+
+#. module: baseer_service_seed
+#. odoo-python
+#: code:addons/baseer_service_seed/models/company.py:0
+msgid "The service seed reference has the wrong model: %s"
+msgstr "مرجع بذرة الخدمات مرتبط بنموذج غير صحيح: %s"
+
+#. module: baseer_service_seed
+#. odoo-python
+#: code:addons/baseer_service_seed/models/company.py:0
+msgid "A referenced service seed record was deleted: %s"
+msgstr "حُذف سجل مرتبط ببذرة الخدمات؛ راجع المرجع: %s"
+
+#. module: baseer_service_seed
+#. odoo-python
+#: code:addons/baseer_service_seed/models/company.py:0
+msgid "The service seed reference belongs to another company: %s"
+msgstr "مرجع بذرة الخدمات يتبع شركة أخرى: %s"
+
+#. module: baseer_service_seed
+#. odoo-python
+#: code:addons/baseer_service_seed/models/company.py:0
+msgid "Review the archived or changed service expense account: %s"
+msgstr "راجع حساب مصروف الخدمة المؤرشف أو المعدّل: %s"
+
+#. module: baseer_service_seed
+#. odoo-python
+#: code:addons/baseer_service_seed/models/company.py:0
+msgid "Several company suppliers match %s. Resolve the duplicate supplier records before preparing services."
+msgstr "يوجد أكثر من مورد في الشركة يطابق %s. راجع السجلات المكررة قبل تجهيز الخدمات."
+
+#. module: baseer_service_seed
+#. odoo-python
+#: code:addons/baseer_service_seed/models/res_partner.py:0
+msgid "Enter at least one Arabic or English name."
+msgstr "أدخل الاسم بالعربي أو بالإنجليزي على الأقل."
