@@ -115,7 +115,10 @@
                                     t-att-aria-controls="panelId('shift')" t-att-aria-selected="state.shiftTab === tab.key ? 'true' : 'false'"
                                     t-att-tabindex="state.shiftTab === tab.key ? 0 : -1"
                                     t-on-click="() => this.selectTab('shift', tab.key)"
-                                    t-on-keydown="(event) => this.onTabKeydown(event, 'shift')" t-esc="tab.label"/>
+                                    t-on-keydown="(event) => this.onTabKeydown(event, 'shift')"
+                                    t-att-title="tab.label" t-att-aria-label="tab.label">
+                                <i t-att-class="tab.key === 'chart' ? 'fa fa-area-chart' : 'oi oi-view-pivot'" aria-hidden="true"/>
+                            </button>
                         </div>
                         <div role="tabpanel" t-att-id="panelId('shift')" t-att-aria-labelledby="tabId('shift', state.shiftTab)" class="o_baseer_sales_tabpanel">
                             <t t-if="state.shiftTab === 'chart'">
@@ -168,7 +171,10 @@
                                     t-att-aria-controls="panelId('payment')" t-att-aria-selected="state.paymentTab === tab.key ? 'true' : 'false'"
                                     t-att-tabindex="state.paymentTab === tab.key ? 0 : -1"
                                     t-on-click="() => this.selectTab('payment', tab.key)"
-                                    t-on-keydown="(event) => this.onTabKeydown(event, 'payment')" t-esc="tab.label"/>
+                                    t-on-keydown="(event) => this.onTabKeydown(event, 'payment')"
+                                    t-att-title="tab.label" t-att-aria-label="tab.label">
+                                <i t-att-class="tab.key === 'chart' ? 'fa fa-area-chart' : 'oi oi-view-pivot'" aria-hidden="true"/>
+                            </button>
                         </div>
                         <div role="tabpanel" t-att-id="panelId('payment')" t-att-aria-labelledby="tabId('payment', state.paymentTab)" class="o_baseer_sales_tabpanel">
                             <t t-if="state.paymentTab === 'chart'">
