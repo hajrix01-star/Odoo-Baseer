@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_financial_register.ListRenderer" t-inherit="web.ListRenderer" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_list_renderer')]" position="before">
+            <FinancialRegisterKpis list="props.list"/>
+        </xpath>
+    </t>
+    <t t-name="baseer_financial_register.KanbanRenderer" t-inherit="web.KanbanRenderer" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_kanban_renderer')]" position="before">
+            <FinancialRegisterKpis list="props.list"/>
+        </xpath>
+    </t>
+    <t t-name="baseer_financial_register.Kpis">
+        <section class="o_baseer_financial_kpis bg-view" t-att-aria-busy="state.loading ? 'true' : 'false'" aria-label="Financial summary">
+            <div class="o_baseer_financial_toolbar d-flex align-items-center justify-content-between gap-2">
+                <span class="small text-muted">
+                    <t t-if="state.asOf"><span>Current balances</span><span t-translation="off"> · </span><span dir="ltr" t-out="state.asOf"/></t>
+                </span>
+                <button type="button" class="btn btn-sm btn-light" t-on-click="scheduleRefresh" t-att-disabled="state.loading" title="Refresh financial summary" aria-label="Refresh financial summary">
+                    <i class="fa fa-refresh" aria-hidden="true"/>
+                </button>
+            </div>
+            <div t-if="state.loading" class="o_baseer_financial_status text-muted" role="status">
+                <i class="fa fa-spinner fa-spin me-2" aria-hidden="true"/>
+                <span t-out="loadingLabel"/>
+            </div>
+            <div t-elif="state.error" class="o_baseer_financial_status" role="alert">
+                <span class="text-danger">The financial summary could not be loaded.</span>
+                <button type="button" class="btn btn-link btn-sm" t-on-click="scheduleRefresh">Retry</button>
+            </div>
+            <div t-elif="!state.currencyGroups.length" class="o_baseer_financial_status text-muted" role="status">
+                No posted transactions match these filters.
+            </div>
+            <t t-else="">
+                <div t-foreach="state.currencyGroups" t-as="currency" t-key="currency.currency_id" class="o_baseer_financial_currency">
+                    <div class="o_baseer_financial_currency_name text-muted small fw-semibold" t-out="currency.currency_name"/>
+                    <div t-foreach="currency.sections" t-as="section" t-key="section.key" class="o_baseer_financial_section">
+                        <div class="o_baseer_financial_section_title d-flex align-items-baseline gap-2">
+                            <h3 class="fs-6 mb-0" t-out="section.label"/>
+                            <span class="small text-muted"><bdi t-out="section.document_count_display"/> <span>documents</span></span>
+                        </div>
+                        <div class="o_baseer_financial_card_grid">
+                            <button t-foreach="section.cards" t-as="card" t-key="card.key"
+                                    type="button" class="btn o_baseer_financial_card text-start"
+                                    t-att-class="{'o_baseer_financial_card_selected': state.selected === cardKey(currency, section, card)}"
+                                    t-att-data-card-key="cardKey(currency, section, card)"
+                                    t-att-aria-label="cardLabel(currency, section, card)"
+                                    t-att-aria-pressed="state.selected === cardKey(currency, section, card) ? 'true' : 'false'"
+                                    t-att-title="card.tooltip || card.label"
+                                    t-on-click="() => this.selectCard(currency, section, card)">
+                                <span class="o_baseer_financial_card_label" t-out="card.label"/>
+                                <bdi class="o_baseer_financial_card_value" dir="ltr" t-out="card.display"/>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </section>
+    </t>
+</templates>

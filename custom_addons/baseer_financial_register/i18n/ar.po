@@ -1,0 +1,386 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.js:0
+msgid "Loading financial summary…"
+msgstr "جارٍ تحميل الملخص المالي…"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "Financial summary"
+msgstr "الملخص المالي"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "Current balances"
+msgstr "الأرصدة الحالية"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "Refresh financial summary"
+msgstr "تحديث الملخص المالي"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "The financial summary could not be loaded."
+msgstr "تعذر تحميل الملخص المالي."
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "Retry"
+msgstr "إعادة المحاولة"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "No posted transactions match these filters."
+msgstr "لا توجد عمليات مرحّلة تطابق عوامل التصفية."
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "documents"
+msgstr "مستندات"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Customer invoice"
+msgstr "فاتورة عميل"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Customer credit note"
+msgstr "إشعار دائن للعميل"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Sales receipt"
+msgstr "إيصال مبيعات"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Vendor bill"
+msgstr "فاتورة مورد"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Vendor credit note"
+msgstr "إشعار دائن من المورد"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Purchase receipt"
+msgstr "إيصال مشتريات"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#: model:ir.actions.server,name:baseer_financial_register.action_financial_register
+#: model:ir.ui.menu,name:baseer_financial_register.menu_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_list
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+#, python-format
+msgid "Financial operations"
+msgstr "العمليات المالية"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Choose a valid settlement filter."
+msgstr "اختر عامل تصفية صحيحًا للتسويات."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Financial operations are available to authorized accounting users only."
+msgstr "العمليات المالية متاحة فقط لمستخدمي المحاسبة المخوّلين."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Sales summary"
+msgstr "ملخص المبيعات"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Reversal: %s"
+msgstr "عكس: %s"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Choose a valid financial operations filter."
+msgstr "اختر عامل تصفية صحيحًا للعمليات المالية."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Suppliers"
+msgstr "الموردون"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Employee advance"
+msgstr "سلفة موظف"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Net invoices"
+msgstr "صافي الفواتير"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Posted invoices and credit notes; journal entries and payments are excluded."
+msgstr "الفواتير والإشعارات الدائنة المرحّلة؛ لا تشمل قيود اليومية والدفعات."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Settled amount"
+msgstr "المبلغ المسوّى"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Current settlements, including payments, credits and write-offs; not bank cash received."
+msgstr "التسويات الحالية، بما فيها الدفعات والأرصدة الدائنة والشطب؛ لا تعني النقد المحصّل في البنك."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_list
+#, python-format
+msgid "Outstanding"
+msgstr "المتبقي"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Current outstanding invoice balance."
+msgstr "الرصيد المتبقي الحالي للفواتير."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+#, python-format
+msgid "Partially paid"
+msgstr "مدفوع جزئيًا"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Number of documents with the native partially paid status."
+msgstr "عدد المستندات التي حالتها في أودو «مدفوع جزئيًا»."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Net overdue"
+msgstr "صافي المتأخر"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Open installments due before today; credit balances retain their sign."
+msgstr "الأقساط المفتوحة المستحقة قبل اليوم؛ تحتفظ الأرصدة الدائنة بإشارتها."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Payroll"
+msgstr "الرواتب"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "This search operator is reserved for access rules."
+msgstr "عامل البحث هذا مخصص لقواعد الوصول."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Incoming payment"
+msgstr "دفعة واردة"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Outgoing payment"
+msgstr "دفعة صادرة"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Bank / cash movement"
+msgstr "حركة بنكية / نقدية"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/financial_register.py:0
+#, python-format
+msgid "Journal entry"
+msgstr "قيد يومية"
+
+#. module: baseer_financial_register
+#: model:ir.model.fields,field_description:baseer_financial_register.field_account_move__baseer_register_source
+msgid "Operation"
+msgstr "العملية"
+
+#. module: baseer_financial_register
+#: model:ir.model.fields,field_description:baseer_financial_register.field_account_move__baseer_register_settled
+msgid "Settled"
+msgstr "المسوّى"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_list
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_kanban
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_list
+msgid "Open source"
+msgstr "فتح المصدر"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Number or reference"
+msgstr "الرقم أو المرجع"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Accounting date"
+msgstr "التاريخ المحاسبي"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Customer documents"
+msgstr "مستندات العملاء"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Supplier documents"
+msgstr "مستندات الموردين"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Journal entries"
+msgstr "قيود اليومية"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Sales summaries"
+msgstr "ملخصات المبيعات"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Payments"
+msgstr "الدفعات"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Unpaid"
+msgstr "غير مدفوع"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "In payment"
+msgstr "قيد الدفع"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Document type"
+msgstr "نوع المستند"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Month"
+msgstr "الشهر"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+msgid "Payment status"
+msgstr "حالة الدفع"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_list
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_kanban
+msgid "Number"
+msgstr "رقم المستند"

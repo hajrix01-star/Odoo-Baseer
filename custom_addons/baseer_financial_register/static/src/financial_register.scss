@@ -1,0 +1,123 @@
+.o_baseer_financial_kpis {
+    flex: 0 0 auto;
+    min-width: 0;
+    padding: 8px 16px 16px;
+    border-bottom: 1px solid var(--border-color, #d8dadd);
+
+    .o_baseer_financial_toolbar {
+        min-height: 28px;
+        margin-bottom: 4px;
+    }
+
+    .o_baseer_financial_status {
+        min-height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .o_baseer_financial_currency + .o_baseer_financial_currency {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-color, #d8dadd);
+    }
+
+    .o_baseer_financial_currency_name {
+        margin-bottom: 8px;
+    }
+
+    .o_baseer_financial_section + .o_baseer_financial_section {
+        margin-top: 12px;
+    }
+
+    .o_baseer_financial_section_title {
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+    }
+
+    .o_baseer_financial_card_grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .o_baseer_financial_card {
+        min-width: 0;
+        min-height: 76px;
+        padding: 10px 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 6px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background: var(--bs-tertiary-bg, #f4f5f7);
+        color: inherit;
+        white-space: normal;
+        overflow-wrap: anywhere;
+
+        &:focus-visible {
+            outline: 2px solid var(--o-brand-primary, #714b67);
+            outline-offset: 2px;
+        }
+
+        &.o_baseer_financial_card_selected {
+            border-color: var(--o-brand-primary, #714b67);
+            background: var(--bs-primary-bg-subtle, #f0eaf0);
+        }
+
+        &:active {
+            background: var(--bs-secondary-bg, #e9ecef);
+        }
+    }
+
+    .o_baseer_financial_card_label {
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    .o_baseer_financial_card_value {
+        font-size: 21px;
+        line-height: 1.2;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        max-width: 100%;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .o_baseer_financial_card:hover {
+            border-color: var(--border-color, #d8dadd);
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        padding-inline: 12px;
+
+        .o_baseer_financial_card_grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .o_baseer_financial_card {
+            min-height: 70px;
+        }
+
+        .o_baseer_financial_card_value {
+            font-size: 19px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .fa-spin {
+            animation: none;
+        }
+    }
+}
+
+// The native renderers keep their scroll/paging behavior beneath the summary.
+.o_baseer_financial_register_list_view .o_list_renderer,
+.o_baseer_financial_register_kanban_view .o_kanban_renderer {
+    min-height: 0;
+}

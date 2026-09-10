@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_register_list" model="ir.ui.view">
+        <field name="name">account.move.financial.register.list</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <list string="Financial operations" js_class="baseer_financial_register_list" create="false" edit="false" delete="false" limit="80" default_order="date desc,id desc">
+                <field name="date" widget="baseer_latin_date" options="{'numeric': True}"/>
+                <field name="name" string="Number"/>
+                <field name="baseer_register_source"/>
+                <field name="partner_id"/>
+                <field name="ref" optional="hide"/>
+                <field name="journal_id" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="move_type" column_invisible="True"/>
+                <field name="amount_total" string="Amount" widget="monetary"/>
+                <field name="baseer_register_settled" widget="monetary" invisible="move_type == 'entry'" optional="show"/>
+                <field name="amount_residual" string="Outstanding" widget="monetary" invisible="move_type == 'entry'" optional="show"/>
+                <field name="payment_state" widget="badge" invisible="move_type == 'entry'" decoration-success="payment_state == 'paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-danger="payment_state == 'not_paid'"/>
+                <field name="invoice_date_due" widget="baseer_latin_date" options="{'numeric': True}" optional="hide"/>
+                <field name="create_uid" optional="hide"/>
+                <button name="action_open_register_source" type="object" icon="fa-external-link" title="Open source"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_register_kanban" model="ir.ui.view">
+        <field name="name">account.move.financial.register.kanban</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <kanban js_class="baseer_financial_register_kanban" create="false" edit="false" delete="false" group_create="false" group_delete="false" records_draggable="false" default_order="date desc,id desc">
+                <field name="move_type"/>
+                <field name="currency_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between gap-2"><field name="name" string="Number" class="fw-bold"/><field name="date" widget="baseer_latin_date" options="{'numeric': True}"/></div>
+                        <field name="baseer_register_source" class="text-muted"/>
+                        <field name="partner_id"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <div class="d-flex justify-content-between align-items-center gap-2 mt-2">
+                            <field name="amount_total" widget="monetary" class="fw-bold"/>
+                            <field name="payment_state" widget="badge" invisible="move_type == 'entry'"/>
+                            <button name="action_open_register_source" type="object" icon="fa-external-link" title="Open source" class="btn btn-link"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_register_search" model="ir.ui.view">
+        <field name="name">account.move.financial.register.search</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <search string="Financial operations">
+                <field name="name" string="Number or reference" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="journal_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <filter name="date" string="Accounting date" date="date"/>
+                <separator/>
+                <filter name="customers" string="Customer documents" domain="[('move_type', 'in', ('out_invoice', 'out_refund', 'out_receipt'))]"/>
+                <filter name="suppliers" string="Supplier documents" domain="[('move_type', 'in', ('in_invoice', 'in_refund', 'in_receipt'))]"/>
+                <filter name="entries" string="Journal entries" domain="[('move_type', '=', 'entry')]"/>
+                <separator/>
+                <filter name="sales_summaries" string="Sales summaries" domain="[('baseer_pos_summary_id', '!=', False)]"/>
+                <filter name="payments" string="Payments" domain="[('origin_payment_id', '!=', False)]"/>
+                <separator/>
+                <filter name="unpaid" string="Unpaid" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'not_paid')]"/>
+                <filter name="partial" string="Partially paid" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'partial')]"/>
+                <filter name="in_payment" string="In payment" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'in_payment')]"/>
+                <filter name="paid" string="Paid" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'paid')]"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+                <filter name="group_journal" string="Journal" context="{'group_by': 'journal_id'}"/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_type" string="Document type" context="{'group_by': 'move_type'}"/>
+                <filter name="group_month" string="Month" context="{'group_by': 'date:month'}"/>
+                <filter name="group_payment" string="Payment status" context="{'group_by': 'payment_state'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_financial_register" model="ir.actions.server">
+        <field name="name">Financial operations</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_financial_register()</field>
+    </record>
+    <menuitem id="menu_financial_register" name="Financial operations" parent="account.menu_finance" action="action_financial_register" sequence="4" groups="account.group_account_invoice,account.group_account_readonly"/>
+</odoo>

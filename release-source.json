@@ -1,5 +1,5 @@
 {
-  "source_commit": "6104fc8e6f1d24b3e842f2b43bd9f410840d7759",
+  "source_commit": "0a6246b7215caddf9e7b14ffe799f84ee03f8cd3",
   "odoo_image": "odoo@sha256:f99ffac95cb39a0924622ea4118481c95651d9c84187e5b30a21c2cc4419c7dd",
   "odoo_major": 19,
   "files": {
@@ -58,6 +58,16 @@
     "custom_addons/baseer_company_setup/README.md": "16f4ab10c6e24cbb81bf60abd9e6bfc47e2ce09fcfc0701c7887d785d0026d50",
     "custom_addons/baseer_core/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "custom_addons/baseer_core/__manifest__.py": "5d324c68f36dd7fafeb98ebb89c5699d8cccf1048aa9a94a0597218436d95e56",
+    "custom_addons/baseer_financial_register/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
+    "custom_addons/baseer_financial_register/__manifest__.py": "fe41137a751918002fd60e371f4ffc3c879f3091dfccf145ccdb9fafe8de95be",
+    "custom_addons/baseer_financial_register/i18n/ar.po": "9bf1e4a40290e565963286f8b0e6efd7d05c001127b8cee94bde46db98557c1d",
+    "custom_addons/baseer_financial_register/models/__init__.py": "d07061010ffa9702c92ed314c725c73e8c0d21e5d49edd30c9a46086e37c183d",
+    "custom_addons/baseer_financial_register/models/financial_register.py": "f94b9490b1ec1f98b47e9f6e409881d963fe3e0a0d0242c65d3eb6d69b4db6ca",
+    "custom_addons/baseer_financial_register/README.md": "2b2897d671cb5992881205641a23aee2a82c41bf6abc01940aea1c8cb51751d6",
+    "custom_addons/baseer_financial_register/static/src/financial_register.js": "36051ca83719f23441d535b17b057a1e006c0f7b58a86c05ba4c52012b7e753c",
+    "custom_addons/baseer_financial_register/static/src/financial_register.scss": "d2932faf9097721dfefd2a19b38aaf3d0a3d80bbdd3f70a9cdc150aa7255eb24",
+    "custom_addons/baseer_financial_register/static/src/financial_register.xml": "b88d63f1aae30987a2c6640f0c2a9fa04b34f4345fa8e1afab7d5b9b6d43d53e",
+    "custom_addons/baseer_financial_register/views/financial_register_views.xml": "fd9b4db5f7cda874998c2e98c3a55f155825f47b820b1941c261e1568292141a",
     "custom_addons/baseer_hr_services/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
     "custom_addons/baseer_hr_services/__manifest__.py": "d289f38f5bc11bf4ee98037de071ddfa05eb31a72bd17bf346d6a5b6b655a238",
     "custom_addons/baseer_hr_services/data/sequence.xml": "154a7bd7ef57a9daa5600b28e2b1ca2ac75d1dd63d29f7106b068b0f7b8ecc36",
