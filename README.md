@@ -6,8 +6,8 @@
 
 ## الإصدار الحالي
 
-- أصل المصدر: `0a6246b7215caddf9e7b14ffe799f84ee03f8cd3`.
-- ملف `release-source.json` يثبت 1166 ملفًا ببصمات SHA256 وصورة Odoo المعتمدة.
+- أصل المصدر: `e84fcfb96800fe8a655a3e40fb6db3d215085238`.
+- ملف `release-source.json` يثبت 1167 ملفًا ببصمات SHA256 وصورة Odoo المعتمدة.
 - الإضافات المخصصة: `custom_addons`.
 - الاعتماديات المستخدمة: `third_party_addons/erp_heritage_19` و`third_party_addons/odoomates_19`.
 - التراخيص محفوظة في ملفات كل موديول. الإضافات الخارجية تبقى ملكًا لأصحابها وفق تراخيصها.

@@ -86,4 +86,51 @@
         <field name="code">action = model.action_open_financial_register()</field>
     </record>
     <menuitem id="menu_financial_register" name="Financial operations" parent="account.menu_finance" action="action_financial_register" sequence="4" groups="account.group_account_invoice,account.group_account_readonly"/>
+    <record id="view_cash_register_list" model="ir.ui.view">
+        <field name="name">account.move.cash.register.list</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="view_register_list"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="currency_id" position="replace"><field name="company_currency_id" column_invisible="True"/></field>
+            <field name="amount_total" position="replace"><field name="baseer_register_cash_receipts" widget="monetary"/></field>
+            <field name="baseer_register_settled" position="replace"><field name="baseer_register_cash_payments" widget="monetary"/></field>
+            <field name="amount_residual" position="replace"><field name="baseer_register_cash_net" widget="monetary"/></field>
+            <field name="payment_state" position="replace"/>
+            <field name="invoice_date_due" position="replace"/>
+        </field>
+    </record>
+    <record id="view_cash_register_kanban" model="ir.ui.view">
+        <field name="name">account.move.cash.register.kanban</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="view_register_kanban"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="currency_id" position="replace"><field name="company_currency_id"/></field>
+            <field name="amount_total" position="replace">
+                <div class="d-flex flex-column gap-1 flex-grow-1">
+                    <div class="d-flex justify-content-between gap-2"><span>Actual receipts</span><field name="baseer_register_cash_receipts" widget="monetary"/></div>
+                    <div class="d-flex justify-content-between gap-2"><span>Actual payments</span><field name="baseer_register_cash_payments" widget="monetary"/></div>
+                    <div class="d-flex justify-content-between gap-2 fw-bold"><span>Net cash movement</span><field name="baseer_register_cash_net" widget="monetary"/></div>
+                </div>
+            </field>
+            <field name="payment_state" position="replace"/>
+        </field>
+    </record>
+    <record id="view_cash_register_search" model="ir.ui.view">
+        <field name="name">account.move.cash.register.search</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <search string="Cash movements">
+                <field name="name" string="Number or reference" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
+                <field name="partner_id"/>
+                <field name="journal_id"/>
+                <filter name="receipts" string="Actual receipts" domain="[('baseer_register_cash_receipts', '!=', 0)]"/>
+                <filter name="payments" string="Actual payments" domain="[('baseer_register_cash_payments', '!=', 0)]"/>
+                <separator/>
+                <filter name="group_journal" string="Journal" context="{'group_by': 'journal_id'}"/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
 </odoo>

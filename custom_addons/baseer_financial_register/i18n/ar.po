@@ -301,6 +301,7 @@ msgstr "فتح المصدر"
 
 #. module: baseer_financial_register
 #: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_search
 msgid "Number or reference"
 msgstr "الرقم أو المرجع"
 
@@ -356,11 +357,13 @@ msgstr "الشركة"
 
 #. module: baseer_financial_register
 #: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_search
 msgid "Journal"
 msgstr "دفتر اليومية"
 
 #. module: baseer_financial_register
 #: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_search
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_search
 msgid "Partner"
 msgstr "الشريك"
 
@@ -384,3 +387,105 @@ msgstr "حالة الدفع"
 #: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_register_kanban
 msgid "Number"
 msgstr "رقم المستند"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "All operations"
+msgstr "جميع العمليات"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_search
+msgid "Cash movements"
+msgstr "الحركات النقدية"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "Operation view"
+msgstr "عرض العمليات"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "Reporting period"
+msgstr "فترة التقرير"
+
+#. module: baseer_financial_register
+#. odoo-javascript
+#: code:addons/baseer_financial_register/static/src/financial_register.xml:0
+msgid "The selected view could not be opened. Please try again."
+msgstr "تعذر فتح العرض المحدد. حاول مرة أخرى."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#, python-format
+msgid "Choose a valid calendar month."
+msgstr "اختر شهرًا صحيحًا."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#, python-format
+msgid "Choose a valid cash movement filter."
+msgstr "اختر عامل تصفية صحيحًا للحركات النقدية."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#: model:ir.model.fields,field_description:baseer_financial_register.field_account_move__baseer_register_cash_receipts
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_search
+#, python-format
+msgid "Actual receipts"
+msgstr "المقبوضات الفعلية"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#: model:ir.model.fields,field_description:baseer_financial_register.field_account_move__baseer_register_cash_payments
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_search
+#, python-format
+msgid "Actual payments"
+msgstr "المدفوعات الفعلية"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#: model:ir.model.fields,field_description:baseer_financial_register.field_account_move__baseer_register_cash_net
+#, python-format
+msgid "Net cash movement"
+msgstr "صافي الحركة النقدية"
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#, python-format
+msgid "Cash rows do not match the cash movement report."
+msgstr "صفوف الحركات النقدية لا تطابق تقرير الحركة النقدية."
+
+#. module: baseer_financial_register
+#. odoo-python
+#: code:addons/baseer_financial_register/models/cash_register.py:0
+#, python-format
+msgid "Same cash allocation as the cash movement report, including tax; current search filters apply."
+msgstr "نفس توزيع تقرير الحركة النقدية، شامل الضريبة؛ تُطبق عوامل البحث الحالية."
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_kanban
+msgid "<span>Actual receipts</span>"
+msgstr "<span>المقبوضات الفعلية</span>"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_kanban
+msgid "<span>Actual payments</span>"
+msgstr "<span>المدفوعات الفعلية</span>"
+
+#. module: baseer_financial_register
+#: model_terms:ir.ui.view,arch_db:baseer_financial_register.view_cash_register_kanban
+msgid "<span>Net cash movement</span>"
+msgstr "<span>صافي الحركة النقدية</span>"

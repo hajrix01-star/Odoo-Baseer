@@ -44,6 +44,16 @@
         gap: 8px;
     }
 
+    .o_baseer_financial_cash_grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .o_baseer_financial_month input {
+        width: 158px;
+        max-width: 100%;
+        font-variant-numeric: tabular-nums;
+    }
+
     .o_baseer_financial_card {
         min-width: 0;
         min-height: 76px;

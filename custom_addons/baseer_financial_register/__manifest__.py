@@ -1,10 +1,10 @@
 {
     'name': 'Baseer Financial Operations',
     'summary': 'Posted financial operations with native settlement and invoice indicators',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
     'author': 'Baseer',
     'license': 'LGPL-3',
-    'depends': ['account', 'baseer_access_roles', 'baseer_report_layout'],
+    'depends': ['account', 'baseer_access_roles', 'baseer_report_layout', 'baseer_cash_categories'],
     'data': ['views/financial_register_views.xml'],
     'assets': {'web.assets_backend': [
         'baseer_financial_register/static/src/*.js',

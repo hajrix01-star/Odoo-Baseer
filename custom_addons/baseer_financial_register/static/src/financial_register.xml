@@ -12,14 +12,26 @@
     </t>
     <t t-name="baseer_financial_register.Kpis">
         <section class="o_baseer_financial_kpis bg-view" t-att-aria-busy="state.loading ? 'true' : 'false'" aria-label="Financial summary">
-            <div class="o_baseer_financial_toolbar d-flex align-items-center justify-content-between gap-2">
+            <div class="o_baseer_financial_toolbar d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <div class="btn-group" role="group" aria-label="Operation view">
+                        <button type="button" class="btn btn-sm" t-att-class="isCashMode ? 'btn-outline-secondary' : 'btn-primary'" t-att-aria-pressed="isCashMode ? 'false' : 'true'" t-att-disabled="state.changingMode || !isCashMode" t-on-click="() => this.openMode(false)">All operations</button>
+                        <button type="button" class="btn btn-sm" t-att-class="isCashMode ? 'btn-primary' : 'btn-outline-secondary'" t-att-aria-pressed="isCashMode ? 'true' : 'false'" t-att-disabled="state.changingMode || isCashMode" t-on-click="() => this.openMode(true)">Cash movements</button>
+                    </div>
+                    <label t-if="isCashMode" class="o_baseer_financial_month d-flex align-items-center gap-2 mb-0">
+                        <span class="small text-muted">Reporting period</span>
+                        <input type="month" class="form-control form-control-sm" dir="ltr" t-att-value="cashMonth" t-att-disabled="state.changingMode" t-on-change="onMonthChange"/>
+                    </label>
+                    <span t-if="isCashMode" class="small fw-semibold" t-out="state.companyName"/>
+                </div>
                 <span class="small text-muted">
-                    <t t-if="state.asOf"><span>Current balances</span><span t-translation="off"> · </span><span dir="ltr" t-out="state.asOf"/></t>
+                    <t t-if="state.asOf &amp;&amp; !isCashMode"><span>Current balances</span><span t-translation="off"> · </span><span dir="ltr" t-out="state.asOf"/></t>
                 </span>
                 <button type="button" class="btn btn-sm btn-light" t-on-click="scheduleRefresh" t-att-disabled="state.loading" title="Refresh financial summary" aria-label="Refresh financial summary">
                     <i class="fa fa-refresh" aria-hidden="true"/>
                 </button>
             </div>
+            <div t-if="state.actionError" class="small text-danger py-2" role="alert">The selected view could not be opened. Please try again.</div>
             <div t-if="state.loading" class="o_baseer_financial_status text-muted" role="status">
                 <i class="fa fa-spinner fa-spin me-2" aria-hidden="true"/>
                 <span t-out="loadingLabel"/>
@@ -39,7 +51,7 @@
                             <h3 class="fs-6 mb-0" t-out="section.label"/>
                             <span class="small text-muted"><bdi t-out="section.document_count_display"/> <span>documents</span></span>
                         </div>
-                        <div class="o_baseer_financial_card_grid">
+                        <div class="o_baseer_financial_card_grid" t-att-class="{'o_baseer_financial_cash_grid': isCashMode}">
                             <button t-foreach="section.cards" t-as="card" t-key="card.key"
                                     type="button" class="btn o_baseer_financial_card text-start"
                                     t-att-class="{'o_baseer_financial_card_selected': state.selected === cardKey(currency, section, card)}"

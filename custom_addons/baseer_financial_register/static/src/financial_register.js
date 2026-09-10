@@ -2,6 +2,7 @@ import { Component, onMounted, onWillDestroy, useState } from "@odoo/owl";
 import { Domain } from "@web/core/domain";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
+import { user } from "@web/core/user";
 import { KeepLast } from "@web/core/utils/concurrency";
 import { useBus, useService } from "@web/core/utils/hooks";
 import { ListRenderer } from "@web/views/list/list_renderer";
@@ -17,7 +18,8 @@ export class FinancialRegisterKpis extends Component {
 
     setup() {
         this.orm = useService("orm");
-        this.state = useState({ loading: true, error: false, currencyGroups: [], asOf: "", selected: "" });
+        this.action = useService("action");
+        this.state = useState({ loading: true, error: false, currencyGroups: [], asOf: "", selected: "", companyName: "", changingMode: false, actionError: false });
         this.keepLast = new KeepLast();
         this.requestVersion = 0;
         this.destroyed = false;
@@ -51,6 +53,57 @@ export class FinancialRegisterKpis extends Component {
         return this.env.searchModel.getSearchItems((item) => item.name === FILTER_NAME && item.isActive);
     }
 
+    get cashMonth() {
+        return this.env.searchModel.context.baseer_register_cash_month || "";
+    }
+
+    get isCashMode() {
+        return Boolean(this.cashMonth);
+    }
+
+    async openMode(cash, month) {
+        if (this.state.changingMode) {
+            return;
+        }
+        this.state.changingMode = true;
+        this.state.actionError = false;
+        try {
+            const method = cash ? "action_open_register_cash" : "action_open_financial_register";
+            const context = { ...this.env.searchModel.context };
+            if (!cash) {
+                context.allowed_company_ids = user.activeCompanies.map((company) => company.id);
+            }
+            const action = await this.orm.call("account.move", method, cash && month ? [month] : [], {
+                context,
+            });
+            if (!this.destroyed) {
+                await this.action.doAction(action);
+            }
+        } catch {
+            if (!this.destroyed) {
+                this.state.actionError = true;
+            }
+        } finally {
+            if (!this.destroyed) {
+                this.state.changingMode = false;
+            }
+        }
+    }
+
+    async onMonthChange(event) {
+        const month = event.target.value;
+        if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(month)) {
+            event.target.value = this.cashMonth;
+            return;
+        }
+        if (month !== this.cashMonth) {
+            await this.openMode(true, month);
+            if (!this.destroyed) {
+                event.target.value = this.cashMonth;
+            }
+        }
+    }
+
     async refresh() {
         const version = ++this.requestVersion;
         const searchModel = this.env.searchModel;
@@ -63,9 +116,10 @@ export class FinancialRegisterKpis extends Component {
         this.state.error = false;
         this.state.currencyGroups = [];
         this.state.asOf = "";
+        this.state.companyName = "";
         try {
             const result = await this.keepLast.add(this.orm.call(
-                "account.move", "baseer_financial_register_kpis", [domain], { context }
+                "account.move", this.isCashMode ? "baseer_financial_register_cash_kpis" : "baseer_financial_register_kpis", [domain], { context }
             ));
             if (this.destroyed || version !== this.requestVersion) {
                 return;
@@ -76,6 +130,7 @@ export class FinancialRegisterKpis extends Component {
             }
             this.state.currencyGroups = result.currency_groups;
             this.state.asOf = result.as_of;
+            this.state.companyName = result.company_name || "";
             this.state.loading = false;
         } catch {
             if (!this.destroyed && version === this.requestVersion) {

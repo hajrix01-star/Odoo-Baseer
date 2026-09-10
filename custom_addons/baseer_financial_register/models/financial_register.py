@@ -104,6 +104,8 @@ class FinancialRegister(models.Model):
     @api.model
     def action_open_financial_register(self):
         self._register_require_access()
+        context = dict(self.env.context, create=False, edit=False, delete=False)
+        context.pop('baseer_register_cash_month', None)
         return {
             'type': 'ir.actions.act_window', 'name': _('Financial operations'),
             'res_model': 'account.move', 'view_mode': 'list,kanban,form',
@@ -113,7 +115,7 @@ class FinancialRegister(models.Model):
                       (self.env.ref('account.view_move_form').id, 'form')],
             'search_view_id': [self.env.ref('baseer_financial_register.view_register_search').id, 'Financial operations'],
             'domain': [('state', '=', 'posted')],
-            'context': dict(self.env.context, create=False, edit=False, delete=False),
+            'context': context,
             'target': 'current',
         }
 
