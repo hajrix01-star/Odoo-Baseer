@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="batch_supplier_priority" model="ir.ui.view">
+        <field name="name">baseer.purchase.batch.supplier.priority</field>
+        <field name="model">baseer.purchase.batch</field>
+        <field name="inherit_id" ref="baseer_purchase_batch.view_purchase_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='partner_id']" position="attributes">
+                <attribute name="context">{'baseer_partner_priority': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="batch_line_supplier_priority" model="ir.ui.view">
+        <field name="name">baseer.purchase.batch.line.supplier.priority</field>
+        <field name="model">baseer.purchase.batch.line</field>
+        <field name="inherit_id" ref="baseer_purchase_batch.view_purchase_batch_line_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="attributes">
+                <attribute name="context">{'baseer_partner_priority': True}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

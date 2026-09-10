@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="baseer_partner_priority.Autocomplete" t-inherit="web.Many2XAutocomplete" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='option']/t" position="before">
+            <i t-if="baseerPartnerPriority and optionScope.data.record?.baseer_is_favorite"
+               class="fa fa-star text-warning me-1" role="img" title="Company Favorite" aria-label="Company Favorite"/>
+        </xpath>
+    </t>
+</templates>

@@ -1,5 +1,5 @@
 {
-  "source_commit": "80ab864153b9e337090d5a1286150e7a64ad6319",
+  "source_commit": "a8d533d67ee4ca3e4a7ce06fc44bc5e459fc192c",
   "odoo_image": "odoo@sha256:f99ffac95cb39a0924622ea4118481c95651d9c84187e5b30a21c2cc4419c7dd",
   "odoo_major": 19,
   "files": {
@@ -54,6 +54,15 @@
     "custom_addons/baseer_legion_compat/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "custom_addons/baseer_legion_compat/__manifest__.py": "db5efe33e9075878047daa33ef9241e9655eeffcd3865e56720c3f84c5e563a9",
     "custom_addons/baseer_legion_compat/static/src/navbar.scss": "e1add8c78bf281669f2b771cf9f7f20c2dbf262bbc5c889b28958be24dfca9ef",
+    "custom_addons/baseer_partner_priority/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
+    "custom_addons/baseer_partner_priority/__manifest__.py": "5dbfd76ec3e4991f6f34ea541b50fe8cd6519d0f5763af07618f2d94fe1d60dc",
+    "custom_addons/baseer_partner_priority/i18n/ar.po": "9944409c2ec89a98056c6809b42101cec1bba1bbfc9f872891569ef2ba966905",
+    "custom_addons/baseer_partner_priority/models/__init__.py": "83e0e9d99c0dea80780aa7507e04489cd4b374c580550835be358bed2f993833",
+    "custom_addons/baseer_partner_priority/models/res_partner.py": "60efdb7d4a3b4b44bbcabb97058e75c710e73d315d22de0d8c7749f6a096e627",
+    "custom_addons/baseer_partner_priority/static/src/partner_autocomplete.js": "007505d2cd1c27b2f87d79ec9f756cdf6d6faccd35eddfb62bd5aa3c6cd8d653",
+    "custom_addons/baseer_partner_priority/static/src/partner_autocomplete.xml": "f2527d8d3853413dab765fa1b17c7f58f45c3f6a7bb42d22b3a928d8531ccd6c",
+    "custom_addons/baseer_partner_priority/views/partner_views.xml": "1c69dbbc973304746beb9c0b725c57e65427386205766f2e43cbe836bd44a801",
+    "custom_addons/baseer_partner_priority/views/purchase_batch_views.xml": "6ea8aa61140b4ac51afab5724c878595c0983e700cdf528c31748c7e16d63c1f",
     "custom_addons/baseer_payroll/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
     "custom_addons/baseer_payroll/__manifest__.py": "e5060dfc26edfda06889d4e479a4ef48bf1bfacfe6a7ac3a81e40f57a83bdf20",
     "custom_addons/baseer_payroll/data/work_schedules.xml": "25a9c85daaf88290daff69b61dceec14a822d04b00478346905fc3b72bd21fc9",

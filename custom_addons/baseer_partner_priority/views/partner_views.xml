@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="partner_favorite_form" model="ir.ui.view">
+        <field name="name">res.partner.company.favorite.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//h1" position="before">
+                <field name="baseer_is_favorite" widget="boolean_favorite" class="align-self-start"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="partner_favorite_list" model="ir.ui.view">
+        <field name="name">res.partner.company.favorite.list</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="display_name" position="before">
+                <field name="baseer_is_favorite" widget="boolean_favorite" nolabel="1"/>
+            </field>
+        </field>
+    </record>
+    <record id="partner_favorite_kanban" model="ir.ui.view">
+        <field name="name">res.partner.company.favorite.kanban</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//templates/t[@t-name='card']/main" position="inside">
+                <field name="baseer_is_favorite" widget="boolean_favorite" nolabel="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="partner_favorite_search" model="ir.ui.view">
+        <field name="name">res.partner.company.favorite.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter name="baseer_company_favorites" string="Company Favorites" domain="[('baseer_is_favorite', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

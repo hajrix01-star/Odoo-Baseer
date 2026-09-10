@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: baseer_partner_priority
+#. odoo-javascript
+#: model:ir.model.fields,field_description:baseer_partner_priority.field_res_partner__baseer_is_favorite
+#: code:addons/baseer_partner_priority/static/src/partner_autocomplete.xml:0
+msgid "Company Favorite"
+msgstr "مفضّل لدى الشركة"
+
+#. module: baseer_partner_priority
+#: model_terms:ir.ui.view,arch_db:baseer_partner_priority.partner_favorite_search
+msgid "Company Favorites"
+msgstr "مفضّلو الشركة"
+
+#. module: baseer_partner_priority
+#: model:ir.model.fields,help:baseer_partner_priority.field_res_partner__baseer_is_favorite
+msgid "Preferred in the active company. Other companies keep their own favorites."
+msgstr "مفضّل لدى الشركة الحالية. تحتفظ كل شركة بمفضّليها بشكل مستقل."
+
+#. module: baseer_partner_priority
+#: model:ir.model.fields,field_description:baseer_partner_priority.field_res_partner__baseer_recent_bill_count
+msgid "Recent Vendor Bills"
+msgstr "فواتير المورد الحديثة"
+
+#. module: baseer_partner_priority
+#: model:ir.model.fields,help:baseer_partner_priority.field_res_partner__baseer_recent_bill_count
+msgid "Posted vendor bills in the last 90 days, in the active company and within your access."
+msgstr "فواتير المشتريات المعتمدة خلال آخر 90 يومًا في الشركة الحالية وضمن صلاحياتك."
+
+#. module: baseer_partner_priority
+#: code:addons/baseer_partner_priority/models/res_partner.py:0
+msgid "Switch to the contact company before changing its favorite."
+msgstr "انتقل إلى شركة جهة الاتصال قبل تغيير تفضيلها."
