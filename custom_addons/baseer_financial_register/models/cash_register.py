@@ -1,5 +1,6 @@
 """Cash preview: consume the existing report's final fragments, never retrace them."""
 from calendar import monthrange
+from contextvars import ContextVar
 from datetime import date
 from decimal import Decimal
 import re
@@ -11,8 +12,27 @@ from odoo.fields import Domain
 from .financial_register import ZERO, display
 
 
+_PLATFORM_CAPTURE = ContextVar('baseer_register_platform_capture', default=None)
+
+
 class CashReportCapture(models.AbstractModel):
     _inherit = 'eh.account.dynamic.report.handler.baseer_cash_categories'
+
+    def _trace(self, line, amount, state, visited=frozenset(), depth=0):
+        fragments = super()._trace(line, amount, state, visited, depth)
+        # Private capture exists only for this operational register call. The
+        # original cash report never receives or consumes these annotations.
+        capture = _PLATFORM_CAPTURE.get()
+        if capture:
+            point = capture['trace_points'].get(line.id)
+            if point:
+                fragments = [dict(fragment, baseer_platform_origin=point['origin'],
+                                  baseer_platform_sign=point['sign']) for fragment in fragments]
+            elif (amount and line.account_id.id in capture['platform_accounts']
+                  and any(not item.get('baseer_platform_origin') for item in fragments)):
+                capture['warnings'].add(_(
+                    'Some Applications cash allocations have no proven sale origin; their original cash amounts are retained.'))
+        return fragments
 
     def _payload(self, movements, opening, change, state, options, company, date_from, date_to,
                  with_sources=False, internal=None):
@@ -34,17 +54,18 @@ class CashReportCapture(models.AbstractModel):
             for row in rows.values():
                 row['net'] = row['receipts'] + row['payments']
             internal['baseer_register_rows'] = rows
+            internal['baseer_register_fragments'] = movements
         return result
 
 
 class CashFinancialRegister(models.Model):
     _inherit = 'account.move'
 
-    baseer_register_cash_receipts = fields.Monetary(string='Actual receipts', currency_field='company_currency_id',
+    baseer_register_cash_receipts = fields.Monetary(string='Incoming', currency_field='company_currency_id',
         compute='_compute_register_cash', search='_search_register_cash_receipts')
-    baseer_register_cash_payments = fields.Monetary(string='Actual payments', currency_field='company_currency_id',
+    baseer_register_cash_payments = fields.Monetary(string='Outgoing', currency_field='company_currency_id',
         compute='_compute_register_cash', search='_search_register_cash_payments')
-    baseer_register_cash_net = fields.Monetary(string='Net cash movement', currency_field='company_currency_id',
+    baseer_register_cash_net = fields.Monetary(string='Net', currency_field='company_currency_id',
         compute='_compute_register_cash')
     baseer_register_cash_visible = fields.Boolean(compute='_compute_register_cash', search='_search_register_cash_visible')
 
@@ -73,13 +94,33 @@ class CashFinancialRegister(models.Model):
                    'date': {'mode': 'range', 'date_from': start.isoformat(), 'date_to': end.isoformat()}}
         handler = self.env['eh.account.dynamic.report.handler.baseer_cash_categories']
         handler = handler._authorized_report_handler(options)
+        platform = self._register_platform_origins(company, start, end)
         capture = {'baseer_register_capture': True}
-        payload = handler._compute_report(options, internal=capture)
+        # Request-local provenance is a private Python value, never RPC context
+        # or mutable shared model-class state. Always reset even on report error.
+        token = _PLATFORM_CAPTURE.set(platform)
+        try:
+            payload = handler._compute_report(options, internal=capture)
+        finally:
+            _PLATFORM_CAPTURE.reset(token)
         rows = capture['baseer_register_rows']
         totals = payload['meta']['exact_totals']
         for key, report_key in [('receipts', 'receipts'), ('payments', 'payments'), ('net', 'actual_net_movement')]:
             if sum((row[key] for row in rows.values()), ZERO) != Decimal(totals[report_key]):
                 raise UserError(_('Cash rows do not match the cash movement report.'))
+        for ident, addition in platform['rows'].items():
+            row = rows.setdefault(ident, {'receipts': ZERO, 'payments': ZERO, 'net': ZERO})
+            row['receipts'] += addition['receipts']
+        line_moves = {line.id: line.move_id.id for line in self.env['account.move.line'].browse(
+            sorted({item['cash_source'] for item in capture['baseer_register_fragments']}))}
+        for item in capture['baseer_register_fragments']:
+            sign = item.get('baseer_platform_sign')
+            if (sign == 1 and item['direction'] == 'in' or sign == -1 and item['direction'] == 'out'):
+                rows[line_moves[item['cash_source']]]['receipts'] -= item['gross']
+        for row in rows.values():
+            row['net'] = row['receipts'] + row['payments']
+        rows = {ident: row for ident, row in rows.items() if any(row.values())}
+        payload['meta']['baseer_platform_warning'] = ' '.join(sorted(platform['warnings']))
         return value, company, payload, rows
 
     @api.depends_context('baseer_register_cash_month', 'company', 'uid')
@@ -137,12 +178,12 @@ class CashFinancialRegister(models.Model):
         # narrow both the monetary rows and their cards through the same query.
         context = dict(self.env.context, baseer_register_cash_month=value,
                        allowed_company_ids=[self.env.company.id], create=False, edit=False, delete=False)
-        return {'type': 'ir.actions.act_window', 'name': _('Cash movements'), 'res_model': 'account.move',
+        return {'type': 'ir.actions.act_window', 'name': _('Incoming / outgoing'), 'res_model': 'account.move',
                 'view_mode': 'list,kanban,form', 'mobile_view_mode': 'kanban', 'target': 'current',
                 'views': [(self.env.ref('baseer_financial_register.view_cash_register_list').id, 'list'),
                           (self.env.ref('baseer_financial_register.view_cash_register_kanban').id, 'kanban'),
                           (self.env.ref('account.view_move_form').id, 'form')],
-                'search_view_id': [self.env.ref('baseer_financial_register.view_cash_register_search').id, _('Cash movements')],
+                'search_view_id': [self.env.ref('baseer_financial_register.view_cash_register_search').id, _('Incoming / outgoing')],
                 'domain': [('state', '=', 'posted'), ('baseer_register_cash_visible', '=', True)],
                 'context': context}
 
@@ -155,14 +196,15 @@ class CashFinancialRegister(models.Model):
         sums = {key: sum((rows[move.id][key] for move in visible), ZERO) for key in ('receipts', 'payments', 'net')}
         cards = []
         for key, title, predicate in (
-            ('receipts', _('Actual receipts'), [('baseer_register_cash_receipts', '!=', 0)]),
-            ('payments', _('Actual payments'), [('baseer_register_cash_payments', '!=', 0)]),
-            ('net', _('Net cash movement'), []),
+            ('receipts', _('Incoming'), [('baseer_register_cash_receipts', '!=', 0)]),
+            ('payments', _('Outgoing'), [('baseer_register_cash_payments', '!=', 0)]),
+            ('net', _('Net'), []),
         ):
             cards.append({'key': key, 'label': title, 'display': display(sums[key], company.currency_id),
                           'is_count': False, 'domain': predicate,
-                          'tooltip': _('Same cash allocation as the cash movement report, including tax; current search filters apply.')})
+                          'tooltip': _('Incoming includes posted Applications sales and adjusts their later collections and refunds. Outgoing retains actual payments. Net is not a cash balance or profit.')})
         return {'currency_groups': [{'currency_id': company.currency_id.id, 'currency_name': company.currency_id.name,
-                    'sections': [{'key': 'cash', 'label': _('Cash movements'), 'document_count_display': f'{len(visible):,}', 'cards': cards}]}],
+                    'sections': [{'key': 'cash', 'label': _('Incoming / outgoing'), 'document_count_display': f'{len(visible):,}', 'cards': cards}]}],
                 'cash_month': month, 'company_name': company.name,
+                'coverage_warning': report['meta'].get('baseer_platform_warning', ''),
                 'as_of': report['meta']['date_to']}

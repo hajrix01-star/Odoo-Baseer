@@ -11,6 +11,7 @@ CUSTOMERS = ('out_invoice', 'out_refund', 'out_receipt')
 SUPPLIERS = ('in_invoice', 'in_refund', 'in_receipt')
 INVOICES = CUSTOMERS + SUPPLIERS
 ZERO = Decimal('0')
+ACCOUNTING_GROUPS = 'account.group_account_invoice,account.group_account_readonly'
 
 
 def decimal(value):
@@ -31,8 +32,26 @@ class FinancialRegister(models.Model):
     _inherit = 'account.move'
 
     baseer_register_source = fields.Char(string='Operation', compute='_compute_register_values')
-    baseer_register_settled = fields.Monetary(string='Settled', compute='_compute_register_values', currency_field='currency_id')
-    baseer_register_has_settlement = fields.Boolean(compute='_compute_register_values', search='_search_register_settlement')
+    baseer_register_amount = fields.Monetary(string='Amount', compute='_compute_register_projection',
+        currency_field='company_currency_id', groups=ACCOUNTING_GROUPS)
+    baseer_register_settled = fields.Monetary(string='Settled', compute='_compute_register_projection',
+        currency_field='company_currency_id', groups=ACCOUNTING_GROUPS)
+    baseer_register_outstanding = fields.Monetary(string='Outstanding', compute='_compute_register_projection',
+        search='_search_register_outstanding', currency_field='company_currency_id', groups=ACCOUNTING_GROUPS)
+    baseer_register_has_settlement = fields.Boolean(compute='_compute_register_projection',
+        search='_search_register_settlement', groups=ACCOUNTING_GROUPS)
+    baseer_register_scope = fields.Selection([('customer', 'Sales'), ('supplier', 'Suppliers')],
+        compute='_compute_register_projection', search='_search_register_scope', groups=ACCOUNTING_GROUPS)
+    baseer_register_contributor = fields.Boolean(compute='_compute_register_projection',
+        search='_search_register_contributor', groups=ACCOUNTING_GROUPS)
+    baseer_register_incomplete = fields.Boolean(compute='_compute_register_projection', groups=ACCOUNTING_GROUPS)
+    baseer_register_is_overdue = fields.Boolean(compute='_compute_register_projection',
+        search='_search_register_overdue', groups=ACCOUNTING_GROUPS)
+    baseer_register_payment_state = fields.Selection([
+        ('not_paid', 'Not Paid'), ('in_payment', 'In Payment'), ('paid', 'Paid'),
+        ('partial', 'Partially Paid'), ('reversed', 'Reversed'), ('blocked', 'Blocked'),
+        ('invoicing_legacy', 'Invoicing App Legacy')], string='Payment Status',
+        compute='_compute_register_projection', search='_search_register_payment_state', groups=ACCOUNTING_GROUPS)
 
     @api.depends('move_type', 'amount_total', 'amount_residual', 'amount_total_signed', 'amount_residual_signed', 'company_currency_id', 'origin_payment_id', 'statement_line_id', 'reversed_entry_id')
     def _compute_register_values(self):
@@ -42,10 +61,6 @@ class FinancialRegister(models.Model):
             'in_refund': _('Vendor credit note'), 'in_receipt': _('Purchase receipt'),
         }
         for move in self:
-            value = decimal(move.amount_total) - decimal(move.amount_residual) if move.move_type in INVOICES else ZERO
-            move.baseer_register_settled = float(rounded(value, move.currency_id))
-            company_settled = decimal(move.amount_total_signed) - decimal(move.amount_residual_signed) if move.move_type in INVOICES else ZERO
-            move.baseer_register_has_settlement = bool(rounded(company_settled, move.company_currency_id))
             label = labels.get(move.move_type)
             if not label:
                 if 'baseer_pos_summary_id' in move._fields and move.baseer_pos_summary_id:
@@ -58,6 +73,10 @@ class FinancialRegister(models.Model):
                     label = _('Incoming payment') if move.origin_payment_id.payment_type == 'inbound' else _('Outgoing payment')
                 elif move.statement_line_id:
                     label = _('Bank / cash movement')
+                elif move.pos_session_ids:
+                    label = _('POS session sales')
+                elif move.reversed_pos_order_id:
+                    label = _('POS invoice reclassification')
                 else:
                     label = _('Journal entry')
                 if move.reversed_entry_id:
@@ -66,31 +85,22 @@ class FinancialRegister(models.Model):
 
     @api.model
     def _search_register_settlement(self, operator, value):
-        if operator not in ('=', '!=', 'in', 'not in'):
-            return NotImplemented
-        values = value if operator in ('in', 'not in') else [value]
-        if not isinstance(values, (list, tuple)) or any(type(v) is not bool for v in values):
-            raise ValidationError(_('Choose a valid settlement filter.'))
-        self.flush_model(['amount_total_signed', 'amount_residual_signed', 'company_id', 'move_type'])
-        self.env['res.company'].flush_model(['currency_id'])
-        self.env['res.currency'].flush_model(['rounding'])
-        # This is a predicate, not a data-returning query: the outer ORM search still
-        # applies the caller's complete account.move access and privacy rules.
-        ids = SQL('''SELECT fl_move.id FROM account_move fl_move
-            JOIN res_company fl_company ON fl_company.id = fl_move.company_id
-            JOIN res_currency fl_currency ON fl_currency.id = fl_company.currency_id
-            WHERE fl_move.move_type IN %s
-              AND ROUND((fl_move.amount_total_signed::numeric - fl_move.amount_residual_signed::numeric)
-                        / fl_currency.rounding::numeric) <> 0''', INVOICES)
-        predicate = Domain('id', 'in', ids)
-        accepted = set(values)
-        if operator in ('!=', 'not in'):
-            accepted = {True, False} - accepted
-        if accepted == {True, False}:
-            return Domain.TRUE
-        if not accepted:
-            return Domain.FALSE
-        return predicate if True in accepted else ~predicate
+        return self._register_projection_search('has_settlement', operator, value, boolean=True)
+
+    def _search_register_outstanding(self, operator, value):
+        return self._register_projection_search('outstanding', operator, value, numeric=True)
+
+    def _search_register_scope(self, operator, value):
+        return self._register_projection_search('scope', operator, value)
+
+    def _search_register_contributor(self, operator, value):
+        return self._register_projection_search('contributor', operator, value, boolean=True)
+
+    def _search_register_overdue(self, operator, value):
+        return self._register_projection_search('is_overdue', operator, value, boolean=True)
+
+    def _search_register_payment_state(self, operator, value):
+        return self._register_projection_search('payment_state', operator, value)
 
     @api.model
     def _register_require_access(self):
@@ -147,73 +157,3 @@ class FinancialRegister(models.Model):
         check(domain)
         return Domain('state', '=', 'posted') & Domain(domain)
 
-    @api.model
-    def baseer_financial_register_kpis(self, domain=None):
-        self._register_require_access()
-        base_domain = self._register_domain(domain or [])
-        invoice_domain = base_domain & Domain('move_type', 'in', INVOICES)
-        query = self._search(invoice_domain)
-        self.flush_model(['amount_total_signed', 'amount_residual_signed', 'company_id', 'move_type', 'payment_state'])
-        self.env['res.company'].flush_model(['currency_id'])
-        rows = self.env.execute_query(SQL('''
-            SELECT fl_company.currency_id,
-                   CASE WHEN account_move.move_type IN %s THEN 'customer' ELSE 'supplier' END,
-                   COUNT(*), SUM(account_move.amount_total_signed::numeric),
-                   SUM(account_move.amount_residual_signed::numeric),
-                   COUNT(*) FILTER (WHERE account_move.payment_state = 'partial')
-              FROM %s
-              JOIN res_company fl_company ON fl_company.id = account_move.company_id
-             WHERE %s
-          GROUP BY 1, 2''', CUSTOMERS, query.from_clause, query.where_clause or SQL('TRUE')))
-        totals = {(cid, scope): (count, decimal(total), decimal(residual), partial)
-                  for cid, scope, count, total, residual, partial in rows}
-
-        today = fields.Date.context_today(self)
-        terms = [('display_type', '=', 'payment_term'), ('date_maturity', '<', today),
-                 ('amount_residual', '!=', 0), ('account_id.account_type', 'in', ('asset_receivable', 'liability_payable'))]
-        lines = self.env['account.move.line']
-        line_query = lines._search(Domain(terms) & Domain('move_id', 'any', invoice_domain))
-        lines.flush_model(['move_id', 'amount_residual', 'date_maturity', 'display_type', 'account_id'])
-        overdue_rows = self.env.execute_query(SQL('''
-            SELECT fl_company.currency_id,
-                   CASE WHEN fl_move.move_type IN %s THEN 'customer' ELSE 'supplier' END,
-                   SUM(account_move_line.amount_residual::numeric)
-              FROM %s
-              JOIN account_move fl_move ON fl_move.id = account_move_line.move_id
-              JOIN res_company fl_company ON fl_company.id = fl_move.company_id
-             WHERE %s
-               AND fl_move.id IN (%s)
-          GROUP BY 1, 2''', CUSTOMERS, line_query.from_clause, line_query.where_clause or SQL('TRUE'),
-            query.select(SQL.identifier('account_move', 'id'))))
-        overdue = {(cid, scope): decimal(amount) for cid, scope, amount in overdue_rows}
-        # Show honest zero cards when the current search has no visible invoices.
-        currency_ids = set(self.env.companies.currency_id.ids) | {row[0] for row in rows}
-        groups = []
-        for currency in self.env['res.currency'].browse(sorted(currency_ids)):
-            sections = []
-            for scope, label, types, sign in (
-                ('customer', _('Customers'), CUSTOMERS, 1),
-                ('supplier', _('Suppliers'), SUPPLIERS, -1),
-            ):
-                count, total, residual, partial = totals.get((currency.id, scope), (0, ZERO, ZERO, 0))
-                scoped = Domain('move_type', 'in', types) & Domain('company_currency_id', '=', currency.id)
-                values = [
-                    ('total', _('Net invoices'), total * sign, Domain.TRUE, False,
-                     _('Posted invoices and credit notes; journal entries and payments are excluded.')),
-                    ('settled', _('Settled amount'), (total - residual) * sign,
-                     Domain('baseer_register_has_settlement', '=', True), False,
-                     _('Current settlements, including payments, credits and write-offs; not bank cash received.')),
-                    ('outstanding', _('Outstanding'), residual * sign, Domain('amount_residual', '!=', 0), False,
-                     _('Current outstanding invoice balance.')),
-                    ('partial', _('Partially paid'), partial, Domain('payment_state', '=', 'partial'), True,
-                     _('Number of documents with the native partially paid status.')),
-                    ('overdue', _('Net overdue'), overdue.get((currency.id, scope), ZERO) * sign,
-                     Domain('line_ids', 'any', Domain(terms)), False,
-                     _('Open installments due before today; credit balances retain their sign.')),
-                ]
-                cards = [{'key': key, 'label': title, 'display': f'{value:,}' if integer else display(value, currency),
-                          'is_count': integer, 'domain': list(scoped & drill), 'tooltip': tooltip}
-                         for key, title, value, drill, integer, tooltip in values]
-                sections.append({'key': scope, 'label': label, 'document_count_display': f'{count:,}', 'cards': cards})
-            groups.append({'currency_id': currency.id, 'currency_name': currency.name, 'sections': sections})
-        return {'currency_groups': groups, 'as_of': fields.Date.to_string(today)}

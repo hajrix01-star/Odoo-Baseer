@@ -16,7 +16,7 @@
                 <div class="d-flex align-items-center gap-2 flex-wrap">
                     <div class="btn-group" role="group" aria-label="Operation view">
                         <button type="button" class="btn btn-sm" t-att-class="isCashMode ? 'btn-outline-secondary' : 'btn-primary'" t-att-aria-pressed="isCashMode ? 'false' : 'true'" t-att-disabled="state.changingMode || !isCashMode" t-on-click="() => this.openMode(false)">All operations</button>
-                        <button type="button" class="btn btn-sm" t-att-class="isCashMode ? 'btn-primary' : 'btn-outline-secondary'" t-att-aria-pressed="isCashMode ? 'true' : 'false'" t-att-disabled="state.changingMode || isCashMode" t-on-click="() => this.openMode(true)">Cash movements</button>
+                        <button type="button" class="btn btn-sm" t-att-class="isCashMode ? 'btn-primary' : 'btn-outline-secondary'" t-att-aria-pressed="isCashMode ? 'true' : 'false'" t-att-disabled="state.changingMode || isCashMode" t-on-click="() => this.openMode(true)">Incoming / outgoing</button>
                     </div>
                     <label t-if="isCashMode" class="o_baseer_financial_month d-flex align-items-center gap-2 mb-0">
                         <span class="small text-muted">Reporting period</span>
@@ -44,12 +44,13 @@
                 No posted transactions match these filters.
             </div>
             <t t-else="">
+                <div t-if="state.coverageWarning" class="alert alert-warning py-2 mb-2" role="status" t-out="state.coverageWarning"/>
                 <div t-foreach="state.currencyGroups" t-as="currency" t-key="currency.currency_id" class="o_baseer_financial_currency">
                     <div class="o_baseer_financial_currency_name text-muted small fw-semibold" t-out="currency.currency_name"/>
                     <div t-foreach="currency.sections" t-as="section" t-key="section.key" class="o_baseer_financial_section">
                         <div class="o_baseer_financial_section_title d-flex align-items-baseline gap-2">
                             <h3 class="fs-6 mb-0" t-out="section.label"/>
-                            <span class="small text-muted"><bdi t-out="section.document_count_display"/> <span>documents</span></span>
+                            <span class="small text-muted"><bdi t-out="section.document_count_display"/> <span t-if="!isCashMode &amp;&amp; section.key === 'customer'">operations</span><span t-else="">documents</span></span>
                         </div>
                         <div class="o_baseer_financial_card_grid" t-att-class="{'o_baseer_financial_cash_grid': isCashMode}">
                             <button t-foreach="section.cards" t-as="card" t-key="card.key"

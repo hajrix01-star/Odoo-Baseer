@@ -1,5 +1,5 @@
 {
-  "source_commit": "3d96581c2eef324df3b5ed69f7ba526bb37035fc",
+  "source_commit": "f38e4c4934c377dac69cd563c2ed3ca30b61bf9e",
   "odoo_image": "odoo@sha256:f99ffac95cb39a0924622ea4118481c95651d9c84187e5b30a21c2cc4419c7dd",
   "odoo_major": 19,
   "files": {
@@ -69,16 +69,16 @@
     "custom_addons/baseer_financial_correction/security/ir.model.access.csv": "ffd338ec6285ea6f8071ae40088ac3a4a2a6e5d9bfb4f801507c202681f5a8b8",
     "custom_addons/baseer_financial_correction/views/correction_views.xml": "409c2c52ec4f8accac657f127cacfdd0f75e4fade6d204981a5b4966069adf10",
     "custom_addons/baseer_financial_register/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
-    "custom_addons/baseer_financial_register/__manifest__.py": "57a50524a31d590fab29ca21f4b684f149d21e2198c1081106216b192e547309",
-    "custom_addons/baseer_financial_register/i18n/ar.po": "870884e9742274f83d8fdba4ab913cac38981f302a8a07fa055cfdf77fdcccc4",
-    "custom_addons/baseer_financial_register/models/__init__.py": "ba6e843ad76a212fd0f11ebd13ba88975f110924662e254bf18d315ed39f239a",
-    "custom_addons/baseer_financial_register/models/cash_register.py": "5cb439ab5e80362df45744d51f0a651496c14252d154fab11ffe17214f16c990",
-    "custom_addons/baseer_financial_register/models/financial_register.py": "67117b1d78be8a2b2d43c68bf09c761c36b4f090d167192055dab403c70202ac",
+    "custom_addons/baseer_financial_register/__manifest__.py": "10c95e545cb69f5e42353b42ca97fc2ecad6419763a1f63adb3f3e70bc1449e6",
+    "custom_addons/baseer_financial_register/i18n/ar.po": "a153687fe88bca7b74708c71951775772b3926df53a51d083d1a61894abb08bc",
+    "custom_addons/baseer_financial_register/models/__init__.py": "dea8c028fc07b34ff270add4518a110b5f6b590dbc6931bf1264e37dddebc27e",
+    "custom_addons/baseer_financial_register/models/cash_register.py": "e5762b154c0bda5710354957af20c5fee3100f83a889f4d1fee014d3248b7ea8",
+    "custom_addons/baseer_financial_register/models/financial_register.py": "faf6c67bddb1d115fd880fe44c82acb30f756506c787efa1418a0ee0bb352f55",
     "custom_addons/baseer_financial_register/README.md": "2b2897d671cb5992881205641a23aee2a82c41bf6abc01940aea1c8cb51751d6",
-    "custom_addons/baseer_financial_register/static/src/financial_register.js": "efd3f4ef14fbe03d3e01cca7887199ea4f7ea65618954f42e9bdfad1225e5516",
+    "custom_addons/baseer_financial_register/static/src/financial_register.js": "401b8c8b75d06af426c4c21f05bab0a5e01fdd0363af411848a22c11dc74d41f",
     "custom_addons/baseer_financial_register/static/src/financial_register.scss": "1caa8b6df008796d080e7581f862fcd632e86d311eb1cd8a4ee678304c858ace",
-    "custom_addons/baseer_financial_register/static/src/financial_register.xml": "a0d5dfcb4cb56b713220d6d2b6d6a858781d9cea7f6abdae3ea8dded7ff63ada",
-    "custom_addons/baseer_financial_register/views/financial_register_views.xml": "a61072825b78766632fa9c3bb4d552c9512d5a21483adf8df3166b4fd111d648",
+    "custom_addons/baseer_financial_register/static/src/financial_register.xml": "d73840e4c3bf144b704e340a494c6ebf089e518eafa099807eda2d9479b3f0f8",
+    "custom_addons/baseer_financial_register/views/financial_register_views.xml": "bf6f83393edca638bca71f2605e8710197a65bb664c794be0083fd636b49b1e0",
     "custom_addons/baseer_hr_services/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
     "custom_addons/baseer_hr_services/__manifest__.py": "d289f38f5bc11bf4ee98037de071ddfa05eb31a72bd17bf346d6a5b6b655a238",
     "custom_addons/baseer_hr_services/data/sequence.xml": "154a7bd7ef57a9daa5600b28e2b1ca2ac75d1dd63d29f7106b068b0f7b8ecc36",
@@ -1183,6 +1183,8 @@
     "custom_addons/baseer_financial_correction/models/lifecycle.py": "5dbcc75ef90381dfcd66e984659d8b5ae28a375f1cf7c1847f2ac9983bbeb48b",
     "custom_addons/baseer_financial_correction/models/summary_lifecycle.py": "acb5a405e542dcce01c190e568f4e17483cdccef6fe0a85faf7e5b9674f989ed",
     "custom_addons/baseer_financial_correction/security/summary_lifecycle_rules.xml": "ecf920042c9dd0174be6ef01c93cf578ec3619152661aeaca9a2fd07711e5c32",
-    "custom_addons/baseer_financial_correction/views/summary_lifecycle_views.xml": "5445357639a90cafe23e29184ad7d17538e259d4ff73e2b23b49bfb419d3a76b"
+    "custom_addons/baseer_financial_correction/views/summary_lifecycle_views.xml": "5445357639a90cafe23e29184ad7d17538e259d4ff73e2b23b49bfb419d3a76b",
+    "custom_addons/baseer_financial_register/models/platform.py": "6cf94607be38c0fb5ca231a663b4f186a449d38e4962006db61fef6e209d3cb2",
+    "custom_addons/baseer_financial_register/models/projection.py": "b154003a0b1b0df52714d2fcb4f5d97527b118e90c865e8762315fb6681776a9"
   }
 }

@@ -19,7 +19,7 @@ export class FinancialRegisterKpis extends Component {
     setup() {
         this.orm = useService("orm");
         this.action = useService("action");
-        this.state = useState({ loading: true, error: false, currencyGroups: [], asOf: "", selected: "", companyName: "", changingMode: false, actionError: false });
+        this.state = useState({ loading: true, error: false, currencyGroups: [], asOf: "", selected: "", companyName: "", changingMode: false, actionError: false, coverageWarning: "" });
         this.keepLast = new KeepLast();
         this.requestVersion = 0;
         this.destroyed = false;
@@ -117,6 +117,7 @@ export class FinancialRegisterKpis extends Component {
         this.state.currencyGroups = [];
         this.state.asOf = "";
         this.state.companyName = "";
+        this.state.coverageWarning = "";
         try {
             const result = await this.keepLast.add(this.orm.call(
                 "account.move", this.isCashMode ? "baseer_financial_register_cash_kpis" : "baseer_financial_register_kpis", [domain], { context }
@@ -131,6 +132,7 @@ export class FinancialRegisterKpis extends Component {
             this.state.currencyGroups = result.currency_groups;
             this.state.asOf = result.as_of;
             this.state.companyName = result.company_name || "";
+            this.state.coverageWarning = result.coverage_warning || "";
             this.state.loading = false;
         } catch {
             if (!this.destroyed && version === this.requestVersion) {

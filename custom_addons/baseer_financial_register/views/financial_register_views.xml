@@ -12,15 +12,18 @@
                 <field name="ref" optional="hide"/>
                 <field name="journal_id" optional="show"/>
                 <field name="company_id" groups="base.group_multi_company" optional="show"/>
-                <field name="currency_id" column_invisible="True"/>
+                <field name="company_currency_id" column_invisible="True"/>
                 <field name="move_type" column_invisible="True"/>
-                <field name="amount_total" string="Amount" widget="monetary"/>
-                <field name="baseer_register_settled" widget="monetary" invisible="move_type == 'entry'" optional="show"/>
-                <field name="amount_residual" string="Outstanding" widget="monetary" invisible="move_type == 'entry'" optional="show"/>
-                <field name="payment_state" widget="badge" invisible="move_type == 'entry'" decoration-success="payment_state == 'paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-danger="payment_state == 'not_paid'"/>
+                <field name="baseer_register_contributor" column_invisible="True"/>
+                <field name="baseer_register_incomplete" column_invisible="True"/>
+                <field name="baseer_register_amount" string="Amount" widget="monetary" invisible="baseer_register_incomplete"/>
+                <field name="baseer_register_settled" widget="monetary" invisible="not baseer_register_contributor" optional="show"/>
+                <field name="baseer_register_outstanding" string="Outstanding" widget="monetary" invisible="not baseer_register_contributor" optional="show"/>
+                <field name="baseer_register_payment_state" widget="badge" invisible="not baseer_register_payment_state" decoration-success="baseer_register_payment_state == 'paid'" decoration-warning="baseer_register_payment_state in ('partial', 'in_payment')" decoration-danger="baseer_register_payment_state == 'not_paid'"/>
                 <field name="invoice_date_due" widget="baseer_latin_date" options="{'numeric': True}" optional="hide"/>
                 <field name="create_uid" optional="hide"/>
                 <button name="action_open_register_source" type="object" icon="fa-external-link" title="Open source"/>
+                <button name="action_open_register_source" type="object" string="Unavailable" class="btn-link text-warning o_baseer_register_incomplete" title="Incomplete sales coverage: check the source accounts." invisible="not baseer_register_incomplete" groups="account.group_account_invoice,account.group_account_readonly"/>
             </list>
         </field>
     </record>
@@ -30,7 +33,9 @@
         <field name="arch" type="xml">
             <kanban js_class="baseer_financial_register_kanban" create="false" edit="false" delete="false" group_create="false" group_delete="false" records_draggable="false" default_order="date desc,id desc">
                 <field name="move_type"/>
-                <field name="currency_id"/>
+                <field name="company_currency_id"/>
+                <field name="baseer_register_contributor"/>
+                <field name="baseer_register_incomplete"/>
                 <templates>
                     <t t-name="card">
                         <div class="d-flex justify-content-between gap-2"><field name="name" string="Number" class="fw-bold"/><field name="date" widget="baseer_latin_date" options="{'numeric': True}"/></div>
@@ -38,8 +43,11 @@
                         <field name="partner_id"/>
                         <field name="company_id" groups="base.group_multi_company"/>
                         <div class="d-flex justify-content-between align-items-center gap-2 mt-2">
-                            <field name="amount_total" widget="monetary" class="fw-bold"/>
-                            <field name="payment_state" widget="badge" invisible="move_type == 'entry'"/>
+                            <div name="baseer_register_amount_cell" groups="account.group_account_invoice,account.group_account_readonly">
+                                <field name="baseer_register_amount" widget="monetary" class="fw-bold" invisible="baseer_register_incomplete"/>
+                                <span class="text-warning" invisible="not baseer_register_incomplete">Unavailable</span>
+                            </div>
+                            <field name="baseer_register_payment_state" widget="badge" invisible="not baseer_register_payment_state"/>
                             <button name="action_open_register_source" type="object" icon="fa-external-link" title="Open source" class="btn btn-link"/>
                         </div>
                     </t>
@@ -58,24 +66,24 @@
                 <field name="company_id" groups="base.group_multi_company"/>
                 <filter name="date" string="Accounting date" date="date"/>
                 <separator/>
-                <filter name="customers" string="Customer documents" domain="[('move_type', 'in', ('out_invoice', 'out_refund', 'out_receipt'))]"/>
-                <filter name="suppliers" string="Supplier documents" domain="[('move_type', 'in', ('in_invoice', 'in_refund', 'in_receipt'))]"/>
+                <filter name="customers" string="Sales" domain="[('baseer_register_scope', '=', 'customer')]"/>
+                <filter name="suppliers" string="Supplier documents" domain="[('baseer_register_scope', '=', 'supplier')]"/>
                 <filter name="entries" string="Journal entries" domain="[('move_type', '=', 'entry')]"/>
                 <separator/>
                 <filter name="sales_summaries" string="Sales summaries" domain="[('baseer_pos_summary_id', '!=', False)]"/>
                 <filter name="payments" string="Payments" domain="[('origin_payment_id', '!=', False)]"/>
                 <separator/>
-                <filter name="unpaid" string="Unpaid" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'not_paid')]"/>
-                <filter name="partial" string="Partially paid" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'partial')]"/>
-                <filter name="in_payment" string="In payment" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'in_payment')]"/>
-                <filter name="paid" string="Paid" domain="[('move_type', '!=', 'entry'), ('payment_state', '=', 'paid')]"/>
+                <filter name="unpaid" string="Unpaid" domain="[('baseer_register_payment_state', '=', 'not_paid')]"/>
+                <filter name="partial" string="Partially paid" domain="[('baseer_register_payment_state', '=', 'partial')]"/>
+                <filter name="in_payment" string="In payment" domain="[('baseer_register_payment_state', '=', 'in_payment')]"/>
+                <filter name="paid" string="Paid" domain="[('baseer_register_payment_state', '=', 'paid')]"/>
                 <separator/>
                 <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
                 <filter name="group_journal" string="Journal" context="{'group_by': 'journal_id'}"/>
                 <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
                 <filter name="group_type" string="Document type" context="{'group_by': 'move_type'}"/>
                 <filter name="group_month" string="Month" context="{'group_by': 'date:month'}"/>
-                <filter name="group_payment" string="Payment status" context="{'group_by': 'payment_state'}"/>
+                <filter name="group_payment" string="Invoice payment status" context="{'group_by': 'payment_state'}"/>
             </search>
         </field>
     </record>
@@ -92,11 +100,13 @@
         <field name="inherit_id" ref="view_register_list"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <field name="currency_id" position="replace"><field name="company_currency_id" column_invisible="True"/></field>
-            <field name="amount_total" position="replace"><field name="baseer_register_cash_receipts" widget="monetary"/></field>
+            <field name="baseer_register_amount" position="replace"><field name="baseer_register_cash_receipts" widget="monetary"/></field>
             <field name="baseer_register_settled" position="replace"><field name="baseer_register_cash_payments" widget="monetary"/></field>
-            <field name="amount_residual" position="replace"><field name="baseer_register_cash_net" widget="monetary"/></field>
-            <field name="payment_state" position="replace"/>
+            <field name="baseer_register_outstanding" position="replace"><field name="baseer_register_cash_net" widget="monetary"/></field>
+            <field name="baseer_register_payment_state" position="replace"/>
+            <field name="baseer_register_contributor" position="replace"/>
+            <field name="baseer_register_incomplete" position="replace"/>
+            <xpath expr="//button[contains(@class, 'o_baseer_register_incomplete')]" position="replace"/>
             <field name="invoice_date_due" position="replace"/>
         </field>
     </record>
@@ -106,27 +116,28 @@
         <field name="inherit_id" ref="view_register_kanban"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <field name="currency_id" position="replace"><field name="company_currency_id"/></field>
-            <field name="amount_total" position="replace">
+            <xpath expr="//div[@name='baseer_register_amount_cell']" position="replace">
                 <div class="d-flex flex-column gap-1 flex-grow-1">
-                    <div class="d-flex justify-content-between gap-2"><span>Actual receipts</span><field name="baseer_register_cash_receipts" widget="monetary"/></div>
-                    <div class="d-flex justify-content-between gap-2"><span>Actual payments</span><field name="baseer_register_cash_payments" widget="monetary"/></div>
-                    <div class="d-flex justify-content-between gap-2 fw-bold"><span>Net cash movement</span><field name="baseer_register_cash_net" widget="monetary"/></div>
+                    <div class="d-flex justify-content-between gap-2"><span>Incoming</span><field name="baseer_register_cash_receipts" widget="monetary"/></div>
+                    <div class="d-flex justify-content-between gap-2"><span>Outgoing</span><field name="baseer_register_cash_payments" widget="monetary"/></div>
+                    <div class="d-flex justify-content-between gap-2 fw-bold"><span>Net</span><field name="baseer_register_cash_net" widget="monetary"/></div>
                 </div>
-            </field>
-            <field name="payment_state" position="replace"/>
+            </xpath>
+            <field name="baseer_register_payment_state" position="replace"/>
+            <field name="baseer_register_contributor" position="replace"/>
+            <field name="baseer_register_incomplete" position="replace"/>
         </field>
     </record>
     <record id="view_cash_register_search" model="ir.ui.view">
         <field name="name">account.move.cash.register.search</field>
         <field name="model">account.move</field>
         <field name="arch" type="xml">
-            <search string="Cash movements">
+            <search string="Incoming / outgoing">
                 <field name="name" string="Number or reference" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
                 <field name="partner_id"/>
                 <field name="journal_id"/>
-                <filter name="receipts" string="Actual receipts" domain="[('baseer_register_cash_receipts', '!=', 0)]"/>
-                <filter name="payments" string="Actual payments" domain="[('baseer_register_cash_payments', '!=', 0)]"/>
+                <filter name="receipts" string="Incoming" domain="[('baseer_register_cash_receipts', '!=', 0)]"/>
+                <filter name="payments" string="Outgoing" domain="[('baseer_register_cash_payments', '!=', 0)]"/>
                 <separator/>
                 <filter name="group_journal" string="Journal" context="{'group_by': 'journal_id'}"/>
                 <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
