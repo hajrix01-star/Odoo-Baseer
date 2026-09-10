@@ -1,0 +1,248 @@
+# Translation of Baseer ready access roles.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: baseer_access_roles
+#: model:res.groups.privilege,name:baseer_access_roles.privilege_baseer_role
+msgid "Baseer Role"
+msgstr "صلاحية بصير"
+
+#. module: baseer_access_roles
+#: model:res.groups,name:baseer_access_roles.group_owner
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__res_users__baseer_access_role__owner
+msgid "Owner / General Manager"
+msgstr "المالك / المدير العام"
+
+#. module: baseer_access_roles
+#: model:res.groups,name:baseer_access_roles.group_accountant
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__res_users__baseer_access_role__accountant
+msgid "Accountant"
+msgstr "المحاسب"
+
+#. module: baseer_access_roles
+#: model:res.groups,name:baseer_access_roles.group_cashier
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__res_users__baseer_access_role__cashier
+msgid "Cashier"
+msgstr "الكاشير"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_res_users__baseer_access_role
+msgid "Baseer Access Role"
+msgstr "الصلاحية الجاهزة"
+
+#. module: baseer_access_roles
+#: model_terms:ir.ui.view,arch_db:baseer_access_roles.view_users_form_baseer_roles
+msgid "Baseer Access"
+msgstr "صلاحيات بصير"
+
+#. module: baseer_access_roles
+#: model_terms:ir.ui.view,arch_db:baseer_access_roles.view_users_form_baseer_roles
+msgid "Manual access"
+msgstr "صلاحيات مخصصة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,help:baseer_access_roles.field_res_users__baseer_access_role
+msgid "Leave empty to manage access manually. Applying a preset replaces existing application rights."
+msgstr "اتركه فارغًا لتحديد الصلاحيات يدويًا. اختيار صلاحية جاهزة يستبدل صلاحيات التطبيقات السابقة."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/res_users.py:0
+msgid "Only an administrator can change access roles or memberships."
+msgstr "يمكن للمسؤول فقط تغيير الصلاحيات أو عضويات المجموعات."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/res_users.py:0
+msgid "Unknown access role."
+msgstr "صلاحية غير معروفة."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/res_users.py:0
+msgid "Assign Baseer roles using the Access Role selector."
+msgstr "حدد صلاحيات بصير من حقل الصلاحية الجاهزة."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/res_users.py:0
+msgid "These groups exceed the selected access role. Switch to manual access first."
+msgstr "هذه المجموعات تتجاوز الصلاحية المختارة. انتقل إلى الصلاحيات المخصصة أولًا."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/purchase_batch.py:0
+msgid "Only the accountant or owner can approve purchase batches."
+msgstr "يمكن للمحاسب أو المالك فقط اعتماد دفعات فواتير المشتريات."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/purchase_batch.py:0
+msgid "Cashiers can view their batch details, not the accounting documents."
+msgstr "يمكن للكاشير الاطلاع على تفاصيل دفعاته دون فتح المستندات المحاسبية."
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_purchase_batch_line__baseer_bill_reference
+msgid "Approved Bill Reference"
+msgstr "مرجع الفاتورة المعتمدة"
+
+#. module: baseer_access_roles
+#: model:ir.ui.menu,name:baseer_access_roles.menu_cashier_purchase_batches
+msgid "My Purchase Batches"
+msgstr "دفعات مشترياتي"
+
+#. module: baseer_access_roles
+#: model:ir.model,name:baseer_access_roles.model_baseer_advance_entry
+msgid "Employee Advance Entry"
+msgstr "إدخال سلفة موظف"
+
+#. module: baseer_access_roles
+#: model:ir.actions.act_window,name:baseer_access_roles.action_advance_entries
+#: model:ir.ui.menu,name:baseer_access_roles.menu_pos_advance_entries
+#: model:ir.ui.menu,name:baseer_access_roles.menu_account_advance_entries
+msgid "Employee Advances"
+msgstr "سلف الموظفين"
+
+#. module: baseer_access_roles
+#: model_terms:ir.ui.view,arch_db:baseer_access_roles.view_advance_entry_form
+msgid "Employee Advance"
+msgstr "سلفة موظف"
+
+#. module: baseer_access_roles
+#: model_terms:ir.ui.view,arch_db:baseer_access_roles.view_advance_entry_form
+msgid "Approve and Disburse"
+msgstr "اعتماد وصرف"
+
+#. module: baseer_access_roles
+#: model_terms:ir.ui.view,arch_db:baseer_access_roles.view_advance_entry_form
+msgid "Record this employee advance and post its cash or bank disbursement?"
+msgstr "هل تريد تسجيل سلفة الموظف وترحيل صرفها من الصندوق أو البنك؟"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__name
+msgid "Name"
+msgstr "المرجع"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__date
+msgid "Date"
+msgstr "تاريخ الصرف"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__first_due_date
+msgid "First Due Date"
+msgstr "تاريخ أول قسط"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__installment_count
+msgid "Installment Count"
+msgstr "عدد الأقساط"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__journal_id
+msgid "Journal"
+msgstr "دفتر الصرف"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__balance
+msgid "Balance"
+msgstr "المتبقي"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields,field_description:baseer_access_roles.field_baseer_advance_entry__loan_reference
+msgid "Advance Reference"
+msgstr "مرجع السلفة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__baseer_advance_entry__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__baseer_advance_entry__state__running
+msgid "Outstanding"
+msgstr "قائمة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__baseer_advance_entry__state__closed
+msgid "Repaid"
+msgstr "مسددة"
+
+#. module: baseer_access_roles
+#: model:ir.model.fields.selection,name:baseer_access_roles.selection__baseer_advance_entry__state__cancel
+msgid "Cancelled"
+msgstr "ملغاة"
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "Employee advance"
+msgstr "سلفة موظف"
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "An assigned owner, accountant or cashier role is required."
+msgstr "يلزم تعيين صلاحية المالك أو المحاسب أو الكاشير."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "The company is outside your authorized companies."
+msgstr "الشركة ليست ضمن الشركات المسموح لك بها."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "Advance references and financial results are managed by the system."
+msgstr "يدير النظام مراجع السلف ونتائجها المالية."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "Switch to the company that owns this record."
+msgstr "انتقل إلى الشركة المالكة لهذا السجل."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "Choose an active employee belonging to this company."
+msgstr "اختر موظفًا نشطًا تابعًا لهذه الشركة."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "Choose an active bank or cash journal belonging to this company."
+msgstr "اختر دفتر بنك أو صندوق نشطًا تابعًا لهذه الشركة."
+
+#. module: baseer_access_roles
+#. odoo-python
+#: code:addons/baseer_access_roles/models/advance_entry.py:0
+msgid "An issued advance entry cannot be edited or deleted."
+msgstr "لا يمكن تعديل السلفة المصروفة أو حذفها."

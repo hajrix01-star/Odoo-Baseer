@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cashier_batch,Cashier purchase batch draft,baseer_purchase_batch.model_baseer_purchase_batch,group_cashier,1,1,1,1
+access_cashier_batch_line,Cashier purchase batch line draft,baseer_purchase_batch.model_baseer_purchase_batch_line,group_cashier,1,1,1,1
+access_cashier_category,Cashier purchase category reader,baseer_purchase_batch.model_baseer_purchase_category_map,group_cashier,1,0,0,0
+access_owner_advance_entry,Owner advance entries,model_baseer_advance_entry,group_owner,1,1,1,1
+access_accountant_advance_entry,Accountant advance entries,model_baseer_advance_entry,group_accountant,1,1,1,1
+access_cashier_advance_entry,Cashier own advance entries,model_baseer_advance_entry,group_cashier,1,1,1,1

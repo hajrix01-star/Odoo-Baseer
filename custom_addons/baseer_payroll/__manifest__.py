@@ -1,6 +1,6 @@
 {
     'name': 'Baseer Payroll and Employee Advances',
-    'version': '19.0.1.5.0',
+    'version': '19.0.1.5.1',
     'license': 'LGPL-3',
     'depends': ['om_hr_payroll_account', 'hr_holidays', 'baseer_report_layout'],
     'data': [

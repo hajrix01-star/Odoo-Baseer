@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cashier_batch_form" model="ir.ui.view">
+        <field name="name">Purchase batch cashier access</field>
+        <field name="model">baseer.purchase.batch</field>
+        <field name="inherit_id" ref="baseer_purchase_batch.view_purchase_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@invisible=&quot;state != 'draft'&quot;]" position="attributes"><attribute name="groups">!baseer_access_roles.group_cashier</attribute></xpath>
+            <xpath expr="//button[@name='action_approve']" position="attributes"><attribute name="groups">!baseer_access_roles.group_cashier</attribute></xpath>
+            <xpath expr="//button[@name='action_view_bills']" position="attributes"><attribute name="groups">!baseer_access_roles.group_cashier</attribute></xpath>
+            <xpath expr="//field[@name='move_id']" position="attributes"><attribute name="groups">!baseer_access_roles.group_cashier</attribute></xpath>
+            <xpath expr="//field[@name='bill_payment_state']" position="attributes"><attribute name="groups">!baseer_access_roles.group_cashier</attribute></xpath>
+            <xpath expr="//field[@name='move_id']" position="after"><field name="baseer_bill_reference" optional="hide" readonly="True" groups="baseer_access_roles.group_cashier"/></xpath>
+        </field>
+    </record>
+    <record id="view_cashier_batch_line_form" model="ir.ui.view">
+        <field name="name">Purchase batch line cashier access</field>
+        <field name="model">baseer.purchase.batch.line</field>
+        <field name="inherit_id" ref="baseer_purchase_batch.view_purchase_batch_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[field[@name='move_id']]" position="replace">
+                <group string="Original Documents" groups="!baseer_access_roles.group_cashier">
+                    <field name="move_id" string="Vendor Bill" readonly="True"/>
+                    <field name="payment_id" string="Payment" readonly="True"/>
+                    <field name="bill_payment_state" string="Payment Status" readonly="True"/>
+                </group>
+                <group groups="baseer_access_roles.group_cashier"><field name="baseer_bill_reference" readonly="True"/></group>
+            </xpath>
+        </field>
+    </record>
+    <menuitem id="menu_cashier_purchase_batches" name="My Purchase Batches"
+              parent="point_of_sale.menu_point_root" action="baseer_purchase_batch.action_purchase_batches"
+              sequence="35" groups="baseer_access_roles.group_cashier"/>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_cashier_own_batches" model="ir.rule">
+        <field name="name">Cashier: own purchase batches only</field>
+        <field name="model_id" ref="baseer_purchase_batch.model_baseer_purchase_batch"/>
+        <field name="domain_force">[('create_uid', '=', user.id)] if user.has_group('baseer_access_roles.group_cashier') else [(1, '=', 1)]</field>
+    </record>
+    <record id="rule_cashier_own_batch_lines" model="ir.rule">
+        <field name="name">Cashier: own purchase batch lines only</field>
+        <field name="model_id" ref="baseer_purchase_batch.model_baseer_purchase_batch_line"/>
+        <field name="domain_force">[('batch_id.create_uid', '=', user.id)] if user.has_group('baseer_access_roles.group_cashier') else [(1, '=', 1)]</field>
+    </record>
+</odoo>

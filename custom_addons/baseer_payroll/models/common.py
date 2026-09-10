@@ -4,6 +4,7 @@ from odoo import _
 from odoo.exceptions import AccessError, ValidationError
 
 INTERNAL = object()
+ADVANCE_DISBURSE = object()
 CENT = Decimal('0.01')
 
 def decimal(value):
@@ -47,7 +48,9 @@ def split_salary(gross, allowances, mode, daily_hours, work_days):
 
 def require_manager(record):
     record.check_access('write')
-    if not record.env.user.has_group('om_hr_payroll.group_hr_payroll_manager'):
+    advance_gateway = (record.env.su and record._name == 'baseer.hr.loan'
+                       and record.env.context.get('baseer_advance_disburse') is ADVANCE_DISBURSE)
+    if not advance_gateway and not record.env.user.has_group('om_hr_payroll.group_hr_payroll_manager'):
         raise AccessError(_('Payroll manager access is required.'))
     companies = record.mapped('company_id') if 'company_id' in record._fields else record.env.company
     if any(c != record.env.company for c in companies):

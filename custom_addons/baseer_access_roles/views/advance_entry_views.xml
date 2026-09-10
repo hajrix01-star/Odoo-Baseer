@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_advance_entry_list" model="ir.ui.view">
+        <field name="name">baseer.advance.entry.list</field>
+        <field name="model">baseer.advance.entry</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/><field name="date" widget="baseer_latin_date" options="{'numeric': True}"/>
+                <field name="employee_id" options="{'no_open': True}"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="amount"/><field name="balance"/><field name="state"/>
+                <field name="loan_reference" optional="hide"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_advance_entry_form" model="ir.ui.view">
+        <field name="name">baseer.advance.entry.form</field>
+        <field name="model">baseer.advance.entry</field>
+        <field name="arch" type="xml">
+            <form string="Employee Advance">
+                <header>
+                    <button name="action_disburse" type="object" string="Approve and Disburse" class="oe_highlight" invisible="state != 'draft'" confirm="Record this employee advance and post its cash or bank disbursement?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name" readonly="state != 'draft'"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company" readonly="state != 'draft'" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="company_id" invisible="True"/>
+                            <field name="employee_id" readonly="state != 'draft'" domain="[('company_id', '=', company_id), ('active', '=', True)]" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="currency_id" invisible="True"/>
+                            <field name="amount" readonly="state != 'draft'"/>
+                            <field name="journal_id" readonly="state != 'draft'" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="date" widget="baseer_latin_date" options="{'numeric': True}" readonly="state != 'draft'"/>
+                            <field name="first_due_date" widget="baseer_latin_date" options="{'numeric': True}" readonly="state != 'draft'"/>
+                            <field name="installment_count" readonly="state != 'draft'"/>
+                            <field name="balance" invisible="state == 'draft'"/>
+                            <field name="loan_reference" invisible="state == 'draft'"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_advance_entries" model="ir.actions.act_window">
+        <field name="name">Employee Advances</field>
+        <field name="res_model">baseer.advance.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_pos_advance_entries" name="Employee Advances" parent="point_of_sale.menu_point_root"
+              action="action_advance_entries" sequence="36" groups="group_owner,group_accountant,group_cashier"/>
+    <menuitem id="menu_account_advance_entries" name="Employee Advances" parent="account.menu_finance"
+              action="action_advance_entries" sequence="70" groups="group_owner,group_accountant"/>
+</odoo>
