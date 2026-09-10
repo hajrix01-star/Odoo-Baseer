@@ -1,7 +1,7 @@
 {
     'name': 'Baseer Ready Access Roles',
     'summary': 'Owner, accountant and cashier presets with company and draft controls',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'license': 'LGPL-3',
     'depends': ['baseer_service_seed', 'baseer_pos_summary', 'sale_management', 'purchase', 'baseer_payroll'],
     'data': [

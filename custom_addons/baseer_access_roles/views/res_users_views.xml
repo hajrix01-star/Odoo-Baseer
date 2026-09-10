@@ -5,6 +5,9 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='role']" position="attributes">
+                <attribute name="readonly" add="baseer_access_role" separator=" or "/>
+            </xpath>
             <xpath expr="//page[@name='access_rights']//field[@name='group_ids']" position="before">
                 <group string="Baseer Access" groups="base.group_system">
                     <field name="baseer_access_role" placeholder="Manual access"/>

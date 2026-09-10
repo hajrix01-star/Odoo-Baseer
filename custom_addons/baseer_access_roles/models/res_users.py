@@ -35,7 +35,19 @@ class ResUsers(models.Model):
         elif 'baseer_access_role' in values and 'group_ids' not in values:
             # Switching to manual access starts with internal-user rights, never an invisible retained preset.
             values['group_ids'] = [Command.set(self.env.ref('base.group_user').ids)]
+        if 'baseer_access_role' in values and values.get('notification_type') == 'inbox':
+            values['group_ids'] = [*values['group_ids'], Command.link(self.env.ref('mail.group_mail_notification_type_inbox').id)]
         return values
+
+    @api.onchange('baseer_access_role')
+    def _onchange_baseer_access_role(self):
+        self._baseer_require_role_admin()
+        for user in self:
+            values = user._baseer_role_values({
+                'baseer_access_role': user.baseer_access_role,
+                'notification_type': user.notification_type,
+            })
+            user.update(values)
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -51,6 +63,13 @@ class ResUsers(models.Model):
         guarded = {'baseer_access_role', 'group_ids', 'company_ids', 'role'}
         if guarded.intersection(vals):
             self._baseer_require_role_admin()
+        if 'baseer_access_role' in vals and 'notification_type' not in vals:
+            # The native notification preference is backed by a technical group.
+            # Preserve it per user when replacing application grants, including bulk changes.
+            with self.env.cr.savepoint():
+                for user in self:
+                    user.write(dict(vals, notification_type=user.sudo().notification_type))
+            return True
         with self.env.cr.savepoint():
             result = super().write(self._baseer_role_values(vals))
             if guarded.intersection(vals):
@@ -65,7 +84,8 @@ class ResUsers(models.Model):
             markers |= self.env.ref('baseer_access_roles.group_' + role, raise_if_not_found=False) or groups
         if len(markers) != 3:
             return
-        optional = self.env.ref('base.group_multi_company')
+        optional = (self.env.ref('base.group_multi_company')
+                    | self.env.ref('mail.group_mail_notification_type_inbox'))
         for user in self.sudo():
             actual = user.all_group_ids
             role = user.baseer_access_role
