@@ -178,6 +178,20 @@ class CorrectionMoveDispatcher(models.Model):
         batch_line = self._baseer_correction_batch_line()
         return self.env['baseer.financial.correction']._open_for_source(move=self, batch_line=batch_line)
 
+    def action_baseer_cancel_operation(self):
+        self.ensure_one()
+        self._baseer_correction_require_access()
+        source, action = self._baseer_correction_owner()
+        if source:
+            if source._name == 'baseer.pos.summary':
+                return source.action_baseer_cancel_operation()
+            raise UserError(_('Cancel this operation from its original operational document.'))
+        if self.origin_payment_id:
+            return self.origin_payment_id.action_baseer_cancel_operation()
+        self._baseer_assert_correction_eligible()
+        return self.env['baseer.financial.correction']._open_for_source(
+            move=self, batch_line=self._baseer_correction_batch_line(), operation='cancel')
+
 
 class CorrectionPaymentDispatcher(models.Model):
     _inherit = 'account.payment'
@@ -237,6 +251,12 @@ class CorrectionPaymentDispatcher(models.Model):
             raise UserError(_('This payment belongs to multiple purchase rows. Review the original settlement.'))
         return self.env['baseer.financial.correction']._open_for_source(payment=self,
             move=lines.move_id if lines else False, batch_line=lines)
+
+    def action_baseer_cancel_operation(self):
+        self.ensure_one()
+        self._baseer_correction_require_access()
+        self._baseer_assert_correction_eligible()
+        return self.env['baseer.financial.correction']._open_for_source(payment=self, operation='cancel')
 
 
 class CorrectionBatchDispatcher(models.Model):

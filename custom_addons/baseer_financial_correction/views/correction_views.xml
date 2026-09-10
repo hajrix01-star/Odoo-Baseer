@@ -6,20 +6,21 @@
         <field name="arch" type="xml">
             <form string="Correct operation" create="false" delete="false">
                 <field name="completed" invisible="True"/>
+                <field name="operation" invisible="True"/>
                 <field name="company_id" invisible="True"/>
                 <field name="batch_line_id" invisible="True"/>
                 <group>
                     <group>
                         <field name="move_id" string="Invoice" readonly="True" invisible="not move_id" options="{'no_open': True}"/>
                         <field name="payment_id" string="Payment" readonly="True" invisible="not payment_id" options="{'no_open': True}"/>
-                        <field name="partner_id" string="Correct partner" readonly="completed" required="True" options="{'no_create': True, 'no_open': True}" domain="[('active', '=', True), ('company_id', 'in', [False, company_id])]"/>
+                        <field name="partner_id" string="Correct partner" readonly="completed or operation == 'cancel'" required="True" options="{'no_create': True, 'no_open': True}" domain="[('active', '=', True), ('company_id', 'in', [False, company_id])]"/>
                     </group>
                     <group>
-                        <field name="gross_amount_input" string="Correct amount incl. tax" invisible="not batch_line_id" readonly="completed" required="batch_line_id"/>
+                        <field name="gross_amount_input" string="Correct amount incl. tax" invisible="not batch_line_id or operation == 'cancel'" readonly="completed" required="batch_line_id and operation == 'edit'"/>
                         <field name="reason" string="Correction reason" placeholder="What was entered incorrectly?" required="True" readonly="completed"/>
                     </group>
                 </group>
-                <field name="line_ids" invisible="not move_id or batch_line_id" readonly="completed" mode="list,kanban">
+                <field name="line_ids" invisible="not move_id or batch_line_id or operation == 'cancel'" readonly="completed" mode="list,kanban">
                     <list editable="bottom" create="false" delete="false">
                         <field name="name" string="Description"/>
                         <field name="quantity_input" string="Quantity"/>
@@ -47,7 +48,7 @@
                         </group>
                     </form>
                 </field>
-                <group string="Payment correction" invisible="not payment_id">
+                <group string="Payment correction" invisible="not payment_id or operation == 'cancel'">
                     <field name="correct_payment" string="Correct the payment record too" readonly="completed or not move_id"/>
                     <group invisible="not correct_payment">
                         <field name="payment_amount_input" string="Actual paid amount" readonly="completed" required="correct_payment"/>
@@ -57,8 +58,14 @@
                         <field name="payment_method_line_id" string="Payment method" readonly="completed" required="correct_payment" options="{'no_create': True, 'no_open': True}" domain="[('journal_id', '=', payment_journal_id), ('code', '=', 'manual')]"/>
                     </group>
                 </group>
+                <group string="Cancel recorded payment" invisible="operation != 'cancel' or not payment_id">
+                    <field name="payment_amount_input" string="Recorded payment amount" readonly="True"/>
+                    <field name="payment_journal_id" string="Cash / bank journal" readonly="True" options="{'no_open': True}"/>
+                    <field name="payment_cancel_ack" string="I confirm this payment was recorded in error; cancel its accounting effect too" readonly="completed"/>
+                </group>
                 <footer>
-                    <button name="action_confirm" type="object" string="Confirm correction" class="btn-primary" invisible="completed"/>
+                    <button name="action_confirm" type="object" string="Confirm correction" class="btn-primary" invisible="completed or operation != 'edit'"/>
+                    <button name="action_confirm" type="object" string="Confirm operation cancellation" class="btn-danger" invisible="completed or operation != 'cancel'"/>
                     <button string="Cancel" special="cancel" class="btn-secondary"/>
                 </footer>
             </form>
@@ -71,8 +78,14 @@
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
                 <field name="baseer_can_correct_operation" invisible="True"/>
+                <field name="baseer_unified_reset" invisible="True"/>
+                <field name="origin_payment_id" invisible="True"/>
+                <field name="baseer_pos_summary_id" invisible="True"/>
                 <button name="action_baseer_correct_operation" type="object" string="Correct operation" invisible="state != 'posted' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
+                <button name="action_baseer_cancel_operation" type="object" string="Cancel operation" invisible="state not in ('posted', 'cancel') or (move_type == 'entry' and not origin_payment_id and not baseer_pos_summary_id) or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
             </xpath>
+            <xpath expr="//button[@name='button_draft']" position="attributes"><attribute name="invisible" add="baseer_unified_reset" separator=" or "/></xpath>
+            <xpath expr="//button[@name='button_cancel']" position="attributes"><attribute name="invisible" add="baseer_unified_reset" separator=" or "/></xpath>
         </field>
     </record>
     <record id="view_payment_correction_entry" model="ir.ui.view">
@@ -83,6 +96,7 @@
             <xpath expr="//header" position="inside">
                 <field name="baseer_can_correct_operation" invisible="True"/>
                 <button name="action_baseer_correct_operation" type="object" string="Correct operation" invisible="state in ('draft', 'canceled', 'rejected') or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
+                <button name="action_baseer_cancel_operation" type="object" string="Cancel operation" invisible="state in ('draft', 'canceled', 'rejected') or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
             </xpath>
         </field>
     </record>
@@ -92,8 +106,9 @@
         <field name="inherit_id" ref="baseer_purchase_batch.view_purchase_batch_line_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
-                <header><field name="baseer_can_correct_operation" invisible="True"/><button name="action_baseer_correct_operation" type="object" string="Correct operation" invisible="batch_state != 'approved' or not is_current_company or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/></header>
+                <header><field name="baseer_can_correct_operation" invisible="True"/><field name="baseer_cancelled" invisible="True"/><button name="action_baseer_correct_operation" type="object" string="Correct operation" invisible="baseer_cancelled or batch_state != 'approved' or not is_current_company or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/><button name="action_baseer_cancel_operation" type="object" string="Cancel operation" invisible="baseer_cancelled or batch_state != 'approved' or not is_current_company or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/></header>
             </xpath>
+            <xpath expr="//sheet" position="inside"><group invisible="not baseer_cancelled" string="Cancelled operation"><field name="baseer_cancel_reason"/><field name="baseer_cancelled_by_id"/><field name="baseer_cancelled_at"/></group></xpath>
         </field>
     </record>
     <record id="view_register_correction_entry" model="ir.ui.view">
@@ -125,11 +140,15 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='line_ids']/list" position="inside">
                 <field name="baseer_can_correct_operation" column_invisible="True"/>
-                <button name="action_baseer_correct_operation" type="object" icon="fa-pencil" title="Correct operation" invisible="parent.state != 'approved' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
+                <field name="baseer_cancelled" string="Cancelled" readonly="True" optional="show"/>
+                <button name="action_baseer_correct_operation" type="object" icon="fa-pencil" title="Correct operation" invisible="baseer_cancelled or parent.state != 'approved' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
+                <button name="action_baseer_cancel_operation" type="object" icon="fa-ban" title="Cancel operation" invisible="baseer_cancelled or parent.state != 'approved' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
             </xpath>
-            <xpath expr="//field[@name='line_ids']/kanban" position="inside"><field name="baseer_can_correct_operation"/></xpath>
+            <xpath expr="//field[@name='line_ids']/kanban" position="inside"><field name="baseer_can_correct_operation"/><field name="baseer_cancelled"/></xpath>
             <xpath expr="//field[@name='line_ids']/kanban/templates/t[@t-name='card']" position="inside">
-                <button name="action_baseer_correct_operation" type="object" string="Correct operation" class="btn btn-link" invisible="parent.state != 'approved' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
+                <span class="badge text-bg-secondary" invisible="not baseer_cancelled">Cancelled</span>
+                <button name="action_baseer_correct_operation" type="object" string="Correct operation" class="btn btn-link" invisible="baseer_cancelled or parent.state != 'approved' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
+                <button name="action_baseer_cancel_operation" type="object" string="Cancel operation" class="btn btn-link" invisible="baseer_cancelled or parent.state != 'approved' or not baseer_can_correct_operation" groups="baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager"/>
             </xpath>
         </field>
     </record>

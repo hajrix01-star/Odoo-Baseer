@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0-20260817\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-08 22:55+0000\n"
-"PO-Revision-Date: 2026-09-08 22:55+0000\n"
+"POT-Creation-Date: 2026-09-10 17:37+0000\n"
+"PO-Revision-Date: 2026-09-10 17:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: ar_001\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -140,7 +141,7 @@ msgstr "أحد القيود المحاسبية الناتجة عن الملخص 
 #. odoo-python
 #: code:addons/baseer_pos_summary/models/summary.py:0
 msgid "A no-sales operation must have zero sales and zero customers."
-msgstr "عند تسجيل تشغيل دون مبيعات، يجب أن تكون المبيعات وعدد العملاء صفرًا."
+msgstr "يجب أن تكون المبيعات وعدد العملاء صفرًا عند إعلان التشغيل دون مبيعات."
 
 #. module: baseer_pos_summary
 #. odoo-python
@@ -160,7 +161,7 @@ msgstr ""
 #. module: baseer_pos_summary
 #: model:ir.model.constraint,message:baseer_pos_summary.constraint_baseer_pos_summary_active_company_date_period_unique
 msgid "A summary already exists for this company, date and period."
-msgstr ""
+msgstr "يوجد ملخص بالفعل لهذه الشركة والتاريخ والفترة."
 
 #. module: baseer_pos_summary
 #: model:ir.model.constraint,message:baseer_pos_summary.constraint_pos_order_baseer_summary_unique
@@ -213,12 +214,12 @@ msgstr "تُحدد شركة توزيع الدفعات وفئته وروابط د
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_day_entry_line__amount
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary_allocation__amount
 msgid "Amount"
-msgstr "المبلغ شامل الضريبة"
+msgstr "المبلغ"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__amount_gross
 msgid "Amount Gross"
-msgstr "الإجمالي شامل الضريبة"
+msgstr "المبلغ الإجمالي"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__amount_net
@@ -470,6 +471,12 @@ msgid "Cancelled for correction"
 msgstr "ملغى للتصحيح"
 
 #. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/correction.py:0
+msgid "Cancelled sales summary"
+msgstr "ملخص مبيعات ملغى"
+
+#. module: baseer_pos_summary
 #: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_payment_category__kind__cash
 msgid "Cash"
 msgstr "نقد"
@@ -530,7 +537,7 @@ msgstr ""
 #. module: baseer_pos_summary
 #: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_summary_correction_form
 msgid "Close"
-msgstr ""
+msgstr "إغلاق"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_daily_report_line__status__closed
@@ -582,6 +589,11 @@ msgstr "فترة الإغلاق"
 #: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_list
 msgid "Closures"
 msgstr "الإغلاقات"
+
+#. module: baseer_pos_summary
+#: model:ir.model,name:baseer_pos_summary.model_res_company
+msgid "Companies"
+msgstr "الشركات"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_closure__company_id
@@ -696,6 +708,12 @@ msgid ""
 "company."
 msgstr ""
 "حدد ضريبة مبيعات نشطة واحدة بنسبة بسيطة، مستحقة عند الفوترة، لهذه الشركة."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/payment_seed.py:0
+msgid "Configure the company sales tax before creating POS payment defaults."
+msgstr "اضبط ضريبة مبيعات الشركة قبل إنشاء طرق الدفع الافتراضية."
 
 #. module: baseer_pos_summary
 #: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_closure_form
@@ -1046,6 +1064,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment_method__display_name
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_session__display_name
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_product_template__display_name
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_res_company__display_name
 msgid "Display Name"
 msgstr "اسم العرض"
 
@@ -1082,7 +1101,7 @@ msgstr ""
 msgid ""
 "Each day appears once. Open it to view its morning and evening shifts "
 "together."
-msgstr ""
+msgstr "يظهر كل يوم مرة واحدة. افتحه لعرض الشفتين الصباحي والمسائي معًا."
 
 #. module: baseer_pos_summary
 #. odoo-python
@@ -1136,11 +1155,6 @@ msgstr "أدخل مبلغًا موجبًا بمنزلتين عشريتين كح�
 msgid ""
 "Enter a sales amount, or explicitly declare an operating day with no sales."
 msgstr "أدخل مبلغ المبيعات، أو فعّل خيار التشغيل دون مبيعات."
-
-#. module: baseer_pos_summary
-#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
-msgid "Enter sales including VAT for each payment method."
-msgstr "أدخل المبيعات شاملة الضريبة لكل طريقة دفع."
 
 #. module: baseer_pos_summary
 #: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_config_summary_kanban
@@ -1202,7 +1216,7 @@ msgstr "يجب ترحيل جميع قيود الملخص في الشركة ال�
 #. module: baseer_pos_summary
 #: model:ir.model,name:baseer_pos_summary.model_baseer_pos_summary
 msgid "External POS sales summary"
-msgstr "ملخص مبيعات نقاط البيع الخارجية"
+msgstr "ملخص مبيعات نقطة البيع الخارجي"
 
 #. module: baseer_pos_summary
 #. odoo-python
@@ -1412,6 +1426,7 @@ msgstr "إجازة"
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_payment_method__id
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_pos_session__id
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_product_template__id
+#: model:ir.model.fields,field_description:baseer_pos_summary.field_res_company__id
 msgid "ID"
 msgstr "المُعرف"
 
@@ -1424,6 +1439,12 @@ msgstr "أيام غير مكتملة"
 #: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_daily_report_line__status__incomplete
 msgid "Incomplete day"
 msgstr "يوم غير مكتمل"
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/payment_seed.py:0
+msgid "Invalid POS payment seed reference: %s"
+msgstr "مرجع بذرة طرق الدفع غير صالح: %s"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_summary__is_current_company
@@ -1440,7 +1461,7 @@ msgstr "قيد اليومية"
 #. module: baseer_pos_summary
 #: model:ir.model,name:baseer_pos_summary.model_account_move_line
 msgid "Journal Item"
-msgstr "عنصر اليومية"
+msgstr "بند القيد"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_payment_category__kind
@@ -1476,7 +1497,7 @@ msgstr "تاريخ آخر تحديث"
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__line_ids
 msgid "Line"
-msgstr "الصف"
+msgstr "البند"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields.selection,name:baseer_pos_summary.selection__baseer_pos_closure__reason__maintenance
@@ -1572,10 +1593,10 @@ msgid "New"
 msgstr "جديد"
 
 #. module: baseer_pos_summary
-#. odoo-javascript
-#: code:addons/baseer_pos_summary/static/src/xml/payment_amount_grid.xml:0
-msgid "No payment methods are configured for this company."
-msgstr "لم تُضبط طرق الدفع لهذه الشركة."
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/payment_seed.py:0
+msgid "No available POS seed journal code."
+msgstr "لا يتوفر رمز لدفتر يومية طرق الدفع."
 
 #. module: baseer_pos_summary
 #: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_archive_search
@@ -1676,7 +1697,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/baseer_pos_summary/models/correction.py:0
 msgid "Only the correction creator can use this request."
-msgstr "يمكن لمن أنشأ طلب التصحيح فقط استخدامه."
+msgstr "يمكن لمنشئ التصحيح فقط استخدام هذا الطلب."
 
 #. module: baseer_pos_summary
 #. odoo-python
@@ -2014,7 +2035,7 @@ msgstr "السبب: %s"
 #. module: baseer_pos_summary
 #: model_terms:ir.actions.act_window,help:baseer_pos_summary.action_summary
 msgid "Record your daily sales"
-msgstr ""
+msgstr "سجّل مبيعاتك اليومية"
 
 #. module: baseer_pos_summary
 #: model:ir.model.fields,field_description:baseer_pos_summary.field_baseer_pos_daily_report__recorded_customers
@@ -2257,6 +2278,12 @@ msgstr "الشفت الثاني"
 #: code:addons/baseer_pos_summary/models/day_entry.py:0
 msgid "Select DAY OFF before saving a closure."
 msgstr "فعّل خيار الإجازة قبل حفظ الإغلاق."
+
+#. module: baseer_pos_summary
+#. odoo-python
+#: code:addons/baseer_pos_summary/models/day_entry.py:0
+msgid "Select a shift before saving sales."
+msgstr "اختر الشفت قبل حفظ المبيعات."
 
 #. module: baseer_pos_summary
 #. odoo-python
@@ -2894,25 +2921,12 @@ msgid "report_id"
 msgstr "التقرير"
 
 #. module: baseer_pos_summary
-#. odoo-python
-#: code:addons/baseer_pos_summary/models/day_entry.py:0
-msgid "Select a shift before saving sales."
-msgstr "اختر الشفت قبل حفظ المبيعات."
+#: model_terms:ir.ui.view,arch_db:baseer_pos_summary.view_pos_day_entry_form
+msgid "Enter sales including VAT for each payment method."
+msgstr "أدخل المبيعات شاملة الضريبة لكل طريقة دفع."
 
 #. module: baseer_pos_summary
-#. odoo-python
-#: code:addons/baseer_pos_summary/models/payment_seed.py:0
-msgid "Invalid POS payment seed reference: %s"
-msgstr "مرجع بذرة طرق الدفع غير صالح: %s"
-
-#. module: baseer_pos_summary
-#. odoo-python
-#: code:addons/baseer_pos_summary/models/payment_seed.py:0
-msgid "No available POS seed journal code."
-msgstr "لا يتوفر رمز لدفتر يومية طرق الدفع."
-
-#. module: baseer_pos_summary
-#. odoo-python
-#: code:addons/baseer_pos_summary/models/payment_seed.py:0
-msgid "Configure the company sales tax before creating POS payment defaults."
-msgstr "اضبط ضريبة مبيعات الشركة قبل إنشاء طرق الدفع الافتراضية."
+#. odoo-javascript
+#: code:addons/baseer_pos_summary/static/src/xml/payment_amount_grid.xml:0
+msgid "No payment methods are configured for this company."
+msgstr "لم تُضبط طرق الدفع لهذه الشركة."

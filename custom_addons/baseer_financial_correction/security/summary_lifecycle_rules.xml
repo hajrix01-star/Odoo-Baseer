@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_summary_lifecycle_owner_company" model="ir.rule">
+        <field name="name">Summary correction: creator and authorized company</field>
+        <field name="model_id" ref="baseer_pos_summary.model_baseer_pos_summary_correction"/>
+        <field name="domain_force">[(1, '=', 0)] if user.has_group('baseer_access_roles.group_cashier') else [('create_uid', '=', user.id), ('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_summary_lifecycle_line_owner_company" model="ir.rule">
+        <field name="name">Summary correction amounts: creator and authorized company</field>
+        <field name="model_id" ref="model_baseer_pos_summary_correction_line"/>
+        <field name="domain_force">[(1, '=', 0)] if user.has_group('baseer_access_roles.group_cashier') else [('wizard_id.create_uid', '=', user.id), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

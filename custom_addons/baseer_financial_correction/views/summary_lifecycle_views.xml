@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_summary_lifecycle_correction" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.correction.lifecycle</field>
+        <field name="model">baseer.pos.summary.correction</field>
+        <field name="inherit_id" ref="baseer_pos_summary.view_summary_correction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/group" position="before">
+                <field name="completed" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="operation" widget="radio" options="{'horizontal': True}" readonly="completed"/>
+            </xpath>
+            <xpath expr="//field[@name='reason']" position="attributes">
+                <attribute name="readonly">completed</attribute>
+            </xpath>
+            <xpath expr="//form/group" position="after">
+                <group>
+                    <field name="original_total" string="Original sales incl. tax"/>
+                    <field name="customer_count_input" invisible="operation != 'edit'" readonly="completed"/>
+                    <field name="zero_sales" invisible="operation != 'edit'" readonly="completed"/>
+                </group>
+                <field name="line_ids" nolabel="1" readonly="completed" mode="list,kanban">
+                    <list editable="bottom" create="0" delete="0">
+                        <field name="currency_id" column_invisible="True"/>
+                        <field name="payment_method_id" options="{'no_open': True}"/>
+                        <field name="account_name"/>
+                        <field name="original_amount" string="Recorded amount"/>
+                        <field name="amount_input" column_invisible="parent.operation != 'edit'"/>
+                    </list>
+                    <kanban records_draggable="false" create="false" delete="false">
+                        <field name="operation"/>
+                        <templates><t t-name="card">
+                            <div class="fw-bold text-break"><field name="payment_method_id"/></div>
+                            <div class="small text-muted text-break mt-1"><field name="account_name"/></div>
+                            <div class="d-flex flex-wrap gap-3 mt-2">
+                                <div><span>Recorded amount: </span><field name="original_amount"/></div>
+                                <div t-if="record.operation.raw_value === 'edit'"><span>Correct amount: </span><field name="amount_input"/></div>
+                            </div>
+                        </t></templates>
+                    </kanban>
+                    <form string="Payment method" create="false" delete="false">
+                        <field name="operation" invisible="True"/>
+                        <field name="completed" invisible="True"/>
+                        <field name="currency_id" invisible="True"/>
+                        <group>
+                            <field name="payment_method_id" options="{'no_open': True}"/>
+                            <field name="account_name"/>
+                            <field name="original_amount" string="Recorded amount"/>
+                            <field name="amount_input" invisible="operation != 'edit'" readonly="completed"/>
+                        </group>
+                    </form>
+                </field>
+                <group><field name="acknowledge_bookkeeping" readonly="completed"/></group>
+            </xpath>
+            <xpath expr="//form/p" position="replace">
+                <p>If money actually moved, use the native credit or refund workflow. This operation corrects the recorded bookkeeping only.</p>
+            </xpath>
+            <xpath expr="//button[@name='action_correct']" position="attributes">
+                <attribute name="string">Confirm</attribute>
+                <attribute name="invisible">completed</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_summary_lifecycle_button" model="ir.ui.view">
+        <field name="name">baseer.pos.summary.lifecycle.button</field>
+        <field name="model">baseer.pos.summary</field>
+        <field name="inherit_id" ref="baseer_pos_summary.view_summary_correction_history"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside"><field name="baseer_can_correct_operation" invisible="1"/></xpath>
+            <xpath expr="//button[@name='action_open_correction']" position="attributes">
+                <attribute name="string">Edit / cancel operation</attribute>
+                <attribute name="groups">baseer_access_roles.group_owner,baseer_access_roles.group_accountant,account.group_account_manager</attribute>
+                <attribute name="invisible">state != 'approved' or not is_current_company or not baseer_can_correct_operation</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,5 +1,5 @@
 """Keep one approved input row consistent with its corrected native documents."""
-from odoo import _, Command, models
+from odoo import _, api, Command, fields, models
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.addons.baseer_purchase_batch.models.purchase_batch import (
     BaseerPurchaseBatchLine, MAX_REFERENCE_CANDIDATES, checked_gross,
@@ -12,8 +12,55 @@ from .dispatcher import require_access
 class CorrectionBatchAdapter(models.Model):
     _inherit = 'baseer.purchase.batch.line'
 
+    baseer_cancelled = fields.Boolean(readonly=True, copy=False, default=False, index=True)
+    baseer_cancel_reason = fields.Text(readonly=True, copy=False)
+    baseer_cancelled_by_id = fields.Many2one('res.users', readonly=True, copy=False)
+    baseer_cancelled_at = fields.Datetime(readonly=True, copy=False)
+    _CANCEL_FIELDS = {'baseer_cancelled', 'baseer_cancel_reason', 'baseer_cancelled_by_id', 'baseer_cancelled_at'}
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        if any(self._CANCEL_FIELDS.intersection(vals) for vals in vals_list) or any(
+                'default_' + name in self.env.context for name in self._CANCEL_FIELDS):
+            raise AccessError(_('Purchase cancellation history is controlled by the operation workflow.'))
+        return super().create(vals_list)
+
+    def write(self, vals):
+        if self._CANCEL_FIELDS.intersection(vals):
+            raise AccessError(_('Purchase cancellation history is controlled by the operation workflow.'))
+        return super().write(vals)
+
+    def action_baseer_cancel_operation(self):
+        self.ensure_one()
+        require_access(self)
+        if self.baseer_cancelled:
+            raise UserError(_('This purchase row has already been cancelled.'))
+        if self.batch_id.state != 'approved' or not self.move_id:
+            raise UserError(_('Only an approved purchase row can be cancelled here.'))
+        return self.env['baseer.financial.correction']._open_for_source(
+            move=self.move_id, payment=self.payment_id, batch_line=self, operation='cancel')
+
+    def _baseer_apply_invoice_cancellation(self, wizard, capability):
+        from .correction import CORRECTION_CAPABILITY
+        self.ensure_one()
+        if capability is not CORRECTION_CAPABILITY:
+            raise AccessError(_('Purchase cancellation history is controlled by the operation workflow.'))
+        require_access(self)
+        if (wizard.batch_line_id != self or wizard.create_uid != self.env.user
+                or wizard.company_id != self.company_id or wizard.move_id != self.move_id
+                or wizard.payment_id != self.payment_id or self.batch_id.state != 'approved'
+                or self.move_id.state != 'cancel' or (self.payment_id and (
+                    self.payment_id.state != 'canceled' or self.payment_id.move_id.state != 'cancel'))):
+            raise ValidationError(_('The cancelled purchase row must match its cancelled invoice and payment.'))
+        self.batch_id._lock_batches()
+        super(BaseerPurchaseBatchLine, self).write({
+            'baseer_cancelled': True, 'baseer_cancel_reason': wizard.reason.strip(),
+            'baseer_cancelled_by_id': self.env.uid, 'baseer_cancelled_at': fields.Datetime.now()})
+
     def _baseer_check_correction_source(self, wizard):
         self.ensure_one()
+        if self.baseer_cancelled:
+            raise UserError(_('A cancelled purchase row cannot be edited.'))
         wizard.ensure_one()
         require_access(self)
         wizard.check_access('read')
@@ -88,3 +135,25 @@ class CorrectionBatchAdapter(models.Model):
                 or monetary(self.tax_amount) != monetary(bill.amount_tax)):
             raise ValidationError(_('The corrected purchase row totals differ from the native invoice.'))
         return True
+
+
+class CorrectionBatchTotals(models.Model):
+    _inherit = 'baseer.purchase.batch'
+
+    @api.depends('line_ids.gross_amount', 'line_ids.net_amount', 'line_ids.tax_amount', 'line_ids.baseer_cancelled')
+    def _compute_amounts(self):
+        from decimal import Decimal
+        for batch in self:
+            active = batch.line_ids.filtered(lambda row: not row.baseer_cancelled)
+            batch.amount_gross = float(sum((monetary(row.gross_amount) for row in active), Decimal('0')))
+            batch.amount_net = float(sum((monetary(row.net_amount) for row in active), Decimal('0')))
+            batch.amount_tax = float(sum((monetary(row.tax_amount) for row in active), Decimal('0')))
+
+    def _get_print_data(self):
+        data = super()._get_print_data()
+        for line, row in zip(self.line_ids.sorted(lambda item: (item.sequence, item.id)), data['rows']):
+            if line.baseer_cancelled:
+                row['description'] = _('Cancelled. Original amount: %s', row['gross'])
+                row['payment'] = _('Cancelled')
+                row.update(gross='0.00', net='0.00', tax='0.00')
+        return data

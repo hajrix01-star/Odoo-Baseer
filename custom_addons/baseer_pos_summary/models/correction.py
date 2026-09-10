@@ -30,9 +30,15 @@ class PosSummary(models.Model):
     replaces_id = fields.Many2one('baseer.pos.summary', readonly=True, copy=False, ondelete='restrict', check_company=True)
     reversal_move_ids = fields.Many2many('account.move', 'baseer_pos_summary_reversal_rel', 'summary_id', 'move_id', readonly=True, copy=False)
 
+    def _check_correction_access(self):
+        manager(self)
+
+    def _prepare_correction_replacement_values(self, values):
+        return values
+
     def action_open_correction(self):
         self.ensure_one()
-        manager(self)
+        self._check_correction_access()
         self._lock()
         if self.state == 'cancelled' and self.replacement_id:
             return self._source_action(self.replacement_id, _('Replacement sales summary'))
@@ -42,14 +48,16 @@ class PosSummary(models.Model):
         return {'type': 'ir.actions.act_window', 'res_model': request._name, 'res_id': request.id,
                 'view_mode': 'form', 'target': 'new'}
 
-    def _correct_summary(self, reason):
+    def _correct_summary(self, reason, create_replacement=True):
         self.ensure_one()
-        manager(self)
+        self._check_correction_access()
         if not isinstance(reason, str) or not reason.strip() or len(reason.strip()) > 2000:
             raise ValidationError(_('Enter a correction reason of at most 2000 characters.'))
         with self.env.cr.savepoint():
             self._lock()
             self._serialize_company()
+            if self.state == 'cancelled' and not self.replacement_id and not create_replacement:
+                return self._source_action(self, _('Cancelled sales summary'))
             if self.state == 'cancelled' and self.replacement_id:
                 return self._source_action(self.replacement_id, _('Replacement sales summary'))
             if self.state != 'approved':
@@ -92,7 +100,9 @@ class PosSummary(models.Model):
                 'reversal_move_ids': [Command.set(reversals.ids)]})
             if scoped.order_id:
                 scoped.order_id._mark_summary_corrected()
-            replacement = self.env['baseer.pos.summary'].create(vals)
+            if not create_replacement:
+                return self._source_action(self, _('Cancelled sales summary'))
+            replacement = self.env['baseer.pos.summary'].create(self._prepare_correction_replacement_values(vals))
             clean_context(replacement, self.company_id, authorized_internal=True)._write_correction_metadata({'replaces_id': self.id})
             scoped._write_correction_metadata({'replacement_id': replacement.id})
             return self._source_action(replacement, _('Review replacement sales summary'))

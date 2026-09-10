@@ -41,6 +41,9 @@ class FinancialCorrection(models.TransientModel):
     move_id = fields.Many2one('account.move', readonly=True)
     payment_id = fields.Many2one('account.payment', readonly=True)
     batch_line_id = fields.Many2one('baseer.purchase.batch.line', readonly=True)
+    operation = fields.Selection([('edit', 'Edit'), ('cancel', 'Cancel operation')],
+                                 default='edit', required=True, readonly=True)
+    payment_cancel_ack = fields.Boolean(string='I confirm this recorded payment must be cancelled')
     partner_id = fields.Many2one('res.partner', required=True)
     reason = fields.Text()
     correct_payment = fields.Boolean(string='Correct recorded payment')
@@ -55,7 +58,7 @@ class FinancialCorrection(models.TransientModel):
     audit_id = fields.Many2one('baseer.financial.correction.audit', readonly=True)
 
     _PROTECTED = {'company_id', 'move_id', 'payment_id', 'batch_line_id', 'baseline_json',
-                  'operation_token', 'completed', 'audit_id', 'create_uid'}
+                  'operation_token', 'completed', 'audit_id', 'create_uid', 'operation'}
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -100,13 +103,17 @@ class FinancialCorrection(models.TransientModel):
             self.invalidate_recordset(['completed'])
 
     @api.model
-    def _open_for_source(self, move=False, payment=False, batch_line=False):
+    def _open_for_source(self, move=False, payment=False, batch_line=False, operation='edit'):
+        if operation not in ('edit', 'cancel'):
+            raise ValidationError(_('Unknown financial operation.'))
         move = move or self.env['account.move']
         payment = payment or self.env['account.payment']
         batch_line = batch_line or self.env['baseer.purchase.batch.line']
         if batch_line:
             batch_line.ensure_one()
             batch_line.check_access('read')
+            if batch_line.baseer_cancelled:
+                raise UserError(_('This purchase row is already cancelled.'))
             if batch_line.batch_id.state != 'approved':
                 raise UserError(_('Correct draft batch rows directly before approval.'))
             move, payment = batch_line.move_id, batch_line.payment_id
@@ -125,10 +132,10 @@ class FinancialCorrection(models.TransientModel):
             if len(found) > 1:
                 raise UserError(_('This operation is shared by several batch rows.'))
             batch_line = found
-        model._validate_source(move, payment, batch_line)
+        model._validate_source(move, payment, batch_line, operation=operation)
         vals = {'company_id': company.id, 'move_id': move.id, 'payment_id': payment.id,
                 'batch_line_id': batch_line.id, 'partner_id': source.partner_id.id,
-                'reason': '', 'correct_payment': bool(payment and not move),
+                'reason': '', 'operation': operation, 'correct_payment': bool(payment and not move),
                 'payment_amount_input': str(_money(payment.amount)) if payment else False,
                 'payment_journal_id': payment.journal_id.id,
                 'payment_method_line_id': payment.payment_method_line_id.id,
@@ -139,27 +146,30 @@ class FinancialCorrection(models.TransientModel):
                     'quantity_input': str(line.quantity), 'price_unit_input': str(line.price_unit),
                     'discount_input': str(line.discount), 'tax_ids': [Command.set(line.tax_ids.ids)]})
                     for line in move.invoice_line_ids.filtered(lambda l: l.display_type == 'product')]
-                    if not batch_line else []}
+                    if not batch_line and operation == 'edit' else []}
         wizard = super(FinancialCorrection, model.with_context(**{_CAP_KEY: CORRECTION_CAPABILITY})).create(vals)
-        return {'type': 'ir.actions.act_window', 'name': _('Correct operation'),
+        return {'type': 'ir.actions.act_window', 'name': _('Cancel operation') if operation == 'cancel' else _('Correct operation'),
                 'res_model': self._name, 'res_id': wizard.id, 'view_mode': 'form',
                 'target': 'new', 'context': {**context, 'edit': True, 'form_view_initial_mode': 'edit'}}
 
     @api.model
     def _resolve_pair(self, move, payment):
-        if payment and not move:
+        if payment:
             counterpart = payment._seek_for_lines()[1]
             partials = counterpart.matched_debit_ids | counterpart.matched_credit_ids
-            linked = (partials.debit_move_id.move_id | partials.credit_move_id.move_id) - payment.move_id
+            linked = payment.invoice_ids | ((partials.debit_move_id.move_id | partials.credit_move_id.move_id) - payment.move_id)
             if len(linked) > 1 or any(not item.is_invoice() for item in linked):
                 raise UserError(_('Shared or complex payments must use their native reconciliation workflow.'))
-            move = linked
+            if move and linked and move != linked:
+                raise UserError(_('The payment is associated with another invoice.'))
+            move = move or linked
         if move:
             terms = move.line_ids.filtered(lambda l: l.account_id.account_type in ('asset_receivable', 'liability_payable'))
             partials = terms.matched_debit_ids | terms.matched_credit_ids
             others = (partials.debit_move_id.move_id | partials.credit_move_id.move_id) - move
-            linked_payments = others.origin_payment_id
-            if len(linked_payments) > 1 or others != linked_payments.move_id:
+            reconciled_payments = others.origin_payment_id
+            linked_payments = move.matched_payment_ids | reconciled_payments
+            if len(linked_payments) > 1 or others != reconciled_payments.move_id:
                 raise UserError(_('Only an invoice with one dedicated manual payment can be corrected here.'))
             if payment and linked_payments and payment != linked_payments:
                 raise UserError(_('The payment link no longer matches the invoice.'))
@@ -167,17 +177,25 @@ class FinancialCorrection(models.TransientModel):
         return move, payment
 
     @api.model
-    def _validate_source(self, move, payment, batch_line):
+    def _validate_source(self, move, payment, batch_line, operation='edit'):
+        resolved_move, resolved_payment = self._resolve_pair(move, payment)
+        if resolved_move != move or resolved_payment != payment:
+            raise UserError(_('The invoice and payment association changed. Open a fresh operation.'))
         company = (move or payment).company_id
         if company.id != self.env.company.id or company not in self.env.user.company_ids:
             raise AccessError(_('Select the source company before correcting this operation.'))
         if company.currency_id.name != 'SAR' or company.currency_id.decimal_places != 2:
             raise UserError(_('This correction workflow requires a SAR company with two decimal places.'))
+        if operation == 'cancel' and all(record.state == 'cancel' for record in move | payment.move_id):
+            raise UserError(_('This operation is already cancelled.'))
+        if operation == 'edit' and move and move.state == 'cancel':
+            raise UserError(_('A cancelled invoice cannot be edited here. Complete its cancellation or create a new source document.'))
         for record in move | payment.move_id:
             record.check_access('write')
             if record.company_id != company or record.currency_id != company.currency_id:
                 raise UserError(_('Foreign-currency and cross-company corrections require the native workflow.'))
-            if record.state != 'posted' or record.date > fields.Date.context_today(self) or record.auto_post != 'no':
+            allowed_states = ('posted', 'cancel') if operation == 'cancel' else ('posted',)
+            if record.state not in allowed_states or record.date > fields.Date.context_today(self) or record.auto_post != 'no':
                 raise UserError(_('Only posted operations in the current or an earlier open period are supported.'))
             if record.inalterable_hash or record.need_cancel_request:
                 raise UserError(_('This operation is secured or requires an electronic cancellation.'))
@@ -185,6 +203,8 @@ class FinancialCorrection(models.TransientModel):
                 raise UserError(_('The accounting or tax period is locked.'))
             if record.tax_cash_basis_rec_id or record.tax_cash_basis_origin_move_id:
                 raise UserError(_('Cash-basis tax entries require their native correction workflow.'))
+            if record.reversed_entry_id or record.reversal_move_ids:
+                raise UserError(_('Reversed operations and credit notes require their native workflow.'))
             if 'edi_document_ids' in record._fields and record.edi_document_ids:
                 raise UserError(_('Electronic documents must use the native cancellation or credit-note workflow.'))
         if move:
@@ -200,8 +220,9 @@ class FinancialCorrection(models.TransientModel):
             payment._baseer_correction_require_access()
             payment._baseer_assert_correction_eligible()
             liquidity, counterpart, writeoffs = payment._seek_for_lines()
+            allowed_payment_states = ('paid', 'in_process', 'canceled') if operation == 'cancel' else ('paid', 'in_process')
             if (payment.company_id != company or payment.currency_id != company.currency_id
-                    or payment.state not in ('paid', 'in_process') or len(liquidity) != 1
+                    or payment.state not in allowed_payment_states or len(liquidity) != 1
                     or len(counterpart) != 1 or writeoffs or not payment.move_id):
                 raise UserError(_('Only a simple posted manual payment is supported.'))
             if payment.reconciled_statement_line_ids or liquidity.matched_debit_ids or liquidity.matched_credit_ids:
@@ -226,6 +247,8 @@ class FinancialCorrection(models.TransientModel):
                 raise UserError(_('The payment is associated with another invoice.'))
         if batch_line:
             batch_line.check_access('read')
+            if batch_line.baseer_cancelled:
+                raise UserError(_('This purchase row is already cancelled.'))
             if (batch_line.company_id != company or batch_line.batch_id.state != 'approved'
                     or batch_line.move_id != move or batch_line.payment_id != payment):
                 raise UserError(_('The approved batch source no longer matches this operation.'))
@@ -261,6 +284,7 @@ class FinancialCorrection(models.TransientModel):
             'state': record.state, 'date': record.date, 'invoice_date': record.invoice_date,
             'partner': record.partner_id.id, 'journal': record.journal_id.id, 'ref': record.ref,
             'total': record.amount_total, 'residual': record.amount_residual,
+            'matched_payment_ids': record.matched_payment_ids.ids,
             'lines': [{'id': line.id, 'write_date': line.write_date, 'account': line.account_id.id,
                 'partner': line.partner_id.id, 'balance': line.balance, 'amount_currency': line.amount_currency,
                 'name': line.name, 'quantity': line.quantity, 'price': line.price_unit,
@@ -276,7 +300,8 @@ class FinancialCorrection(models.TransientModel):
             'payment': {'id': payment.id, 'name': payment.name, 'date': payment.date,
                 'write_date': payment.write_date, 'amount': payment.amount,
                 'partner': payment.partner_id.id, 'journal': payment.journal_id.id,
-                'method': payment.payment_method_line_id.id, 'state': payment.state} if payment else False,
+                'method': payment.payment_method_line_id.id, 'state': payment.state,
+                'invoice_ids': payment.invoice_ids.ids} if payment else False,
             'batch': {'id': batch_line.id, 'write_date': batch_line.write_date,
                 'batch_write_date': batch_line.batch_id.write_date, 'gross': batch_line.gross_amount,
                 'partner_id': batch_line.partner_id.id, 'tax_id': batch_line.tax_id.id,
@@ -284,7 +309,11 @@ class FinancialCorrection(models.TransientModel):
                 'payment_method_line_id': batch_line.payment_method_line_id.id,
                 'is_credit': batch_line.is_credit, 'invoice_date': batch_line.invoice_date,
                 'supplier_ref': batch_line.supplier_ref, 'move_id': batch_line.move_id.id,
-                'payment_id': batch_line.payment_id.id} if batch_line else False,
+                'payment_id': batch_line.payment_id.id,
+                'cancelled': batch_line.baseer_cancelled,
+                'cancel_reason': batch_line.baseer_cancel_reason,
+                'cancelled_by': batch_line.baseer_cancelled_by_id.id,
+                'cancelled_at': batch_line.baseer_cancelled_at} if batch_line else False,
             'partials': [{'id': p.id, 'debit': p.debit_move_id.id, 'credit': p.credit_move_id.id,
                 'amount': p.amount, 'write_date': p.write_date} for p in partials.sorted('id')]})
 
@@ -305,10 +334,14 @@ class FinancialCorrection(models.TransientModel):
             self.env.cr.execute('SELECT id FROM account_partial_reconcile WHERE id IN %s ORDER BY id FOR UPDATE', [tuple(partials.ids)])
         self.env.invalidate_all()
 
-    def _input_values(self):
+    def _validate_reason(self):
         self.ensure_one()
         if not self.reason or not self.reason.strip() or len(self.reason.strip()) > 2000:
             raise ValidationError(_('Enter a correction reason of at most 2,000 characters.'))
+
+    def _input_values(self):
+        self.ensure_one()
+        self._validate_reason()
         self.partner_id.check_access('read')
         if not self.partner_id.active or any(p.company_id and p.company_id != self.company_id
                 for p in self.partner_id | self.partner_id.commercial_partner_id):
@@ -366,44 +399,92 @@ class FinancialCorrection(models.TransientModel):
             if wizard.completed:
                 return {'type': 'ir.actions.act_window_close'}
             move, payment, batch_line = wizard.move_id, wizard.payment_id, wizard.batch_line_id
-            wizard._validate_source(move, payment, batch_line)
+            wizard._validate_source(move, payment, batch_line, operation=wizard.operation)
             before = wizard._snapshot(move, payment, batch_line)
             if before != wizard.baseline_json:
                 raise UserError(_('The source changed after this correction was opened. Close it and open a fresh correction.'))
-            move_vals, payment_vals = wizard._input_values()
+            if wizard.operation == 'cancel':
+                wizard._validate_reason()
+                if payment and not wizard.payment_cancel_ack:
+                    raise ValidationError(_('Confirm that this recorded payment was entered in error and must be cancelled. If money actually moved, use the native credit or refund workflow.'))
+                move_vals, payment_vals = False, False
+            else:
+                move_vals, payment_vals = wizard._input_values()
             old_dates = {record.id: (record.date, record.invoice_date) for record in move | payment.move_id}
-            if payment:
-                counterpart = payment._seek_for_lines()[1]
-                counterpart.remove_move_reconcile()
-            if move:
-                move.button_draft()
-                move.write(move_vals)
-                if _money(move.amount_total) <= 0:
-                    raise ValidationError(_('The corrected invoice total must remain positive.'))
-                preserved_amount = _money(payment_vals['amount'] if payment_vals else payment.amount) if payment else Decimal('0')
-                if preserved_amount > _money(move.amount_total):
-                    raise UserError(_('The payment exceeds the corrected invoice. Confirm the actual payment amount or use the native credit workflow.'))
-                move.action_post()
-            if payment_vals:
-                payment.action_draft()
-                payment.write(payment_vals)
-                payment.action_post()
-            if move and payment:
-                terms = move.line_ids.filtered(lambda line: line.account_id.account_type in ('asset_receivable', 'liability_payable'))
-                counterpart = payment._seek_for_lines()[1]
-                if (len(terms.account_id) != 1 or terms.account_id != counterpart.account_id
-                        or terms.partner_id != counterpart.partner_id):
-                    raise ValidationError(_('The corrected payment and invoice cannot be reconciled on the same counterparty account.'))
-                (terms | counterpart).reconcile()
-            wizard._verify_result(old_dates, payment_vals)
-            if batch_line:
-                batch_line._baseer_apply_invoice_correction(wizard, CORRECTION_CAPABILITY)
+            from .lifecycle import lifecycle_scope
+            wizard = lifecycle_scope(wizard, move, payment)
+            move, payment, batch_line = wizard.move_id, wizard.payment_id, wizard.batch_line_id
+            if wizard.operation == 'cancel':
+                wizard._apply_cancellation(old_dates)
+                if batch_line:
+                    batch_line._baseer_apply_invoice_cancellation(wizard, CORRECTION_CAPABILITY)
+            else:
+                wizard._apply_edit(move_vals, payment_vals, old_dates)
+                if batch_line:
+                    batch_line._baseer_apply_invoice_correction(wizard, CORRECTION_CAPABILITY)
             after = wizard._snapshot(move, payment, batch_line)
             audit = wizard.env['baseer.financial.correction.audit']._record_correction(wizard, before, after, CORRECTION_CAPABILITY)
             super(FinancialCorrection, wizard).write({'completed': True, 'audit_id': audit.id})
             source = move or payment
-            source.message_post(body=_('Operation corrected: %s', wizard.reason.strip()))
+            source.message_post(body=(_('Operation cancelled: %s', wizard.reason.strip())
+                                      if wizard.operation == 'cancel' else _('Operation corrected: %s', wizard.reason.strip())))
         return {'type': 'ir.actions.act_window_close'}
+
+    def _apply_edit(self, move_vals, payment_vals, old_dates):
+        move, payment = self.move_id, self.payment_id
+        if payment:
+            payment._seek_for_lines()[1].remove_move_reconcile()
+        if move:
+            move.button_draft()
+            move.write(move_vals)
+            if _money(move.amount_total) <= 0:
+                raise ValidationError(_('The corrected invoice total must remain positive.'))
+            preserved_amount = _money(payment_vals['amount'] if payment_vals else payment.amount) if payment else Decimal('0')
+            if preserved_amount > _money(move.amount_total):
+                raise UserError(_('The payment exceeds the corrected invoice. Confirm the actual payment amount or use the native credit workflow.'))
+            move.action_post()
+        if payment_vals:
+            payment.action_draft()
+            payment.write(payment_vals)
+            payment.action_post()
+        if move and payment:
+            terms = move.line_ids.filtered(lambda line: line.account_id.account_type in ('asset_receivable', 'liability_payable'))
+            counterpart = payment._seek_for_lines()[1]
+            if (len(terms.account_id) != 1 or terms.account_id != counterpart.account_id
+                    or terms.partner_id != counterpart.partner_id):
+                raise ValidationError(_('The corrected payment and invoice cannot be reconciled on the same counterparty account.'))
+            (terms | counterpart).reconcile()
+        self._verify_result(old_dates, payment_vals)
+
+    def _apply_cancellation(self, old_dates):
+        move, payment = self.move_id, self.payment_id
+        original_lines = (move | payment.move_id).line_ids.ids
+        if payment:
+            payment._seek_for_lines()[1].remove_move_reconcile()
+            if payment.move_id.state == 'posted':
+                # Do not draft this payment first: native action_cancel deletes
+                # draft payment moves, whereas posted history is retained.
+                payment.action_cancel()
+            elif payment.state != 'canceled':
+                raise UserError(_('The payment status is inconsistent with its cancelled entry. Review its native source.'))
+        if move and move.state == 'posted':
+            move.button_cancel()
+        self._verify_cancellation(old_dates, original_lines)
+
+    def _verify_cancellation(self, old_dates, original_lines):
+        move, payment = self.move_id, self.payment_id
+        records = move | payment.move_id
+        if set(records.exists().ids) != set(old_dates) or set(records.line_ids.ids) != set(original_lines):
+            raise ValidationError(_('Cancellation must retain the original documents and journal items.'))
+        for record in records:
+            if record.state != 'cancel' or (record.date, record.invoice_date) != old_dates[record.id]:
+                raise ValidationError(_('Cancellation did not close all affected entries on their original dates.'))
+            if sum((_money(line.balance) for line in record.line_ids), Decimal('0')) != 0:
+                raise ValidationError(_('The retained cancellation history is not balanced.'))
+        if payment and payment.state != 'canceled':
+            raise ValidationError(_('The recorded payment was not cancelled.'))
+        if records.line_ids.matched_debit_ids or records.line_ids.matched_credit_ids:
+            raise ValidationError(_('The cancelled operation still has an active reconciliation.'))
 
     def _verify_result(self, old_dates, payment_vals):
         move, payment = self.move_id, self.payment_id
@@ -463,6 +544,8 @@ class FinancialCorrectionAudit(models.Model):
     payment_id = fields.Many2one('account.payment', index=True, readonly=True, ondelete='restrict')
     batch_line_id = fields.Many2one('baseer.purchase.batch.line', index=True, readonly=True, ondelete='restrict')
     user_id = fields.Many2one('res.users', required=True, readonly=True)
+    operation = fields.Selection([('edit', 'Edit'), ('cancel', 'Cancel operation')],
+                                 default='edit', required=True, readonly=True)
     reason = fields.Text(required=True, readonly=True)
     before_json = fields.Text(required=True, readonly=True)
     after_json = fields.Text(required=True, readonly=True)
@@ -481,7 +564,8 @@ class FinancialCorrectionAudit(models.Model):
         return super().create({'company_id': wizard.company_id.id, 'move_id': wizard.move_id.id,
             'payment_id': wizard.payment_id.id, 'batch_line_id': wizard.batch_line_id.id,
             'user_id': self.env.uid, 'reason': wizard.reason.strip(), 'before_json': before,
-            'after_json': after, 'operation_token': wizard.operation_token})
+            'after_json': after, 'operation_token': wizard.operation_token,
+            'operation': wizard.operation if 'operation' in wizard._fields else 'edit'})
 
     def write(self, vals):
         raise AccessError(_('Correction audit records cannot be changed.'))
