@@ -1,6 +1,6 @@
 {
     'name': 'Baseer Sales Summary Dashboard',
-    'version': '19.0.1.1.3',
+    'version': '19.0.1.1.4',
     'category': 'Sales/Point of Sale',
     'license': 'LGPL-3',
     'depends': ['baseer_pos_summary', 'spreadsheet_dashboard'],
