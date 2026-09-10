@@ -1,5 +1,5 @@
 {
-  "source_commit": "e84fcfb96800fe8a655a3e40fb6db3d215085238",
+  "source_commit": "24bc64d2a778590e8e8e6577eb3866d18727bc24",
   "odoo_image": "odoo@sha256:f99ffac95cb39a0924622ea4118481c95651d9c84187e5b30a21c2cc4419c7dd",
   "odoo_major": 19,
   "files": {
@@ -58,6 +58,16 @@
     "custom_addons/baseer_company_setup/README.md": "16f4ab10c6e24cbb81bf60abd9e6bfc47e2ce09fcfc0701c7887d785d0026d50",
     "custom_addons/baseer_core/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "custom_addons/baseer_core/__manifest__.py": "5d324c68f36dd7fafeb98ebb89c5699d8cccf1048aa9a94a0597218436d95e56",
+    "custom_addons/baseer_financial_correction/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
+    "custom_addons/baseer_financial_correction/__manifest__.py": "297b3d1aa4002b98ba41669d65eef2519d05fe7b3025c5d715d112d7593feb0c",
+    "custom_addons/baseer_financial_correction/i18n/ar_001.po": "592fe97aa232eefe533263de21df2c12c57dedb9605e90440e8c2fa133014720",
+    "custom_addons/baseer_financial_correction/models/__init__.py": "82f4d958e2d7157453fba75dfaea0f8fec311cb9c3f558b9c0b72cc55c82a34e",
+    "custom_addons/baseer_financial_correction/models/batch_adapter.py": "f68f6dd70fffb8e411193d476cf6d22e1379a93429e57f0f04a44318c777f4c2",
+    "custom_addons/baseer_financial_correction/models/correction.py": "a1003bed71b9a234b78ba02e9ba77ce875fbbf68e30944b6684928b78b6033b8",
+    "custom_addons/baseer_financial_correction/models/dispatcher.py": "03ff732b250ad647f87b66b3cd771dfcf8135e7b536503878b850ab0398b84d9",
+    "custom_addons/baseer_financial_correction/security/correction_rules.xml": "90942afa0554a51dac2406ce1ddbed13bf753411819e6e2131a43edd43573bee",
+    "custom_addons/baseer_financial_correction/security/ir.model.access.csv": "ccf819259be7d000fd8b18d96358b1bf0447a761b36b96b0e426f5d63796d706",
+    "custom_addons/baseer_financial_correction/views/correction_views.xml": "752392da53760ec7f18a21dd67f09c889133edea92944310eefcb467d3263afc",
     "custom_addons/baseer_financial_register/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
     "custom_addons/baseer_financial_register/__manifest__.py": "57a50524a31d590fab29ca21f4b684f149d21e2198c1081106216b192e547309",
     "custom_addons/baseer_financial_register/i18n/ar.po": "870884e9742274f83d8fdba4ab913cac38981f302a8a07fa055cfdf77fdcccc4",

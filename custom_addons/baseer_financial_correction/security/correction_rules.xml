@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_correction_owner_company" model="ir.rule">
+        <field name="name">Correction: creator and authorized company</field>
+        <field name="model_id" ref="model_baseer_financial_correction"/>
+        <field name="domain_force">user._baseer_correction_source_domain(company_ids, creator=True)</field>
+    </record>
+    <record id="rule_correction_line_owner_company" model="ir.rule">
+        <field name="name">Correction lines: request owner and authorized company</field>
+        <field name="model_id" ref="model_baseer_financial_correction_line"/>
+        <field name="domain_force">user._baseer_correction_source_domain(company_ids, 'wizard_id.', creator=True)</field>
+    </record>
+    <record id="rule_correction_audit_source_company" model="ir.rule">
+        <field name="name">Correction audit: current source confidentiality and company</field>
+        <field name="model_id" ref="model_baseer_financial_correction_audit"/>
+        <field name="domain_force">user._baseer_correction_source_domain(company_ids)</field>
+    </record>
+</odoo>

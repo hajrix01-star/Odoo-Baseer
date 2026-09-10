@@ -1,0 +1,859 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* baseer_financial_correction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260817\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-10 16:07+0000\n"
+"PO-Revision-Date: 2026-09-10 16:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "%s must be a finite decimal number."
+msgstr "يجب أن يكون %s عددًا عشريًا محدودًا."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "%s must be entered as a number."
+msgstr "يجب إدخال %s كرقم."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "%s must be within the allowed range with at most two decimal places."
+msgstr "يجب أن تكون قيمة %s ضمن النطاق المسموح وبمنزلتين عشريتين كحد أقصى."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid "A supplier document already uses this reference in this company."
+msgstr "يوجد مستند للمورد يستخدم هذا المرجع بالفعل في هذه الشركة."
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Actual paid amount"
+msgstr "المبلغ المدفوع فعليًا"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__payment_amount_input
+msgid "Actual payment amount"
+msgstr "مبلغ الدفعة الفعلي"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__after_json
+msgid "After Json"
+msgstr "البيانات بعد التصحيح"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid "Approved purchase rows can only be updated by the reviewed correction."
+msgstr "لا يمكن تعديل بنود المشتريات المعتمدة إلا من خلال إجراء التصحيح المعتمد."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__audit_id
+msgid "Audit"
+msgstr "سجل التدقيق"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__baseline_json
+msgid "Baseline Json"
+msgstr "البيانات الأصلية"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__batch_line_id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__batch_line_id
+msgid "Batch Line"
+msgstr "بند الدفعة"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__before_json
+msgid "Before Json"
+msgstr "البيانات قبل التصحيح"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Cash-basis tax entries require their native correction workflow."
+msgstr "تتطلب قيود ضريبة الأساس النقدي إجراء التصحيح الأصلي الخاص بها."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Cash-basis taxes require the native correction workflow."
+msgstr "تتطلب ضرائب الأساس النقدي إجراء التصحيح الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Changing the counterparty also requires explicit confirmation of the payment"
+" correction."
+msgstr "يتطلب تغيير الطرف المقابل أيضًا تأكيد تصحيح الدفعة صراحةً."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Choose a manual payment method linked directly to this company’s cash or "
+"bank account."
+msgstr "اختر طريقة دفع يدوية مرتبطة مباشرة بحساب النقد أو البنك لهذه الشركة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Choose active taxes of the same company and invoice type."
+msgstr "اختر ضرائب نشطة من الشركة نفسها ومتوافقة مع نوع الفاتورة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Choose an active counterparty available to this company."
+msgstr "اختر طرفًا مقابلًا نشطًا متاحًا لهذه الشركة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid "Choose an active supplier accessible to the batch company."
+msgstr "اختر موردًا نشطًا متاحًا لشركة الدفعة."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__company_id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__company_id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__completed
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Completed corrections cannot be changed."
+msgstr "لا يمكن تغيير التصحيحات المكتملة."
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Confirm correction"
+msgstr "تأكيد التصحيح"
+
+#. module: baseer_financial_correction
+#: model:ir.model,name:baseer_financial_correction.model_baseer_financial_correction
+msgid "Correct Financial Operation"
+msgstr "تصحيح عملية مالية"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Correct amount incl. tax"
+msgstr "المبلغ الصحيح شامل الضريبة"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Correct cash / bank journal"
+msgstr "دفتر النقد أو البنك الصحيح"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Correct draft batch rows directly before approval."
+msgstr "عدّل بنود دفعة المشتريات المسودة مباشرة قبل اعتمادها."
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Correct invoice line"
+msgstr "تصحيح بند الفاتورة"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_batch_correction_entry
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_batch_line_correction_entry
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_move_correction_entry
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_payment_correction_entry
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_register_correction_entry
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_register_kanban_correction_entry
+msgid "Correct operation"
+msgstr "تصحيح العملية"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Correct partner"
+msgstr "الطرف الصحيح"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__correct_payment
+msgid "Correct recorded payment"
+msgstr "تصحيح الدفعة المسجلة"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Correct the payment record too"
+msgstr "تصحيح سجل الدفعة أيضًا"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid "Correct this payment from its original operational document."
+msgstr "صحّح هذه الدفعة من مستندها التشغيلي الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Correction audit records are created by the correction workflow only."
+msgstr "تُنشأ سجلات تدقيق التصحيح من خلال إجراء التصحيح فقط."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Correction audit records cannot be changed."
+msgstr "لا يمكن تعديل سجلات تدقيق التصحيح."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Correction audit records cannot be deleted."
+msgstr "لا يمكن حذف سجلات تدقيق التصحيح."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Correction lines are prepared from the source invoice."
+msgstr "تُجهّز بنود التصحيح من الفاتورة الأصلية."
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Correction reason"
+msgstr "سبب التصحيح"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Correction source and audit fields are managed by the system."
+msgstr "يدير النظام حقول مصدر التصحيح والتدقيق."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__create_uid
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__create_uid
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__create_uid
+msgid "Created by"
+msgstr "أنشأه"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__create_date
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__create_date
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__create_date
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__discount_input
+msgid "Discount"
+msgstr "الخصم"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Discount (%)"
+msgstr "الخصم (%)"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_account_move__display_name
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_account_payment__display_name
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__display_name
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__display_name
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__display_name
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_purchase_batch_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Electronic documents must use the native cancellation or credit-note "
+"workflow."
+msgstr "يجب استخدام إجراء الإلغاء أو الإشعار الدائن الأصلي للمستندات الإلكترونية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Enter a correction reason of at most 2,000 characters."
+msgstr "أدخل سبب التصحيح بما لا يتجاوز 2,000 حرف."
+
+#. module: baseer_financial_correction
+#: model:ir.model,name:baseer_financial_correction.model_baseer_financial_correction_audit
+msgid "Financial Correction Audit"
+msgstr "سجل تدقيق التصحيحات المالية"
+
+#. module: baseer_financial_correction
+#: model:ir.model,name:baseer_financial_correction.model_baseer_financial_correction_line
+msgid "Financial Correction Invoice Line"
+msgstr "بند فاتورة التصحيح المالي"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Foreign-currency and cross-company corrections require the native workflow."
+msgstr "تتطلب التصحيحات بالعملات الأجنبية أو بين الشركات الإجراء الأصلي."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_account_move__id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_account_payment__id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_purchase_batch_line__id
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Invalid correction capability."
+msgstr "صلاحية التصحيح الداخلية غير صالحة."
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__line_ids
+msgid "Invoice lines"
+msgstr "بنود الفاتورة"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Invoice total"
+msgstr "إجمالي الفاتورة"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__gross_amount_input
+msgid "Invoice total including tax"
+msgstr "إجمالي الفاتورة شامل الضريبة"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Invoices with cash rounding require the native correction workflow."
+msgstr "تتطلب الفواتير ذات التقريب النقدي إجراء التصحيح الأصلي."
+
+#. module: baseer_financial_correction
+#: model:ir.model,name:baseer_financial_correction.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__write_uid
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__write_uid
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تعديل بواسطة"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__write_date
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__write_date
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__write_date
+msgid "Last Updated on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__move_id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__move_id
+msgid "Move"
+msgstr "القيد"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Native accounting did not produce a balanced entry."
+msgstr "لم ينتج عن المحاسبة الأصلية قيد متوازن."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Native tax calculation does not match the requested invoice total."
+msgstr "لا تتطابق نتيجة احتساب الضريبة الأصلية مع إجمالي الفاتورة المطلوب."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Only a simple posted manual payment is supported."
+msgstr "يُدعم فقط تصحيح دفعة يدوية بسيطة ومرحّلة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid ""
+"Only an approved purchase row with its original invoice can be corrected."
+msgstr "يمكن تصحيح بند مشتريات معتمد ومرتبط بفاتورته الأصلية فقط."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid ""
+"Only an authorized accountant or owner can correct financial operations."
+msgstr "يمكن للمحاسب المخوّل أو المالك فقط تصحيح العمليات المالية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Only an invoice with one dedicated manual payment can be corrected here."
+msgstr "يمكن هنا تصحيح فاتورة مرتبطة بدفعة يدوية واحدة مخصصة لها فقط."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Only ordinary customer or supplier invoices with at most 50 lines are "
+"supported."
+msgstr "تُدعم فواتير العملاء أو الموردين العادية التي لا تتجاوز 50 بندًا فقط."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Only posted operations in the current or an earlier open period are "
+"supported."
+msgstr "تُدعم العمليات المرحّلة في الفترة الحالية أو فترة سابقة مفتوحة فقط."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Only the user who opened this correction can confirm it."
+msgstr "يمكن فقط للمستخدم الذي فتح التصحيح تأكيده."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Open financial corrections from the source operation."
+msgstr "افتح التصحيح المالي من العملية الأصلية."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__operation_token
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__operation_token
+msgid "Operation Token"
+msgstr "رمز العملية"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Operation corrected: %s"
+msgstr "تم تصحيح العملية: %s"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__original_line_id
+msgid "Original Line"
+msgstr "البند الأصلي"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__partner_id
+msgid "Partner"
+msgstr "الطرف"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__payment_id
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__payment_id
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Payment"
+msgstr "الدفعة"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Payment amount"
+msgstr "مبلغ الدفعة"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Payment correction"
+msgstr "تصحيح الدفعة"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__payment_journal_id
+msgid "Payment journal"
+msgstr "دفتر يومية الدفع"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__payment_method_line_id
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Payment method"
+msgstr "طريقة الدفع"
+
+#. module: baseer_financial_correction
+#: model:ir.model,name:baseer_financial_correction.model_account_payment
+msgid "Payments"
+msgstr "الدفعات"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Payments matched to bank statements cannot be corrected here."
+msgstr "لا يمكن هنا تصحيح دفعات تمت مطابقتها مع كشوف البنك."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Payments through clearing accounts require their native workflow."
+msgstr "تتطلب الدفعات عبر الحسابات الوسيطة إجراءها الأصلي."
+
+#. module: baseer_financial_correction
+#: model:ir.model,name:baseer_financial_correction.model_baseer_purchase_batch_line
+msgid "Purchase batch row"
+msgstr "بند دفعة المشتريات"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__quantity_input
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Quantity:"
+msgstr "الكمية:"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction__reason
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Register a new payment from the invoice using the native payment action."
+msgstr "سجّل دفعة جديدة من الفاتورة باستخدام إجراء الدفع الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid "Review and correct this operation in its original workflow."
+msgstr "راجع هذه العملية وصحّحها من مسارها الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Select the source company before correcting this operation."
+msgstr "اختر شركة المصدر قبل تصحيح هذه العملية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Shared or complex payments must use their native reconciliation workflow."
+msgstr "يجب استخدام إجراء التسوية الأصلي للدفعات المشتركة أو المعقدة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"Shared settlements, exchange differences and cash-basis settlements are "
+"excluded."
+msgstr "لا يشمل هذا الإجراء التسويات المشتركة أو فروق الصرف أو تسويات الأساس النقدي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid ""
+"Supplier history exceeds the batch duplicate-check limit. Use native "
+"invoicing for this batch."
+msgstr "يتجاوز سجل المورد حد فحص التكرار في الدفعات. استخدم الفوترة الأصلية لهذه الدفعة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid "Switch to the authorized company that owns this operation."
+msgstr "انتقل إلى الشركة المسموح لك بها والمالكة لهذه العملية."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__tax_ids
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The accounting or tax period is locked."
+msgstr "الفترة المحاسبية أو الضريبية مقفلة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The approved batch source no longer matches this operation."
+msgstr "لم يعد مصدر دفعة المشتريات المعتمدة مطابقًا لهذه العملية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid ""
+"The batch invoice no longer matches its original single-line category and "
+"tax. Use the native source review."
+msgstr "لم تعد فاتورة الدفعة مطابقة لفئتها وضريبتها الأصليتين في البند الوحيد. راجع المستند الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The corrected invoice residual does not match its payment."
+msgstr "لا يتطابق الرصيد المتبقي للفاتورة المصححة مع دفعتها."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The corrected invoice total must remain positive."
+msgstr "يجب أن يظل إجمالي الفاتورة المصححة موجبًا."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid "The corrected native invoice does not match the purchase row."
+msgstr "لا تتطابق الفاتورة الأصلية بعد تصحيحها مع بند المشتريات."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"The corrected payment and invoice cannot be reconciled on the same "
+"counterparty account."
+msgstr "لا يمكن تسوية الدفعة والفاتورة بعد التصحيح على حساب الطرف المقابل نفسه."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid "The corrected payment and purchase row must have the same supplier."
+msgstr "يجب أن يكون مورد الدفعة المصححة وبند المشتريات واحدًا."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid "The corrected purchase row totals differ from the native invoice."
+msgstr "تختلف إجماليات بند المشتريات المصحح عن الفاتورة الأصلية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/batch_adapter.py:0
+msgid ""
+"The correction must belong to this approved row and its original documents."
+msgstr "يجب أن يخص التصحيح هذا البند المعتمد ومستنداته الأصلية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The correction must contain exactly the original invoice lines."
+msgstr "يجب أن يحتوي التصحيح على بنود الفاتورة الأصلية نفسها تمامًا."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The correction must keep the original posting dates and posted state."
+msgstr "يجب أن يحتفظ التصحيح بتواريخ الترحيل الأصلية وحالة الترحيل."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The current invoice and payment counterparties do not agree."
+msgstr "لا يتطابق الطرف المقابل في الفاتورة الحالية مع الطرف المقابل في الدفعة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The original invoice line cannot be changed."
+msgstr "لا يمكن تغيير مرجع بند الفاتورة الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"The payment exceeds the corrected invoice. Confirm the actual payment amount"
+" or use the native credit workflow."
+msgstr "تتجاوز الدفعة قيمة الفاتورة المصححة. أكّد المبلغ المدفوع فعليًا أو استخدم إجراء الإشعار الدائن الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The payment is associated with another invoice."
+msgstr "الدفعة مرتبطة بفاتورة أخرى."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The payment link no longer matches the invoice."
+msgstr "لم يعد ارتباط الدفعة مطابقًا للفاتورة."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The payment method must belong to the selected journal."
+msgstr "يجب أن تتبع طريقة الدفع دفتر اليومية المختار."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The posted cash or bank movement does not match the actual payment."
+msgstr "لا تتطابق حركة النقد أو البنك المرحّلة مع الدفعة الفعلية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "The reconciliation includes another operation."
+msgstr "تتضمن التسوية عملية أخرى."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"The source changed after this correction was opened. Close it and open a "
+"fresh correction."
+msgstr "تغيّر المصدر بعد فتح هذا التصحيح. أغلقه وافتح تصحيحًا جديدًا."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "This correction has already been completed."
+msgstr "اكتمل هذا التصحيح بالفعل."
+
+#. module: baseer_financial_correction
+#: model:ir.model.constraint,message:baseer_financial_correction.constraint_baseer_financial_correction_audit_operation_unique
+msgid "This correction has already been recorded."
+msgstr "تم تسجيل هذا التصحيح بالفعل."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid ""
+"This correction workflow requires a SAR company with two decimal places."
+msgstr "يتطلب هذا الإجراء شركة تستخدم الريال السعودي بمنزلتين عشريتين."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid ""
+"This invoice has ambiguous purchase-batch ownership. Review its source "
+"links."
+msgstr "ارتباط هذه الفاتورة بدفعة المشتريات غير واضح. راجع روابط مصدرها."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid ""
+"This operation belongs to another workflow. Correct it from its original "
+"document."
+msgstr "تتبع هذه العملية مسارًا آخر. صحّحها من مستندها الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "This operation is secured or requires an electronic cancellation."
+msgstr "هذه العملية محمية أو تتطلب إلغاءً إلكترونيًا."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "This operation is shared by several batch rows."
+msgstr "هذه العملية مشتركة بين عدة بنود لدفعات المشتريات."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid ""
+"This payment belongs to multiple purchase rows. Review the original "
+"settlement."
+msgstr "ترتبط هذه الدفعة بعدة بنود مشتريات. راجع التسوية الأصلية."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__price_unit_input
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Unit price"
+msgstr "سعر الوحدة"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "Unit price:"
+msgstr "سعر الوحدة:"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid ""
+"Use the native accounting workflow to correct an independent journal entry."
+msgstr "استخدم إجراء المحاسبة الأصلي لتصحيح قيد يومية مستقل."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_audit__user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: baseer_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_correction_form
+msgid "What was entered incorrectly?"
+msgstr "ما البيانات التي أُدخلت بشكل غير صحيح؟"
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_baseer_financial_correction_line__wizard_id
+msgid "Wizard"
+msgstr "معالج الإجراء"
+
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid "Correct payroll and employee payments in their original workflow."
+msgstr "صحّح دفعات الرواتب والموظفين من مسارها الأصلي."
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/correction.py:0
+msgid "Select one manual payment method."
+msgstr "اختر طريقة دفع يدوية واحدة."
+
+#. module: baseer_financial_correction
+#: model:ir.model.fields,field_description:baseer_financial_correction.field_res_users__baseer_allow_financial_correction
+#: model_terms:ir.ui.view,arch_db:baseer_financial_correction.view_users_correction_permission
+msgid "Allow financial operation correction"
+msgstr "السماح بتصحيح العمليات المالية"
+
+#. module: baseer_financial_correction
+#. odoo-python
+#: code:addons/baseer_financial_correction/models/dispatcher.py:0
+msgid "Only the owner or settings administrator can change correction permission."
+msgstr "يمكن للمالك أو مسؤول الإعدادات فقط تغيير صلاحية التصحيح."
