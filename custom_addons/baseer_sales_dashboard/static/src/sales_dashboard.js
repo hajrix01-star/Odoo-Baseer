@@ -47,6 +47,8 @@ export class BaseerSalesDashboard extends Component {
 
     get cards() {
         const values = this.state.payload?.cards || {};
+        // Display-only examples for an empty dashboard; never part of the payload or calculations.
+        const preview = { sales: "240,000", customers: "4,000", daily_sales: "8,000", daily_customers: "133", average_bill: "60" };
         return [
             { key: "sales", title: _t("Total sales"), note: _t("Tax included"), icon: "fa-line-chart" },
             { key: "customers", title: _t("Registered customers"), note: _t("From approved summaries"), icon: "fa-users" },
@@ -55,7 +57,7 @@ export class BaseerSalesDashboard extends Component {
             { key: "average_bill", title: _t("Average bill"), note: _t("Per registered customer"), icon: "fa-credit-card" },
         ].map((spec) => ({
             ...spec, ...values[spec.key],
-            display: this.hasRecordedData ? values[spec.key]?.display : "—",
+            display: this.hasRecordedData ? values[spec.key]?.display : preview[spec.key],
             currency: ["sales", "daily_sales", "average_bill"].includes(spec.key),
         }));
     }

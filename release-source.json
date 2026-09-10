@@ -1,5 +1,5 @@
 {
-  "source_commit": "77afc48e42afe8fedd1e0355842bb1f887f3ac8f",
+  "source_commit": "4cd5ee3e9bebcd1d85bda2723bf2781643f7f3e7",
   "odoo_image": "odoo@sha256:f99ffac95cb39a0924622ea4118481c95651d9c84187e5b30a21c2cc4419c7dd",
   "odoo_major": 19,
   "files": {
@@ -157,7 +157,7 @@
     "custom_addons/baseer_report_layout/static/src/report_layout.scss": "1fe93af3b7ba25e3b2d50a69b35953cb7ece656142e8db6a89617c8650a4ed18",
     "custom_addons/baseer_report_layout/static/src/report_layout.xml": "151f624d23dba4fd509b585151d7dd9f806347be84e8655badf871dcb13a34d0",
     "custom_addons/baseer_sales_dashboard/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
-    "custom_addons/baseer_sales_dashboard/__manifest__.py": "cab15a3e99e4f2a40afc0212bcb6ee3e1f86b79b109bd6c45306b2f6b225fc27",
+    "custom_addons/baseer_sales_dashboard/__manifest__.py": "12d663e56bc9d6013a84b3e694851d6c16d13e7c7a9032655b1121ad0359db30",
     "custom_addons/baseer_sales_dashboard/data/dashboard.xml": "7711e2873b5fccba5cdab5b31eb00e8673d83ccd13cc279995f8dc6707a111df",
     "custom_addons/baseer_sales_dashboard/i18n/ar.po": "06fbf9c746b87136e004edfe9434ca5dd1c8c635b80aca502a089e02392e5dbc",
     "custom_addons/baseer_sales_dashboard/models/__init__.py": "96f5ef4cf26cc91d9be706aea4fa4e746aa0a864b7a56eadbb79f3eba95c4cbe",
@@ -165,9 +165,9 @@
     "custom_addons/baseer_sales_dashboard/README.md": "3e23cd834b18957563b751c6eb96bfee965ad9f8ff6d4336ca4df1b9931c36ba",
     "custom_addons/baseer_sales_dashboard/static/src/dashboard_integration.js": "a38cc2958594e6993662a4128abe19c49a13f2068ae7de8a5dcf374c2cd5ca73",
     "custom_addons/baseer_sales_dashboard/static/src/dashboard_integration.xml": "51ffac91af9484ab3ad1e41d24b4c6d93dcfb1cc20804a1224c68e62e886191d",
-    "custom_addons/baseer_sales_dashboard/static/src/sales_dashboard.js": "a9ba08dff8ad9c7e3bfa8e586c48d99794be39299f5a7c4336ac47539981c619",
-    "custom_addons/baseer_sales_dashboard/static/src/sales_dashboard.scss": "feb3b716501ea79c901b32afcc258ac9fd320eea7dacb80139fced4b799c5215",
-    "custom_addons/baseer_sales_dashboard/static/src/sales_dashboard.xml": "ae7dee8dc5f51e7a986ef02b1adde499692d5a4609e2ab3ff050a1ccd1888179",
+    "custom_addons/baseer_sales_dashboard/static/src/sales_dashboard.js": "1f086b1291760ee511477d49b5c1d7bc0ed4872876413b76ba3b1da47240fb2b",
+    "custom_addons/baseer_sales_dashboard/static/src/sales_dashboard.scss": "2f694082211c800817b0750a0bed2c711eeccc4160611a098f95cff5957a9968",
+    "custom_addons/baseer_sales_dashboard/static/src/sales_dashboard.xml": "6eded6a751b5a091ad95bdf5310b7c02254e262dbe791b8278840857bc6759c0",
     "custom_addons/baseer_service_seed/__init__.py": "5fd10918e1361ad65b4b41bcd8fb525e659267f47c8c4334ae52530e58908e9e",
     "custom_addons/baseer_service_seed/__manifest__.py": "a3acb1b763e84c45f7aada6f1ba1ff6f3025aae769bc0685b0704a2e0f4f0a70",
     "custom_addons/baseer_service_seed/data/categories.xml": "aced1f581474008b4232bc9e252403a1b3fe532000b47ee80e7316fa0ace7938",

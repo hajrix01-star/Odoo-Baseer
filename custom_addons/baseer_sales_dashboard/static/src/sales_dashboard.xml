@@ -39,6 +39,7 @@
                     <span t-esc="labels.comparison"/>
                     <span class="o_baseer_sales_numeric" t-esc="comparisonLabel"/>
                 </div>
+                <p t-if="!hasRecordedData" class="o_baseer_sales_preview_label text-muted" role="status" t-esc="labels.preview"/>
                 <div class="o_baseer_sales_cards">
                     <article t-foreach="cards" t-as="card" t-key="card.key" class="o_baseer_sales_card"
                              t-att-data-metric="card.key" t-att-class="{'o_baseer_sales_card_money': card.currency, 'o_baseer_sales_card_customer': !card.currency, 'o_baseer_sales_card_preview': !hasRecordedData}">
@@ -48,10 +49,10 @@
                         <div class="o_baseer_sales_card_value">
                             <span class="o_baseer_sales_numeric" t-att-class="{'text-muted': !card.available}"
                                   t-esc="card.display"/>
-                            <small t-if="card.currency and card.available and hasRecordedData" t-esc="state.payload.company.currency"/>
+                            <small t-if="card.currency and (card.available or !hasRecordedData)" t-esc="state.payload.company.currency"/>
                         </div>
                         <p class="o_baseer_sales_card_note text-muted" t-esc="card.note"/>
-                        <div t-if="card.comparison" class="o_baseer_sales_delta"
+                        <div t-if="card.comparison and hasRecordedData" class="o_baseer_sales_delta"
                              t-attf-data-direction="{{card.comparison.direction}}">
                             <span class="o_baseer_sales_delta_value">
                                 <i t-attf-class="fa {{directionIcon(card.comparison.direction)}}" aria-hidden="true"/>
@@ -83,7 +84,10 @@
                         <header><h2 t-esc="labels.chartTitle"/><span class="text-muted" t-esc="granularityLabel"/></header>
                         <div t-if="hasRecordedData" class="o_baseer_sales_canvas"><canvas t-ref="salesChart" role="img" t-att-aria-label="combinedChartLabel"/></div>
                         <div t-else="" class="o_baseer_sales_preview" role="status">
-                            <p class="o_baseer_sales_preview_label" t-esc="labels.preview"/>
+                            <div class="o_baseer_sales_preview_legend text-muted">
+                                <span><i class="o_baseer_sales_legend_bar" aria-hidden="true"/><span t-esc="salesAxisLabel"/></span>
+                                <span><i class="o_baseer_sales_legend_line" aria-hidden="true"/><span t-esc="customersAxisLabel"/></span>
+                            </div>
                             <svg class="o_baseer_sales_preview_art" viewBox="0 0 900 220" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                                 <g fill="#69afe5">
                                     <rect x="35" y="125" width="48" height="75" rx="2"/>

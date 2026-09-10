@@ -58,7 +58,7 @@
         min-width: 0;
         min-height: 136px;
         padding: 10px 12px;
-        border: 1px solid rgba(128, 128, 128, .10);
+        border: 0;
         border-radius: 6px;
         text-align: center;
     }
@@ -108,10 +108,10 @@
     .o_baseer_sales_chart_card {
         min-width: 0;
         padding: 14px 16px;
-        border: 1px solid var(--baseer-sales-border);
-        border-radius: 8px;
+        border: 0;
+        border-radius: 0;
         background: var(--view-bg, #fff);
-        header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+        header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--baseer-sales-border); }
         h2 { font-size: 15px; font-weight: 600; margin: 0; }
         header > span { font-size: 12px; }
     }
@@ -119,6 +119,13 @@
     .o_baseer_sales_chart_note { grid-column: 1 / -1; font-size: 12px; margin: -4px 0 0; }
     .o_baseer_sales_preview { text-align: center; padding: 10px 0 4px; font-size: 12px; }
     .o_baseer_sales_preview_label { font-weight: 500; margin: 0 0 8px; }
+    .o_baseer_sales_preview_legend {
+        display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 8px;
+        > span { display: inline-flex; align-items: center; gap: 6px; }
+        i { display: inline-block; width: 18px; opacity: .35; }
+        .o_baseer_sales_legend_bar { height: 10px; background: #69afe5; }
+        .o_baseer_sales_legend_line { height: 0; border-top: 3px solid #ba7428; }
+    }
     .o_baseer_sales_preview_art { display: block; width: 100%; height: 220px; opacity: .22; pointer-events: none; }
     .o_baseer_sales_state, .o_baseer_sales_empty {
         display: flex;
@@ -137,10 +144,10 @@
     .o_baseer_sales_performance_card {
         min-width: 0;
         background: var(--view-bg, #fff);
-        border: 1px solid var(--baseer-sales-border);
-        border-radius: 8px;
+        border: 0;
+        border-radius: 0;
         padding: 14px 16px;
-        > h2 { font-size: 15px; font-weight: 600; margin: 0 0 12px; }
+        > h2 { font-size: 15px; font-weight: 600; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--baseer-sales-border); }
     }
     .o_baseer_sales_tabs { gap: 4px; margin-bottom: 12px; }
     .o_baseer_sales_tabs .nav-link { font-size: 12px; padding: 7px 14px; }
