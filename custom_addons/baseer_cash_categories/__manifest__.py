@@ -1,7 +1,7 @@
 {
     "name": "Baseer Cash Movement by Category",
     "summary": "Monthly cash receipts, categorized payments and VAT view",
-    "version": "19.0.1.3.1",
+    "version": "19.0.1.3.2",
     "author": "Baseer",
     "license": "LGPL-3",
     "depends": ["baseer_report_layout"],

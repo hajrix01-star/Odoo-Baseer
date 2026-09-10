@@ -94,6 +94,15 @@ class PlatformRegister(models.Model):
             clearing = [l for l in receipt_lines if l.account_id.id == account_id and l.account_id.account_type == 'asset_current']
             other = [l for l in receipt_lines if l.account_id.id != account_id and amount(l.balance)]
             gross = sum((amount(l.balance) for l in clearing), ZERO)
+            # Native POS can combine an equal sale and refund for one method
+            # into a posted zero payment. Its complete zero ledger has nothing
+            # to recognize or trace; it is not missing monetary evidence.
+            if (clearing and not gross
+                    and any(l.account_id.account_type == 'asset_receivable' for l in receipt_lines)
+                    and all(not amount(l.balance) and not amount(l.amount_currency)
+                            and (l.account_id.id == account_id or l.account_id.account_type == 'asset_receivable')
+                            for l in receipt_lines)):
+                continue
             if (not gross or not clearing or not other
                     or any(l.account_id.account_type != 'asset_receivable' for l in other)
                     or sum((amount(l.balance) for l in other), ZERO) != -gross):

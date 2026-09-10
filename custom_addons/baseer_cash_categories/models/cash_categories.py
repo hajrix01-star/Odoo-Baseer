@@ -199,6 +199,98 @@ class BaseerCashCategoryHandler(models.AbstractModel):
         if state['visits'] > self._BASEER_LIMIT:
             raise UserError(_('The reconciliation preview limit is 10,000 visited lines. Use a smaller date range.'))
 
+    def _baseer_cash_source_kind(self, move):
+        """Optional source links are evidence, never a dependency or an ACL grant."""
+        for field, kind in (('baseer_loan_id', 'advance'), ('baseer_payslip_id', 'payroll'),
+                            ('baseer_correction_payslip_id', 'payroll')):
+            if field in move._fields and move[field]:
+                return kind, move[field]
+        return None, None
+
+    def _baseer_cash_source_boundary(self, line, amount, state):
+        """Stop at a proven HR journal instead of traversing its recovery graph.
+
+        ``None`` leaves ordinary accounting to the generic tracer. Payroll
+        allocates the actual settled portion across its signed non-payable
+        source lines, including deductions, using the net liability once.
+        An advance cash leg keeps its receivable category even after recovery.
+        """
+        move = line.move_id
+        kind, source = self._baseer_cash_source_kind(move)
+        if not kind:
+            return None
+        line.check_access('read')
+        move.check_access('read')
+        if move.company_id.id != state['company_id'] or line.company_id != move.company_id:
+            raise AccessError(_('Cash source evidence is outside the report company.'))
+        if move.state != 'posted' or move.date > state['date_to'] or line.date > state['date_to']:
+            return self._unknown(amount, line, state, _('Counterpart outside the posted reporting cutoff.'))
+        if not source.has_access('read'):
+            return self._unknown(amount, line, state, _('Employee cash source details are not accessible; the cash amount is retained.'))
+        source.check_access('read')
+        if source.company_id != move.company_id:
+            raise AccessError(_('Employee cash source is outside the report company.'))
+        cache = state.setdefault('baseer_cash_source_evidence', {})
+        if move.id not in cache:
+            rows = move.line_ids.filtered(lambda row: row.balance).sorted('id')
+            rows.check_access('read')
+            state['visits'] += len(rows)
+            self._check_budget(state)
+            valid = (move.currency_id == move.company_id.currency_id
+                     and all(row.company_id == move.company_id
+                             and row.currency_id == move.company_id.currency_id for row in rows)
+                     and sum((money(row.balance) for row in rows), ZERO) == ZERO)
+            if kind == 'advance':
+                treasury = rows.filtered(lambda row: row.account_id.account_type == 'asset_cash')
+                principal = rows - treasury
+                valid = (valid and len(treasury) == 1 and len(principal) == 1
+                         and principal.account_id.account_type == 'asset_receivable'
+                         and not rows.tax_line_id)
+                cache[move.id] = {'kind': kind, 'valid': valid, 'principal': principal}
+            else:
+                payable = rows.filtered(lambda row: row.account_id.account_type == 'liability_payable')
+                evidence = rows - payable
+                valid = (valid and bool(payable) and bool(evidence)
+                         and len(payable.account_id) == 1 and len(payable.partner_id) == 1
+                         and not rows.filtered(lambda row: row.account_id.account_type == 'asset_cash')
+                         and not rows.tax_line_id
+                         and bool(sum((money(row.balance) for row in evidence), ZERO)))
+                cache[move.id] = {'kind': kind, 'valid': valid, 'payable': payable,
+                                  'lines': evidence,
+                                  'weights': [money(row.balance) for row in evidence]}
+        evidence = cache[move.id]
+        if not evidence['valid']:
+            return self._unknown(amount, line, state, _('Employee cash source accounting is incomplete; allocation needs review.'))
+        if kind == 'advance':
+            if line != evidence['principal']:
+                return self._unknown(amount, line, state, _('Employee advance cash counterpart is not its evidenced principal.'))
+            return [{'gross': amount, 'net': amount, 'path': self._path(line),
+                     'source': line.id, 'unknown': False}]
+        if line not in evidence['payable']:
+            return self._unknown(amount, line, state, _('Payroll cash counterpart is not its evidenced salary liability.'))
+        if 'groups' not in evidence:
+            groups = {}
+            for row, weight in zip(evidence['lines'], evidence['weights']):
+                path = self._path(row)
+                group = groups.setdefault(tuple(key for key, _name in path),
+                    {'path': path, 'rows': [], 'weights': [], 'weight': ZERO})
+                group['rows'].append(row)
+                group['weights'].append(weight)
+                group['weight'] += weight
+            evidence['groups'] = list(groups.values())
+        groups = evidence['groups']
+        fragments = []
+        for group, share in zip(groups, allocate(amount, [group['weight'] for group in groups])):
+            if not share:
+                continue
+            # Round each displayed category once, then retain every original
+            # expense line for source navigation without changing that total.
+            for row, part in zip(group['rows'], allocate(share, group['weights'])):
+                if part:
+                    fragments.append({'gross': part, 'net': part, 'path': group['path'],
+                                      'source': row.id, 'unknown': False})
+        return fragments
+
     def _trace(self, line, amount, state, visited=frozenset(), depth=0):
         """Follow a cash counterpart through partial reconciliations to evidence."""
         if not amount:
@@ -220,9 +312,13 @@ class BaseerCashCategoryHandler(models.AbstractModel):
             return self._unknown(amount, line, state, _('Treasury transfer in transit outside this period.'))
         if line.move_id.is_invoice(include_receipts=True):
             return self._invoice(line.move_id, amount, line, state)
+        boundary = self._baseer_cash_source_boundary(line, amount, state)
+        if boundary is not None:
+            return boundary
         matches = (line.matched_debit_ids | line.matched_credit_ids).sorted('id')
         self._consume_budget(state.get('budget'), len(matches))
         result, used = [], ZERO
+        source_portions = {}
         line_balance = abs(money(line.balance))
         if matches and line_balance:
             for match in matches:
@@ -240,6 +336,12 @@ class BaseerCashCategoryHandler(models.AbstractModel):
                     result.extend(self._unknown(portion, line, state, _('Unresolved reconciliation cycle.')))
                 elif peer.move_id.is_invoice(include_receipts=True):
                     result.extend(self._trace(peer, portion, state, visited, depth + 1))
+                elif self._baseer_cash_source_kind(peer.move_id)[0]:
+                    # Several payable credits may belong to one salary source.
+                    # Allocate their combined cash portion once, not every
+                    # expense/debt sibling once per reconciliation edge.
+                    aggregate = source_portions.setdefault(peer.move_id.id, [peer, ZERO])
+                    aggregate[1] += portion
                 else:
                     others = peer.move_id.line_ids.filtered(lambda row: row.id != peer.id and row.balance).sorted('id')
                     weights = [-money(row.balance) for row in others]
@@ -248,6 +350,8 @@ class BaseerCashCategoryHandler(models.AbstractModel):
                     else:
                         for other, share in zip(others, allocate(portion, weights)):
                             result.extend(self._trace(other, share, state, visited | {peer.id}, depth + 1))
+            for peer, portion in source_portions.values():
+                result.extend(self._baseer_cash_source_boundary(peer, portion, state))
             if amount != used:
                 result.extend(self._unknown(amount - used, line, state, _('Unreconciled cash counterpart.')))
             return result
